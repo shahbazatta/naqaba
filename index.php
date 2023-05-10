@@ -82,7 +82,7 @@
      
      
 	<!--START Help, Hint, Loading-->    
-    <div class="hHL">
+    <!-- <div class="hHL">
         <div class="character"></div>
     	<div class="help">
         	
@@ -90,13 +90,13 @@
                 
                 
                 <button type="button" class="helpMain">Help</button>
-                <div class="helpSteps">
+                <div class="helpSteps"> -->
                     <!-- <a href="javascript:void(0)">Step 1: </a> -->
                     <!-- <p>Goto Selection Tool and draw area on map</p> -->
                     <!-- <button type="button" class="backStep">Back</button> -->
                     <!-- <button type="button" class="nextStep">Next Step</button> -->
                     
-                    <p style="padding:14px 45px 0px 10px;">Hi! How are you?</p>
+                    <!-- <p style="padding:14px 45px 0px 10px;">Hi! How are you?</p>
                     <div class="clear"></div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
             <p><span class="loadingTxt">Processing...</p>
         </div>
         </div>
-    </div>
+    </div> -->
     <!--END Help, Hint, Loading-->
 
     <!-- START Bottom Left Main Option Window -->
@@ -341,16 +341,12 @@
 	            	<h1>Select Layer</h1>
 	                <div class="settingShow">
 	                	<fieldset>
-	                    	<input id="hajjLyr" type="radio" checked="checked" name="selectLayer1" onclick="">
-	                        <label>Layer 1</label>
-	                    </fieldset>
-	                	<fieldset>
-	                    	<input id="counterLyr" type="radio" name="selectLayer1" onclick="">
-	                        <label>Layer 2</label>
+	                    	<input type="radio" id="liveLocations" name="layerSelect" onclick="" checked="checked">
+	                        <label>Live Locations</label>
 	                    </fieldset>
 	                    <fieldset>
-	                    	<input id="cameraLyr" type="radio" name="selectLayer1" onclick="">
-	                        <label>Layer 3</label>
+	                    	<input type="radio" id="stopsGeofence" name="layerSelect" onclick="">
+	                        <label>Stops Geofence</label>
 	                    </fieldset>
 	                </div>
 	            </div>
@@ -361,8 +357,8 @@
 	                <div class="settingShow">
 	                	<fieldset>
 	                    	<input type="radio" id="radioEn" name="language" onclick="location.href='?lang=en'">
-	                        <label>English</label>
-	                    </fieldset>
+	                     <label>English</label>
+	                  </fieldset>
 	                	<fieldset>
 	                    	<input type="radio" id="radioAr" name="language" onclick="location.href='?lang=ar'">
 	                        <label>Arabic</label>
@@ -411,23 +407,20 @@
     			<button type="button" class="fullscreen">Full Screen</button>
     			<button type="button" class="exitFullscreen">Exit Full Screen</button>
     			<div class="layerSelOuter">
-                	<button type="button" class="layerSel">Layer 1<span>(Active)</span></button>
+                	<button type="button" class="layerSel">Live Locations<span>(Active)</span></button>
                     
                     <div class="layerActivationBar">
                         <h1>Select Layer</h1>
                         <div class="settingShow">
-                            <fieldset>
-                                <input type="radio" checked="checked" name="selectLayer"  onclick="">
-                                <label>Layer 1</label>
-                            </fieldset>
-                            <fieldset>
-                                <input type="radio" name="selectLayer"  onclick="">
-                                <label>Layer 2</label>
-                            </fieldset>
-                            <fieldset>
-	                    		<input type="radio" name="selectLayer" onclick="">
-	                        	<label>Layer 3</label>
-	                    	</fieldset>
+
+                          <fieldset>
+                            <input type="radio" id="liveLocations" name="layerSelect" onclick="" checked="checked">
+                              <label>Live Locations</label>
+                          </fieldset>
+                          <fieldset>
+                            <input type="radio" id="stopsGeofence" name="layerSelect" onclick="">
+                              <label>Stops Geofence</label>
+                          </fieldset>
                         </div>
                     </div>
                 </div>
