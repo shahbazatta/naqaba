@@ -18,11 +18,11 @@ var attribution = new ol.control.Attribution({
 		 projection: 'EPSG:4326',
          center: ol.proj.fromLonLat([39.9182243347168,21.48110580444336]),
          maxZoom: 18,
-         zoom: 12
+         zoom: 6
      })
  });
  
-$.ajax({
+/**$.ajax({
   url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
   method: 'GET',
   dataType: 'json',
@@ -45,4 +45,6 @@ $.ajax({
     console.log('Error:', error);
   }
 });
+**/
+
 
