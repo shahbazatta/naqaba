@@ -156,7 +156,7 @@ $(document).ready(function() {
 	 $(".optionClose").click(function(){
 		
 		
-		var $bottomOptionWidth = $windowWidth - 105;
+		var $bottomOptionWidth = $windowWidth - 30;
 		$('.bottomOption').show();
 		
 		$('.bottomOption').animate({width:$bottomOptionWidth},500,
