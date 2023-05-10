@@ -15,7 +15,7 @@ var basemapLayer = new ol.layer.Tile({
 // Add the basemap layer to the map
 map.addLayer(basemapLayer);
  
-/**$.ajax({
+$.ajax({
   url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
   method: 'GET',
   dataType: 'json',
@@ -38,6 +38,6 @@ map.addLayer(basemapLayer);
     console.log('Error:', error);
   }
 });
-**/
+
 
 
