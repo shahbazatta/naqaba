@@ -27,7 +27,7 @@ $.ajax({
   method: 'GET',
   dataType: 'json',
   success: function(response) {
-    dataArr = response;
+    var dataArr = response;
 	var featuresArr =[]
 	for (let i = 0; i < dataArr.length; i++) {
 	obj = dataArr[i];
