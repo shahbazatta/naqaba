@@ -29,10 +29,13 @@
 <link rel="stylesheet" href="assets/plugin/togglebutton/css/themes/toggles-modern.css">
 <script src="assets/plugin/togglebutton/toggles.js" type="text/javascript"></script>
 
+<link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+ <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
 
 
 <!-- Custom Code Jquery -->
 <script src="assets/js/custom.js"></script>
+<script type="module" src="assets/js/gis/main.js"></script>
 
 <!--Table Sorter-->
 <script src="assets/plugin/sorter/jquery.tablesorter.js"></script>
@@ -442,7 +445,7 @@
     
     <!-- Map Wrapper -->
     <div class="mapWrapper" id="mapContainer">
-        <img src="assets/images/bg__tem.png" width="100%" height="100%">
+        <!-- <img src="assets/images/bg__tem.png" width="100%" height="100%"> -->
     </div>
    
 
