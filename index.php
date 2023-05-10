@@ -8,7 +8,7 @@
 
 <!-- Basic -->
 <meta charset="utf-8">
-<title>Naqabah Tracker System</title>
+<title>Naqabah Tracker System v1</title>
 
 <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
