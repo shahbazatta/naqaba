@@ -389,10 +389,10 @@
     </div>
     
     <!-- Zoom Bar -->
-    <div class="zoomBar">
+    <!-- <div class="zoomBar">
     	<button type="button" class="zoomIn toolTip setHint" onClick="" title="Zoom In">zoomin</button>
         <button type="button" class="zoomOut toolTip setHint" onClick="" title="Zoom Out">zoomOut</button>
-    </div>
+    </div> -->
     
     <!-- Bottom Option Bar -->
     <div class="bottomOptionBar">

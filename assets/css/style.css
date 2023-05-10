@@ -1461,7 +1461,7 @@ h2{
 	background:none;
 	position:absolute;
 	bottom:5px;
-	left:75px;
+	left:-5px;
 	z-index:701;
 }
 .bottomOptionBar .optionClose{
