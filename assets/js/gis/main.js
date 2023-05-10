@@ -30,7 +30,7 @@ $.ajax({
     var dataArr = response;
 	var featuresArr =[]
 	for (let i = 0; i < dataArr.length; i++) {
-	obj = dataArr[i];
+	var obj = dataArr[i];
 	featuresArr.push(new ol.Feature({geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates))}));
 	}
 	  
