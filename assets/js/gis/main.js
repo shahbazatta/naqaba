@@ -22,13 +22,27 @@ var attribution = new ol.control.Attribution({
      })
  });
  
+$.ajax({
+  url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
+  method: 'GET',
+  dataType: 'json',
+  success: function(response) {
+    dataArr = response;
+  },
+  error: function(xhr, status, error) {
+    console.log('Error:', error);
+  }
+});
+
+var featuresArr =[]
+for (let i = 0; i < dataArr.length; i++) {
+obj = dataArr[i];
+featuresArr.push(new ol.Feature({geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates))}));
+}
+  
 var layer = new ol.layer.Vector({
      source: new ol.source.Vector({
-         features: [
-             new ol.Feature({
-                 geometry: new ol.geom.Point(ol.proj.fromLonLat([39.9182243347168,21.48110580444336]))
-             })
-         ]
+         features: featuresArr
      })
  });
- map.addLayer(layer);
+map.addLayer(layer);
