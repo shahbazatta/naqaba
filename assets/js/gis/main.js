@@ -1,26 +1,19 @@
-var attribution = new ol.control.Attribution({
-     collapsible: false
- });
+// Create a new map instance
+var map = new ol.Map({
+  target: 'mapContainer', // The ID of the div element where the map should be rendered
+  view: new ol.View({
+    center: ol.proj.fromLonLat([45.0792, 23.8859]), // The initial center coordinates of the map, transformed to EPSG:3857
+    zoom: 7 // The initial zoom level
+  })
+});
 
- var map = new ol.Map({
-     controls: ol.control.defaults({attribution: false}).extend([attribution]),
-     layers: [
-         new ol.layer.Tile({
-             source: new ol.source.OSM({
-                 url: 'https://tile.openstreetmap.be/osmbe/{z}/{x}/{y}.png',
-                 attributions: [ ol.source.OSM.ATTRIBUTION, 'Tiles courtesy of <a href="https://geo6.be/">GEO-6</a>' ],
-                 maxZoom: 18
-             })
-         })
-     ],
-     target: document.getElementById('map_id'),
-     view: new ol.View({
-		 projection: 'EPSG:4326',
-         center: ol.proj.fromLonLat([39.9182243347168,21.48110580444336]),
-         maxZoom: 18,
-         zoom: 6
-     })
- });
+// Add a basemap layer
+var basemapLayer = new ol.layer.Tile({
+  source: new ol.source.OSM() // OpenStreetMap as the basemap source
+});
+
+// Add the basemap layer to the map
+map.addLayer(basemapLayer);
  
 /**$.ajax({
   url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
