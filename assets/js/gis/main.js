@@ -24,7 +24,17 @@ $.ajax({
 	var featuresArr =[]
 	for (let i = 0; i < dataArr.length; i++) {
 	var obj = dataArr[i];
-	featuresArr.push(new ol.Feature({geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates))}));
+	var feature = new ol.Feature({geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates))})
+	var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon({
+          src: 'assets/images/icons.png', // Replace with the path to your bus icon image
+          scale: 0.2// Adjust the scale as needed
+        })
+      });
+
+      // Set the icon style for the feature
+      feature.setStyle(iconStyle);
+	featuresArr.push(feature);
 	}
 	  
 	var layer = new ol.layer.Vector({
