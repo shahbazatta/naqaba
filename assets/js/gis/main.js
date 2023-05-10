@@ -13,7 +13,7 @@ var attribution = new ol.control.Attribution({
              })
          })
      ],
-     target: 'mapContainer',
+     target: document.getElementById('map_id'),
      view: new ol.View({
 		 projection: 'EPSG:4326',
          center: ol.proj.fromLonLat([39.9182243347168,21.48110580444336]),
