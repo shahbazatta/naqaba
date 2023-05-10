@@ -27,7 +27,7 @@ $.ajax({
 	var feature = new ol.Feature({geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates))})
 	var iconStyle = new ol.style.Style({
         image: new ol.style.Icon({
-          src: 'assets/images/icons.png', // Replace with the path to your bus icon image
+          src: 'assets/images/bus.png', // Replace with the path to your bus icon image
           scale: 0.2// Adjust the scale as needed
         })
       });
