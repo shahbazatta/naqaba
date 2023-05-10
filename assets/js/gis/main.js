@@ -28,7 +28,7 @@ $.ajax({
 	var iconStyle = new ol.style.Style({
         image: new ol.style.Icon({
           src: 'assets/images/bus.png', // Replace with the path to your bus icon image
-          scale: 0.2// Adjust the scale as needed
+          scale: 0.05// Adjust the scale as needed
         })
       });
 
