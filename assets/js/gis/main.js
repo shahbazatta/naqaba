@@ -16,6 +16,7 @@ var basemapLayer = new ol.layer.Tile({
 map.addLayer(basemapLayer);
 var busesLyr;
 var busesDataSource;
+
 function getAllBusesData()  
 {
 	//ajax call to api get all bus data
