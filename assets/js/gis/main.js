@@ -16,8 +16,9 @@ var basemapLayer = new ol.layer.Tile({
 map.addLayer(basemapLayer);
 var busesLyr;
 var busesDataSource;
-function getAllBusesData() 
+function getAllBusesData()  
 {
+	//ajax call to api get all bus data
 	$.ajax({
 	  url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
 	  method: 'GET',
