@@ -32,8 +32,8 @@ function getAllBusesData()
 		var feature = new ol.Feature({geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates))})
 		var iconStyle = new ol.style.Style({
 			image: new ol.style.Icon({
-			  src: 'assets/images/bus.png', // Replace with the path to your bus icon image
-			  scale: 0.05// Adjust the scale as needed
+			  src: 'assets/images/icon_bus4.png', // Replace with the path to your bus icon image
+			  scale: 0.17// Adjust the scale as needed
 			})
 		  });
 
