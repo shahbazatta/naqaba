@@ -14,40 +14,45 @@ var basemapLayer = new ol.layer.Tile({
 
 // Add the basemap layer to the map
 map.addLayer(basemapLayer);
- 
-$.ajax({
-  url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
-  method: 'GET',
-  dataType: 'json',
-  success: function(response) {
-    var dataArr = response;
-	var featuresArr =[]
-	for (let i = 0; i < dataArr.length; i++) {
-	var obj = dataArr[i];
-	var feature = new ol.Feature({geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates))})
-	var iconStyle = new ol.style.Style({
-        image: new ol.style.Icon({
-          src: 'assets/images/bus.png', // Replace with the path to your bus icon image
-          scale: 0.05// Adjust the scale as needed
-        })
-      });
+var busesLyr;
+var busesDataSource;
+function getAllBusesData() 
+{
+	$.ajax({
+	  url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
+	  method: 'GET',
+	  dataType: 'json',
+	  success: function(response) {
+		var dataArr = response;
+		var featuresArr =[]
+		for (let i = 0; i < dataArr.length; i++) {
+		var obj = dataArr[i];
+		var feature = new ol.Feature({geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates))})
+		var iconStyle = new ol.style.Style({
+			image: new ol.style.Icon({
+			  src: 'assets/images/bus.png', // Replace with the path to your bus icon image
+			  scale: 0.05// Adjust the scale as needed
+			})
+		  });
 
-      // Set the icon style for the feature
-      feature.setStyle(iconStyle);
-	featuresArr.push(feature);
-	}
-	  
-	var layer = new ol.layer.Vector({
-		 source: new ol.source.Vector({
-			 features: featuresArr
-		 })
-	 });
-	map.addLayer(layer);
-  },
-  error: function(xhr, status, error) {
-    console.log('Error:', error);
-  }
-});
+		  // Set the icon style for the feature
+		  feature.setStyle(iconStyle);
+		featuresArr.push(feature);
+		}
+		 
+		busesDataSource = new ol.source.Vector({
+				 features: featuresArr
+			 })
+		 busesLyr = new ol.layer.Vector({
+			 source: busesDataSource
+		 });
+		map.addLayer(busesLyr);
+	  },
+	  error: function(xhr, status, error) {
+		console.log('Error:', error);
+	  }
+	});
+}
 
-
+getAllBusesData()
 
