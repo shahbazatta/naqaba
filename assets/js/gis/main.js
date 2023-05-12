@@ -26,14 +26,26 @@ function toggleDrawGeofenceCtrl()
 	}
 function addDrawInteraction()
 	{
+		var geofenceStyle =  new ol.style.Style({
+			stroke: new ol.style.Stroke({
+			  color: 'green',
+			  width: 2,
+			  lineDash:[5]
+			}),
+			fill: new ol.style.Fill({
+			  color: 'rgba(0, 0, 255, 0.1)',
+			}),
+		  })
 		var drawLayer = new ol.layer.Vector({
-		  source: drawSource
+		  source: drawSource,
+		  style: geofenceStyle,
+
 		});
 
 		// Add the vector layer to the map
 		map.addLayer(drawLayer);
 
-
+		
 		// Create a draw interaction for polygons
 		draw = new ol.interaction.Draw({
 		  source: drawSource,
