@@ -384,7 +384,7 @@ require_once("lang/language.php");
 	                </div>
 	            </div>
 
-	            <div class="settingHeading"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?>Setting</div>
+	            <div class="settingHeading"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?></div>
             </div>
 	            
 	        <button type="button" class="settingWindowClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>

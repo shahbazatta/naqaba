@@ -44,7 +44,7 @@
     "stopsGeofence":"Stops Geofence",
     "language":"Language",
     "english":"English",
-    "arabic":"Arabic",
+    "arabic":"عربي",
     "colorLayout":"Color Layout",
     "setting":"Setting",
     "open":"Open",
@@ -56,5 +56,11 @@
     "exitFullScreen":"Exit Full Screen",
     "active":"Active",
     "showAllTabs":"Show All Tabs",
-    "oK":"OK"
+    "oK":"OK",
+    "logo":"Logo",
+    "rememberPassword":"Remember Password",
+    "register":"Register",
+    "forgotPassword":"Forgot Password",
+    "or":"or",
+    "back":"Back"
 }
