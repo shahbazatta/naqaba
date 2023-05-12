@@ -1,3 +1,6 @@
+<?php
+require_once("lang/language.php");
+?>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
@@ -8,7 +11,7 @@
 
 <!-- Basic -->
 <meta charset="utf-8">
-<title>Naqabah Tracker System v1</title>
+<title><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabahTrackerSystemv1'); ?></title>
 
 <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
@@ -60,10 +63,10 @@
 <!--==========Start Loading Box==========-->
 <div class="loadingBox">
     
-    <a href="javascript:void(0)" title="Naqabah" id="loadingLogoTCM" class="toolTip">Naqabah</a>
+    <a href="javascript:void(0)" title="Naqabah" id="loadingLogoTCM" class="toolTip"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?></a>
     
     <div class="hourglass">
-        <p>Naqabah Tracker System<br><span>= { GPS + Visualization + Analysis }</span></p>
+        <p><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabahTrackerSystem'); ?><br><span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'gPS_Visualization_Analysis'); ?></span></p>
     </div>
     <
     <div class="bottomBar"></div>
@@ -77,7 +80,7 @@
     
     <!--TCM LOGO--> 
      <div class="logoTcmHide">
-     	<div class="logoTcmShow" title="">Naqabah Tracker System</div>
+     	<div class="logoTcmShow" title=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabahTrackerSystem'); ?></div>
      </div>
      
      
@@ -116,7 +119,7 @@
     <!--END Help, Hint, Loading-->
 
     <!-- START Bottom Left Main Option Window -->
-    <button type="button" class="windowOpen" onClick="">Window</button>
+    <button type="button" class="windowOpen" onClick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'window'); ?></button>
     <div class="optionWindow">
     
         <div class="layerOptions">
@@ -125,46 +128,46 @@
         	 <!--Tracking Companies-->
             <div class="dataSource row">
             	
-                <h1><span class="icon1"></span>Tracking Companies</h1>
+                <h1><span class="icon1"></span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingCompanies'); ?></h1>
                 <div class="optionShow">
 
 
-                    <label class="cCheckBox2">Machine Talk
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'machineTalk'); ?>
                       <input type="checkbox" id="checkbox1" name="checkbox1" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Sober Me Up
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'soberMeUp'); ?>
                       <input type="checkbox" id="checkbox2" name="checkbox2" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Portable Devices
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'portableDevices'); ?>
                       <input type="checkbox" id="checkbox3" name="checkbox3" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Max Media
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'maxMedia'); ?>
                       <input type="checkbox" id="checkbox4" name="checkbox4" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Engineer Guarantee
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'engineerGuarantee'); ?>
                       <input type="checkbox" id="checkbo5" name="checkbo5" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Management Net International Company for Information Technology
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'management_Net_International_Company_For_Information_Technology'); ?>
                       <input type="checkbox" id="checkbo6" name="checkbo6" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Follower of Electronic Systems
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'followerOfElectronicSystems'); ?>
                       <input type="checkbox" id="checkbox7" name="checkbox7" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Dimensions Systems Co., Ltd
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'dimensionsSystemsCoLtd'); ?>
                       <input type="checkbox" id="checkbox8" name="checkbox8" value=""> 
                       <span class="checkmark"></span>
                     </label>
@@ -176,80 +179,80 @@
             <!--Transportation Companies-->
             <div class="row">
             
-                <h1><span class="icon2"></span>Transportation Companies</h1>
+                <h1><span class="icon2"></span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanies'); ?></h1>
                 <div class="optionShow">
 
-                    <label class="cCheckBox2">Saudi Public Transport Company
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'saudiPublicTransportCompany'); ?>
                       <input type="checkbox" id="checkbox9" name="checkbox9" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Makkah Transport Company
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'makkahTransportCompany'); ?>
                       <input type="checkbox" id="checkbox10" name="checkbox10" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Arab Transport Company
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabTransportCompany'); ?>
                       <input type="checkbox" id="checkbox11" name="checkbox11" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Dallah Company for transporting pilgrims
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'dallah_Company_For_Transporting_Pilgrims'); ?>
                       <input type="checkbox" id="checkbox12" name="checkbox12" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Medina Company for the transport of pilgrims
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'medina_Company_For_The_Transport_Of_Pilgrims'); ?>
                       <input type="checkbox" id="checkbox13" name="checkbox13" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Umm Al-Qura Transport Company
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'umm_Al_Qura_Transport_Company'); ?>
                       <input type="checkbox" id="checkbox14" name="checkbox14" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Hafel Transport Company
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'hafel_Transport_Company'); ?>
                       <input type="checkbox" id="checkbox15" name="checkbox15" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Branch of the Abdullah Muhammad Ali Maghribi Foundation for the Transport of Pilgrims
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'branch_Of_The_Abdullah_Muhammad_Ali_Maghribi_Foundation_For_The_Transport_Of_Pilgrims'); ?>
                       <input type="checkbox" id="checkbox16" name="checkbox16" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Nasser Abdullah Abu Sarhad and Partners Co. Ltd
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'nasser_Abdullah_Abu_Sarhad_And_Partners_Co_Ltd'); ?>
                       <input type="checkbox" id="checkbox17" name="checkbox17" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Mawakeb Al Khair Transport Company
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'mawakeb_Al_Khair_Transport_Company'); ?>
                       <input type="checkbox" id="checkbox18" name="checkbox18" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">International Caravans Company for Tourism Services
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'international_Caravans_Company_Tourism_Services'); ?>
                       <input type="checkbox" id="checkbox19" name="checkbox19" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Shqadaf Transport Company
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shqadaf_Transport_Company'); ?>
                       <input type="checkbox" id="checkbox20" name="checkbox20" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Rawahel Al Mashaer Co., Ltd. for the transportation of pilgrims
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'rawahel_Al_Mashaer_Co_Ltd_Transportation_Pilgrims'); ?>
                       <input type="checkbox" id="checkbox21" name="checkbox21" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Tabarak International Transport Co. Ltd
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'tabarakInternationalTransportCoLtd'); ?>
                       <input type="checkbox" id="checkbox22" name="checkbox22" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Diamond Excellence Transport Company
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'diamondExcellenceTransportCompany'); ?>
                       <input type="checkbox" id="checkbox23" name="checkbox23" value=""> 
                       <span class="checkmark"></span>
                     </label>
@@ -261,30 +264,30 @@
             <!--Tracking Devices-->
             <div class="row">
             
-                <h1><span class="icon3"></span>Tracking Devices</h1>
+                <h1><span class="icon3"></span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingDevices'); ?></h1>
                 <div class="optionShow">
 
-                    <label class="cCheckBox2">BCE
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'bCE'); ?>
                       <input type="checkbox" id="checkbox24" name="checkbox24" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Teltonika
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'teltonika'); ?>
                       <input type="checkbox" id="checkbox25" name="checkbox25" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Machinestalk
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'machinestalk'); ?>
                       <input type="checkbox" id="checkbox26" name="checkbox26" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Ruptela
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'ruptela'); ?>
                       <input type="checkbox" id="checkbox27" name="checkbox27" value=""> 
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Queclink
+                    <label class="cCheckBox2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'queclink'); ?>
                       <input type="checkbox" id="checkbox28" name="checkbox28" value=""> 
                       <span class="checkmark"></span>
                     </label>
@@ -299,17 +302,17 @@
             <div class="row pifilter">
 
                 <div class="ifilter">
-                    <label>IMEI Number</label>
+                    <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'iMEINumber'); ?></label>
                     <input type="text" name="" id="" value="">
                 </div>
 
                 <div class="ifilter">
-                    <label>Bus Number</label>
+                    <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'busNumber'); ?></label>
                     <input type="text" name="" id="" value="">
                 </div>
 
                 <div class="ifilter">
-                    <label>Bus Operating Number</label>
+                    <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'busOperatingNumber'); ?></label>
                     <input type="text" name="" id="" value="">
                 </div>
 
@@ -325,7 +328,7 @@
         <div class="clear"></div>
            
         </div>
-        <button type="button" class="optionWindowClose">Close</button>
+        <button type="button" class="optionWindowClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>
         <!-- <div class="layerSelected">Naqabah <span>Admin</span></div> -->
     </div>
     <!-- END Bottom Left Main Option Window -->
@@ -338,37 +341,37 @@
         	<div class="scrollBar2" id="scrollBar">
 	            <!--Select Layer-->
 	        	<div class="row">
-	            	<h1>Select Layer</h1>
+	            	<h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h1>
 	                <div class="settingShow">
 	                	<fieldset>
 	                    	<input type="radio" id="liveLocations" name="layerSelect" onclick="" checked="checked">
-	                        <label>Live Locations</label>
+	                        <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'liveLocations'); ?></label>
 	                    </fieldset>
 	                    <fieldset>
 	                    	<input type="radio" id="stopsGeofence" name="layerSelect" onclick="">
-	                        <label>Stops Geofence</label>
+	                        <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stopsGeofence'); ?></label>
 	                    </fieldset>
 	                </div>
 	            </div>
 	            
 	            <!--Language-->
 	        	<div class="row">
-	            	<h1>Language</h1>
+	            	<h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'language'); ?></h1>
 	                <div class="settingShow">
 	                	<fieldset>
 	                    	<input type="radio" id="radioEn" name="language" onclick="location.href='?lang=en'">
-	                     <label>English</label>
+	                     <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'english'); ?></label>
 	                  </fieldset>
 	                	<fieldset>
 	                    	<input type="radio" id="radioAr" name="language" onclick="location.href='?lang=ar'">
-	                        <label>Arabic</label>
+	                        <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabic'); ?></label>
 	                    </fieldset>
 	                </div>
 	            </div>
 	            
 	            <!--Color Layout-->
 	        	<div class="row last">
-	            	<h1>Color Layout</h1>
+	            	<h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'colorLayout'); ?></h1>
 	                <div class="settingShow">
 	                	<div class="colorChange" id="greenLayout"><img src="assets/images/layoutGreen.png" width="24" height="24"></div>
 	                	<div class="colorChange active" id="blueLayout"><img src="assets/images/layoutBlue.png" width="24" height="24"></div>
@@ -381,10 +384,10 @@
 	                </div>
 	            </div>
 
-	            <div class="settingHeading">Setting</div>
+	            <div class="settingHeading"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?></div>
             </div>
 	            
-	        <button type="button" class="settingWindowClose">Close</button>
+	        <button type="button" class="settingWindowClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>
         </div>
     </div>
     
@@ -396,30 +399,30 @@
     
     <!-- Bottom Option Bar -->
     <div class="bottomOptionBar">
-    	<button type="button" class="optionClose">Close</button>
-    	<button type="button" class="optionOpen">Open</button>
+    	<button type="button" class="optionClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>
+    	<button type="button" class="optionOpen"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'open'); ?></button>
         <div class="bottomOption">
-        	<div class="copyRight">© 2023 Naqabah Tracker Systems</div>
+        	<div class="copyRight"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'copyRight2023NaqabahTrackerSystems'); ?></div>
             <div class="optionButtons">
-    			<button type="button" class="logoutUser">Logout</button>
-    			<button type="button" class="closeAllTabs">Close Tabs</button>
-    			<button type="button" class="hideAllTabs">Hide Tabs</button>
-    			<button type="button" class="fullscreen">Full Screen</button>
-    			<button type="button" class="exitFullscreen">Exit Full Screen</button>
+    			<button type="button" class="logoutUser"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'logout'); ?></button>
+    			<button type="button" class="closeAllTabs"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'closeTabs'); ?></button>
+    			<button type="button" class="hideAllTabs"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'hideTabs'); ?></button>
+    			<button type="button" class="fullscreen"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'fullScreen'); ?></button>
+    			<button type="button" class="exitFullscreen"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'exitFullScreen'); ?></button>
     			<div class="layerSelOuter">
-                	<button type="button" class="layerSel">Live Locations<span>(Active)</span></button>
+                	<button type="button" class="layerSel"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'liveLocations'); ?><span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?>(Active)</span></button>
                     
                     <div class="layerActivationBar">
-                        <h1>Select Layer</h1>
+                        <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h1>
                         <div class="settingShow">
 
                           <fieldset>
                             <input type="radio" id="liveLocations" name="layerSelect" onclick="" checked="checked">
-                              <label>Live Locations</label>
+                              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'liveLocations'); ?></label>
                           </fieldset>
                           <fieldset>
                             <input type="radio" id="stopsGeofence" name="layerSelect" onclick="">
-                              <label>Stops Geofence</label>
+                              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stopsGeofence'); ?></label>
                           </fieldset>
                         </div>
                     </div>
@@ -454,16 +457,16 @@
     <div class="bottomSolidBar"></div>
     
     <!-- Show All Tabs Button -->
-    <button type="button" class="showAllTabs">Show All Tabs</button>
+    <button type="button" class="showAllTabs"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?>Show All Tabs</button>
     
 
     
     <!-- Alert Box -->
     <div class="alertBox">
     	<div class="alertBoxTab">
-        	<h2><img src="assets/images/iconAlert.png" width="22" height="22">Message Window</h2>
+        	<h2><img src="assets/images/iconAlert.png" width="22" height="22"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?>Message Window</h2>
             <p>Any message or information that you want to display in floating popups. Any message or information that you want to display in floating popups.</p>
-            <button type="button" class="button ok">OK</button>
+            <button type="button" class="button ok"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?>OK</button>
         </div>
     </div>
     

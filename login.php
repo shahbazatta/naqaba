@@ -1,4 +1,5 @@
 <?php 
+require_once("lang/language.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // collect value of input field
@@ -25,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!-- Basic -->
 <meta charset="utf-8">
-<title>Naqabah Tracker System</title>
+<title><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabahTrackerSystem'); ?></title>
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 
@@ -166,7 +167,7 @@ var params={
 <!--==========Start Loading Box==========-->
 <div class="loginBoxMain">
     <!-- Logo -->
-    <a href="javascript:void(0)" title="Logo" id="loginLogoTCM" class="toolTip">Logo</a>
+    <a href="javascript:void(0)" title="Logo" id="loginLogoTCM" class="toolTip"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'logo'); ?></a>
     <!-- Logo -->
     <div class="formLogin">
     	<!-- <form method="post" action="login.htm" class="loginFormMain" commandName="userBeanCmdObj">  -->
@@ -180,10 +181,10 @@ var params={
 			    <input type="password" placeholder="Password" id="userPassword" name="userPassword" size="15" tabindex="2" maxlength="25" class="text" />
 			</div>
 			<div class="remember">
-			    <input type="checkbox" class="checkBox" checked="checked" name="remember" id="remember" /> <span>Remember Password | <a href="#" id="registerBtn">Register</a></span>
+			    <input type="checkbox" class="checkBox" checked="checked" name="remember" id="remember" /> <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'rememberPassword'); ?> | <a href="#" id="registerBtn"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'register'); ?></a></span>
 				<div class="clear"></div>
 			</div>
-			<div><input type="submit" name="login" class="loginBtn" value="Login" onclick="LetMeLogin()"><span class="forgot"> or <a href="#" id="forgotBtn">Forgot Password</a></span></div>
+			<div><input type="submit" name="login" class="loginBtn" value="Login" onclick="LetMeLogin()"><span class="forgot"> <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'or'); ?> <a href="#" id="forgotBtn"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'forgotPassword'); ?></a></span></div>
 			</form>
     </div>
      <div class="formForgotPassword">
@@ -192,7 +193,7 @@ var params={
     		<div class="username">
 			    <input id="fuserId" type="text" size="15" class="text" placeholder="Email Address" tabindex="1" maxlength="25"/>	
 			</div>		
-			<div><input type="button" name="login" class="loginBtn" value="Send Credentials" onclick="sendCredentials()"><span class="forgot"> or <a href="#" id="forgotBackBtn">Back</a></span></div>
+			<div><input type="button" name="login" class="loginBtn" value="Send Credentials" onclick="sendCredentials()"><span class="forgot"> <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'or'); ?> <a href="#" id="forgotBackBtn"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'back'); ?></a></span></div>
 		 </form> 
     	
     </div>
@@ -215,7 +216,7 @@ var params={
     		<div class="repassword">
 			      <input type="password" placeholder="Confirm Password" id="npswd2"  class="text" tabindex="1" maxlength="25"/>	
 			</div>		
-			<div><input type="submit" name="login" class="loginBtn" value="Register User"><span class="forgot"> or <a href="#" id="newUserBackBtn">Back</a></span></div>
+			<div><input type="submit" name="login" class="loginBtn" value="Register User"><span class="forgot"> <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'or'); ?> <a href="#" id="newUserBackBtn"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'back'); ?></a></span></div>
 		</form>
     	
     </div>
