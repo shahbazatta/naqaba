@@ -49,7 +49,8 @@ function addDrawInteraction()
 		// Create a draw interaction for polygons
 		draw = new ol.interaction.Draw({
 		  source: drawSource,
-		  type: 'Polygon'
+		  type: 'Polygon',
+		  active: false
 		});
 
 		// Event listener for drawstart event
