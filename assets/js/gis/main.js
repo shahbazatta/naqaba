@@ -66,7 +66,9 @@ function addDrawInteraction()
 		});
 
 		// Add the draw interaction to the map
+		
 		map.addInteraction(draw);
+		draw.setActive(false);
 	}
 
 
