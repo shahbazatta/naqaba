@@ -85,10 +85,10 @@ function getAllBusesData()
 		for (let i = 0; i < dataArr.length; i++) {
 			var obj = dataArr[i];			
 			var feature = new ol.Feature({
-				geometry: new ol.geom.Point(ol.proj.fromLonLat(coordinates)),
-				properties: point
+				geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates)),
+				properties: obj
 			  });
-			feature.setId(point.imei)
+			feature.setId(obj.imei)
 			var iconStyle = new ol.style.Style({
 				image: new ol.style.Icon({
 				  src: 'assets/images/icon_bus4.png', // Replace with the path to your bus icon image
