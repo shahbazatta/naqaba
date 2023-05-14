@@ -115,8 +115,8 @@ function getAllBusesData()
 	});
 }
 addDrawInteraction()
-getAllBusesData();
+//getAllBusesData();
 
-
+setInterval(getAllBusesData, 240*1000); //apii call after every 4 minutes
 
 
