@@ -100,7 +100,11 @@ function getAllBusesData()
 			  feature.setStyle(iconStyle);
 			featuresArr.push(feature);
 		}
-		 
+		if (busesDataSource!=undefined )
+		{
+			busesDataSource.clear();
+		}
+		
 		busesDataSource = new ol.source.Vector({
 				 features: featuresArr
 			 })
@@ -115,7 +119,7 @@ function getAllBusesData()
 	});
 }
 addDrawInteraction()
-//getAllBusesData();
+getAllBusesData();
 
 setInterval(getAllBusesData, 240*1000); //apii call after every 4 minutes
 
