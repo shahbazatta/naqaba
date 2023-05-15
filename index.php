@@ -50,7 +50,7 @@ require_once("lang/language.php");
 
 <!-- Styling -->
 <link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen" />
+<!-- <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen" /> -->
 <!--[if lt IE 9]>
 	<script src="assets/js/html5.js"></script>
 	<link rel="stylesheet" href="assets/css/ie.css">
@@ -486,7 +486,45 @@ require_once("lang/language.php");
     return;
   };
 
-    
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function loadjscssfile(filename, filetype)
+  {
+      if (filetype=="css")
+      { 
+          var fileref=document.createElement("link")
+          fileref.setAttribute("rel", "stylesheet")
+          fileref.setAttribute("type", "text/css")
+          fileref.setAttribute("href", filename)
+      }
+      if (typeof fileref!="undefined")
+          document.getElementsByTagName("head")[0].appendChild(fileref)
+  }
+
+  var language_json = getCookie('language_json');
+  if(language_json != null && language_json != undefined && language_json != ''){
+    if(language_json == 'ar'){
+      loadjscssfile("assets/css/rtlStyle.css", "css") 
+    }else{
+      loadjscssfile("assets/css/style.css", "css") 
+    }
+  }else{
+    loadjscssfile("assets/css/style.css", "css") 
+  }
 //]]>
 </script>
 
