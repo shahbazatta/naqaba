@@ -344,41 +344,56 @@ require_once("lang/language.php");
     </div>
     <!-- END Bottom Left Main Option Window -->
     
+    <!-- Data Table Box -->
+    <button type="button" class="tableIconButton"><img src="assets/images/table_icon1.png" width="36" height="36"></button>
+    <div class="settingBar">
+    
+        <div class="settingOptions">
+          <div class="scrollBar2" id="scrollBar">
+              
+
+
+              
+          </div>
+          <button type="button" class="settingWindowClose">close</button>
+        </div>
+    </div>
+    
     <!-- Setting Bar -->
     <button type="button" class="settingButton"><img src="assets/images/iconOption.png" width="25" height="25"></button>
     <div class="settingBar">
     
         <div class="settingOptions">
-        	<div class="scrollBar2" id="scrollBar">
-	            <!--Select Layer-->
-	        	<div class="row">
-	            	<h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h1>
-	                <div class="settingShow">
-	                	<fieldset>
-	                    	<input type="radio" id="liveLocations" name="layerSelect" onclick="" checked="checked">
-	                        <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'liveLocations'); ?></label>
-	                    </fieldset>
-	                    <fieldset>
-	                    	<input type="radio" id="stopsGeofence" name="layerSelect" onclick="">
-	                        <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stopsGeofence'); ?></label>
-	                    </fieldset>
-	                </div>
-	            </div>
-	            
-	            <!--Language-->
-	        	<div class="row">
-	            	<h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'language'); ?></h1>
-	                <div class="settingShow">
-	                	<fieldset>
-	                    	<input type="radio" id="radioEn" name="language" onclick="location.href='?lang=en'">
-	                     <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'english'); ?></label>
-	                  </fieldset>
-	                	<fieldset>
-	                    	<input type="radio" id="radioAr" name="language" onclick="location.href='?lang=ar'">
-	                        <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabic'); ?></label>
-	                    </fieldset>
-	                </div>
-	            </div>
+          <div class="scrollBar2" id="scrollBar">
+              <!--Select Layer-->
+            <div class="row">
+                <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h1>
+                  <div class="settingShow">
+                    <fieldset>
+                        <input type="radio" id="liveLocations" name="layerSelect" onclick="" checked="checked">
+                          <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'liveLocations'); ?></label>
+                      </fieldset>
+                      <fieldset>
+                        <input type="radio" id="stopsGeofence" name="layerSelect" onclick="">
+                          <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stopsGeofence'); ?></label>
+                      </fieldset>
+                  </div>
+              </div>
+              
+              <!--Language-->
+            <div class="row">
+                <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'language'); ?></h1>
+                  <div class="settingShow">
+                    <fieldset>
+                        <input type="radio" id="radioEn" name="language" onclick="location.href='?lang=en'">
+                       <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'english'); ?></label>
+                    </fieldset>
+                    <fieldset>
+                        <input type="radio" id="radioAr" name="language" onclick="location.href='?lang=ar'">
+                          <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabic'); ?></label>
+                      </fieldset>
+                  </div>
+              </div>
               
               <!--Color Layout-->
             <div class="row">
@@ -408,10 +423,10 @@ require_once("lang/language.php");
                   </div>
               </div>
 
-	            <div class="settingHeading"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?></div>
+              <div class="settingHeading"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?></div>
             </div>
-	            
-	        <button type="button" class="settingWindowClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>
+              
+          <button type="button" class="settingWindowClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>
         </div>
     </div>
     

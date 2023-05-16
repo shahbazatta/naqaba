@@ -1417,6 +1417,43 @@ h2{
 	padding:0px;
 	margin:0px;
 }
+
+/***************** Data Table Box *******************/
+
+.tableIconButton{
+	position:absolute;
+	width:36px;
+	height:36px;
+	left:5px;
+	top:75px;
+	text-indent:-9999px;
+	z-index:100;
+	cursor:pointer;
+	border:none;
+	padding:0px;
+	margin:0px;
+	background-color: transparent;
+}
+.tableIconButton img{
+	display:block;
+	width:36px;
+	height:36px;
+	position:absolute;
+	top:0px;
+	left:0px;
+ 
+	transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+	-webkit-transition: 0.5s ease;
+}
+.tableIconButton:hover img{
+	left:10px;
+	top:3px;
+	width:30px;
+	height:30px;
+	opacity:0.8;
+
+}
 /***************** Bottom BAR *******************/
 .bottomSolidBar{
 	width:100%;
