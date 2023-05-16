@@ -368,21 +368,34 @@ require_once("lang/language.php");
 	                    </fieldset>
 	                </div>
 	            </div>
-	            
-	            <!--Color Layout-->
-	        	<div class="row last">
-	            	<h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'colorLayout'); ?></h1>
-	                <div class="settingShow">
-	                	<div class="colorChange" id="greenLayout"><img src="assets/images/layoutGreen.png" width="24" height="24"></div>
-	                	<div class="colorChange active" id="blueLayout"><img src="assets/images/layoutBlue.png" width="24" height="24"></div>
-	                	<div class="colorChange" id="orangeLayout"><img src="assets/images/layoutOrange.png" width="24" height="24"></div>
-	                	<div class="colorChange" id="greyLayout"><img src="assets/images/layoutGrey.png" width="24" height="24"></div>
-	                	<div class="colorChange" id="redLayout"><img src="assets/images/layoutRed.png" width="24" height="24"></div>
-	              
-	                	<!-- <div class="colorChange" id="whiteLayout"><img src="assets/images/layoutWhite.png" width="24" height="24"></div> -->
-	                    <div class="clear"></div>
-	                </div>
-	            </div>
+              
+              <!--Color Layout-->
+            <div class="row">
+                <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'colorLayout'); ?></h1>
+                  <div class="settingShow">
+                    <div class="colorChange" id="greenLayout"><img src="assets/images/layoutGreen.png" width="24" height="24"></div>
+                    <div class="colorChange active" id="blueLayout"><img src="assets/images/layoutBlue.png" width="24" height="24"></div>
+                    <div class="colorChange" id="orangeLayout"><img src="assets/images/layoutOrange.png" width="24" height="24"></div>
+                    <div class="colorChange" id="greyLayout"><img src="assets/images/layoutGrey.png" width="24" height="24"></div>
+                    <div class="colorChange" id="redLayout"><img src="assets/images/layoutRed.png" width="24" height="24"></div>
+                
+                    <!-- <div class="colorChange" id="whiteLayout"><img src="assets/images/layoutWhite.png" width="24" height="24"></div> -->
+                      <div class="clear"></div>
+                  </div>
+              </div>
+              
+              <!--Icons Layout-->
+            <div class="row last">
+                <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'moreIcons'); ?></h1>
+                  <div class="settingShow">
+                    <div class="moreIcons active" id="picon1"><img src="assets/images/pointerIcon1.png" width="24" height="24"></div>
+                    <div class="moreIcons" id="picon2"><img src="assets/images/pointerIcon2.png" width="24" height="24"></div>
+                    <div class="moreIcons" id="picon3"><img src="assets/images/pointerIcon3.png" width="24" height="24"></div>
+                    <div class="moreIcons" id="picon4"><img src="assets/images/pointerIcon4w.png" width="24" height="24"></div>
+                    <div class="moreIcons" id="picon5"><img src="assets/images/pointerIcon5w.png" width="24" height="24"></div>
+                    <div class="clear"></div>
+                  </div>
+              </div>
 
 	            <div class="settingHeading"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?></div>
             </div>

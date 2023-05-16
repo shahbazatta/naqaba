@@ -1224,7 +1224,7 @@ h2{
 	
 	position:absolute;
 	left:-255px;
-	bottom:110px;
+	bottom:80px;
 	width:210px;
 	height:auto;
 	z-index:101;
@@ -1238,7 +1238,7 @@ h2{
 
 .scrollBar2{
 	width:210px;
-	height:325px;
+	height:365px;
 	overflow:auto;
 	margin:0px; padding:0px;
 	position:relative;
@@ -1263,7 +1263,7 @@ h2{
 }
 .settingOptions .row.last{
 	border-bottom:none;
-	padding-bottom:10px;
+	margin-bottom:10px;
 }
 .settingOptions .row:hover{
 	background-color:#222222;
@@ -1314,6 +1314,22 @@ h2{
 .settingShow .colorChange.active{
 	
 }
+
+.settingShow .moreIcons{
+	background:none;
+	width:25px;
+	height:25px;
+	float:left;
+	display:block;
+	cursor:pointer;
+	border:0px solid #FFF;
+	padding:0px;
+	margin:0px 0px 0px 8px;
+}
+.settingShow .moreIcons:hover{
+	background-color: #111;
+	border:0px solid #777;
+}
 .settingShow .userMangerIcon{
 	background:none;
 	width:25px;
@@ -1334,7 +1350,7 @@ h2{
 	width:48px;
 	height:74px;
 	left:0px;
-	bottom:105px;
+	bottom:75px;
 	text-indent:-9999px;
 	z-index:100;
 	cursor:pointer;
