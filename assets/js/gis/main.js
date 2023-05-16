@@ -111,7 +111,6 @@ function getAllBusesData() {
     source: busesDataSource
   });
 
-// Create a layer for the clusters
 var clusterLayer = new ol.layer.Vector({
   source: clusterSource,
   style: function(feature) {
@@ -141,7 +140,6 @@ error: function(xhr, status, error) {
 }
 });
 }
-
 addDrawInteraction();
 getAllBusesData();
 
