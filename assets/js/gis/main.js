@@ -8,12 +8,12 @@ var map = new ol.Map({
 });
 
 // Add a basemap layer
-var basemapLayer = new ol.layer.Tile({
+var osmLayer = new ol.layer.Tile({
   source: new ol.source.OSM() // OpenStreetMap as the basemap source
 });
 
-// Add the basemap layer to the map
-map.addLayer(basemapLayer);
+// Add the osm layer to the map
+map.addLayer(osmLayer);
 
 var googleMap = new ol.layer.Tile({
   source:new ol.source.XYZ({
@@ -32,6 +32,20 @@ var draw;
 // Use this function on the draw geofence button click
 function toggleDrawGeofenceCtrl() {
   draw.setActive(!draw.getActive());
+}
+
+function switchBaseMaps(layer_type) {
+	if (layer_type==1)
+	{
+		googleMap.setZIndex(2);  //show layer
+		osmLayer.setZIndex(-1); //hide layer	
+	}
+	if (layer_type==2)
+	{
+		googleMap.setZIndex(-1);  //hide layer
+		osmLayer.setZIndex(2); //show layer	
+	}
+	
 }
 
 function addDrawInteraction() {
