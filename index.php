@@ -499,13 +499,43 @@ require_once("lang/language.php");
     <button type="button" class="showAllTabs"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?>Show All Tabs</button>
     
 
+    <!-- Popup box -->
+    <div  id="geofenceDialogBox" class="popUpBox">
+      <div class="popUpBoxTab">
+          <span class="close">Close</span>
+          <h2>Title fo Geofence Dialog Box</h2>
+          <fieldset>
+            <label>Input Field1:</label>
+            <input type="text" class="inputText" id="field1" maxlength="40"/>
+          </fieldset>
+          <fieldset>
+            <label>Input Field2:</label>
+            <input type="text" class="inputText" id="field2" maxlength="40"/>
+          </fieldset>
+          <fieldset>
+            <label>Input Field3:</label>
+            <input type="text" class="inputText" id="field3" maxlength="40"/>
+          </fieldset>
+          <fieldset>
+            <label>Input Field4:</label>
+            <input type="text" class="inputText" id="field4" maxlength="40"/>
+          </fieldset>
+          <fieldset>
+            <label>Input Field5:</label>
+            <input type="text" class="inputText" id="field5" maxlength="40"/>
+          </fieldset>
+            <!-- <p>Any message or information that you want to display.</p> -->
+            <button type="button" class="button" value="Save" id="geofenceSave" onclick="">Save</button>
+            <button type="button" class="button" value="Cancel" onclick="">Cancel</button>
+        </div>
+    </div>
     
     <!-- Alert Box -->
     <div class="alertBox">
     	<div class="alertBoxTab">
-        	<h2><img src="assets/images/iconAlert.png" width="22" height="22"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?>Message Window</h2>
+        	<h2><img src="assets/images/iconAlert.png" width="22" height="22">Message Window</h2>
             <p>Any message or information that you want to display in floating popups. Any message or information that you want to display in floating popups.</p>
-            <button type="button" class="button ok"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?>OK</button>
+            <button type="button" class="button ok">OK</button>
         </div>
     </div>
     
@@ -514,17 +544,20 @@ require_once("lang/language.php");
 <!--==========End Main Content Area==========-->
 
 <script type="text/javascript">
-// <![CDATA[
-    
-  //Alert Box functions
-  function alertBoxMessage(msg) //Alert Box Messge
-  {
-    $(".alertBoxTab p").html(msg);
-    $('.alertBox, .alertBoxTab').show();
-    $('.alertBox').animate({opacity:"1.0"});
-    return;
-  };
-//]]>
+
+$( document ).ready(function() {
+    //$('#geofenceDialogBox').show();
+
+});
+
+//Alert Box functions
+function alertBoxMessage(msg) //Alert Box Messge
+{
+  $(".alertBoxTab p").html(msg);
+  $('.alertBox, .alertBoxTab').show();
+  $('.alertBox').animate({opacity:"1.0"});
+  return;
+};
 </script>
 
 <script src="assets/js/functions.js"></script>
