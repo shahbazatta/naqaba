@@ -603,20 +603,20 @@ button.windowOpen:hover{
 	display:none;
 }
 .selectParent{
-    width:210px;
+    width:180px;
 	height:32px;
     overflow:hidden; 
-	margin:0 0 0px 0px; 
+	margin:5px 0 5px 13px; 
 }
 .bgSelect{
-	width:230px;
+	width:180px;
 	height:32px;
 	display:block;
 	margin:0px;
-	font-size:14px;
+	font-size:13px;
 	line-height:16px;
 	color:#FFF;
-	font-family: 'Open Sans';
+	font-family: 'Oswald', sans-serif;
 	cursor:pointer;
 	
 	-webkit-appearance: none;
@@ -624,12 +624,12 @@ button.windowOpen:hover{
     appearance: none;
     padding: 0px 10px;
     border: none;
-    background: transparent url(../images/bgSelect.png) top left no-repeat;
+    background: transparent url(../images/bgSelect180.png) top left no-repeat;
 }
-.bgSelect option{ padding:2px 9px; }
+.bgSelect option{ padding:2px 9px; background-color: #000;}
 
 .bgSelect:hover{
-    background: transparent url(../images/bgSelect_h.png) top left no-repeat;
+    background: transparent url(../images/bgSelect_h180.png) top left no-repeat;
 }
 .inputU{
 	height:28px;
@@ -1418,42 +1418,7 @@ h2{
 	margin:0px;
 }
 
-/***************** Data Table Box *******************/
 
-.tableIconButton{
-	position:absolute;
-	width:36px;
-	height:36px;
-	left:5px;
-	top:75px;
-	text-indent:-9999px;
-	z-index:100;
-	cursor:pointer;
-	border:none;
-	padding:0px;
-	margin:0px;
-	background-color: transparent;
-}
-.tableIconButton img{
-	display:block;
-	width:36px;
-	height:36px;
-	position:absolute;
-	top:0px;
-	left:0px;
- 
-	transition: 0.5s ease;
-	-o-transition: 0.5s ease;
-	-webkit-transition: 0.5s ease;
-}
-.tableIconButton:hover img{
-	left:10px;
-	top:3px;
-	width:30px;
-	height:30px;
-	opacity:0.8;
-
-}
 /***************** Bottom BAR *******************/
 .bottomSolidBar{
 	width:100%;
@@ -2793,3 +2758,46 @@ a.button {
 	display: inline-block;
 	width: 140px;
 }
+
+
+/***************** S ticky Button Top Left Icon *******************/
+.stickyBtnTopLeft{
+	position:absolute;
+	width:36px;
+	height:36px;
+	left:5px;
+	text-indent:-9999px;
+	z-index:100;
+	cursor:pointer;
+	border:none;
+	padding:0px;
+	margin:0px;
+	background-color: transparent;
+}
+.stickyBtnTopLeft img{
+	display:block;
+	width:36px;
+	height:36px;
+	position:absolute;
+	top:0px;
+	left:0px;
+ 
+	transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+	-webkit-transition: 0.5s ease;
+}
+.stickyBtnTopLeft:hover img{
+	left:6px;
+	top:1px;
+	width:34px;
+	height:34px;
+	opacity:0.9;
+
+}
+
+/***************** Polygon Icon *******************/
+
+.polygonIconButton{ top:55px; }
+
+/***************** Data Table Box Icon *******************/
+.tableIconButton{ top:95px; }

@@ -93,43 +93,8 @@ require_once("lang/language.php");
      <div class="logoTcmHide">
      	<div class="logoTcmShow" title=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabahTrackerSystem'); ?></div>
      </div>
-     
-     
-	<!--START Help, Hint, Loading-->    
-    <!-- <div class="hHL">
-        <div class="character"></div>
-    	<div class="help">
-        	
-            <div class="helpBox">
-                
-                
-                <button type="button" class="helpMain">Help</button>
-                <div class="helpSteps"> -->
-                    <!-- <a href="javascript:void(0)">Step 1: </a> -->
-                    <!-- <p>Goto Selection Tool and draw area on map</p> -->
-                    <!-- <button type="button" class="backStep">Back</button> -->
-                    <!-- <button type="button" class="nextStep">Next Step</button> -->
-                    
-                    <!-- <p style="padding:14px 45px 0px 10px;">Hi! How are you?</p>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            
-            <div class="hint"><a href="javascript:void(0)">Hint:</a>
-            	<p>Naqabah Tracker System</p>
-            </div>
-            
-        </div>
-    	<div class="loadingProcess">
-        <div class="loadingCon">
-            <span class="loadingImg"><img src="assets/images/loaderB-Blank.gif" width="40" height="15"></span>
-            <p><span class="loadingTxt">Processing...</p>
-        </div>
-        </div>
-    </div> -->
-    <!--END Help, Hint, Loading-->
 
-    <!-- START Bottom Left Main Option Window -->
+    <!-- START Bottom Right Main Option Window -->
     <button type="button" class="windowOpen" onClick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'window'); ?></button>
     <div class="optionWindow">
     
@@ -342,10 +307,13 @@ require_once("lang/language.php");
         <button type="button" class="optionWindowClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>
         <!-- <div class="layerSelected">Naqabah <span>Admin</span></div> -->
     </div>
-    <!-- END Bottom Left Main Option Window -->
+    <!-- END Bottom Right Main Option Window -->
+    
+    <!-- Polygon Button -->
+    <button type="button" class="stickyBtnTopLeft polygonIconButton"><img src="assets/images/iconPolygon.png" width="36" height="36"></button>
     
     <!-- Data Table Box -->
-    <button type="button" class="tableIconButton"><img src="assets/images/table_icon1.png" width="36" height="36"></button>
+    <button type="button" class="stickyBtnTopLeft tableIconButton"><img src="assets/images/table_icon1.png" width="36" height="36"></button>
     <div class="settingBar">
     
         <div class="settingOptions">
@@ -365,20 +333,55 @@ require_once("lang/language.php");
     
         <div class="settingOptions">
           <div class="scrollBar2" id="scrollBar">
+
+            <!--Base Map-->
+            <div class="row">
+              <h1>Basemap</h1>
+                <div class="optionShow">
+                   <div class="selectParent">
+                      <select id="bmap" class="bgSelect" title="Basemap" onchange="">                  
+                            <option value="0">Open Street Map</option>
+                             <option value="1">Google Map</option>                         
+                        </select>
+                     </div>
+                </div>
+            </div>
+
               <!--Select Layer-->
             <div class="row">
                 <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h1>
                   <div class="settingShow">
                     <fieldset>
-                        <input type="radio" id="liveLocations" name="layerSelect" onclick="" checked="checked">
+                        <input type="radio" id="liveLocations" name="layerSelectOp" onclick="" checked="checked">
                           <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'liveLocations'); ?></label>
                       </fieldset>
                       <fieldset>
-                        <input type="radio" id="stopsGeofence" name="layerSelect" onclick="">
+                        <input type="radio" id="stopsGeofence" name="layerSelectOp" onclick="">
                           <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stopsGeofence'); ?></label>
                       </fieldset>
                   </div>
               </div>
+
+              <!--Selection Tools-->
+            <!-- <div class="row">
+        
+              <h1>Selection</h1>
+                <div class="optionShow">
+                   <div onclick="" title="Rectangle" class="seIcon setHint" style="margin-left:0px;">
+                        <div id="recArea"></div>
+                    </div>
+                    <div onclick="" title="Circle" class="seIcon setHint">
+                        <div id="circleArea"></div>
+                    </div>
+                    <div onclick="" title="Polygon" class="seIcon setHint">
+                        <div id="polygonArea"></div>
+                    </div>
+                    <div onclick="" title="Point" class="seIcon setHint">
+                        <div id="pointArea"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div> -->
               
               <!--Language-->
             <div class="row">
