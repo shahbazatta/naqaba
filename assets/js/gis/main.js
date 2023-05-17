@@ -15,6 +15,14 @@ var basemapLayer = new ol.layer.Tile({
 // Add the basemap layer to the map
 map.addLayer(basemapLayer);
 
+var googleMap = new ol.layer.Tile({
+  source:new ol.source.XYZ({
+        url: 'http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}'
+      })
+});
+
+map.addLayer(googleMap);
+
 var busesLyr;
 var busesDataSource;
 var clusterSource;
