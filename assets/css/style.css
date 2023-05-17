@@ -2801,3 +2801,27 @@ a.button {
 
 /***************** Data Table Box Icon *******************/
 .tableIconButton{ top:95px; }
+
+
+
+.slider-wrapper {
+  position: relative;
+  top:0;
+  left: 0;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  color: #ddd;
+}
+.slider-wrapper input {
+  display: inline-block;
+  margin: 0px 0px 0px 0px;
+  float: left;
+}
+.slider-wrapper output {
+  display: inline-block;
+  width:30px;
+  margin: 0px;
+  float: left;
+  text-align: right;
+}

@@ -414,7 +414,7 @@ require_once("lang/language.php");
               </div>
               
               <!--Icons Layout-->
-            <div class="row last">
+            <div class="row">
                 <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'moreIcons'); ?></h1>
                   <div class="settingShow">
                     <div class="moreIcons active" id="picon1"><img src="assets/images/pointerIcon1.png" width="24" height="24"></div>
@@ -422,6 +422,18 @@ require_once("lang/language.php");
                     <div class="moreIcons" id="picon3"><img src="assets/images/pointerIcon3.png" width="24" height="24"></div>
                     <div class="moreIcons" id="picon4"><img src="assets/images/pointerIcon4w.png" width="24" height="24"></div>
                     <div class="moreIcons" id="picon5"><img src="assets/images/pointerIcon5w.png" width="24" height="24"></div>
+                    <div class="clear"></div>
+                  </div>
+              </div>
+              
+              <!--Icons Layout-->
+            <div class="row">
+                <h1>Opacity</h1>
+                  <div class="settingShow">
+                     <div class="slider-wrapper">
+                        <input type="range" min="0" max="1" value="1" id="opacity-slider" step="0.01">
+                        <output for="opacity-slider" id="slider-value">1</output>
+                      </div>
                     <div class="clear"></div>
                   </div>
               </div>
@@ -550,6 +562,12 @@ require_once("lang/language.php");
 
 $( document ).ready(function() {
     //$('#geofenceDialogBox').show();
+    $('#opacity-slider').on("change mousemove", function() {
+      $('#slider-value').html($(this).val());
+      // $('.wrapper img').css({
+      //   'opacity': $(this).val()
+      // });
+    });
 
 });
 
