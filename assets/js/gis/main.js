@@ -85,6 +85,7 @@ function addDrawInteraction() {
     var polygon = event.feature.getGeometry();
     console.log('Polygon drawing ended:', polygon.getCoordinates());
     // Do something with the drawn polygon geometry
+    
   });
 
   // Add the draw interaction to the map
@@ -110,7 +111,7 @@ function getAllBusesData() {
         feature.setId(obj.imei);
         var iconStyle = new ol.style.Style({
           image: new ol.style.Icon({
-            src: 'assets/images/icon_bus4.png', // Replace with the path to your bus icon image
+            src: 'assets/images/pointerIcon3.png', // Replace with the path to your bus icon image
             scale: 0.20 // Adjust the scale as needed
           })
         });
@@ -139,13 +140,13 @@ var clusterLayer = new ol.layer.Vector({
     var size = feature.get('features').length;
     var style = new ol.style.Style({
       image: new ol.style.Icon({
-        src: 'assets/images/icon_bus4.png', // Replace with the path to your bus icon image
-        scale: 0.17 // Adjust the scale as needed
+        src: 'assets/images/pointerIcon3.png', // Replace with the path to your bus icon image
+        scale: 0.20 // Adjust the scale as needed
       }),
       text: new ol.style.Text({
         text: size.toString(),
         fill: new ol.style.Fill({
-          color: '#FFFF33'
+          color: '#FFFFFF'
         })
       })
     });
