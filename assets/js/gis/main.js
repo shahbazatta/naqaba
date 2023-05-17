@@ -123,7 +123,7 @@ var clusterLayer = new ol.layer.Vector({
       text: new ol.style.Text({
         text: size.toString(),
         fill: new ol.style.Fill({
-          color: '#fff'
+          color: 'green'
         })
       })
     });
