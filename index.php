@@ -310,7 +310,7 @@ require_once("lang/language.php");
     <!-- END Bottom Right Main Option Window -->
     
     <!-- Polygon Button -->
-    <button type="button" class="stickyBtnTopLeft polygonIconButton"><img src="assets/images/iconPolygon.png" width="36" height="36"></button>
+    <button type="button" class="stickyBtnTopLeft polygonIconButton"><img src="assets/images/iconPolygon.png" width="36" height="36" title="click to active/deactive draw geofence" onClick ="toggleDrawGeofenceCtrl()"></button>
     
     <!-- Data Table Box -->
     <button type="button" class="stickyBtnTopLeft tableIconButton"><img src="assets/images/table_icon1.png" width="36" height="36"></button>
