@@ -34,7 +34,9 @@ function toggleDrawGeofenceCtrl() {
   draw.setActive(!draw.getActive());
 }
 
-function switchBaseMaps(layer_type) {
+function switchBaseMaps() {
+	var options = document.getElementById("bmap").options;
+	var layer_type = parseInt(options[options.selectedIndex].value);
 	if (layer_type==1)
 	{
 		googleMap.setZIndex(2);  //show layer
@@ -166,4 +168,7 @@ error: function(xhr, status, error) {
 addDrawInteraction();
 getAllBusesData();
 document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
+document.getElementById("bmap").addEventListener("change", switchBaseMaps());
+
+
 setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
