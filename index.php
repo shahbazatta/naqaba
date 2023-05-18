@@ -339,9 +339,9 @@ require_once("lang/language.php");
               <h1>Basemap</h1>
                 <div class="optionShow">
                    <div class="selectParent">
-                      <select id="bmap" class="bgSelect" title="Basemap" onchange="">                  
+                      <select id="bmap" class="bgSelect" title="Basemap" >  
+                             <option value="1">Google Map</option>                         			  
                             <option value="0">Open Street Map</option>
-                             <option value="1">Google Map</option>                         
                         </select>
                      </div>
                 </div>
