@@ -165,5 +165,5 @@ error: function(xhr, status, error) {
 }
 addDrawInteraction();
 getAllBusesData();
-
+document.getElementById("draw_geofence").onclick = toggleDrawGeofenceCtrl();
 setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
