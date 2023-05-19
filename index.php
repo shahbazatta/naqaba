@@ -314,18 +314,7 @@ require_once("lang/language.php");
     
     <!-- Data Table Box -->
     <button type="button" class="stickyBtnTopLeft tableIconButton"><img src="assets/images/table_icon1.png" width="36" height="36"></button>
-    <div class="settingBar">
-    
-        <div class="settingOptions">
-          <div class="scrollBar2" id="scrollBar">
-              
 
-
-              
-          </div>
-          <button type="button" class="settingWindowClose">close</button>
-        </div>
-    </div>
     
     <!-- Setting Bar -->
     <button type="button" class="settingButton"><img src="assets/images/iconOption.png" width="25" height="25"></button>
@@ -561,13 +550,45 @@ require_once("lang/language.php");
 <script type="text/javascript">
 
 $( document ).ready(function() {
-    //$('#geofenceDialogBox').show();
+    $('#geofenceDialogBox').show();
     $('#opacity-slider').on("change mousemove", function() {
       $('#slider-value').html($(this).val());
       // $('.wrapper img').css({
       //   'opacity': $(this).val()
       // });
     });
+
+    // $.ajax({
+    //     url: "data/get_geofence.php",
+    //     method: "POST",
+    //     dataType: "json",
+    //     data: {
+    //       api_key: "becdf4fbbbf49dbc",
+    //     },
+    //     success: function(data){console.log(data);},
+    //     error: function (jqXHR, exception) {
+    //       var msg = '';
+    //       //alert(msg);
+    //       console.log(jqXHR.responseText);
+
+    //       if (jqXHR.status === 0) {
+    //         msg = 'Not connect.\n Verify Network.';
+    //       } else if (jqXHR.status == 404) {
+    //         msg = 'Requested page not found. [404]';
+    //       } else if (jqXHR.status == 500) {
+    //         msg = 'Internal Server Error [500].';
+    //       } else if (exception === 'parsererror') {
+    //         msg = 'Requested JSON parse failed.';
+    //       } else if (exception === 'timeout') {
+    //         msg = 'Time out error.';
+    //       } else if (exception === 'abort') {
+    //         msg = 'Ajax request aborted.';
+    //       } else {
+    //         msg = 'Uncaught Error.\n' + jqXHR.responseText;
+    //       }
+    //       alert(msg);
+    //     },
+    // });
 
 });
 
