@@ -170,7 +170,7 @@ function getAllGeofence()
 {
 	
     $.ajax({
-         url: "data/get_geofence.php",
+         url: "./data/get_geofence.php",
          method: "POST",
          dataType: "json",
         data: {
