@@ -36,5 +36,7 @@ if(isset($_POST["api_key"]) && trim($_POST["api_key"])) {
 		echo $json_data = json_encode(iterator_to_array($cursor), JSON_UNESCAPED_UNICODE);
 	}
 
+}else{
+	 header("Location: ../index.php");
 }
 
