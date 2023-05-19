@@ -211,7 +211,9 @@ function getAllGeofence()
 					style: stationStyle,
 				  });
 			  
-			  map.addLayer(stationLyr)
+			  map.addLayer(stationLyr);
+			    map.getView().fit(stationSource.getExtent());
+
 			 },
          error: function (jqXHR, exception) {
            var msg = '';
