@@ -185,7 +185,7 @@ function getAllGeofence()
 				var polygon = new ol.geom.Polygon(obj.geometry.coordinates).transform('EPSG:4326','EPSG:3857');
 
 				var feature = new ol.Feature({
-				  geometry:polygon.,
+				  geometry:polygon,
 				  properties: obj
 				});
 				feature.setId(obj._id);
