@@ -550,7 +550,7 @@ require_once("lang/language.php");
 <script type="text/javascript">
 
 $( document ).ready(function() {
-    $('#geofenceDialogBox').show();
+    //$('#geofenceDialogBox').show();
     $('#opacity-slider').on("change mousemove", function() {
       $('#slider-value').html($(this).val());
       // $('.wrapper img').css({
