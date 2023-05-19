@@ -52,7 +52,16 @@ function switchBaseMaps() {
 }
 
 function addDrawInteraction() {
-  
+  var geofenceStyle = new ol.style.Style({
+					stroke: new ol.style.Stroke({
+					  color: 'green',
+					  width: 2,
+					  lineDash: [5]
+					}),
+					fill: new ol.style.Fill({
+					  color: 'rgba(0, 0, 255, 0.1)',
+					}),
+				  });
 
   var drawLayer = new ol.layer.Vector({
     source: drawSource,
