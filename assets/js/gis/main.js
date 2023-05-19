@@ -181,7 +181,7 @@ function getAllGeofence()
 			 //console.log(data);
 			 var stationArr = [];
 			  for (let i = 0; i < data.length; i++) {
-				var obj = dataArr[i];
+				var obj = data[i];
 				var polygon = new ol.geom.Polygon(obj.geometry.coordinates);
 
 				var feature = new ol.Feature({
