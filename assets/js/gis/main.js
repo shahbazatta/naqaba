@@ -196,7 +196,7 @@ function getAllGeofence()
 			  var stationSource = new ol.source.Vector({
 											features: stationArr
 											});
-			  );
+			  
 				var stationStyle = new ol.style.Style({
 					stroke: new ol.style.Stroke({
 					  color: 'green',
