@@ -193,7 +193,7 @@ function getAllGeofence()
 			  }
 			  var stationSource = new ol.source.Vector(
 			  {
-				  		features: featuresArr
+				  		features: stationArr
 			  }
 			  );
 				var stationStyle = new ol.style.Style({
