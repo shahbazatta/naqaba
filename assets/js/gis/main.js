@@ -87,7 +87,7 @@ function addDrawInteraction() {
     var polygon = event.feature.getGeometry();
     console.log('Polygon drawing ended:', polygon.getCoordinates());
     // Do something with the drawn polygon geometry
-    
+    $('#geofenceDialogBox').show();
   });
 
   // Add the draw interaction to the map
