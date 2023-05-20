@@ -2825,3 +2825,17 @@ a.button {
   float: left;
   text-align: right;
 }
+
+.applySettingButton{
+	background-color: #00a24c;
+	height: 40px;
+	width: 100%;
+	margin: 5px;
+	color: #dddddd;
+    background-position: 10px center;
+    border-top: 1px solid #131313;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 400;
+    cursor: pointer;
+}

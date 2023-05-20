@@ -325,12 +325,12 @@ require_once("lang/language.php");
 
             <!--Base Map-->
             <div class="row">
-              <h1>Basemap</h1>
+              <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'basemap'); ?></h1>
                 <div class="optionShow">
                    <div class="selectParent">
                       <select id="bmap" class="bgSelect" title="Basemap" >  
-                             <option value="1">Google Map</option>                         			  
-                            <option value="0">Open Street Map</option>
+                             <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'googleMap'); ?></option>                         			  
+                            <option value="0"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'openStreetMap'); ?></option>
                         </select>
                      </div>
                 </div>
@@ -417,7 +417,7 @@ require_once("lang/language.php");
               
               <!--Icons Layout-->
             <div class="row">
-                <h1>Opacity</h1>
+                <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'opacity'); ?></h1>
                   <div class="settingShow">
                      <div class="slider-wrapper">
                         <input type="range" min="0" max="1" value="1" id="opacity-slider" step="0.01">
@@ -427,10 +427,13 @@ require_once("lang/language.php");
                   </div>
               </div>
 
-              <div class="settingHeading"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?></div>
             </div>
+            <div class="applySetting">
+            <button type="button" class="applySettingButton"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'apply'); ?></button>
+            </div>
+            <div class="settingHeading"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?></div>
+            <button type="button" class="settingWindowClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>
               
-          <button type="button" class="settingWindowClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>
         </div>
     </div>
     

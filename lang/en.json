@@ -63,5 +63,10 @@
     "register":"Register",
     "forgotPassword":"Forgot Password",
     "or":"or",
-    "back":"Back"
+    "back":"Back",
+    "basemap":"Basemap",
+    "googleMap":"Google Map",
+    "openStreetMap":"Open Street Map",
+    "opacity":"Opacity",
+    "apply":"Apply"
 }
