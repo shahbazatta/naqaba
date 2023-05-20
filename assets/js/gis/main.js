@@ -70,7 +70,7 @@ function addDrawInteraction() {
   });
 
   // Add the vector layer to the map
-  drawLayer..setZIndex(12);
+  drawLayer.setZIndex(12);
   map.addLayer(drawLayer);
 
   // Create a draw interaction for polygons
