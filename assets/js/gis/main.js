@@ -40,13 +40,13 @@ function switchBaseMaps() {
 	var layer_type = parseInt(options[options.selectedIndex].value);
 	if (layer_type==1)
 	{
-		googleMap.setZIndex(2);  //show layer
-		osmLayer.setZIndex(-1); //hide layer	
+		googleMap.setVisible(true);  //show layer
+		osmLayer.setVisible(false); //hide layer	
 	}
-	if (layer_type==2)
+	if (layer_type==0)
 	{
-		googleMap.setZIndex(-1);  //hide layer
-		osmLayer.setZIndex(2); //show layer	
+		googleMap.setVisible(false);  //hide layer
+		osmLayer.setVisible(true); //show layer	
 	}
 	
 }
