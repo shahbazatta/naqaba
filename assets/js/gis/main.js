@@ -51,6 +51,7 @@ function switchBaseMaps() {
 	
 }
 
+var drawGeofenceCord;
 function addDrawInteraction() {
   var geofenceStyle = new ol.style.Style({
 					stroke: new ol.style.Stroke({
@@ -86,6 +87,7 @@ function addDrawInteraction() {
   // Event listener for drawend event
   draw.on('drawend', function(event) {
     var polygon = event.feature.getGeometry();
+	drawGeofenceCord = polygon.getCoordinates();
     console.log('Polygon drawing ended:', polygon.getCoordinates());
     // Do something with the drawn polygon geometry
     $('#geofenceDialogBox').show();
