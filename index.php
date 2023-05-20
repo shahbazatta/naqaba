@@ -583,6 +583,7 @@ require_once("lang/language.php");
               <input type="text" class="inputText" id="shape_area" name="shape_area" maxlength="120"/>
             </fieldset>
 
+              <input type="hidden" id="coordinate_arr" name="coordinate_arr" value="">
             <div class="clear"></div>
             <!-- <p>Any message or information that you want to display.</p> -->
             <button type="button" class="button" value="Save" id="geofenceSave" onclick="">Save</button>
@@ -610,7 +611,7 @@ require_once("lang/language.php");
 $( document ).ready(function() {
    //$('#geofenceDialogBox').show();
    
-   $('#toolTipBox').show();
+   //$('#toolTipBox').show();
 
     $('#opacity-slider').on("change mousemove", function() {
       $('#slider-value').html($(this).val());
@@ -635,6 +636,7 @@ $( document ).ready(function() {
         var code_id         = $('#code_id').val();
         var shape_length    = $('#shape_length').val();
         var shape_area      = $('#shape_area').val();
+        var coordinate_arr  = $('#coordinate_arr').val();
         var flag = true;
         /********validate all our form fields***********/
         if(arabic_name==""){ $('#arabic_name').css('border-color','red'); flag = false; }
@@ -651,6 +653,10 @@ $( document ).ready(function() {
         if(code_id=="") { $('#code_id').css('border-color','red'); flag = false; }
         if(shape_length=="") { $('#shape_length').css('border-color','red'); flag = false; }
         if(shape_area=="") { $('#shape_area').css('border-color','red'); flag = false; }
+        if(coordinate_arr=="") { 
+          $("#result").hide().html('<div class="error">Wrong Draw Geofence Coordinates</div>').slideDown();
+          flag = false; 
+        }
 
         //check int
         if(Math.floor(station_type) == station_type && $.isNumeric(station_type)){ }else{ $('#station_type').css('border-color','red').val(''); flag = false; }
@@ -683,15 +689,16 @@ $( document ).ready(function() {
                   station_name : station_name,
                   code_id : code_id,
                   shape_length : shape_length,
-                  shape_area : shape_area
+                  shape_area : shape_area,
+                  coordinates : coordinate_arr
                 },
                 beforeSend: function() {
                     $('#geofenceSave').attr('disabled', true);
-                    $('#geofenceSave').after('<span class="wait">&nbsp;<img src="image/loading.gif" alt="" /></span>');
+                    //$('#geofenceSave').after('<span class="wait">&nbsp;<img src="image/loading.gif" alt="" /></span>');
                 },
                 complete: function() {
                     $('#geofenceSave').attr('disabled', false);
-                    $('.wait').remove();
+                    //$('.wait').remove();
                 },  
                 success: function(data)
                 {
