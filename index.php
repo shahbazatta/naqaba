@@ -37,7 +37,7 @@ require_once("lang/language.php");
 <script src="assets/plugin/togglebutton/toggles.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
- <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
 
 
 <!-- Custom Code Jquery -->
@@ -501,36 +501,91 @@ require_once("lang/language.php");
     
     <!-- Show All Tabs Button -->
     <button type="button" class="showAllTabs"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?>Show All Tabs</button>
+
+    <!-- Tool Tip Box -->
+    <div  id="toolTipBox" class="popUpBox">
+      <div class="popUpBoxTab">
+        
+          <span class="close exit">Close</span>
+          <h2>Tootip</h2>
+          
+            <!-- Data for toolTip -->
+
+        </div>
+    </div>
     
 
     <!-- Popup box -->
     <div  id="geofenceDialogBox" class="popUpBox">
       <div class="popUpBoxTab">
-          <span class="close">Close</span>
+
+          <span class="close exit">Close</span>
           <h2>Title fo Geofence Dialog Box</h2>
-          <fieldset>
-            <label>Input Field1:</label>
-            <input type="text" class="inputText" id="field1" maxlength="40"/>
-          </fieldset>
-          <fieldset>
-            <label>Input Field2:</label>
-            <input type="text" class="inputText" id="field2" maxlength="40"/>
-          </fieldset>
-          <fieldset>
-            <label>Input Field3:</label>
-            <input type="text" class="inputText" id="field3" maxlength="40"/>
-          </fieldset>
-          <fieldset>
-            <label>Input Field4:</label>
-            <input type="text" class="inputText" id="field4" maxlength="40"/>
-          </fieldset>
-          <fieldset>
-            <label>Input Field5:</label>
-            <input type="text" class="inputText" id="field5" maxlength="40"/>
-          </fieldset>
+          <div id="result"></div>
+          <form role="form" id="geofenceAdd" action="" >
+            <fieldset>
+              <label>Arabic Name:</label>
+              <input type="text" class="inputText" id="arabic_name" name="arabic_name" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>English Name:</label>
+              <input type="text" class="inputText" id="english_name" name="english_name" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Type:</label>
+              <input type="text" class="inputText" id="type" name="type" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>District:</label>
+              <input type="text" class="inputText" id="district" name="district" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Area:</label>
+              <input type="text" class="inputText" id="area" name="area" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Description:</label>
+              <input type="text" class="inputText" id="description" name="description" maxlength="280"/>
+            </fieldset>
+            <fieldset>
+              <label>Category:</label>
+              <input type="text" class="inputText" id="category" name="category" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Site:</label>
+              <input type="text" class="inputText" id="site" name="site" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Station Type:</label>
+              <input type="text" class="inputText" id="station_type" name="station_type" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Station Code:</label>
+              <input type="text" class="inputText" id="station_code" name="station_code" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Station Name:</label>
+              <input type="text" class="inputText" id="station_name" name="station_name" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Code ID:</label>
+              <input type="text" class="inputText" id="code_id" name="code_id" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Shape Length:</label>
+              <input type="text" class="inputText" id="shape_length" name="shape_length" maxlength="120"/>
+            </fieldset>
+            <fieldset>
+              <label>Shape Area:</label>
+              <input type="text" class="inputText" id="shape_area" name="shape_area" maxlength="120"/>
+            </fieldset>
+
+            <div class="clear"></div>
             <!-- <p>Any message or information that you want to display.</p> -->
             <button type="button" class="button" value="Save" id="geofenceSave" onclick="">Save</button>
-            <button type="button" class="button" value="Cancel" onclick="">Cancel</button>
+            <button type="button" class="button exit" value="Cancel" onclick="">Cancel</button>  
+          </form>
+          
         </div>
     </div>
     
@@ -550,12 +605,124 @@ require_once("lang/language.php");
 <script type="text/javascript">
 
 $( document ).ready(function() {
-    //$('#geofenceDialogBox').show();
+   //$('#geofenceDialogBox').show();
+   
+   $('#toolTipBox').show();
+
     $('#opacity-slider').on("change mousemove", function() {
       $('#slider-value').html($(this).val());
       // $('.wrapper img').css({
       //   'opacity': $(this).val()
       // });
+    });
+
+    $("#geofenceSave").click(function() { 
+        //get input field values
+        var arabic_name     = $('#arabic_name').val(); 
+        var english_name    = $('#english_name').val();
+        var type            = $('#type').val();
+        var district        = $('#district').val();
+        var area            = $('#area').val();
+        var description     = $('#description').val();
+        var category        = $('#category').val();
+        var site            = $('#site').val();
+        var station_type    = $('#station_type').val();
+        var station_code    = $('#station_code').val();
+        var station_name    = $('#station_name').val();
+        var code_id         = $('#code_id').val();
+        var shape_length    = $('#shape_length').val();
+        var shape_area      = $('#shape_area').val();
+        var flag = true;
+        /********validate all our form fields***********/
+        if(arabic_name==""){ $('#arabic_name').css('border-color','red'); flag = false; }
+        if(english_name==""){ $('#english_name').css('border-color','red'); flag = false; } 
+        if(type=="") { $('#type').css('border-color','red'); flag = false; }
+        if(district=="") { $('#district').css('border-color','red'); flag = false; }
+        if(area=="") { $('#area').css('border-color','red'); flag = false; }
+        if(description=="") { $('#description').css('border-color','red'); flag = false; }
+        if(category=="") { $('#category').css('border-color','red'); flag = false; }
+        if(site=="") { $('#site').css('border-color','red'); flag = false; }
+        if(station_type=="") { $('#station_type').css('border-color','red'); flag = false; }
+        if(station_code=="") { $('#station_code').css('border-color','red'); flag = false; }
+        if(station_name=="") { $('#station_name').css('border-color','red'); flag = false; }
+        if(code_id=="") { $('#code_id').css('border-color','red'); flag = false; }
+        if(shape_length=="") { $('#shape_length').css('border-color','red'); flag = false; }
+        if(shape_area=="") { $('#shape_area').css('border-color','red'); flag = false; }
+
+        //check int
+        if(Math.floor(station_type) == station_type && $.isNumeric(station_type)){ }else{ $('#station_type').css('border-color','red').val(''); flag = false; }
+        if(Math.floor(station_code) == station_code && $.isNumeric(station_code)){ }else{ $('#station_code').css('border-color','red').val(''); flag = false; }
+        
+        // check float
+        if($.isNumeric(area)){ }else{ $('#area').css('border-color','red').val('');  flag = false; }
+        if($.isNumeric(shape_length)){ }else{ $('#shape_length').css('border-color','red').val(''); flag = false; }
+        if($.isNumeric(shape_area)){ }else{ $('#shape_area').css('border-color','red').val(''); flag = false; }
+
+        /********Validation end here ****/
+        /* If all are ok then we send ajax request to email_send.php *******/
+        if(flag) 
+        {
+            $.ajax({
+                type: 'post',
+                url: "./data/set_geofence.php", 
+                dataType: 'json',
+                data: {
+                  arabic_name : arabic_name,
+                  english_name : english_name,
+                  type : type,
+                  district : district,
+                  area : area,
+                  description : description,
+                  category : category,
+                  site : site,
+                  station_type : station_type,
+                  station_code : station_code,
+                  station_name : station_name,
+                  code_id : code_id,
+                  shape_length : shape_length,
+                  shape_area : shape_area
+                },
+                beforeSend: function() {
+                    $('#geofenceSave').attr('disabled', true);
+                    $('#geofenceSave').after('<span class="wait">&nbsp;<img src="image/loading.gif" alt="" /></span>');
+                },
+                complete: function() {
+                    $('#geofenceSave').attr('disabled', false);
+                    $('.wait').remove();
+                },  
+                success: function(data)
+                {
+                  if(data.type == 'error')
+                  {
+                      output = '<div class="error">'+data.text+'</div>';
+                  }else{
+                      output = '<div class="success">'+data.text+'</div>';
+                      $('#geofenceAdd input[type=text]').val(''); 
+                      $('#geofenceAdd textarea').val(''); 
+
+                      $('.popUpBoxTab').animate({top:"0px",opacity:"0.1"}, function(){
+                          $('.popUpBoxTab').hide();
+                          //Black Box hide
+                          $('.popUpBox').animate({opacity:"0.1"}, function(){
+                            $('.popUpBox').hide();
+                            $('.popUpBox').css({"opacity":"1.0"});
+                            $('.popUpBoxTab').show();
+                            //Set to Default
+                            $('.popUpBoxTab').css({"top":"20px","opacity":"1.0"});
+                          });
+                      }); 
+                  }
+
+                  $("#result").hide().html(output).slideDown();
+                          
+                }
+            });
+        }
+    });
+    //reset previously set border colors and hide all message on .keyup()
+    $("#geofenceAdd input, #geofenceAdd textarea").keyup(function() { 
+        $("#geofenceAdd input, #geofenceAdd textarea").css('border-color',''); 
+        $("#result").slideUp();
     });
 
     // $.ajax({

@@ -353,12 +353,10 @@ $(document).ready(function() {
 	//Popup Box functions
 	
 	//$('.popUpBox').show();
-	$(".popUpBoxTab .close").click(function(){
+	$(".popUpBoxTab .exit").click(function(){
 		//Animate Alert Box Tab
 		$('.popUpBoxTab').animate({top:"0px",opacity:"0.1"}, function(){
-			
 			$('.popUpBoxTab').hide();
-			
 			//Black Box hide
 			$('.popUpBox').animate({opacity:"0.1"}, function(){
 				$('.popUpBox').hide();
@@ -367,9 +365,6 @@ $(document).ready(function() {
 				//Set to Default
 				$('.popUpBoxTab').css({"top":"20px","opacity":"1.0"});
 			});
-			
-			
-			
         });	
 	});
 	
