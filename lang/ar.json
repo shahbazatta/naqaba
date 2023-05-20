@@ -63,5 +63,10 @@
     "register":"يسجل",
     "forgotPassword":"هل نسيت كلمة السر",
     "or":"أو",
-    "back":"خلف"
+    "back":"خلف",
+    "basemap":"الخريطة الأساسية",
+    "googleMap":"خرائط جوجل",
+    "openStreetMap":"Open Street Map",
+    "opacity":"التعتيم",
+    "apply":"يتقدم"
 }

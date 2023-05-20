@@ -5,3 +5,72 @@ body{
     background-position: right 10px center;
     padding: 10px 42px 10px 6px;
 }
+
+.layerOptions .row h1 span.icon1 {
+    background: url(../images/icon_tracking.png) center right no-repeat;
+    float: right;
+}
+
+.layerOptions .row h1 span.icon2 {
+    background: url(../images/icon_bus.png) center right no-repeat;
+    float: right;
+}
+
+.layerOptions .row h1 span.icon3 {
+    background: url(../images/icon_tracking_device.png) center right no-repeat;
+    float: right;
+}
+
+.layerOptions .row h1 {
+    background: url(../images/iconArrowBottom.png) left center no-repeat;
+}
+
+.layerOptions .row h1.active {
+    background: url(../images/iconArrowTop.png) left center no-repeat;
+}
+
+.checkmark {
+    right: 0;
+}
+
+.cCheckBox2 {
+    padding-right: 25px;
+}
+
+.optionButtons button.logoutUser {
+    background: url(../images/iconLogout.png) right center no-repeat;
+    padding-right: 21px;
+}
+
+.optionButtons button.closeAllTabs {
+    background: url(../images/iconCloseTabs2.png) right center no-repeat;
+    padding-right: 31px;
+}
+
+.optionButtons button.hideAllTabs {
+    background: url(../images/iconHideTabs.png) right center no-repeat;
+    padding-right: 31px;
+}
+
+.optionButtons button.fullscreen {
+    background: url(../images/iconFullScreen.png) right center no-repeat;
+    padding-right: 27px;
+}
+
+.optionButtons button.exitFullscreen {
+    background: url(../images/iconFullScreen.png) right center no-repeat;
+    padding-right: 27px;
+}
+
+.optionButtons button.layerSel {
+    background: url(../images/iconLayer.png) right center no-repeat;
+    padding-right: 26px;
+}
+
+.bgSelect {
+    background: transparent url(../images/bgSelect180_right.png) top left no-repeat;
+}
+
+.bgSelect:hover{
+    background: transparent url(../images/bgSelect_h180_right.png) top left no-repeat;
+}

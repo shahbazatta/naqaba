@@ -23,6 +23,7 @@ var googleMap = new ol.layer.Tile({
 
 map.addLayer(googleMap);
 
+
 var busesLyr;
 var busesDataSource;
 var clusterSource;
@@ -52,15 +53,15 @@ function switchBaseMaps() {
 
 function addDrawInteraction() {
   var geofenceStyle = new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'green',
-      width: 2,
-      lineDash: [5]
-    }),
-    fill: new ol.style.Fill({
-      color: 'rgba(0, 0, 255, 0.1)',
-    }),
-  });
+					stroke: new ol.style.Stroke({
+					  color: 'green',
+					  width: 2,
+					  lineDash: [5]
+					}),
+					fill: new ol.style.Fill({
+					  color: 'rgba(0, 0, 255, 0.1)',
+					}),
+				  });
 
   var drawLayer = new ol.layer.Vector({
     source: drawSource,
@@ -176,7 +177,45 @@ function getAllGeofence()
         data: {
           api_key: "becdf4fbbbf49dbc",
          },
-         success: function(data){console.log(data);},
+         success: function(data){
+			 //console.log(data);
+			 var stationArr = [];
+			  for (let i = 0; i < data.length; i++) {
+				var obj = data[i];
+				var polygon = new ol.geom.Polygon(obj.geometry.coordinates).transform('EPSG:4326','EPSG:3857');
+
+				var feature = new ol.Feature({
+				  geometry:polygon,
+				  properties: obj
+				});
+				//feature.setId(obj._id);
+				stationArr.push(feature);
+			  }
+			  
+			  
+			  var stationSource = new ol.source.Vector({
+											features: stationArr
+											});
+			  
+				var stationStyle = new ol.style.Style({
+					stroke: new ol.style.Stroke({
+					  color: 'green',
+					  width: 2,
+					  lineDash: [5]
+					}),
+					fill: new ol.style.Fill({
+					  color: 'rgba(0, 0, 255, 0.1)',
+					}),
+				  });
+				var stationLyr = new ol.layer.Vector({
+					source: stationSource,
+					style: stationStyle,
+				  });
+			  
+			  map.addLayer(stationLyr);
+			  map.getView().fit(stationSource.getExtent());
+
+			 },
          error: function (jqXHR, exception) {
            var msg = '';
           //alert(msg);
