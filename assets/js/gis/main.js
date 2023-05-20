@@ -70,6 +70,7 @@ function addDrawInteraction() {
   });
 
   // Add the vector layer to the map
+  drawLayer..setZIndex(12);
   map.addLayer(drawLayer);
 
   // Create a draw interaction for polygons
@@ -158,6 +159,7 @@ var clusterLayer = new ol.layer.Vector({
     return style;
   }
 });
+clusterLayer.setZIndex(10);
 
 // Add the cluster layer to the map
 map.addLayer(clusterLayer);
@@ -213,7 +215,7 @@ function getAllGeofence()
 					source: stationSource,
 					style: stationStyle,
 				  });
-			  
+			  stationLyr.setZIndex(11);
 			  map.addLayer(stationLyr);
 			  map.getView().fit(stationSource.getExtent());
 
