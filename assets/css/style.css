@@ -2842,14 +2842,15 @@ a.button {
 
 .applySettingButton{
 	background-color: #00a24c;
-	height: 40px;
 	width: 100%;
-	margin: 5px;
-	color: #dddddd;
-    background-position: 10px center;
-    border-top: 1px solid #131313;
+	padding: 4px 0px 9px;
+	margin: 0px;
+	color: #ffffff;
+    border: 0px solid #131313;
     font-size: 22px;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 300;
+    font-family: 'Oswald', sans-serif;
     cursor: pointer;
+    display: inline-block;
 }

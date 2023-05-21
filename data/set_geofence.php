@@ -1,6 +1,8 @@
 <?php
 require_once '../vendor/autoload.php';
 
+
+
 use MongoDB\Exception;
 use MongoDB\Client;
 
@@ -22,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 	//check $_POST vars are set, exit if any missing
-	if ( !isset($_POST["arabic_name"]) || !isset($_POST["english_name"]) || !isset($_POST["type"]) || !isset($_POST["district"]) || !isset($_POST["area"]) || !isset($_POST["description"]) || !isset($_POST["category"]) || !isset($_POST["site"]) || !isset($_POST["station_type"]) || !isset($_POST["station_code"]) || !isset($_POST["station_name"]) || !isset($_POST["code_id"]) || !isset($_POST["shape_length"]) || !isset($_POST["shape_area"]) ) {
+	if ( !isset($_POST["arabic_name"]) || !isset($_POST["english_name"]) || !isset($_POST["type"]) || !isset($_POST["district"]) || !isset($_POST["area"]) || !isset($_POST["description"]) || !isset($_POST["category"]) || !isset($_POST["site"]) || !isset($_POST["station_type"]) || !isset($_POST["station_code"]) || !isset($_POST["station_name"]) || !isset($_POST["code_id"]) || !isset($_POST["shape_length"]) || !isset($_POST["shape_area"]) || !isset($_POST["coordinates"]) ) {
 	    $output = json_encode(array('type' => 'error', 'text' => 'Input fields are empty!'));
 	    die($output);
 	}
@@ -43,7 +45,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$shape_length = filter_var(trim($_POST["shape_length"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 	$shape_area = filter_var(trim($_POST["shape_area"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
-	//$output = json_encode(array('type' => 'message', 'text' => 'Success'));
+
+	$coordinates_array = trim($_POST["coordinates"]);
+	//$output = json_encode(array('type' => 'message', 'text' => 'Success2 ' . $coordinates_array));
+	//die($output);
+	
+	$arrr = explode(",",$coordinates_array);
+	$array_set = array();
+	$coordinates = array();
+	$kk = 0;
+
+	for($i = 0; $i < count($arrr); $i++) {
+    	$kk++;
+    	array_push($array_set,(float)$arrr[$i]);
+      	if($kk == 2){
+        	array_push($coordinates,$array_set);
+        	$kk = 0;
+        	$array_set = array();
+      	}
+	}
+	
+	//$output = json_encode(array('type' => 'message', 'text' => 'Success ' . $array_set));
 	//die($output);
 
 	//additional php validation
@@ -78,45 +100,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$db = $client->selectDatabase('local');
 	$collection = $db->geofence;
 
-	$coordinates = array(
-		[
-          39.82919461800003,
-          21.417006041000036
-        ],
-        [
-          39.829213999000046,
-          21.416674484000055
-        ],
-        [
-          39.829155531000026,
-          21.41669224700007
-        ],
-        [
-          39.82910253800003,
-          21.41670425700005
-        ],
-        [
-          39.82891650000005,
-          21.416780982000034
-        ],
-        [
-          39.828925678000076,
-          21.41683616800003
-        ],
-        [
-          39.828925954000056,
-          21.417023612000037
-        ],
-        [
-          39.828977663000046,
-          21.41702448600006
-        ],
-        [
-          39.82919461800003,
-          21.417006041000036
-        ]
-	);
-
 	$document = array( 
 	  "attributes" => array(
 	        "OBJECTID" => 0,
@@ -142,10 +125,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	        )
 	    )
 	 );
+
+
 	$collection->insertOne($document);
 	$output = json_encode(array('type' => 'message', 'text' => 'Polygon Area Save Successfully'));
 	die($output);
+
 }else{
 	header("Location: ../index.php");
 }
+
 

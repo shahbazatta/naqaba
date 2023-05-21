@@ -91,10 +91,13 @@ function addDrawInteraction() {
 	var src = 'EPSG:3857';
 	var dest = 'EPSG:4326';
 	polygon.transform(src, dest)
+
 	drawGeofenceCord = polygon.getCoordinates();
     console.log('Polygon drawing ended:', polygon.getCoordinates());
     // Do something with the drawn polygon geometry
     $('#geofenceDialogBox').show();
+    $('#coordinate_arr').val(drawGeofenceCord);
+
   });
 
   // Add the draw interaction to the map
