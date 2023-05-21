@@ -503,82 +503,82 @@ require_once("lang/language.php");
     <div class="bottomSolidBar"></div>
     
     <!-- Show All Tabs Button -->
-    <button type="button" class="showAllTabs"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabah'); ?>Show All Tabs</button>
+    <button type="button" class="showAllTabs"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'showAllTabs'); ?></button>
 
     <!-- Tool Tip Box -->
     <div  id="toolTipBox" class="popUpBox">
       <div class="popUpBoxTab">
         
-          <span class="close exit">Close</span>
-          <h2>Tootip</h2>
+          <span class="close exit"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></span>
+          <h2><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'tooltip'); ?></h2>
           
             <!-- Data for toolTip -->
             <div id="resultGeofence"></div>
             <form role="form" id="toolTipGeofenceAdd" action="" >
               <fieldset>
-                <label>Arabic Name:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?>:</label>
                 <input type="text" class="inputText" id="arabic_name_toolTip" name="arabic_name_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>English Name:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?>:</label>
                 <input type="text" class="inputText" id="english_name_toolTip" name="english_name_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Type:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?>:</label>
                 <input type="text" class="inputText" id="type_toolTip" name="type_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>District:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?>:</label>
                 <input type="text" class="inputText" id="district_toolTip" name="district_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Area:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?>:</label>
                 <input type="text" class="inputText" id="area_toolTip" name="area_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Description:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?>:</label>
                 <input type="text" class="inputText" id="description_toolTip" name="description_toolTip" maxlength="280"/>
               </fieldset>
               <fieldset>
-                <label>Category:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?>:</label>
                 <input type="text" class="inputText" id="category_toolTip" name="category_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Site:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?>:</label>
                 <input type="text" class="inputText" id="site_toolTip" name="site_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Station Type:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?>:</label>
                 <input type="text" class="inputText" id="station_type_toolTip" name="station_type_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Station Code:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?>:</label>
                 <input type="text" class="inputText" id="station_code_toolTip" name="station_code_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Station Name:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?>:</label>
                 <input type="text" class="inputText" id="station_name_toolTip" name="station_name_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Code ID:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?>:</label>
                 <input type="text" class="inputText" id="code_id_toolTip" name="code_id_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Shape Length:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?>:</label>
                 <input type="text" class="inputText" id="shape_length_toolTip" name="shape_length_toolTip" maxlength="120"/>
               </fieldset>
               <fieldset>
-                <label>Shape Area:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?>:</label>
                 <input type="text" class="inputText" id="shape_area_toolTip" name="shape_area_toolTip" maxlength="120"/>
               </fieldset>
 
                 <input type="hidden" id="coordinate_arr_toolTip" name="coordinate_arr_toolTip" value="">
               <div class="clear"></div>
               <!-- <p>Any message or information that you want to display.</p> -->
-              <button type="button" class="button" value="Edit" id="toolTipGeofenceSave" onclick="">Edit</button>
-              <button type="button" class="button" value="Delete" id="toolTipGeofenceSave" onclick="">Delete</button>
-              <button type="button" class="button" value="ExportGeoJSON" id="toolTipGeofenceSave" onclick="">Export GeoJSON</button>
-              <button type="button" class="button exit" value="Cancel" onclick="">Cancel</button>  
+              <button type="button" class="button" value="Edit" id="toolTipGeofenceSave" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'edit'); ?></button>
+              <button type="button" class="button" value="Delete" id="toolTipGeofenceSave" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'delete'); ?></button>
+              <button type="button" class="button" value="ExportGeoJSON" id="toolTipGeofenceSave" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'exportGeoJSON'); ?></button>
+              <button type="button" class="button exit" value="Cancel" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'cancel'); ?></button>  
             </form>
         </div>
     </div>
@@ -588,72 +588,72 @@ require_once("lang/language.php");
     <div  id="geofenceDialogBox" class="popUpBox">
       <div class="popUpBoxTab">
 
-          <span class="close exit">Close</span>
-          <h2>Title fo Geofence Dialog Box</h2>
+          <span class="close exit"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></span>
+          <h2><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'titleOfGeofenceDialogBox'); ?></h2>
           <div id="result"></div>
           <form role="form" id="geofenceAdd" action="" >
             <fieldset>
-              <label>Arabic Name:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?>:</label>
               <input type="text" class="inputText" id="arabic_name" name="arabic_name" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>English Name:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?>:</label>
               <input type="text" class="inputText" id="english_name" name="english_name" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Type:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?>:</label>
               <input type="text" class="inputText" id="type" name="type" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>District:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?>:</label>
               <input type="text" class="inputText" id="district" name="district" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Area:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?>:</label>
               <input type="text" class="inputText" id="area" name="area" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Description:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?>:</label>
               <input type="text" class="inputText" id="description" name="description" maxlength="280"/>
             </fieldset>
             <fieldset>
-              <label>Category:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?>:</label>
               <input type="text" class="inputText" id="category" name="category" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Site:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?>:</label>
               <input type="text" class="inputText" id="site" name="site" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Station Type:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?>:</label>
               <input type="text" class="inputText" id="station_type" name="station_type" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Station Code:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?>:</label>
               <input type="text" class="inputText" id="station_code" name="station_code" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Station Name:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?>:</label>
               <input type="text" class="inputText" id="station_name" name="station_name" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Code ID:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?>:</label>
               <input type="text" class="inputText" id="code_id" name="code_id" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Shape Length:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?>:</label>
               <input type="text" class="inputText" id="shape_length" name="shape_length" maxlength="120"/>
             </fieldset>
             <fieldset>
-              <label>Shape Area:</label>
+              <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?>:</label>
               <input type="text" class="inputText" id="shape_area" name="shape_area" maxlength="120"/>
             </fieldset>
 
               <input type="hidden" id="coordinate_arr" name="coordinate_arr" value="">
             <div class="clear"></div>
             <!-- <p>Any message or information that you want to display.</p> -->
-            <button type="button" class="button" value="Save" id="geofenceSave" onclick="">Save</button>
-            <button type="button" class="button exit" value="Cancel" onclick="">Cancel</button>  
+            <button type="button" class="button" value="Save" id="geofenceSave" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'save'); ?> </button>
+            <button type="button" class="button exit" value="Cancel" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'cancel'); ?> </button>  
           </form>
           
         </div>

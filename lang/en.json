@@ -68,5 +68,27 @@
     "googleMap":"Google Map",
     "openStreetMap":"Open Street Map",
     "opacity":"Opacity",
-    "apply":"Apply"
+    "apply":"Apply",
+
+    "tooltip":"Tooltip",
+    "arabicName":"Arabic Name",
+    "englishName":"English Name",
+    "type":"Type",
+    "district":"District",
+    "area":"Area",
+    "description":"Description",
+    "category":"Category",
+    "site":"Site",
+    "stationType":"Station Type",
+    "stationCode":"Station Code",
+    "stationName":"Station Name",
+    "codeId":"Code ID",
+    "shapeLength":"Shape Length",
+    "shapeArea":"Shape Area",
+    "edit":"Edit",
+    "delete":"Delete",
+    "exportGeoJSON":"Export GeoJSON",
+    "cancel":"Cancel",
+    "titleOfGeofenceDialogBox":"Title of Geofence Dialog Box",
+    "save":"Save"
 }

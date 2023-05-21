@@ -68,5 +68,27 @@
     "googleMap":"خرائط جوجل",
     "openStreetMap":"Open Street Map",
     "opacity":"التعتيم",
-    "apply":"يتقدم"
+    "apply":"يتقدم",
+
+    "tooltip":"تلميح",
+    "arabicName":"الاسم العربي",
+    "englishName":"الاسم الانجليزي",
+    "type":"يكتب",
+    "district":"يصرف",
+    "area":"منطقة",
+    "description":"وصف",
+    "category":"فئة",
+    "site":"موقع",
+    "stationType":"نوع المحطة",
+    "stationCode":"كود المحطة",
+    "stationName":"اسم المحطة",
+    "codeId":"معرف الرمز",
+    "shapeLength":"طول الشكل",
+    "shapeArea":"منطقة الشكل",
+    "edit":"يحرر",
+    "delete":"يمسح",
+    "exportGeoJSON":"تصدير GeoJSON",
+    "cancel":"يلغي",
+    "titleOfGeofenceDialogBox":"عنوان مربع الحوار Geofence",
+    "save":"يحفظ"
 }
