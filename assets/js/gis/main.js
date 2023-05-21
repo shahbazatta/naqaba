@@ -87,7 +87,10 @@ function addDrawInteraction() {
 
   // Event listener for drawend event
   draw.on('drawend', function(event) {
-    var polygon = event.feature.getGeometry();
+    var polygon = event.feature.getGeometry().clone();
+	var src = 'EPSG:3857';
+	var dest = 'EPSG:4326';
+	polygon.transform(src, dest)
 	drawGeofenceCord = polygon.getCoordinates();
     console.log('Polygon drawing ended:', polygon.getCoordinates());
     // Do something with the drawn polygon geometry
