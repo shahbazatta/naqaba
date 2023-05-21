@@ -513,7 +513,73 @@ require_once("lang/language.php");
           <h2>Tootip</h2>
           
             <!-- Data for toolTip -->
+            <div id="resultGeofence"></div>
+            <form role="form" id="toolTipGeofenceAdd" action="" >
+              <fieldset>
+                <label>Arabic Name:</label>
+                <input type="text" class="inputText" id="arabic_name_toolTip" name="arabic_name_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>English Name:</label>
+                <input type="text" class="inputText" id="english_name_toolTip" name="english_name_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Type:</label>
+                <input type="text" class="inputText" id="type_toolTip" name="type_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>District:</label>
+                <input type="text" class="inputText" id="district_toolTip" name="district_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Area:</label>
+                <input type="text" class="inputText" id="area_toolTip" name="area_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Description:</label>
+                <input type="text" class="inputText" id="description_toolTip" name="description_toolTip" maxlength="280"/>
+              </fieldset>
+              <fieldset>
+                <label>Category:</label>
+                <input type="text" class="inputText" id="category_toolTip" name="category_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Site:</label>
+                <input type="text" class="inputText" id="site_toolTip" name="site_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Station Type:</label>
+                <input type="text" class="inputText" id="station_type_toolTip" name="station_type_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Station Code:</label>
+                <input type="text" class="inputText" id="station_code_toolTip" name="station_code_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Station Name:</label>
+                <input type="text" class="inputText" id="station_name_toolTip" name="station_name_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Code ID:</label>
+                <input type="text" class="inputText" id="code_id_toolTip" name="code_id_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Shape Length:</label>
+                <input type="text" class="inputText" id="shape_length_toolTip" name="shape_length_toolTip" maxlength="120"/>
+              </fieldset>
+              <fieldset>
+                <label>Shape Area:</label>
+                <input type="text" class="inputText" id="shape_area_toolTip" name="shape_area_toolTip" maxlength="120"/>
+              </fieldset>
 
+                <input type="hidden" id="coordinate_arr_toolTip" name="coordinate_arr_toolTip" value="">
+              <div class="clear"></div>
+              <!-- <p>Any message or information that you want to display.</p> -->
+              <button type="button" class="button" value="Edit" id="toolTipGeofenceSave" onclick="">Edit</button>
+              <button type="button" class="button" value="Delete" id="toolTipGeofenceSave" onclick="">Delete</button>
+              <button type="button" class="button" value="ExportGeoJSON" id="toolTipGeofenceSave" onclick="">Export GeoJSON</button>
+              <button type="button" class="button exit" value="Cancel" onclick="">Cancel</button>  
+            </form>
         </div>
     </div>
     
