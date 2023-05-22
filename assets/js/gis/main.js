@@ -121,6 +121,7 @@ function getAllBusesData() {
           properties: obj
         });
         feature.setId(obj.imei);
+		feature.setProperties(obj);
         var iconStyle = new ol.style.Style({
           image: new ol.style.Icon({
             src: 'assets/images/pointerIcon3.png', // Replace with the path to your bus icon image
@@ -165,16 +166,41 @@ var clusterLayer = new ol.layer.Vector({
     return style;
   }
 });
-clusterLayer.setZIndex(10);
+//clusterLayer.setZIndex(10);
 
 // Add the cluster layer to the map
 map.addLayer(clusterLayer);
+var selectInteraction = new ol.interaction.Select({
+  layers: [clusterLayer]
+});
 
+// Add the Select interaction to the map
+map.addInteraction(selectInteraction);
+// Listen for feature selection event
+selectInteraction.on('select', function(event) {
+	 if (draw.getActive() ==false)
+	 {
+		  var selectedFeatures = event.selected; // Array of selected features
+		  var deselectedFeatures = event.deselected; // Array of deselected features
+		  var  data  = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
+		  var obj_str ="";
+		  for (var key in data)
+		  {
+			  obj_str += key+" : "+data[key] +"\n"
+		  }
+		  alert(obj_str);
+
+	 }
+  // Perform actions with selected or deselected features
+  // ...
+});
 },
 error: function(xhr, status, error) {
   console.log('Error:', error);
 }
 });
+
+
 }
 
 function getAllGeofence()
