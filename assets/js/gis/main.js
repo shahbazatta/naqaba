@@ -29,10 +29,11 @@ var busesDataSource;
 var clusterSource;
 var drawSource = new ol.source.Vector();
 var draw;
-
+var selectInteraction;
 // Use this function on the draw geofence button click
 function toggleDrawGeofenceCtrl() {
   draw.setActive(!draw.getActive());
+  selectInteraction(!draw.getActive());
 }
 
 function switchBaseMaps() {
@@ -170,7 +171,7 @@ var clusterLayer = new ol.layer.Vector({
 
 // Add the cluster layer to the map
 map.addLayer(clusterLayer);
-var selectInteraction = new ol.interaction.Select({
+selectInteraction = new ol.interaction.Select({
   layers: [clusterLayer]
 });
 
