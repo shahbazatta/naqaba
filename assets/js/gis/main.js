@@ -178,7 +178,7 @@ function getAllBusesData() {
       busDataArr = response;
       addBusFeatures(busDataArr);
 var selectInteraction = new ol.interaction.Select({
-  layers: [clusterLayer]
+  layers: [clusterLayer,stationLyr]
 });
 
 // Add the Select interaction to the map
@@ -189,6 +189,7 @@ selectInteraction.on('select', function(event) {
 	 {
 		  var selectedFeatures = event.selected; // Array of selected features
 		  var deselectedFeatures = event.deselected; // Array of deselected features
+		  if (selectedFeatures.length>=0){
 		  var  data  = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
 		  var obj_str ="";
 		  for (var key in data)
@@ -196,6 +197,7 @@ selectInteraction.on('select', function(event) {
 			  obj_str += key+" : "+data[key] +"\n"
 		  }
 		  alert(obj_str);
+		  }
 
 	 }
   // Perform actions with selected or deselected features
