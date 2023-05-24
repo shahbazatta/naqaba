@@ -429,7 +429,7 @@ require_once("lang/language.php");
 
             </div>
             <div class="applySetting">
-            <button type="button" class="applySettingButton"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'apply'); ?></button>
+            <button type="button" class="applySettingButton" id ="applySettingBtn"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'apply'); ?></button>
             </div>
             <div class="settingHeading"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?></div>
             <button type="button" class="settingWindowClose"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></button>
