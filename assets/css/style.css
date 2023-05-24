@@ -2854,3 +2854,7 @@ a.button {
     cursor: pointer;
     display: inline-block;
 }
+
+.settingShow .active {
+	background-color: #00a24c;
+} 

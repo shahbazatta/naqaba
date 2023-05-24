@@ -795,6 +795,51 @@ $( document ).ready(function() {
             });
         }
     });
+
+    var picon1 = document.getElementById('picon1');
+    var picon2 = document.getElementById('picon2');
+    var picon3 = document.getElementById('picon3');
+    var picon4 = document.getElementById('picon4');
+    var picon5 = document.getElementById('picon5');
+    $("#picon1").click(function() { 
+      picon1.classList.add("active");
+      picon2.classList.remove("active");
+      picon3.classList.remove("active");
+      picon4.classList.remove("active");
+      picon5.classList.remove("active");
+    });
+    $("#picon2").click(function() { 
+      picon1.classList.remove("active");
+      picon2.classList.add("active");
+      picon3.classList.remove("active");
+      picon4.classList.remove("active");
+      picon5.classList.remove("active");
+        
+    });
+    $("#picon3").click(function() {
+      picon1.classList.remove("active");
+      picon2.classList.remove("active");
+      picon3.classList.add("active");
+      picon4.classList.remove("active");
+      picon5.classList.remove("active");
+        
+    });
+    $("#picon4").click(function() { 
+      picon1.classList.remove("active");
+      picon2.classList.remove("active");
+      picon3.classList.remove("active");
+      picon4.classList.add("active");
+      picon5.classList.remove("active");
+        
+    });
+    $("#picon5").click(function() { 
+      picon1.classList.remove("active");
+      picon2.classList.remove("active");
+      picon3.classList.remove("active");
+      picon4.classList.remove("active");
+      picon5.classList.add("active");
+        
+    });
     //reset previously set border colors and hide all message on .keyup()
     $("#geofenceAdd input, #geofenceAdd textarea").keyup(function() { 
         $("#geofenceAdd input, #geofenceAdd textarea").css('border-color',''); 
