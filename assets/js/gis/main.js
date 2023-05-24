@@ -190,12 +190,19 @@ selectInteraction.on('select', function(event) {
 		  var selectedFeatures = event.selected; // Array of selected features
 		  var deselectedFeatures = event.deselected; // Array of deselected features
 		  if (selectedFeatures.length>=0){
-		  var  data  = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
+			  var data;
+		if (selectedFeatures[0].getProperties().properties==undefined){
+		  data  = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
+		}
+		else {
+			data = selectedFeatures[0].getProperties().properties['attributes']
+		}
 		  var obj_str ="";
 		  for (var key in data)
 		  {
 			  obj_str += key+" : "+data[key] +"\n"
 		  }
+		  
 		  alert(obj_str);
 		  }
 
