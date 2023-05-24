@@ -23,7 +23,7 @@ var googleMap = new ol.layer.Tile({
 
 map.addLayer(googleMap);
 
-
+var stationLyr;
 var busesLyr;
 var busesDataSource;
 var clusterSource;
@@ -250,7 +250,7 @@ function getAllGeofence()
 					  color: 'rgba(0, 0, 255, 0.1)',
 					}),
 				  });
-				var stationLyr = new ol.layer.Vector({
+				stationLyr = new ol.layer.Vector({
 					source: stationSource,
 					style: stationStyle,
 				  });
@@ -285,8 +285,9 @@ function getAllGeofence()
 }
 
 addDrawInteraction();
-getAllBusesData();
 getAllGeofence();
+getAllBusesData();
+
 document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
 
  document.getElementById("bmap").onchange = function(){
