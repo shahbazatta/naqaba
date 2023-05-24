@@ -29,7 +29,7 @@ var busesDataSource;
 var clusterSource;
 var drawSource = new ol.source.Vector();
 var draw;
-
+var clusterLayer;
 // Use this function on the draw geofence button click
 function toggleDrawGeofenceCtrl() {
   draw.setActive(!draw.getActive());
@@ -73,7 +73,7 @@ function addBusFeatures(dataArr) {
     source: busesDataSource
   });
 
-var clusterLayer = new ol.layer.Vector({
+clusterLayer = new ol.layer.Vector({
   source: clusterSource,
   style: function(feature) {
     var size = feature.get('features').length;
