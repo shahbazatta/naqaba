@@ -72,15 +72,16 @@ function addBusFeatures(dataArr) {
     distance: 50,
     source: busesDataSource
   });
-
+var image_path = document.getElementsByClassName("moreIcons active")[0].children[0].getAttribute('src');
 clusterLayer = new ol.layer.Vector({
   source: clusterSource,
   style: function(feature) {
     var size = feature.get('features').length;
     var style = new ol.style.Style({
       image: new ol.style.Icon({
-        src: 'assets/images/pointerIcon3.png', // Replace with the path to your bus icon image
-        scale: 0.20 // Adjust the scale as needed
+        src: image_path, // Replace with the path to your bus icon image
+        scale: 0.20, // Adjust the scale as needed
+		opacity: parseFloat(document.getElementById("slider-value").value)
       }),
       text: new ol.style.Text({
         text: size.toString(),
