@@ -331,6 +331,7 @@ require_once("lang/language.php");
                       <select id="bmap" class="bgSelect" title="Basemap" >  
                              <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'googleMap'); ?></option>                         			  
                             <option value="0"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'openStreetMap'); ?></option>
+							<option value="2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'MapBox'); ?></option>
                         </select>
                      </div>
                 </div>

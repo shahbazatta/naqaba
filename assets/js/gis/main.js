@@ -14,7 +14,13 @@ var osmLayer = new ol.layer.Tile({
 
 // Add the osm layer to the map
 map.addLayer(osmLayer);
-
+var mapboxLayer =  new ol.layer.Tile({
+      source: new ol.source.XYZ({
+		          url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
+	  })
+    })
+map.addLayer(googleMap);
+	
 var googleMap = new ol.layer.Tile({
   source:new ol.source.XYZ({
         url: 'http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}'
@@ -105,11 +111,19 @@ function switchBaseMaps() {
 	{
 		googleMap.setVisible(true);  //show layer
 		osmLayer.setVisible(false); //hide layer	
+		mapboxLayer.setVisible(false);
 	}
 	if (layer_type==0)
 	{
 		googleMap.setVisible(false);  //hide layer
+		mapboxLayer.setVisible(false);
 		osmLayer.setVisible(true); //show layer	
+	}
+	if (layer_type==2)
+	{
+		googleMap.setVisible(false);  //hide layer
+		osmLayer.setVisible(false);
+		mapboxLayer.setVisible(true); //show layer	
 	}
 	
 }
