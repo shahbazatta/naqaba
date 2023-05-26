@@ -583,6 +583,17 @@ require_once("lang/language.php");
             </form>
         </div>
     </div>
+
+    <div  id="busToolTipBox" class="popUpBox">
+      <div class="popUpBoxTab">
+        
+          <span class="close exit"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'close'); ?></span>
+          <h2><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'tooltip'); ?></h2>
+          
+            <!-- Data for toolTip -->
+            <div id="resultbusToolTipBox" style="margin: 5px;"></div>
+        </div>
+    </div>
     
 
     <!-- Popup box -->
