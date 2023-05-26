@@ -192,39 +192,6 @@ function getAllBusesData() {
     success: function(response) {
       busDataArr = response;
       addBusFeatures(busDataArr);
-var selectInteraction = new ol.interaction.Select({
-  layers: [clusterLayer,stationLyr]
-});
-
-// Add the Select interaction to the map
-map.addInteraction(selectInteraction);
-// Listen for feature selection event
-selectInteraction.on('select', function(event) {
-	 if (draw.getActive() ==false)
-	 {
-		  var selectedFeatures = event.selected; // Array of selected features
-		  var deselectedFeatures = event.deselected; // Array of deselected features
-		  if (selectedFeatures.length>=0){
-			  var data;
-		if (selectedFeatures[0].getProperties().properties==undefined){
-		  data  = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
-		}
-		else {
-			data = selectedFeatures[0].getProperties().properties['attributes']
-		}
-		  var obj_str ="";
-		  for (var key in data)
-		  {
-			  obj_str += key+" : "+data[key] +"\n"
-		  }
-		  
-		  alert(obj_str);
-		  }
-
-	 }
-  // Perform actions with selected or deselected features
-  // ...
-});
 },
 error: function(xhr, status, error) {
   console.log('Error:', error);
@@ -308,8 +275,47 @@ function getAllGeofence()
      });
 }
 
+function initSelectInteraction()
+{
+	var selectInteraction = new ol.interaction.Select({
+		  layers: [clusterLayer,stationLyr]
+		});
+
+	// Add the Select interaction to the map
+	map.addInteraction(selectInteraction);
+		// Listen for feature selection event
+	selectInteraction.on('select', function(event) {
+	 if (draw.getActive() ==false)
+	 {
+		  var selectedFeatures = event.selected; // Array of selected features
+		  var deselectedFeatures = event.deselected; // Array of deselected features
+		  if (selectedFeatures.length>=0){
+			  var data;
+		if (selectedFeatures[0].getProperties().properties==undefined){
+		  data  = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
+		}
+		else {
+			data = selectedFeatures[0].getProperties().properties['attributes']
+		}
+		  var obj_str ="";
+		  for (var key in data)
+		  {
+			  obj_str += key+" : "+data[key] +"\n"
+		  }
+		  
+		  alert(obj_str);
+		  }
+
+	 }
+  // Perform actions with selected or deselected features
+  // ...
+});
+}
+
 addDrawInteraction();
+initSelectInteraction();
 getAllGeofence();
+
 getAllBusesData();
 
 document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
