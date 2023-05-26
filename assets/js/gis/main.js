@@ -218,7 +218,9 @@ selectInteraction.on('select', function(event) {
 			  obj_str += key+" : "+data[key] +"\n"
 		  }
 		  
-		  alert(obj_str);
+		  // alert(obj_str);
+      document.getElementById("resultbusToolTipBox").innerText = obj_str;
+      $('#busToolTipBox').show();
 		  }
 
 	 }
