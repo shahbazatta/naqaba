@@ -217,8 +217,44 @@ selectInteraction.on('select', function(event) {
 		  {
 			  obj_str += key+" : "+data[key] +"\n"
 		  }
-		  
-		  alert(obj_str);
+
+		    // alert(obj_str);
+        if(data['_id'] != null && data['_id'] != undefined){
+          document.getElementById('resultbusToolTipBox').innerText = obj_str;
+          $('#busToolTipBox').show();
+        }else{
+          document.getElementById("arabicNameGeofence").innerHTML = data['Arabic_Name'];
+          document.getElementById("englishNameGeofence").innerHTML = data['English_Name'];
+          document.getElementById("typeGeofence").innerHTML = data['Type']
+          document.getElementById("districtGeofence").innerHTML = data['District'];
+          document.getElementById("areaGeofence").innerHTML = data['Area'];
+          document.getElementById("descriptionGeofence").innerHTML = data['Description'];
+          document.getElementById("categoryGeofence").innerHTML = data['Category'];
+          document.getElementById("siteGeofence").innerHTML = data['Site']; 
+          document.getElementById("stationTypeGeofence").innerHTML = data['Station_type'];
+          document.getElementById("stationCodeGeofence").innerHTML = data['Station_Code'];
+          document.getElementById("stationNameGeofence").innerHTML = data['Station_Name'];
+          document.getElementById("codeIdGeofence").innerHTML = data['Code_ID'];
+          document.getElementById("shapeLengthGeofence").innerHTML = data['SHAPE_Length'];
+          document.getElementById("shapeAreaGeofence").innerHTML = data['SHAPE_Area'];
+
+          document.getElementById("arabic_name_toolTip").value = data['Arabic_Name'];
+          document.getElementById("english_name_toolTip").value = data['English_Name'];
+          document.getElementById("type_toolTip").value = data['Type']
+          document.getElementById("district_toolTip").value = data['District'];
+          document.getElementById("area_toolTip").value = data['Area'];
+          document.getElementById("description_toolTip").value = data['Description'];
+          document.getElementById("category_toolTip").value = data['Category'];
+          document.getElementById("site_toolTip").value = data['Site']; 
+          document.getElementById("station_type_toolTip").value = data['Station_type'];
+          document.getElementById("station_code_toolTip").value = data['Station_Code'];
+          document.getElementById("station_name_toolTip").value = data['Station_Name'];
+          document.getElementById("code_id_toolTip").value = data['Code_ID'];
+          document.getElementById("shape_length_toolTip").value = data['SHAPE_Length'];
+          document.getElementById("shape_area_toolTip").value = data['SHAPE_Area'];
+          resetgeofenceEditForm();
+          $('#toolTipBox').show();
+        }
 		  }
 
 	 }
@@ -304,8 +340,8 @@ function getAllGeofence()
            } else {
              msg = 'Uncaught Error.\n' + jqXHR.responseText;
            }
-          //  alert(msg);
-          $('#toolTipBox').show();
+           alert(msg);
+          // $('#toolTipBox').show();
          },
      });
 }
