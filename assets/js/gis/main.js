@@ -245,7 +245,7 @@ function getAllGeofence()
           api_key: "becdf4fbbbf49dbc",
          },
          success: function(data){
-			 //console.log(data);
+			 console.log(data);
 			 var stationArr = [];
 			  for (let i = 0; i < data.length; i++) {
 				var obj = data[i];
@@ -304,7 +304,8 @@ function getAllGeofence()
            } else {
              msg = 'Uncaught Error.\n' + jqXHR.responseText;
            }
-           alert(msg);
+          //  alert(msg);
+          $('#toolTipBox').show();
          },
      });
 }
@@ -327,4 +328,30 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
         addBusFeatures(busDataArr);
     }); 
 //});
+
+$("#toolTipGeofenceEditButton").click(function(){
+  showgeofenceEditForm();
+});
+
+$("#toolTipGeofenceSaveReset").click(function(){
+  resetgeofenceEditForm();
+});
+
+function showgeofenceEditForm(){
+  var toolTipBoxForm = document.getElementById('toolTipBoxForm');
+  var toolTipBoxData = document.getElementById('toolTipBoxData');
+  
+  toolTipBoxData.classList.add("d-none");
+  toolTipBoxForm.classList.remove("d-none");
+
+}
+
+function resetgeofenceEditForm(){
+  var toolTipBoxForm = document.getElementById('toolTipBoxForm');
+  var toolTipBoxData = document.getElementById('toolTipBoxData');
+  
+  toolTipBoxData.classList.remove("d-none");
+  toolTipBoxForm.classList.add("d-none");
+
+}
 
