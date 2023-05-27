@@ -272,17 +272,8 @@ function getAllGeofence()
 					}),
 					fill: new ol.style.Fill({
 					  color: 'rgba(0, 0, 255, 0.1)',
-					}),
-					text: new ol.style.Text({
-						font: '12px Calibri,sans-serif',
-						fill: new ol.style.Fill({ color: '#000' }),
-						stroke: new ol.style.Stroke({
-						  color: '#fff', width: 2
-						}),
-						// get the text from the feature - `this` is ol.Feature
-						// and show only under certain resolution
-						text: this.getProperties().properties['attributes']['Arabic_Name']
-					  })
+					})
+					
 				  });
 				stationLyr = new ol.layer.Vector({
 					source: stationSource,
