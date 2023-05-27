@@ -281,7 +281,7 @@ function getAllGeofence()
 						}),
 						// get the text from the feature - `this` is ol.Feature
 						// and show only under certain resolution
-						text: map.getView().getZoom() > 12 ? this.getProperties().properties['attributes']['name'] : ''
+						text: this.getProperties().properties['attributes']['Arabic_Name']
 					  })
 				  });
 				stationLyr = new ol.layer.Vector({
