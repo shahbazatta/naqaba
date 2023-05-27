@@ -516,48 +516,47 @@ require_once("lang/language.php");
             <!-- Data for toolTip -->
             <div id="resultGeofence"></div>
             <div id="toolTipBoxData">
-              <form role="form" id="toolTipGeofenceAdd" action="" >
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?> : arabicName</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?> : <span id="arabicNameGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?> : englishName</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?> : <span id="englishNameGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?> : type</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?> : <span id="typeGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?> : district</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?> : <span id="districtGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?> : area</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?> : <span id="areaGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?> : description</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?> : <span id="descriptionGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?> : category</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?> : <span id="categoryGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?> : site</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?> : <span id="siteGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?> : stationType</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?> : <span id="stationTypeGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?> : stationCode</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?> : <span id="stationCodeGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?> : stationName</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?> : <span id="stationNameGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?> : codeId</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?> : <span id="codeIdGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?> : shapeLength</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?> : <span id="shapeLengthGeofence"></span></label>
                 </fieldset>
                 <fieldset>
-                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?> : shapeArea</label>
+                  <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?> : <span id="shapeAreaGeofence"></span></label>
                 </fieldset>
   
                 <div class="clear"></div>
@@ -565,7 +564,6 @@ require_once("lang/language.php");
                 <button type="button" class="button" value="Edit" id="toolTipGeofenceEditButton" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'edit'); ?></button>
                 <button type="button" class="button" value="Delete" id="toolTipGeofenceSave" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'delete'); ?></button>
                 <button type="button" class="button" value="ExportGeoJSON" id="toolTipGeofenceSave" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'exportGeoJSON'); ?></button>
-              </form>
             </div>
             <div id="toolTipBoxForm" class="d-none">
               <form role="form" id="toolTipGeofenceAdd" action="" >
