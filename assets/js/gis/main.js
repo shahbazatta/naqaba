@@ -371,6 +371,28 @@ function exportAsGeoJson()
 	
 }
 
+function downloadJSON() {
+	
+	var writer=new ol.format.GeoJSON();
+	var cloneFeat = selectedGeofence.clone();
+	cloneFeat.getGeometry().transform( 'EPSG:3857', 'EPSG:4326')
+    var geoJsonStr = writer.writeFeature(cloneFeat);
+	
+  //const jsonContent = JSON.stringify(jsonData);
+  const blob = new Blob([geoJsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = "geofnece_export_.eojson";
+  document.body.appendChild(link);
+  
+  link.click();
+  
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
 addDrawInteraction();
 getAllGeofence();
 getAllBusesData();
@@ -390,7 +412,7 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
     }); 
 	
 	$("#exportGeofence").click(function(){
-        exportAsGeoJson();
+        downloadJSON();
     }); 
 	
 //});
