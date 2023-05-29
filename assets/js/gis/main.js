@@ -362,9 +362,9 @@ function exportAsGeoJson()
 	var writer=new ol.format.GeoJSON();
 	var cloneFeat = selectedGeofence.clone();
 	cloneFeat.getGeometry().transform( 'EPSG:3857', 'EPSG:4326')
-    let geoJsonStr = writer.writeFeature(cloneFeat);
-	let dw_geojson = document.getElementById('downloadGeojsonFile');
-	dw_geojson.setAttribute("id","exportGeoJson");
+    var geoJsonStr = writer.writeFeature(cloneFeat);
+	var dw_geojson = document.getElementById('downloadGeojsonFile');
+	//dw_geojson.setAttribute("id","exportGeoJson");
 	dw_geojson.setAttribute("href",     geoJsonStr     );
 	dw_geojson.setAttribute("download", "export_geofence.geojson");
 	dw_geojson.click();
