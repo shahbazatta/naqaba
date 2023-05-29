@@ -525,7 +525,7 @@
 				<a id="downloadGeojsonFile" style="display:none"></a>
                 <button type="button" class="button" value="Edit" id="toolTipGeofenceEditButton" onclick="">Edit</button>
                 <button type="button" class="button" value="Delete" id="toolTipGeofenceSave" onclick="">Delete</button>
-                <button type="button" class="button" value="ExportGeoJSON" id="toolTipGeofenceSave" onclick="">Export GeoJSON</button>
+                <button type="button" class="button" value="ExportGeoJSON" id="toolTipGeofenceSave">Export GeoJSON</button>
             </div>
             <div id="toolTipBoxForm" class="d-none">
               <form role="form" id="toolTipGeofenceAdd" action="" >
