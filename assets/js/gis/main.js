@@ -183,6 +183,7 @@ function addDrawInteraction() {
 }
 
 var busDataArr ;
+var selectedGeofence ;
 function getAllBusesData() {
   //ajax call to api get all bus data
   $.ajax({
@@ -204,13 +205,14 @@ selectInteraction.on('select', function(event) {
 	 {
 		  var selectedFeatures = event.selected; // Array of selected features
 		  var deselectedFeatures = event.deselected; // Array of deselected features
-		  if (selectedFeatures.length>=0){
+		  if (selectedFeatures.length>0){
 			  var data;
 		if (selectedFeatures[0].getProperties().properties==undefined){
 		  data  = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
 		}
 		else {
 			data = selectedFeatures[0].getProperties().properties['attributes']
+			selectedGeofence = selectedFeatures[0];
 		}
 		  var obj_str ="";
 		  for (var key in data)
@@ -272,8 +274,17 @@ function getAllGeofence()
 					}),
 					fill: new ol.style.Fill({
 					  color: 'rgba(0, 0, 255, 0.1)',
-					})
-					
+					}),
+					text: new ol.style.Text({
+						font: '12px Calibri,sans-serif',
+						fill: new ol.style.Fill({ color: '#000' }),
+						stroke: new ol.style.Stroke({
+						  color: '#fff', width: 2
+						}),
+						// get the text from the feature - `this` is ol.Feature
+						// and show only under certain resolution
+					//	text: this.getProperties().properties['attributes']['Arabic_Name'] : ''
+					  })
 				  });
 				stationLyr = new ol.layer.Vector({
 					source: stationSource,
@@ -309,6 +320,20 @@ function getAllGeofence()
      });
 }
 
+function exportAsGeoJson()
+{
+	var writer=new ol.format.GeoJSON();
+	var cloneFeat = selectedGeofence.clone();
+	cloneFeat.getGeometry().transform( 'EPSG:3857', 'EPSG:4326')
+    let geoJsonStr = writer.writeFeature(cloneFeat);
+	let dw_geojson = document.getElementById('downloadGeojsonFile');
+	dw_geojson.setAttribute("id","exportGeoJson");
+	dw_geojson.setAttribute("href",     geoJsonStr     );
+	dw_geojson.setAttribute("download", "export_geofence.geojson");
+	dw_geojson.click();
+	
+}
+
 addDrawInteraction();
 getAllGeofence();
 getAllBusesData();
@@ -326,5 +351,10 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
    $("#applySettingBtn").click(function(){
         addBusFeatures(busDataArr);
     }); 
+	
+	$("#toolTipGeofenceSave").click(function(){
+        exportAsGeoJson();
+    }); 
+	
 //});
 

@@ -575,10 +575,11 @@ require_once("lang/language.php");
 
                 <input type="hidden" id="coordinate_arr_toolTip" name="coordinate_arr_toolTip" value="">
               <div class="clear"></div>
+			  <a id="downloadGeojsonFile" style="display:none"></a>
               <!-- <p>Any message or information that you want to display.</p> -->
               <button type="button" class="button" value="Edit" id="toolTipGeofenceSave" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'edit'); ?></button>
               <button type="button" class="button" value="Delete" id="toolTipGeofenceSave" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'delete'); ?></button>
-              <button type="button" class="button" value="ExportGeoJSON" id="toolTipGeofenceSave" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'exportGeoJSON'); ?></button>
+              <button type="button" class="button" value="ExportGeoJSON" id="toolTipGeofenceSave" ><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'exportGeoJSON'); ?></button>
               <button type="button" class="button exit" value="Cancel" onclick=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'cancel'); ?></button>  
             </form>
         </div>
