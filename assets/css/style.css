@@ -2858,3 +2858,7 @@ a.button {
 .settingShow .active {
 	background-color: #00a24c;
 } 
+
+.d-none{
+	display: none;
+}
