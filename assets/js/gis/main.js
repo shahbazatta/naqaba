@@ -389,7 +389,7 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
         addBusFeatures(busDataArr);
     }); 
 	
-	$("#toolTipGeofenceSave").click(function(){
+	$("#exportGeofence").click(function(){
         exportAsGeoJson();
     }); 
 	
