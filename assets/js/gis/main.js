@@ -29,6 +29,15 @@ var googleMap = new ol.layer.Tile({
 
 map.addLayer(googleMap);
 
+var googleMapHybrid = new ol.layer.Tile({
+  source:new ol.source.XYZ({
+        url:'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}'
+      })
+});
+
+map.addLayer(googleMapHybrid);
+
+
 var stationLyr;
 var busesLyr;
 var busesDataSource;
@@ -112,18 +121,28 @@ function switchBaseMaps() {
 		googleMap.setVisible(true);  //show layer
 		osmLayer.setVisible(false); //hide layer	
 		mapboxLayer.setVisible(false);
+		googleMapHybrid.setVisible(false);
 	}
 	if (layer_type==0)
 	{
 		googleMap.setVisible(false);  //hide layer
 		mapboxLayer.setVisible(false);
+		googleMapHybrid.setVisible(false);
 		osmLayer.setVisible(true); //show layer	
 	}
 	if (layer_type==2)
 	{
 		googleMap.setVisible(false);  //hide layer
 		osmLayer.setVisible(false);
+		googleMapHybrid.setVisible(false);
 		mapboxLayer.setVisible(true); //show layer	
+	}
+	if (layer_type==3)
+	{
+		googleMap.setVisible(false);  //hide layer
+		osmLayer.setVisible(false);
+		googleMapHybrid.setVisible(true);
+		mapboxLayer.setVisible(false); //show layer	
 	}
 	
 }
