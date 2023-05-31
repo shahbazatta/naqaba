@@ -293,7 +293,7 @@
                              <option value="1">Google Map</option>                         			  
                             <option value="0">Open Street Map</option>
 							<option value="2" selected>MapBox</option>
-							<option value="3" selected>Satellite Map</option>
+							<option value="3">Satellite Map</option>
                         </select>
                      </div>
                 </div>
