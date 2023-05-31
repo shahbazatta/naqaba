@@ -394,6 +394,7 @@ function downloadJSON() {
 }
 
 addDrawInteraction();
+switchBaseMaps();
 getAllGeofence();
 getAllBusesData();
 

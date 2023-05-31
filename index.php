@@ -292,7 +292,7 @@
                       <select id="bmap" class="bgSelect" title="Basemap" >  
                              <option value="1">Google Map</option>                         			  
                             <option value="0">Open Street Map</option>
-							<option value="2">MapBox</option>
+							<option value="2" selected>MapBox</option>
                         </select>
                      </div>
                 </div>
