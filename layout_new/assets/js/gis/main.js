@@ -412,18 +412,19 @@ function downloadJSON() {
   URL.revokeObjectURL(url);
 }
 
-addDrawInteraction();
-switchBaseMaps();
-getAllGeofence();
-getAllBusesData();
+//addDrawInteraction();
+//switchBaseMaps();
+//getAllGeofence();
+//getAllBusesData();
 
-document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
+//document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
 
- document.getElementById("bmap").onchange = function(){
+ /*document.getElementById("bmap").onchange = function(){
 					switchBaseMaps();
  };
  
 setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
+
 
 //$(document).ready(function() {
    
@@ -445,6 +446,7 @@ $("#toolTipGeofenceSaveReset").click(function(){
   resetgeofenceEditForm();
 });
 
+*/
 function showgeofenceEditForm(){
   var toolTipBoxForm = document.getElementById('toolTipBoxForm');
   var toolTipBoxData = document.getElementById('toolTipBoxData');

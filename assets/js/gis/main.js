@@ -37,7 +37,7 @@ var googleMapHybrid = new ol.layer.Tile({
 
 map.addLayer(googleMapHybrid);
 
-
+/*
 var stationLyr;
 var busesLyr;
 var busesDataSource;
@@ -463,3 +463,4 @@ function resetgeofenceEditForm(){
 
 }
 
+*/
