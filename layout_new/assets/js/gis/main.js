@@ -1,5 +1,11 @@
 // Create a new map instance
-var map = new ol.Map({
+var osmLayer;
+var mapboxLayer;
+var googleMap;
+var googleMapHybrid;
+var map;
+function initMap() {
+map = new ol.Map({
   target: 'mapContainer', // The ID of the div element where the map should be rendered
   view: new ol.View({
     center: ol.proj.fromLonLat([45.0792, 23.8859]), // The initial center coordinates of the map, transformed to EPSG:3857
@@ -8,20 +14,20 @@ var map = new ol.Map({
 });
 
 // Add a basemap layer
-var osmLayer = new ol.layer.Tile({
+osmLayer = new ol.layer.Tile({
   source: new ol.source.OSM() // OpenStreetMap as the basemap source
 });
 
 // Add the osm layer to the map
 map.addLayer(osmLayer);
-var mapboxLayer =  new ol.layer.Tile({
+mapboxLayer =  new ol.layer.Tile({
       source: new ol.source.XYZ({
 		          url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
 	  })
     })
 map.addLayer(mapboxLayer);
 	
-var googleMap = new ol.layer.Tile({
+googleMap = new ol.layer.Tile({
   source:new ol.source.XYZ({
         url: 'http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}'
       })
@@ -29,7 +35,7 @@ var googleMap = new ol.layer.Tile({
 
 map.addLayer(googleMap);
 
-var googleMapHybrid = new ol.layer.Tile({
+googleMapHybrid = new ol.layer.Tile({
   source:new ol.source.XYZ({
         url:'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}'
       })
@@ -37,7 +43,17 @@ var googleMapHybrid = new ol.layer.Tile({
 
 map.addLayer(googleMapHybrid);
 
+}
 
+$( document ).ready(function() {
+  initMap();
+  switchBaseMaps();
+  getAllBusesData();
+  document.getElementById("bmap").onchange = function(){
+					switchBaseMaps();
+ };
+  });
+  
 var stationLyr;
 var busesLyr;
 var busesDataSource;
@@ -87,7 +103,7 @@ function addBusFeatures(dataArr) {
     distance: 50,
     source: busesDataSource
   });
-var image_path = document.getElementsByClassName("moreIcons active")[0].children[0].getAttribute('src');
+var image_path = document.getElementsByClassName("pointSv active")[0].children[0].getAttribute('src');
 clusterLayer = new ol.layer.Vector({
   source: clusterSource,
   style: function(feature) {
@@ -412,18 +428,20 @@ function downloadJSON() {
   URL.revokeObjectURL(url);
 }
 
-addDrawInteraction();
-switchBaseMaps();
-getAllGeofence();
-getAllBusesData();
 
-document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
+//addDrawInteraction();
+//switchBaseMaps();
+//getAllGeofence();
+//getAllBusesData();
 
- document.getElementById("bmap").onchange = function(){
+//document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
+
+ /*document.getElementById("bmap").onchange = function(){
 					switchBaseMaps();
  };
  
 setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
+
 
 //$(document).ready(function() {
    
@@ -445,6 +463,7 @@ $("#toolTipGeofenceSaveReset").click(function(){
   resetgeofenceEditForm();
 });
 
+*/
 function showgeofenceEditForm(){
   var toolTipBoxForm = document.getElementById('toolTipBoxForm');
   var toolTipBoxData = document.getElementById('toolTipBoxData');
