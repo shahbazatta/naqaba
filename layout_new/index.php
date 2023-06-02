@@ -46,7 +46,7 @@
 
   <!--==========Start Main Content Area==========-->
   <!-- Map Wrapper -->
-  <div class="mapWrapper" id="mapContainer">
+  <div class="mapWrapper3" id="mapContainer">
    <div id="map_id"></div>
   </div>
 
