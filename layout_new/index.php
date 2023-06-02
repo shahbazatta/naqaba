@@ -33,7 +33,6 @@
 <script src="assets/js/custom.js"></script>
 <script src="assets/js/gis/main.js"></script>
 
-<script type="module" src="layout_new/assets/js/gis/main.js"></script>
 
 
 <!-- Styling -->
