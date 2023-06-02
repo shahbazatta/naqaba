@@ -26,8 +26,12 @@
 <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
 <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
 
+<link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+
 <!-- Custom Code Jquery -->
 <script src="assets/js/custom.js"></script>
+<script src="assets/js/gis/main.js"></script>
 
 <script type="module" src="layout_new/assets/js/gis/main.js"></script>
 
@@ -46,7 +50,7 @@
   <!--==========Start Main Content Area==========-->
   <!-- Map Wrapper -->
   <div class="mapWrapper" id="mapContainer">
-   <div id="map_id"></div>
+   <div id="map_id" ></div>
   </div>
 
   <div class="mainContainer">

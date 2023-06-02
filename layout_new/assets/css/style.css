@@ -46,11 +46,11 @@ a:hover {text-decoration:none;}
 	height:100%; 	
 	padding:0px;
 	margin:0px;
-	background-image:url(../images/map_bg.jpg);
+	/*background-image:url(../images/map_bg.jpg);
 	background-position:center center;
 	background-repeat:no-repeat;
 	background-color:transparent;
-	background-size:cover;
+	background-size:cover; */
 }
 
 

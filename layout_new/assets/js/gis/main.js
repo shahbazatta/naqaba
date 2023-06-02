@@ -428,6 +428,7 @@ function downloadJSON() {
   URL.revokeObjectURL(url);
 }
 
+<<<<<<< HEAD
 
 //addDrawInteraction();
 //switchBaseMaps();
@@ -436,6 +437,15 @@ function downloadJSON() {
 
 //document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
 
+=======
+//addDrawInteraction();
+//switchBaseMaps();
+//getAllGeofence();
+//getAllBusesData();
+
+//document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
+
+>>>>>>> 734af4337adf7e46a020193907412229d866c7d3
  /*document.getElementById("bmap").onchange = function(){
 					switchBaseMaps();
  };
