@@ -423,10 +423,7 @@ function downloadJSON() {
 }
 
 
-//addDrawInteraction();
-//switchBaseMaps();
-//getAllGeofence();
-//getAllBusesData();
+
 
 //document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
 
@@ -487,5 +484,15 @@ $( document ).ready(function() {
 					switchBaseMaps();
  };
 
+// setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
+
  document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
+
+ $("#applySettingBtn").click(function(){
+  addBusFeatures(busDataArr);
+}); 
+
+// $("#exportGeofence").click(function(){
+//   downloadJSON();
+// }); 
   });
