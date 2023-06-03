@@ -1,3 +1,6 @@
+<?php 
+require_once("lang/language.php");
+?>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
@@ -8,7 +11,7 @@
 <head>
 <!-- Basic -->
 <meta charset="utf-8">
-<title>Naqabah Tracker System v2</title>
+<title><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'naqabahTrackerSystemv1'); ?></title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,17 +85,17 @@
           <div class="settings">
             <a href="javascript:void(0)"><img src="assets/images/icons/settings.svg"></a>
             <div class="settingBox" id="settingBox">
-              <h1>Map Settings</h1>
+              <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'mapSettings'); ?></h1>
               <!--Base Map-->
               <div class="rowDropdown">
                 <div class="selectParent">
-                  <h3>Basemap</h3>
+                  <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'basemap'); ?></h3>
                   <img src="assets/images/icons/location.svg">
                   <select id="bmap" class="bgSelect" title="Basemap" >  
-                    <option value="1">Google Map</option>                                
-                    <option value="0">Open Street Map</option>
-                    <option value="2" selected>MapBox</option>
-                    <option value="3">Satellite Map</option>
+                    <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'googleMap'); ?></option>                                
+                    <option value="0"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'openStreetMap'); ?></option>
+                    <option value="2" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'mapBox'); ?></option>
+                    <option value="3"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'satelliteMap'); ?></option>
                   </select>
                 </div>
               </div>
@@ -100,11 +103,11 @@
               <!--Select Layer-->
               <div class="rowDropdown">
                 <div class="selectParent">
-                  <h3>Select Layer</h3>
+                  <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h3>
                   <img src="assets/images/icons/layer.svg">
                   <select id="setLayer" name="setLayer" class="bgSelect" title="Basemap" >  
-                    <option value="1">Live Locations</option>
-                    <option value="2" selected>Stops Geofence</option>
+                    <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'liveLocations'); ?></option>
+                    <option value="2" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stopsGeofence'); ?></option>
                   </select>
                 </div>
               </div>
@@ -112,18 +115,18 @@
               <!--Select Language-->
               <div class="rowDropdown">
                 <div class="selectParent">
-                  <h3>Language</h3>
+                  <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'language'); ?></h3>
                   <img src="assets/images/icons/language.svg">
                   <select id="setLanguage" name="setLanguage" class="bgSelect" title="Basemap" >  
-                    <option value="1"selected>English</option>
-                    <option value="2">عربي</option>
+                    <option value="1"selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'english'); ?></option>
+                    <option value="2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabic'); ?></option>
                   </select>
                 </div>
               </div>
 
               <!--Select Map Point-->
               <div class="rowDropdown">
-                <h2>Select Map Point</h2>
+                <h2><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectMapPoint'); ?></h2>
                 <div class="mapPoint">
                   <div class="pointSv active">
                     <img class="tick" src="assets/images/icons/tick-circle.png">
@@ -146,7 +149,7 @@
 
               <!--Select Transparency-->
               <div class="rowDropdown">
-                <h2>Transparency <output for="opacity-slider" id="slider-value">1</output></h2>
+                <h2><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transparency'); ?> <output for="opacity-slider" id="slider-value">1</output></h2>
                 <div class="transparency">
                   <div class="sliderWrapper">
                     <input type="range" class="slider" min="0" max="1" value="1" id="opacity-slider" step="0.01">
@@ -157,7 +160,7 @@
 
               <!--Apply Button-->
               <div class="applySetting">
-                <button type="button" class="applySettingBtn" id ="applySettingBtn">Apply</button>
+                <button type="button" class="applySettingBtn" id ="applySettingBtn"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'apply'); ?></button>
               </div>
 
             </div>
