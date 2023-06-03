@@ -46,11 +46,10 @@
 
   <!--==========Start Main Content Area==========-->
   <!-- Map Wrapper -->
-  <div class="mapWrappere" id="mapContainer">
-	<div id="map_id" width="100%" height="100%"></div>
+  <div class="mapWrapper1" id="mapContainer1">
         <!-- <img src="assets/images/bg__tem.png" width="100%" height="100%"> -->
     </div>
-
+  
 
   <div class="mainContainer">
 

@@ -6,7 +6,7 @@ var googleMapHybrid;
 var map;
 function initMap() {
 map = new ol.Map({
-  target: 'mapContainer', // The ID of the div element where the map should be rendered
+  target: 'mapContainer1', // The ID of the div element where the map should be rendered
   view: new ol.View({
     center: ol.proj.fromLonLat([45.0792, 23.8859]), // The initial center coordinates of the map, transformed to EPSG:3857
     zoom: 7 // The initial zoom level
