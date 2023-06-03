@@ -45,14 +45,7 @@ map.addLayer(googleMapHybrid);
 
 }
 
-$( document ).ready(function() {
-  initMap();
-  switchBaseMaps();
- // getAllBusesData();
-  document.getElementById("bmap").onchange = function(){
-					switchBaseMaps();
- };
-  });
+
   
 var stationLyr;
 var busesLyr;
@@ -66,7 +59,8 @@ function toggleDrawGeofenceCtrl() {
   draw.setActive(!draw.getActive());
 }
 function addBusFeatures(dataArr) {
-	var featuresArr = [];
+  var featuresArr = [];
+  var image_path = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
       for (let i = 0; i < dataArr.length; i++) {
         var obj = dataArr[i];
         var feature = new ol.Feature({
@@ -77,8 +71,8 @@ function addBusFeatures(dataArr) {
 		feature.setProperties(obj);
         var iconStyle = new ol.style.Style({
           image: new ol.style.Icon({
-            src: 'assets/images/pointerIcon3.png', // Replace with the path to your bus icon image
-            scale: 0.20, // Adjust the scale as needed
+            src: image_path, // Replace with the path to your bus icon image
+            scale: 0.60, // Adjust the scale as needed
 			//opacity: 0.23
 
 			opacity: parseFloat(document.getElementById("slider-value").value)
@@ -103,7 +97,7 @@ function addBusFeatures(dataArr) {
     distance: 50,
     source: busesDataSource
   });
-var image_path = document.getElementsByClassName("pointSv active")[0].children[0].getAttribute('src');
+
 clusterLayer = new ol.layer.Vector({
   source: clusterSource,
   style: function(feature) {
@@ -111,7 +105,7 @@ clusterLayer = new ol.layer.Vector({
     var style = new ol.style.Style({
       image: new ol.style.Icon({
         src: image_path, // Replace with the path to your bus icon image
-        scale: 0.20, // Adjust the scale as needed
+        scale: 0.60, // Adjust the scale as needed
 		opacity: parseFloat(document.getElementById("slider-value").value)
       }),
       text: new ol.style.Text({
@@ -482,3 +476,16 @@ function resetgeofenceEditForm(){
 
 }
 
+
+$( document ).ready(function() {
+  initMap();
+  addDrawInteraction();
+  getAllGeofence();
+  switchBaseMaps();
+  getAllBusesData();
+  document.getElementById("bmap").onchange = function(){ //add switch basemap listener
+					switchBaseMaps();
+ };
+
+ document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
+  });

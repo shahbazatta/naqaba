@@ -171,8 +171,8 @@
      <!-- Left Top Buttons -->
      <div class="leftTopButtons">
        <nav>
-         <div><a href="" id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></a></div>
-         <div><a href=""><img src="assets/images/icons/maximize.svg"></a></div>
+         <div id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></div>
+         <div><img src="assets/images/icons/maximize.svg"></div>
        </nav>
      </div>
 
