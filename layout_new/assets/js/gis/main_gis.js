@@ -1,11 +1,6 @@
 // Create a new map instance
-var osmLayer;
-var mapboxLayer;
-var googleMap;
-var googleMapHybrid;
-var map;
 function initMap() {
-map = new ol.Map({
+var map = new ol.Map({
   target: 'mapContainer', // The ID of the div element where the map should be rendered
   view: new ol.View({
     center: ol.proj.fromLonLat([45.0792, 23.8859]), // The initial center coordinates of the map, transformed to EPSG:3857
@@ -14,20 +9,20 @@ map = new ol.Map({
 });
 
 // Add a basemap layer
-osmLayer = new ol.layer.Tile({
+var osmLayer = new ol.layer.Tile({
   source: new ol.source.OSM() // OpenStreetMap as the basemap source
 });
 
 // Add the osm layer to the map
 map.addLayer(osmLayer);
-mapboxLayer =  new ol.layer.Tile({
+var mapboxLayer =  new ol.layer.Tile({
       source: new ol.source.XYZ({
 		          url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
 	  })
     })
 map.addLayer(mapboxLayer);
 	
-googleMap = new ol.layer.Tile({
+var googleMap = new ol.layer.Tile({
   source:new ol.source.XYZ({
         url: 'http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}'
       })
@@ -35,7 +30,7 @@ googleMap = new ol.layer.Tile({
 
 map.addLayer(googleMap);
 
-googleMapHybrid = new ol.layer.Tile({
+var googleMapHybrid = new ol.layer.Tile({
   source:new ol.source.XYZ({
         url:'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}'
       })
@@ -47,11 +42,6 @@ map.addLayer(googleMapHybrid);
 
 $( document ).ready(function() {
   initMap();
-  switchBaseMaps();
- // getAllBusesData();
-  document.getElementById("bmap").onchange = function(){
-					switchBaseMaps();
- };
   });
   
 var stationLyr;
@@ -103,7 +93,7 @@ function addBusFeatures(dataArr) {
     distance: 50,
     source: busesDataSource
   });
-var image_path = document.getElementsByClassName("pointSv active")[0].children[0].getAttribute('src');
+var image_path = document.getElementsByClassName("moreIcons active")[0].children[0].getAttribute('src');
 clusterLayer = new ol.layer.Vector({
   source: clusterSource,
   style: function(feature) {
@@ -427,7 +417,6 @@ function downloadJSON() {
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }
-
 
 //addDrawInteraction();
 //switchBaseMaps();
