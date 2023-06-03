@@ -171,24 +171,51 @@
      <!-- Left Top Buttons -->
      <div class="leftTopButtons">
        <nav>
-         <div id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></div>
-         <div><img src="assets/images/icons/maximize.svg"></div>
+
+         <!-- <div id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></div>
+         <div><img src="assets/images/icons/maximize.svg"></div> -->
+
+         <div><a href="javascript:void(0)" id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></a></div>
+         <div><a href="javascript:void(0)"><img src="assets/images/icons/maximize.svg"></a></div>
+
        </nav>
      </div>
 
      <!-- Left Bottom Buttons -->
      <div class="leftBottomButtons">
        <nav>
-         <div><a href=""><img src="assets/images/icons/navigate.svg"></a></div>
-         <div><a href=""><img src="assets/images/icons/plus.svg"></a></div>
-         <div><a href=""><img src="assets/images/icons/minus.svg"></a></div>
+         <div><a href="javascript:void(0)"><img src="assets/images/icons/navigate.svg"></a></div>
+         <div><a href="javascript:void(0)"><img src="assets/images/icons/plus.svg"></a></div>
+         <div><a href="javascript:void(0)"><img src="assets/images/icons/minus.svg"></a></div>
        </nav>
      </div>
+
+
+
     
 
      
   </div>
   <!--==========End Main Content Area==========-->
+
+  <div class="boxPopUp">
+    <span class="close exit"></span>
+    <div class="boxHeader">
+      <h1><img src="assets/images/icons/icon-fg.png">Bus Information Titles</h1>
+    </div>
+    <div class="boxBody">
+      <table>
+        <tr>
+          <td>District
+            <span>Makkah</span>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    
+  </div>
 
 <script type="text/javascript">
 $( document ).ready(function() {
