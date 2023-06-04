@@ -21,18 +21,18 @@ osmLayer = new ol.layer.Tile({
 // Add the osm layer to the map
 map.addLayer(osmLayer);
 	
-import createMap from 'ol-mapbox-style';
+//import createMap from 'ol-mapbox-style';
 
-createMap('mapboxLayer', 'https://api.mapbox.com/styles/v1/shahbazatta/cli1o0xfg02hy01qyfvv19qkf.html?title=view&access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ&zoomwheel=true&fresh=true#15.53/21.422597/39.827034')
-.then(function(mapboxLayer) {
+//createMap('mapboxLayer', 'https://api.mapbox.com/styles/v1/shahbazatta/cli1o0xfg02hy01qyfvv19qkf.html?title=view&access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ&zoomwheel=true&fresh=true#15.53/21.422597/39.827034')
+//.then(function(mapboxLayer) {
   // map is an ol/Map instance with the layers from the Mapbox style object
-});
-//mapboxLayer =  new ol.layer.Tile({
-//      source: new ol.source.XYZ({
+//});
+mapboxLayer =  new ol.layer.Tile({
+      source: new ol.source.XYZ({
 	      //url: 'https://api.mapbox.com/styles/v1/shahbazatta/cli1o0xfg02hy01qyfvv19qkf.html?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
-//		          url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
-//	  })
-//    })
+		          url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
+	  })
+    })
 map.addLayer(mapboxLayer);
 	
 googleMap = new ol.layer.Tile({
