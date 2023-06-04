@@ -201,29 +201,158 @@ require_once("lang/language.php");
   </div>
   <!--==========End Main Content Area==========-->
 
-  <div class="boxPopUp">
+<div class="popUpBox busToolTip" id="busDialogBox">
+  <div class="boxPopUpTab ">
     <span class="close exit"></span>
     <div class="boxHeader">
-      <h1><img src="assets/images/icons/icon-fg.png">Bus Information Titles</h1>
+      <img src="assets/images/icons/icon-fg.png">
+      <h1 class="text2">Driver Name<span>Makkah Road</span></h1>
     </div>
     <div class="boxBody">
       <table>
         <tr>
-          <td>District
-            <span>Makkah</span>
+          <td>IMEI No.
+            <span>869688059316101</span>
           </td>
-          <td></td>
-          <td></td>
+          <td>Avltm
+            <span>1685387722000</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="oData">
+              <p>Avl
+                <span>157</span>
+              </p>
+              <p>Ang
+                <span>45</span>
+              </p>
+              <p>Spd
+                <span>101</span>
+              </p>
+              <p>Odata
+                <span>3000</span>
+              </p>
+            </div>
+            
+          </td>
+        </tr>
+        <tr>
+          <td>Created on
+            <span>14/05/2023</span>
+          </td>
+          <td>Updated on
+            <span>02/06/2023</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">ID No.
+            <span>6474f9da97c5bc121663c1a9</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">PT No.
+            <span>1685387738376</span>
+          </td>
         </tr>
       </table>
     </div>
+    <div class="boxFooter">
+    </div>
     
   </div>
+</div>
+
+
+<div class="popUpBox" id="geofenceDialogBox">
+  <div class="boxPopUpTab ">
+    <span class="close exit"></span>
+    <div class="boxHeader">
+      <img src="assets/images/icons/icon-fg.png">
+      <h1>Geofence Information</h1>
+    </div>
+    <div class="boxBody">
+      <table>
+        <tr>
+          <td>Arabic Name
+            <span>Here is your Arabic Name</span>
+          </td>
+          <td>English Name
+            <span>Here is your English Name</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Type
+            <span>Show your Type here</span>
+          </td>
+          <td>District
+            <span>Show your District here</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Area
+            <span>Calculate your Area</span>
+          </td>
+          <td>Description
+            <span>Write your Description</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Category
+            <span>Select the Category</span>
+          </td>
+          <td>Site
+            <span>Mention your Site</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Station Type
+            <span>Write your Station Type</span>
+          </td>
+          <td>Station Code
+            <span>Write your Station Code</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Station Name
+            <span>Write your Station Name</span>
+          </td>
+          <td>Code ID
+            <span>Write your Code ID</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Shape Length
+            <span>Mention your Shape Length</span>
+          </td>
+          <td>Shape Area
+            <span>Mention your Shape Area</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="boxFooter">
+      <button type="button" class="exportGeo" id="" onclick=""><img src="assets/images/icons/export.svg">
+        <span>Export GeoJSON</span>
+      </button>
+      <button type="button" class="delete" id="" onclick=""><img src="assets/images/icons/trash.svg">
+        <span>Delete</span>
+      </button>
+      <button type="button" class="edit" id="" onclick=""><img src="assets/images/icons/edit.svg">
+        <span>Edit</span>
+      </button>
+    </div>
+    
+  </div>
+</div>
 
 <script type="text/javascript">
 $( document ).ready(function() {
-  
-  });
+
+  //$('#busDialogBox').show();
+  //$('#geofenceDialogBox').show();
+
+});
 </script>
 
 <script src="assets/js/functions.js"></script>

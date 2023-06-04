@@ -374,35 +374,154 @@ h1{
     cursor: pointer;
 }
 
-.boxPopUp{
-	width: 500px;
+.popUpBox{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:url(../images/blackTransparent.png);
+	top:0px;
+	left:0px;
+	z-index:99991;
+	display:none;
+}
+.popUpBox.busToolTip{
+
+}
+.popUpBox.busToolTip .boxPopUpTab{
+	width: 420px;
+	margin-left:-210px;
+
+}
+
+.boxPopUpTab{
+	width: 550px;
+	margin-left:-275px;
 	height: auto;
 	padding: 24px;
 	background: #ffffff;
 	border-radius: 16px;
 	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4);
-	position: absolute;
 
-	top: 100px;
-	left: 250px;
 	z-index:500;
+	position:absolute;
+	top:50px;
+	left:50%;
 
 }
-.boxPopUp .boxHeader{
-
+.boxPopUpTab .boxHeader{
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0px 0px 8px 0px;
 }
-.boxPopUp .boxHeader h1{
+.boxPopUpTab .boxHeader img{
+	margin-right: 10px;
+	display: inline-block;
+}
+.boxPopUpTab .boxHeader h1{
 	font-size: 18px;
     line-height: 30px;
     font-weight: 500;
+	display: inline-block;
     color: #000;
-    padding: 0px 0px 8px 0px;
-    border-bottom: 1px solid #f0f0f0;
 }
-.boxPopUp .boxHeader h1 img{
+.boxPopUpTab .boxHeader h1.text2{line-height: 20px;}
+.boxPopUpTab .boxHeader h1 span{
+	font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+	color: #404040;
+	display: block;
+}
+.boxBody {
+	padding: 22px 0px 7px 0px;
+}
+.boxBody table{
+	width: 100%;
+}
+.boxBody table tr{
+}
+.boxBody table tr td{
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 14px;
+	text-align: left;
+	color: #404040;
+}
+.boxBody table tr td span{
+	display: block;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	text-align: left;
+	color: #000000;
+	padding: 0px 0px 12px 0px;
+}
+.boxBody table tr td .oData{
+	padding: 0px 0px 12px 0px;
+}
+.boxBody table tr td .oData p{
+	height: 62px;
+	padding: 8px;
+	border-radius: 4px;
+	background-color: #000;
+	color: #bdbdbd;
+	display: inline-block;
+	width: 20%;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 24px;
+	text-align: left;
+
+}
+.boxBody table tr td .oData p span{
+	color: #fff;
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 30px;
+}
+.boxFooter{
+	
+}
+.boxFooter button{
+	float: left;
+	height: 48px;
+	padding: 12px 24px;
+	border-radius: 8px;
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+	
+	transition: 0.6s ease;
+	-o-transition: 0.6s ease;
+	-webkit-transition: 0.6s ease;
+}
+.boxFooter button:hover{
+	background-color: #222;
+	
+}
+.boxFooter button span{
+	display: inline-block;
+	padding: 3px 0px 0px 0px;
+	font-size: 18px;
+	line-height: 20px;
+	font-weight: 500;
+}
+.boxFooter button.exportGeo{	
+}
+.boxFooter button.edit{	
+	float: right;
 	margin-right: 10px;
 }
-.boxPopUp .close{
+.boxFooter button.delete{
+	float: right;	
+	border: 2px solid #000;
+	background-color: #fff;
+	color: #000;
+}
+.boxFooter button.delete:hover{
+	background-color: #eee;
+	color: #000;
+}
+.boxPopUpTab .close{
 	background:url(../images/icons/close.svg) no-repeat;
 	width:24px;
 	height:24px;
@@ -417,6 +536,6 @@ h1{
 	-o-transition: 0.5s ease;
 	-webkit-transition: 0.5s ease;
 }
-.boxPopUp .close:hover{
+.boxPopUpTab .close:hover{
 	opacity:0.5;
 }
