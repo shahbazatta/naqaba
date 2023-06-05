@@ -281,58 +281,58 @@ require_once("lang/language.php");
       <table>
         <tr>
           <td>Arabic Name
-            <span>Here is your Arabic Name</span>
+            <span id ="arabicNameGeofence" >Here is your Arabic Name</span>
           </td>
           <td>English Name
-            <span>Here is your English Name</span>
+            <span id ="englishNameGeofence">Here is your English Name</span>
           </td>
         </tr>
         <tr>
           <td>Type
-            <span>Show your Type here</span>
+            <span id ="typeGeofence">Show your Type here</span>
           </td>
           <td>District
-            <span>Show your District here</span>
+            <span id ="districtGeofence">Show your District here</span>
           </td>
         </tr>
         <tr>
           <td>Area
-            <span>Calculate your Area</span>
+            <span id ="areaGeofence">Calculate your Area</span>
           </td>
           <td>Description
-            <span>Write your Description</span>
+            <span id ="descriptionGeofence">Write your Description</span>
           </td>
         </tr>
         <tr>
           <td>Category
-            <span>Select the Category</span>
+            <span id ="categoryGeofence">Select the Category</span>
           </td>
           <td>Site
-            <span>Mention your Site</span>
+            <span id ="siteGeofence"> Mention your Site</span>
           </td>
         </tr>
         <tr>
           <td>Station Type
-            <span>Write your Station Type</span>
+            <span id ="stationTypeGeofence">Write your Station Type</span>
           </td>
           <td>Station Code
-            <span>Write your Station Code</span>
+            <span id ="stationCodeGeofence">Write your Station Code</span>
           </td>
         </tr>
         <tr>
           <td>Station Name
-            <span>Write your Station Name</span>
+            <span id ="stationNameGeofence">Write your Station Name</span>
           </td>
           <td>Code ID
-            <span>Write your Code ID</span>
+            <span id ="codeIdGeofence">Write your Code ID</span>
           </td>
         </tr>
         <tr>
           <td>Shape Length
-            <span>Mention your Shape Length</span>
+            <span id ="shapeLengthGeofence">Mention your Shape Length</span>
           </td>
           <td>Shape Area
-            <span>Mention your Shape Area</span>
+            <span id ="shapeAreaGeofence">Mention your Shape Area</span>
           </td>
         </tr>
       </table>
