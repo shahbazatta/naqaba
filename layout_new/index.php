@@ -212,26 +212,26 @@ require_once("lang/language.php");
       <table>
         <tr>
           <td>IMEI No.
-            <span>869688059316101</span>
+            <span id="imei_no">869688059316101</span>
           </td>
           <td>Avltm
-            <span>1685387722000</span>
+            <span id ="avltm">1685387722000</span>
           </td>
         </tr>
         <tr>
           <td colspan="2">
             <div class="oData">
               <p>Avl
-                <span>157</span>
+                <span id ="avl">157</span>
               </p>
               <p>Ang
-                <span>45</span>
+                <span id ="ang">45</span>
               </p>
               <p>Spd
-                <span>101</span>
+                <span id ="speed">101</span>
               </p>
               <p>Odata
-                <span>3000</span>
+                <span id ="odata">3000</span>
               </p>
             </div>
             
@@ -239,20 +239,26 @@ require_once("lang/language.php");
         </tr>
         <tr>
           <td>Created on
-            <span>14/05/2023</span>
+            <span id ="cr_time">14/05/2023</span>
           </td>
           <td>Updated on
-            <span>02/06/2023</span>
+            <span id ="up_time">02/06/2023</span>
           </td>
         </tr>
         <tr>
-          <td colspan="2">ID No.
-            <span>6474f9da97c5bc121663c1a9</span>
+          <td colspan="1">Bus No.
+            <span id ="bus_no">6474f9da97c5bc121663c1a9</span>
+          </td>
+          <td colspan="1">Device Company.
+            <span id ="device_comp">6474f9da97c5bc121663c1a9</span>
           </td>
         </tr>
         <tr>
-          <td colspan="2">PT No.
-            <span>1685387738376</span>
+          <td colspan="1">Operator No.
+            <span id ="operator_no">1685387738376</span>
+          </td>
+          <td colspan="1">Engine Plate No.
+            <span id ="engplate_no">6474f9da97c5bc121663c1a9</span>
           </td>
         </tr>
       </table>
