@@ -6,6 +6,11 @@ $cookie_time = 60 * 10; //10 minutes
 
 $error = "";
 
+if(isset($_GET['logout'])){
+  setcookie($cookie_name, $cookie_value, time() + (-7200), "/");
+  header('Location: login.php');
+}
+
 if (isset($_POST["submitLogin"])) {
 
   if ( !isset($_POST["userId"]) || !isset($_POST["password"]) || 

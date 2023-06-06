@@ -488,7 +488,7 @@ require_once("lang/language.php");
 
           </div>
 
-          <div class="logout"><a href=""><img src="assets/images/icons/exit.svg"></a></div>
+          <div class="logout"><a href="login.php?logout"><img src="assets/images/icons/exit.svg"></a></div>
        </nav>
      </div>
 
