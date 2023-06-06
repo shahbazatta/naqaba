@@ -292,21 +292,23 @@ selectInteraction.on('select', function(event) {
           document.getElementById("shapeLengthGeofence").innerHTML = data['SHAPE_Length'];
           document.getElementById("shapeAreaGeofence").innerHTML = data['SHAPE_Area'];
 
-          // document.getElementById("arabic_name_toolTip").value = data['Arabic_Name'];
-          // document.getElementById("english_name_toolTip").value = data['English_Name'];
-          // document.getElementById("type_toolTip").value = data['Type']
-          // document.getElementById("district_toolTip").value = data['District'];
-          // document.getElementById("area_toolTip").value = data['Area'];
-          // document.getElementById("description_toolTip").value = data['Description'];
-          // document.getElementById("category_toolTip").value = data['Category'];
-          // document.getElementById("site_toolTip").value = data['Site']; 
-          // document.getElementById("station_type_toolTip").value = data['Station_type'];
-          // document.getElementById("station_code_toolTip").value = data['Station_Code'];
-          // document.getElementById("station_name_toolTip").value = data['Station_Name'];
-          // document.getElementById("code_id_toolTip").value = data['Code_ID'];
-          // document.getElementById("shape_length_toolTip").value = data['SHAPE_Length'];
-          // document.getElementById("shape_area_toolTip").value = data['SHAPE_Area'];
-          //resetgeofenceEditForm();
+          document.getElementById("arabic_name_toolTip").value = data['Arabic_Name'];
+          document.getElementById("english_name_toolTip").value = data['English_Name'];
+          document.getElementById("type_toolTip").value = data['Type']
+          document.getElementById("district_toolTip").value = data['District'];
+          document.getElementById("area_toolTip").value = data['Area'];
+          document.getElementById("description_toolTip").value = data['Description'];
+          document.getElementById("category_toolTip").value = data['Category'];
+          document.getElementById("site_toolTip").value = data['Site']; 
+          document.getElementById("station_type_toolTip").value = data['Station_type'];
+          document.getElementById("station_code_toolTip").value = data['Station_Code'];
+          document.getElementById("station_name_toolTip").value = data['Station_Name'];
+          document.getElementById("code_id_toolTip").value = data['Code_ID'];
+          document.getElementById("shape_length_toolTip").value = data['SHAPE_Length'];
+          document.getElementById("shape_area_toolTip").value = data['SHAPE_Area'];
+          document.getElementById("coordinate_arr_toolTip").value = data['geometry'].coordinates;
+
+          resetgeofenceEditForm();
           $('#geofenceDialogBox').show();
          // $('#toolTipBox').show();
         }
@@ -470,9 +472,7 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
 	
 //});
 
-$("#toolTipGeofenceEditButton").click(function(){
-  showgeofenceEditForm();
-});
+
 
 $("#toolTipGeofenceSaveReset").click(function(){
   resetgeofenceEditForm();
@@ -480,20 +480,20 @@ $("#toolTipGeofenceSaveReset").click(function(){
 
 */
 function showgeofenceEditForm(){
-  var toolTipBoxForm = document.getElementById('toolTipBoxForm');
-  var toolTipBoxData = document.getElementById('toolTipBoxData');
+  var toolTipBoxForm = document.getElementById('geofenceDialogBoxDataEdit');
+  var toolTipBoxData = document.getElementById('geofenceDialogBoxData');
   
-  toolTipBoxData.classList.add("d-none");
   toolTipBoxForm.classList.remove("d-none");
+  toolTipBoxData.classList.add("d-none");
 
 }
 
 function resetgeofenceEditForm(){
-  var toolTipBoxForm = document.getElementById('toolTipBoxForm');
-  var toolTipBoxData = document.getElementById('toolTipBoxData');
+  var toolTipBoxForm = document.getElementById('geofenceDialogBoxDataEdit');
+  var toolTipBoxData = document.getElementById('geofenceDialogBoxData');
   
-  toolTipBoxData.classList.remove("d-none");
   toolTipBoxForm.classList.add("d-none");
+  toolTipBoxData.classList.remove("d-none");
 
 }
 
@@ -504,17 +504,29 @@ $( document ).ready(function() {
   getAllGeofence();
   switchBaseMaps();
   getAllBusesData();
+
+ document.getElementById("geofenceDialogBoxEditClickButton").addEventListener("click", showgeofenceEditForm); //
+
+  $("#geofenceDialogBoxExitEvent").click(function(){
+    resetgeofenceEditForm();
+  });
+
+  $("#geofenceDialogBoxEditClickCancelButton").click(function(){
+    resetgeofenceEditForm();
+  });
+  
   document.getElementById("bmap").onchange = function(){ //add switch basemap listener
 					switchBaseMaps();
  };
+
 
 // setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
 
  document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
 
- $("#applySettingBtn").click(function(){
-  addBusFeatures(busDataArr);
-}); 
+  $("#applySettingBtn").click(function(){
+    addBusFeatures(busDataArr);
+  }); 
 
 // $("#exportGeofence").click(function(){
 //   downloadJSON();
