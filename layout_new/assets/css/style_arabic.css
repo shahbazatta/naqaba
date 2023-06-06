@@ -37,3 +37,13 @@ table.tablesorter thead tr .header { background-position: center left 20px; }
 .mapPoint .pointSv { float: right; }
 .mapPoint .pointSv>img.tick { right:auto; left: 4px; }
 #slider-value { float: left; margin: 0px 0px 0px 10px; }
+.boxPopUpTab .close {
+    right: auto;
+    left: 10px;
+}
+.boxBody table tr td {
+	text-align: right;
+}
+.boxFooter button { float: right; font-family: 'Noto Kufi Arabic' !important;}
+.boxFooter button.delete, .boxFooter button.edit { float: left; font-family: 'Noto Kufi Arabic' !important;}
+.boxFooter button.edit { margin: 0px 0px 0px 10px; }
