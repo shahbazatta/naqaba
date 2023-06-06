@@ -65,6 +65,14 @@ var clusterLayer;
 // Use this function on the draw geofence button click
 function toggleDrawGeofenceCtrl() {
   draw.setActive(!draw.getActive());
+  if($('#draw_geofence').is(':visible'))
+  {
+    $('#activeDGF').hide();
+    $('#deactiveDGF').show();
+  }else{
+    $('#activeDGF').show();
+    $('#deactiveDGF').hide();
+  }
 }
 function addBusFeatures(dataArr) {
   var featuresArr = [];
@@ -523,6 +531,7 @@ $( document ).ready(function() {
 // setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
 
  document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
+ document.getElementById("de_draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
 
   $("#applySettingBtn").click(function(){
     addBusFeatures(busDataArr);
