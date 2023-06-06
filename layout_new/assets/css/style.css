@@ -135,6 +135,26 @@ body.login {
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 24px;
+	cursor: pointer;
+}
+.loginBox .loginForm .buttonRow>button.signInBtn {
+	height: 56px;
+	width: 100%;
+    padding: 16px 32px;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	cursor: pointer;
+}
+.message{
+    color: red;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 24px;
+	padding: 0px 0px 10px 0px;
 }
 /***************** Map Style *******************/
 

@@ -1,20 +1,6 @@
 <?php 
+require_once("verify/verify.php");
 require_once("lang/language.php");
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // collect value of input field
-  $userId = $_POST['userId'];
-  $userPassword = $_POST['userPassword'];
-  
-  if (empty($userId) || empty($userPassword)) {
-    // echo "UserName or Password is empty";
-  } elseif($userId == "admin" && $userPassword == "admin"){
-    
-    header('Location: index.php');
-  }
-
-}
-
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
@@ -53,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <h1>Welcome to Naqabah Tracking System</h1>
     <form method="post" class="loginForm">
+      <div class="message"><?php echo $error; ?></div>
       <div class="formRow">
         <img src="assets/images/icons/message.svg">
         <input type="text" id="userId" name="userId" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'email_username'); ?>" class="text" tabindex="1" maxlength="35">
@@ -65,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'forgotPassword'); ?></a>
       </div>
       <div class="buttonRow">
-        <input type="submit" class="signInBtn" value="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'signIn'); ?>">
+        <button type="submit" class="signInBtn" name="submitLogin"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'signIn'); ?></button>
       </div>
       <div class="textRow createNew">
         <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'dontHaveAccount'); ?> <a href=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'createNew'); ?></a>
@@ -74,115 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 
 
-<script type="text/javascript">
-/* <![CDATA[ */
-$(document).ready(function(){
-  
-  $('.footer').hide();
-  
-  function setCookie(cname, cvalue, exdays) {
-      var d = new Date();
-      d.setTime(d.getTime() + (exdays*24*60*60*1000));
-      var expires = "expires="+d.toUTCString();
-      document.cookie = cname + "=" + cvalue + "; " + expires;
-  }
-  
-  function getCookie(cname) {
-      var name = cname + "=";
-      var ca = document.cookie.split(';');
-      for(var i=0; i<ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0)==' ') c = c.substring(1);
-          if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-      }
-      return "";
-  }
-  
-  function checkCookie() {
-      var user = getCookie("username");
-      var pass = getCookie("password");
-      if (user != "") {
-          //alert("Welcome again " + user + " & Your password is " + pass);
-          $('#userId').val(user);
-          $('#userPassword').val(pass);
-      }
-  }
-  
-  checkCookie();
-  
-   //submission scripts
-  $('.loginFormMain').submit( function(){
-
-    var name = $.trim($('#userId').val());
-    var pass = $.trim($('#userPassword').val());
-    
-    if (name === "") {
-      $('#userId').addClass('red');
-    } else {$('#userId').removeClass('red');} 
-    if (pass === "") {
-      $('#userPassword').addClass('red');
-    } else {$('#userPassword').removeClass('red');} 
-    
-    if ((name === "") || (pass === "")){
-      return false;
-    } 
-    
-    if ((name != "") || (pass != "")){
-
-      setCookie("username", name, 365);
-      setCookie("password", pass, 365);
-      
-    } 
-    
-  });
-  
-});
-/* ]]> */
- function LetMeLogin(){
-    var flag = false;   
-    var uName;
-    var uPwd;
-    uName = document.getElementById("userId");
-    uPwd = document.getElementById("userPassword");
-    if (uName.value==''){
-      alert('Enter your User Name to proceed.');
-      uName.focus();
-    }else{
-      if (uPwd.value==''){
-        alert('Enter your Password to proceed.');
-        uPwd.focus();
-      }else
-        flag = true;
-    }
-    if(flag){
-      var form=document.getElementById("loginForm");
-      form.submit();  
-    }       
-  }
-
-function sendCredentials()
-{
-  var mailId=document.getElementById("fuserId").value;
-  if(mailId=="")
-    {
-    alert("Email Id field is empty");
-    return;
-    }
-var params={
-    "mailId":mailId
-  };
-    jQuery.ajax({
-      type : 'POST',
-      url : 'forgetPassword.htm',
-      data : params,
-      success : function(data) {
-        document.getElementById("fuserId").value=""; //reset forgrt password input text field         
-        alert(data);                        
-      }
-    });
-}
- 
-</script> 
 
 </body>
 </html>
