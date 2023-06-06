@@ -1,57 +1,71 @@
 $( document ).ready(function() {
+
+  function hidelefttabs(){
+    $('#trackingComBox').hide();
+    $('#transportationComBox').hide();
+    $('#trackingDevicesBox').hide();
+    $('#busFinderBox').hide();
+    $('#geofencesBox').hide();
+    $('#settingBox').hide();
+  }
    
   $(".trackingCom>a").click(function() { 
     if($(this).hasClass("active")){
       $(this).removeClass("active");
-      //$('#settingBox').hide();
+      $('#trackingComBox').hide();
     }else{
       $(".rightMenu>nav>div>a").removeClass("active");
       $(this).addClass("active");
-      //$('#settingBox').show();
+      hidelefttabs();
+      $('#trackingComBox').show();
     }
   });
    
   $(".transportationCom>a").click(function() { 
     if($(this).hasClass("active")){
       $(this).removeClass("active");
-      //$('#settingBox').hide();
+      $('#transportationComBox').hide();
     }else{
       $(".rightMenu>nav>div>a").removeClass("active");
       $(this).addClass("active");
-      //$('#settingBox').show();
+      hidelefttabs();
+      $('#transportationComBox').show();
     }
   });
    
   $(".trackingDevices>a").click(function() { 
     if($(this).hasClass("active")){
       $(this).removeClass("active");
-      //$('#settingBox').hide();
+      $('#trackingDevicesBox').hide();
     }else{
       $(".rightMenu>nav>div>a").removeClass("active");
       $(this).addClass("active");
-      //$('#settingBox').show();
+      hidelefttabs();
+      $('#trackingDevicesBox').show();
     }
   });
    
   $(".busFinder>a").click(function() { 
     if($(this).hasClass("active")){
       $(this).removeClass("active");
-      //$('#settingBox').hide();
+      $('#busFinderBox').hide();
     }else{
       $(".rightMenu>nav>div>a").removeClass("active");
       $(this).addClass("active");
-      //$('#settingBox').show();
+      hidelefttabs();
+      $('#busFinderBox').show();
     }
   });
    
   $(".geofences>a").click(function() { 
     if($(this).hasClass("active")){
       $(this).removeClass("active");
-      //$('#settingBox').hide();
+      $('#geofencesBox').hide();
     }else{
       $(".rightMenu>nav>div>a").removeClass("active");
       $(this).addClass("active");
-      //$('#settingBox').show();
+      hidelefttabs();
+      $('#geofencesBox').show();
     }
   });
 
@@ -62,6 +76,7 @@ $( document ).ready(function() {
     }else{
       $(".rightMenu>nav>div>a").removeClass("active");
       $(this).addClass("active");
+      hidelefttabs();
       $('#settingBox').show();
     }
   });

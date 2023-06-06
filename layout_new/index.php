@@ -64,22 +64,229 @@ require_once("lang/language.php");
        <nav>
           <div class="trackingCom">
             <a href="javascript:void(0)"><img src="assets/images/icons/gps.svg"></a>
+            <div class="popMenuBox" id="trackingComBox">
+
+              <div class="searchBoxForMenu">
+                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
+              </div>
+
+              <div class="headerList">
+                <h1>Tracking Companies</h1>
+                <div class="close"><img src="assets/images/icons/close.svg"></div>
+                <div class="selectAllCheckBox">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="trackingComSeAl" class="lebelText"> Search All</label>
+                </div>
+              </div>
+
+              <!--Companies list-->
+              <div class="mainListRows">
+
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="listRow1" name="listRow1" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="listRow1" class="lebelText">
+                    <img src="assets/images/companies/c1.png">
+                    <p>Machinestalk</p>
+                  </label>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="listRow2" name="listRow2" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="listRow2" class="lebelText">
+                    <img src="assets/images/companies/c2.png">
+                    <p>Sober Me Up</p>
+                  </label>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="listRow3" name="listRow3" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="listRow3" class="lebelText">
+                    <img src="assets/images/companies/c3.png">
+                    <p>Engineer Guarantee</p>
+                  </label>
+                  <div class="clear"></div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
           <div class="transportationCom">
             <a href="javascript:void(0)"><img src="assets/images/icons/truck.svg"></a>
+
+            <div class="popMenuBox" id="transportationComBox">
+              <div class="searchBoxForMenu">
+                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
+              </div>
+              <div class="headerList">
+                <h1>Transportation Companies</h1>
+                <div class="close"><img src="assets/images/icons/close.svg"></div>
+                <div class="selectAllCheckBox">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="trackingComSeAl" class="lebelText"> Search All</label>
+                </div>
+              </div>
+
+              <!--Companies list-->
+              <div class="mainListRows">
+
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="listRow1" name="listRow1" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="listRow1" class="lebelText">
+                    <img src="assets/images/companies/c1.png">
+                    <p>Saudi Public Transport Company</p>
+                  </label>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="listRow2" name="listRow2" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="listRow2" class="lebelText">
+                    <img src="assets/images/companies/c2.png">
+                    <p>Makkah Transport Company</p>
+                  </label>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="listRow3" name="listRow3" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="listRow3" class="lebelText">
+                    <img src="assets/images/companies/c3.png">
+                    <p>Dollah Company for Transporting Pilgrims</p>
+                  </label>
+                  <div class="clear"></div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
           <div class="trackingDevices">
             <a href="javascript:void(0)"><img src="assets/images/icons/truck_fast.svg"></a>
+
+            <div class="popMenuBox" id="trackingDevicesBox">
+              <div class="searchBoxForMenu">
+                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
+              </div>
+              <div class="headerList">
+                <h1>Tracking Devices</h1>
+                <div class="close"><img src="assets/images/icons/close.svg"></div>
+                <div class="selectAllCheckBox">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="trackingComSeAl" class="lebelText"> Search All</label>
+                </div>
+              </div>
+
+              <!--Companies list-->
+              <div class="mainListRows">
+
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="listRow1" name="listRow1" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="listRow1" class="lebelText">
+                    <img src="assets/images/companies/c1.png">
+                    <p>BCE</p>
+                  </label>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="listRow2" name="listRow2" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="listRow2" class="lebelText">
+                    <img src="assets/images/companies/c2.png">
+                    <p>Teltonika</p>
+                  </label>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="listRow3" name="listRow3" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="listRow3" class="lebelText">
+                    <img src="assets/images/companies/c3.png">
+                    <p>Machinestalk</p>
+                  </label>
+                  <div class="clear"></div>
+                </div>
+
+              </div>
+            </div>
+            
           </div>
 
           <div class="busFinder">
             <a href="javascript:void(0)"><img src="assets/images/icons/bus.svg"></a>
+
+            <div class="popMenuBox" id="busFinderBox">
+              <div class="searchBoxForMenu">
+                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
+              </div>
+
+              <!--Companies list-->
+              <div class="mainListRows">
+                Table for Bus finder
+              </div>
+            </div>
+            
           </div>
 
           <div class="geofences">
             <a href="javascript:void(0)"><img src="assets/images/icons/barcode.svg"></a>
+
+            <div class="popMenuBox" id="geofencesBox">
+              <div class="searchBoxForMenu">
+                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
+              </div>
+
+              <!--Companies list-->
+              <div class="mainListRows">
+                Table for geo fence
+              </div>
+            </div>
+            
           </div>
 
           <div class="settings">

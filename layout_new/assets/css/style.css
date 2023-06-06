@@ -315,9 +315,193 @@ body.login {
 	left: -360px;
 	top: -130px;
 	border-radius: 16px;
-	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4);
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
 	display: none;
 }
+
+.popMenuBox{
+	position: absolute;
+	width: 358px;
+	height: auto;
+	padding: 16px;
+	background: #ffffff;
+	left: -410px;
+	top: 56px;
+	border-radius: 16px;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+	display: none;
+}
+.searchBoxForMenu{
+	position: absolute;
+	width: 390px;
+	height: 48px;
+	padding: 0px;
+	background: #ffffff;
+	left: 0px;
+	top: -56px;
+	border-radius: 16px;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+}
+.searchBoxForMenu>input.search{
+	padding: 0px;
+	margin: 0px;
+	width: 310px;
+	height: 48px;
+	float: left;
+	padding: 0px 15px;
+	border: none;
+	font-size:16px;
+	line-height:26px;
+	font-weight: 400;
+	color:#000;
+}
+.searchBoxForMenu>button.searchButton{
+	float: right;
+	width: 48px;
+	height: 48px;
+	border: none;
+	background: #fff;
+	cursor: pointer; 
+}
+.searchBoxForMenu>button.searchButton>img{
+	transition: 0.6s ease;
+	-o-transition: 0.6s ease;
+	-webkit-transition: 0.6s ease;
+	width: 26px;
+	height: 26px;
+}
+.searchBoxForMenu>button.searchButton:hover>img{
+	width: 28px;
+	height: 28px;
+}
+.headerList{
+	border-bottom: 1px solid #f0f0f0; 
+	position: relative;
+}
+.headerList h1{
+	font-size: 18px;
+	line-height: 26px;
+	font-weight: 500;
+	color: #000;
+	padding: 0px 0px 8px 0px;
+}
+.headerList div.close{
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	top: 0px;
+	right: 5px;
+}
+.headerList .selectAllCheckBox{
+	position: relative;
+	padding: 10px 0px 15px 0px;
+}
+.headerList .selectAllCheckBox .lebelText{
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: 500;
+	color: #333;
+}
+.mainListRows{
+	position: relative;
+	padding: 15px 0px 0px 0px;
+}
+.mainListRows .listRow{
+	position: relative;
+	padding: 8px 0px 10px 0px;
+}
+.mainListRows .listRow .lebelText{
+	position: relative;
+	padding: 0px 0px 0px 40px;
+	display: block;
+	float: left;
+	width: 280px;
+	font-size: 16px;
+	line-height: 18px;
+	font-weight: 500;
+	color: #333;
+}
+.mainListRows .listRow .lebelText>img{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: -5px;
+	left: 0px;
+}
+.mainListRows .listRow .cCheckBox2{
+
+	padding: 0px 0px 0px 0px;
+}
+
+/* Create a custom checkbox */
+
+.cCheckBox2 {
+	position: relative;
+	height: 22px;
+	width: 35px;
+	display: block;
+	float: left;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 19px;
+  width: 19px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  display: block;
+border-radius: 5px;
+}
+/* On mouse-over, add a grey background color */
+.cCheckBox2:hover input ~ .checkmark {
+  background-color: #f0f0f0;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cCheckBox2 input:checked ~ .checkmark {
+  background-color: #1bd527;
+  border: 1px solid #1bd527;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.cCheckBox2 input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.cCheckBox2 .checkmark:after {
+  left: 6px;
+  top: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.cCheckBox2>input {
+  width: 8px;
+  height: 8px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
 h1{
 	font-size: 17px;
 	line-height: 24px;
