@@ -57,7 +57,6 @@ require_once("lang/language.php");
 <![endif]-->
 </head>
 <body>
-<?php echo $lang_type; ?>
   
   <!--==========Start Main Content Area==========-->
   <!-- Map Wrapper -->
