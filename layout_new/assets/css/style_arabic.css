@@ -1,3 +1,39 @@
 body{
     font-family: 'Noto Kufi Arabic', sans-serif !important;
 }
+input, textarea { 
+ direction: rtl;
+}
+
+.loginBox .loginForm .formRow>input.text {
+	font-family: 'Noto Kufi Arabic', sans-serif !important;
+	text-align: right;
+}
+.loginBox .loginForm .buttonRow>button.signInBtn, .applySettingBtn {
+	font-family: 'Noto Kufi Arabic', sans-serif !important;
+}
+
+.loginBox .loginForm .formRow>input.text:-moz-placeholder { text-align: right; }
+.loginBox .loginForm .formRow>input.text:-ms-input-placeholder { text-align: right; }
+.loginBox .loginForm .formRow>input.text::-webkit-input-placeholder { text-align: right; }
+
+
+.cCheckBox2 {float: right;}
+.cCheckBox2>input {right: 0;}
+.checkmark {right: 0;}
+.mainListRows .listRow .lebelText { padding: 0px 40px 0px 0px; }
+.mainListRows .listRow .lebelText>img { right: 0px;}
+.searchBoxForMenu>input.search {float: right}
+.searchBoxForMenu>button.searchButton {float: left;}
+.headerList div.close { right:auto; left: 5px; }
+table.tableNeo tbody tr td:first-child, table.tableNeo thead tr th { text-align: right; }
+table.tablesorter thead tr .header { background-position: center left 20px; }
+.selectParent>h3 { left: auto; right: 46px; font-family: 'Noto Kufi Arabic', sans-serif !important;}
+.selectParent>img { left: auto; right: 8px; }
+.bgSelect { 
+	padding: 12px 45px 0px 0px; 
+	background: transparent url(../images/icons/left_actionable.png) center left no-repeat; 
+}
+.mapPoint .pointSv { float: right; }
+.mapPoint .pointSv>img.tick { right:auto; left: 4px; }
+#slider-value { float: left; margin: 0px 0px 0px 10px; }
