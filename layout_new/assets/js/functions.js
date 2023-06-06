@@ -90,5 +90,9 @@ $( document ).ready(function() {
     $('#slider-value').html($(this).val());
   });
 
+   $("#busFinderTable,#geofencesTable").tablesorter({
+      widgets: ['zebra'], sortList: [[0,0]]
+    });
+
 
 });

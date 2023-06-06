@@ -34,7 +34,9 @@ require_once("lang/language.php");
 <script src="assets/js/custom.js"></script>
 <script src="assets/js/gis/main.js"></script>
 
-
+<!--Table Sorter-->
+<script src="assets/plugin/sorter/jquery.tablesorter.js"></script>
+<link rel="stylesheet" href="assets/plugin/sorter/style.css" type="text/css" />
 
 <!-- Styling -->
 <link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="screen" />
@@ -47,6 +49,7 @@ require_once("lang/language.php");
 </head>
 <body>
 
+  
   <!--==========Start Main Content Area==========-->
   <!-- Map Wrapper -->
   <div class="mapWrapper1" id="mapContainer1">
@@ -64,8 +67,8 @@ require_once("lang/language.php");
        <nav>
           <div class="trackingCom">
             <a href="javascript:void(0)"><img src="assets/images/icons/gps.svg"></a>
-            <div class="popMenuBox" id="trackingComBox">
 
+            <div class="popMenuBox" id="trackingComBox">
               <div class="searchBoxForMenu">
                 <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
@@ -196,7 +199,7 @@ require_once("lang/language.php");
 
             <div class="popMenuBox" id="trackingDevicesBox">
               <div class="searchBoxForMenu">
-                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Device" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
               <div class="headerList">
@@ -258,15 +261,62 @@ require_once("lang/language.php");
           <div class="busFinder">
             <a href="javascript:void(0)"><img src="assets/images/icons/bus.svg"></a>
 
-            <div class="popMenuBox" id="busFinderBox">
+            <div class="popMenuBox busFinderBox" id="busFinderBox">
               <div class="searchBoxForMenu">
-                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search IMEI Number" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
 
               <!--Companies list-->
               <div class="mainListRows">
-                Table for Bus finder
+                <table id="busFinderTable" class="tableNeo tablesorter">
+                  <thead>
+                    <tr>
+                      <th>IMEI No.</th>
+                      <th>Bus No.</th>
+                      <th>Bus Operating No.</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cCheckBox2">
+                          <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                          <span class="checkmark"></span>
+                        </label>
+                        357-9120-4987-6543
+                      </td>
+                      <td>123-A</td>
+                      <td>6547</td>
+                      <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="cCheckBox2">
+                          <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                          <span class="checkmark"></span>
+                        </label>
+                        357-9120-4987-6543
+                      </td>
+                      <td>123-A</td>
+                      <td>6547</td>
+                      <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="cCheckBox2">
+                          <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                          <span class="checkmark"></span>
+                        </label>
+                        357-9120-4987-6543
+                      </td>
+                      <td>123-A</td>
+                      <td>6547</td>
+                      <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
             
@@ -275,7 +325,7 @@ require_once("lang/language.php");
           <div class="geofences">
             <a href="javascript:void(0)"><img src="assets/images/icons/barcode.svg"></a>
 
-            <div class="popMenuBox" id="geofencesBox">
+            <div class="popMenuBox geofencesBox" id="geofencesBox">
               <div class="searchBoxForMenu">
                 <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
@@ -283,7 +333,62 @@ require_once("lang/language.php");
 
               <!--Companies list-->
               <div class="mainListRows">
-                Table for geo fence
+                <table id="geofencesTable" class="tableNeo tablesorter">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Type</th>
+                      <th>Station Name</th>
+                      <th>Station Code</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cCheckBox2">
+                          <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                          <span class="checkmark"></span>
+                        </label>
+                        SAPTCO
+                      </td>
+                      <td>Testing</td>
+                      <td>Motor Coach</td>
+                      <td>Jeddah</td>
+                      <td>JDH</td>
+                      <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="cCheckBox2">
+                          <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                          <span class="checkmark"></span>
+                        </label>
+                        Al Qassim
+                      </td>
+                      <td>Testing</td>
+                      <td>Motor Coach</td>
+                      <td>Dammam</td>
+                      <td>DMS</td>
+                      <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label class="cCheckBox2">
+                          <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                          <span class="checkmark"></span>
+                        </label>
+                        Abaqaiq
+                      </td>
+                      <td>Testing</td>
+                      <td>Motor Coach</td>
+                      <td>Al-Hofuf</td>
+                      <td>AH</td>
+                      <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
             
@@ -400,11 +505,6 @@ require_once("lang/language.php");
        </nav>
      </div>
 
-
-
-    
-
-     
   </div>
   <!--==========End Main Content Area==========-->
 

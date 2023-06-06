@@ -6,33 +6,27 @@ table.tablesorter {
 	text-align: left;
 }
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
-	background-color: #ccc;
-	border: 1px solid #FFF;
-	font-size: 8pt;
-	padding: 5px 11px;
+	background-color: #000;
 }
 table.tablesorter thead tr .header {
-	background-image: url(bg.gif);
+	background-image: url(bg.png);
 	background-repeat: no-repeat;
-	background-position: center right;
+	background-position: center right 20px;
 	cursor: pointer;
 }
 table.tablesorter tbody td {
-	color: #3D3D3D;
-	padding: 4px 2px 4px 12px;
-	background-color: #FFF;
 	vertical-align: top;
-	text-align: left !important;
+	text-align: left;
 }
 table.tablesorter tbody tr.odd td {
-	background-color:#F0F0F6;
+	background-color:#f7f7f7;
 }
 table.tablesorter thead tr .headerSortUp {
-	background-image: url(asc.gif);
+	background-image: url(asc.png);
 }
 table.tablesorter thead tr .headerSortDown {
-	background-image: url(desc.gif);
+	background-image: url(desc.png);
 }
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
-background-color: #248ec2;
+background-color: #000;
 }
