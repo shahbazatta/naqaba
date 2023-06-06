@@ -4,7 +4,7 @@ use noknowliblocalelocalizedStrings\LocalizedStrings;
 
 $localizedStrings = new LocalizedStrings();
 
-$lang_type = 'en';
+$lang_type = 'ar';
 $lang_cookie = 'language_json';
 
 //setcookie($lang_cookie, '', time() - (86400 * 30), "/");  
@@ -25,8 +25,8 @@ if(isset($_GET['lang'])) {
         $lang_type = 'en';
       }
     }else{
-      setcookie($lang_cookie, 'en', time() + (86400 * 30), "/");
-      $lang_type = 'en';  
+      setcookie($lang_cookie, 'ar', time() + (86400 * 30), "/");
+      $lang_type = 'ar';  
     }
 }
 

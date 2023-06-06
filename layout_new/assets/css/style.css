@@ -627,7 +627,7 @@ h1{
 	font-weight: 500;
 	color:#000;
 	cursor:pointer;
-	font-family: 'Prompt', sans-serif;
+	font-family: 'Noto Kufi Arabic', sans-serif !important;
 	-webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -635,6 +635,7 @@ h1{
     border: none;
     background: transparent url(../images/icons/left_actionable.png) center right no-repeat;
 }
+.bgSelect option:first-child{ font-family: 'Noto Kufi Arabic', sans-serif !important; }
 .bgSelect option{ background-color: #fff;}
 .bgSelect:hover{}
 
