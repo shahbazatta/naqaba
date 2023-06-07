@@ -307,12 +307,14 @@ selectInteraction.on('select', function(event) {
 		  var deselectedFeatures = event.deselected; // Array of deselected features
 		  if (selectedFeatures.length>0){
 			  var data;
+        var coordinates;
 		if (selectedFeatures[0].getProperties().properties==undefined){
 		  data  = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
 		}
 		else {
 			data = selectedFeatures[0].getProperties().properties['attributes']
 			selectedGeofence = selectedFeatures[0];
+      coordinates = selectedFeatures[0].getProperties().properties['geometry']
 		}
 		  var obj_str ="";
 		  // for (var key in data)
@@ -369,7 +371,7 @@ selectInteraction.on('select', function(event) {
           document.getElementById("code_id_toolTip").value = data['Code_ID'];
           document.getElementById("shape_length_toolTip").value = data['SHAPE_Length'];
           document.getElementById("shape_area_toolTip").value = data['SHAPE_Area'];
-          document.getElementById("coordinate_arr_toolTip").value = data['geometry'].coordinates;
+          document.getElementById("coordinate_arr_toolTip").value = coordinates.coordinates;
 
           resetgeofenceEditForm();
           $('#geofenceDialogBox').show();
