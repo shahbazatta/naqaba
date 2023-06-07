@@ -62,6 +62,7 @@ var clusterSource;
 var drawSource = new ol.source.Vector();
 var draw;
 var clusterLayer;
+var clusterAnimateLayer;
 // Use this function on the draw geofence button click
 function toggleDrawGeofenceCtrl() {
   draw.setActive(!draw.getActive());
@@ -74,6 +75,43 @@ function toggleDrawGeofenceCtrl() {
     $('#deactiveDGF').hide();
   }
 }
+
+ // Style for the clusters
+ var styleCache = {};
+ function getStyle (feature, resolution){
+   var size = feature.get('features').length;
+   var style = styleCache[size];
+   if (!style) {
+     var color = size>25 ? "192,0,0" : size>8 ? "255,128,0" : "0,128,0";
+     var radius = Math.max(8, Math.min(size*0.75, 20));
+     var dash = 2*Math.PI*radius/6;
+     var dash = [ 0, dash, dash, dash, dash, dash, dash ];
+     style = styleCache[size] = new ol.style.Style({
+       image: new ol.style.Circle({
+         radius: radius,
+         stroke: new ol.style.Stroke({
+           color: "rgba("+color+",0.5)", 
+           width: 1 ,
+           //lineDash: dash,
+           lineCap: "butt"
+         }),
+         fill: new ol.style.Fill({
+           color:"rgba("+color+",1)"
+         })
+       }),
+       text: new ol.style.Text({
+         text: size.toString(),
+         //font: 'bold 12px comic sans ms',
+         //textBaseline: 'top',
+         fill: new ol.style.Fill({
+           color: '#fff'
+         })
+       })
+     });
+   }
+   return style;
+ }
+
 function addBusFeatures(dataArr) {
   var featuresArr = [];
   var image_path = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
@@ -138,6 +176,23 @@ clusterLayer = new ol.layer.Vector({
 
 // Add the cluster layer to the map
 map.addLayer(clusterLayer);
+
+clusterAnimateLayer = new ol.layer.AnimatedCluster({
+  name: 'Cluster',
+  source: clusterSource,
+  animationDuration: 700,
+  // Cluster style
+  style: getStyle
+});
+map.addLayer(clusterAnimateLayer);
+var vizTypeId = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('id');
+if (vizTypeId ==null) {
+  clusterAnimateLayer.setVisible(false);
+}
+else {
+  clusterLayer.setVisible(false);
+}
+
 }
 function switchBaseMaps() {
 	var options = document.getElementById("bmap").options;
@@ -192,7 +247,7 @@ function addDrawInteraction() {
   });
 
   // Add the vector layer to the map
-  drawLayer.setZIndex(12);
+ // drawLayer.setZIndex(12);
   map.addLayer(drawLayer);
 
   // Create a draw interaction for polygons
@@ -239,7 +294,7 @@ function getAllBusesData() {
       busDataArr = response;
       addBusFeatures(busDataArr);
 var selectInteraction = new ol.interaction.Select({
-  layers: [clusterLayer,stationLyr]
+  layers: [clusterLayer,stationLyr,clusterAnimateLayer]
 });
 
 // Add the Select interaction to the map

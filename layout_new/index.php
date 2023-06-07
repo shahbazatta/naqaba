@@ -36,13 +36,15 @@ require_once("lang/language.php");
 <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
 <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
 
-<!-- Custom Code Jquery -->
+<!-- Custom Code -->
 <script src="assets/js/custom.js"></script>
 <script src="assets/js/gis/main.js"></script>
+<script src="assets/js/gis/ol-ext.js"></script>
 
 <!--Table Sorter-->
 <script src="assets/plugin/sorter/jquery.tablesorter.js"></script>
 <link rel="stylesheet" href="assets/plugin/sorter/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/ol-ext.css" type="text/css" />
 
 <!-- Styling -->
 <link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="screen" />
@@ -449,7 +451,7 @@ require_once("lang/language.php");
               <div class="rowDropdown">
                 <h2><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectMapPoint'); ?></h2>
                 <div class="mapPoint">
-                  <div class="pointSv active">
+                  <div class="pointSv">
                     <img class="tick" src="assets/images/icons/tick-circle.png">
                     <img src="assets/images/icons/mapPoint1.png">
                   </div>
@@ -461,9 +463,9 @@ require_once("lang/language.php");
                     <img class="tick" src="assets/images/icons/tick-circle.png">
                     <img src="assets/images/icons/mapPoint3.png">
                   </div>
-                  <div class="pointSv">
+                  <div class="pointSv active">
                     <img class="tick" src="assets/images/icons/tick-circle.png">
-                    <img src="assets/images/icons/mapPoint4.png">
+                    <img id="bubble" src="assets/images/icons/mapPoint4.png">
                   </div>
                 </div>
               </div>
