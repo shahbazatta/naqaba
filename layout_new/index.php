@@ -774,6 +774,123 @@ require_once("lang/language.php");
   </div>
 </div>
 
+<div class="popUpBox" id="newGeofenceDialogBox">
+  <div class="boxPopUpTab addNew">
+    <span class="close exit" id=""></span>
+    <div class="boxHeader">
+      <img src="assets/images/icons/icon-fg.png">
+      <h1>Write the Geofence detials</h1>
+    </div>
+    <div id="result"></div>
+    <div id="geofenceDialogBoxData">
+      <form role="form" id="geofenceAdd" action="" >
+        <div class="boxBody">
+          <table>
+            <tr>
+              <td>
+                <label>Arabic Name:</label>
+                <input type="text" class="inputText" id="arabic_name" name="arabic_name" maxlength="120"/>
+              </td>
+              <td>
+                <label>English Name:</label>
+                <input type="text" class="inputText" id="english_name" name="english_name" maxlength="120"/>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="np">
+                <table>
+                  <tr>
+                    <td>
+                      <label>Type:</label>
+                      <input type="text" class="inputText" id="type" name="type" maxlength="120"/>
+                    </td>
+                    <td>
+                      <label>District:</label>
+                      <input type="text" class="inputText" id="district" name="district" maxlength="120"/>
+                    </td>
+                    <td>
+                      <label>Site:</label>
+                      <input type="text" class="inputText" id="site" name="site" maxlength="120"/>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <label>Description:</label>
+                <input type="text" class="inputText" id="description" name="description" maxlength="280"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Area:</label>
+                <input type="text" class="inputText" id="area" name="area" maxlength="120"/>
+              </td>
+              <td>
+                <label>Category:</label>
+                <input type="text" class="inputText" id="category" name="category" maxlength="120"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Station Type:</label>
+                <input type="text" class="inputText" id="station_type" name="station_type" maxlength="120"/>
+              </td>
+              <td>
+                <label>Station Code:</label>
+                <input type="text" class="inputText" id="station_code" name="station_code" maxlength="120"/>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <label>Station Name:</label>
+                <input type="text" class="inputText" id="station_name" name="station_name" maxlength="120"/>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="np">
+                <table>
+                  <tr>
+                    <td>
+                      <label>Code ID:</label>
+                      <input type="text" class="inputText" id="code_id" name="code_id" maxlength="120"/>
+                    </td>
+                    <td>
+                      <label>Shape Length:</label>
+                      <input type="text" class="inputText" id="shape_length" name="shape_length" maxlength="120"/>
+                    </td>
+                    <td>
+                      <label>Shape Area:</label>
+                      <input type="text" class="inputText" id="shape_area" name="shape_area" maxlength="120"/>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="boxFooter">
+          <input type="hidden" id="coordinate_arr" name="coordinate_arr" value="">
+          
+          
+
+          <button type="button" class="delete exit" id="geofenceDiscard" onclick=""><img src="assets/images/icons/trash.svg">
+            <span>Discard</span>
+          </button>
+          <button type="button" class="save" id="geofenceSave" onclick=""><img src="assets/images/icons/check-mark-32.png">
+            <span>Save</span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
   function getAvlDevicesData()
 {
@@ -816,11 +933,22 @@ require_once("lang/language.php");
 }
 $( document ).ready(function() {
 
+  //$('#newGeofenceDialogBox').show();
   //$('#busDialogBox').show();
   //$('#geofenceDialogBox').show();
 
+
   getAvlDevicesData();
-  $("#geofenceSave").click(function() { 
+  //reset previously set border colors and hide all message on .keyup()
+  $("#geofenceAdd input, #geofenceAdd textarea").keyup(function() { 
+      $("#geofenceAdd input, #geofenceAdd textarea").css('border-color',''); 
+      $("#newGeofenceDialogBox #result").slideUp();
+  });
+  $("#newGeofenceDialogBox #result").slideUp();
+
+  $("#geofenceSave").click(function() {
+
+
         //get input field values
         var arabic_name     = $('#arabic_name').val(); 
         var english_name    = $('#english_name').val();
@@ -853,8 +981,9 @@ $( document ).ready(function() {
         if(code_id=="") { $('#code_id').css('border-color','red'); flag = false; }
         if(shape_length=="") { $('#shape_length').css('border-color','red'); flag = false; }
         if(shape_area=="") { $('#shape_area').css('border-color','red'); flag = false; }
+        
         if(coordinate_arr=="") { 
-          $("#result").hide().html('<div class="error">Wrong Draw Geofence Coordinates</div>').slideDown();
+          $("#newGeofenceDialogBox #result").hide().html('<div class="error">Wrong Draw Geofence Coordinates</div>').slideDown();
           flag = false; 
         }
 
@@ -893,12 +1022,12 @@ $( document ).ready(function() {
                   coordinates : coordinate_arr
                 },
                 beforeSend: function() {
-                    $('#geofenceSave').attr('disabled', true);
-                    //$('#geofenceSave').after('<span class="wait">&nbsp;<img src="image/loading.gif" alt="" /></span>');
+                    $('#geofenceSave, #geofenceDiscard').attr('disabled', true);
+                    $('#geofenceSave').after('<div class="wait">&nbsp;<img src="assets/images/icons/loading.gif" alt="" /></div>');
                 },
                 complete: function() {
-                    $('#geofenceSave').attr('disabled', false);
-                    //$('.wait').remove();
+                    $('#geofenceSave, #geofenceDiscard').attr('disabled', false);
+                    $('.wait').remove();
                 },  
                 success: function(data)
                 {
@@ -910,20 +1039,20 @@ $( document ).ready(function() {
                       $('#geofenceAdd input[type=text]').val(''); 
                       $('#geofenceAdd textarea').val(''); 
 
-                      $('.popUpBoxTab').animate({top:"0px",opacity:"0.1"}, function(){
-                          $('.popUpBoxTab').hide();
+                      $('.boxPopUpTab').animate({top:"0px",opacity:"0.1"}.delay( 800 ), function(){
+                          $('.boxPopUpTab').hide();
                           //Black Box hide
                           $('.popUpBox').animate({opacity:"0.1"}, function(){
                             $('.popUpBox').hide();
                             $('.popUpBox').css({"opacity":"1.0"});
-                            $('.popUpBoxTab').show();
+                            $('.boxPopUpTab').show();
                             //Set to Default
-                            $('.popUpBoxTab').css({"top":"20px","opacity":"1.0"});
+                            $('.boxPopUpTab').css({"top":"20px","opacity":"1.0"});
                           });
                       }); 
                   }
 
-                  $("#result").hide().html(output).slideDown();
+                  $("#newGeofenceDialogBox #result").hide().html(output).slideDown();
                           
                 }
             });
