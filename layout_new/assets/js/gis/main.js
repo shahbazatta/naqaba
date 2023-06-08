@@ -82,7 +82,7 @@ function toggleDrawGeofenceCtrl() {
    var size = feature.get('features').length;
    var style = styleCache[size];
    if (!style) {
-     var color = size>25 ? "192,0,0" : size>8 ? "255,128,0" : "0,128,0";
+     var color = size>25 ? "187,40,70" : size>8 ? "245,201,70" : "89,171,270";
      var radius = Math.max(8, Math.min(size*0.75, 20));
      var dash = 2*Math.PI*radius/6;
      var dash = [ 0, dash, dash, dash, dash, dash, dash ];
@@ -91,9 +91,9 @@ function toggleDrawGeofenceCtrl() {
          radius: radius,
          stroke: new ol.style.Stroke({
            color: "rgba("+color+",0.5)", 
-           width: 1 ,
+           width: 10 ,
            //lineDash: dash,
-           lineCap: "butt"
+           lineCap: "round"
          }),
          fill: new ol.style.Fill({
            color:"rgba("+color+",1)"
