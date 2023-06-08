@@ -272,7 +272,7 @@ function addDrawInteraction() {
 	drawGeofenceCord = polygon.getCoordinates();
     console.log('Polygon drawing ended:', polygon.getCoordinates());
     // Do something with the drawn polygon geometry
-    $('#geofenceDialogBox').show();
+    $('#newGeofenceDialogBox').show();
     $('#coordinate_arr').val(drawGeofenceCord);
 
   });
