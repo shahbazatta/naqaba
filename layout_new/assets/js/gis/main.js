@@ -112,7 +112,92 @@ function toggleDrawGeofenceCtrl() {
    return style;
  }
 
+ var busesData = [];
 function addBusFeatures(dataArr) {
+  var featuresArr = [];
+  busesData = dataArr;
+  var image_path = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
+      for (let i = 0; i < dataArr.length; i++) {
+        var obj = dataArr[i];
+        var feature = new ol.Feature({
+          geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates)),
+          properties: obj
+        });
+        feature.setId(obj.imei);
+		feature.setProperties(obj);
+        var iconStyle = new ol.style.Style({
+          image: new ol.style.Icon({
+            src: image_path, // Replace with the path to your bus icon image
+            scale: 0.60, // Adjust the scale as needed
+			//opacity: 0.23
+
+			opacity: parseFloat(document.getElementById("slider-value").value)
+
+			})
+        });
+
+        // Set the icon style for the feature
+        feature.setStyle(iconStyle);
+        featuresArr.push(feature);
+      }
+      if (busesDataSource != undefined) {
+        busesDataSource.clear();
+      }
+
+      busesDataSource = new ol.source
+	  .Vector({
+		features: featuresArr
+		});
+		  // Create a cluster source with a distance of 40 pixels
+  clusterSource = new ol.source.Cluster({
+    distance: 50,
+    source: busesDataSource
+  });
+
+clusterLayer = new ol.layer.Vector({
+  source: clusterSource,
+  style: function(feature) {
+    var size = feature.get('features').length;
+    var style = new ol.style.Style({
+      image: new ol.style.Icon({
+        src: image_path, // Replace with the path to your bus icon image
+        scale: 0.60, // Adjust the scale as needed
+		opacity: parseFloat(document.getElementById("slider-value").value)
+      }),
+      text: new ol.style.Text({
+        text: size.toString(),
+        fill: new ol.style.Fill({
+          color: '#FFFFFF'
+        })
+      })
+    });
+    return style;
+  }
+});
+//clusterLayer.setZIndex(10);
+
+// Add the cluster layer to the map
+map.addLayer(clusterLayer);
+
+clusterAnimateLayer = new ol.layer.AnimatedCluster({
+  name: 'Cluster',
+  source: clusterSource,
+  animationDuration: 700,
+  // Cluster style
+  style: getStyle
+});
+map.addLayer(clusterAnimateLayer);
+var vizTypeId = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('id');
+if (vizTypeId ==null) {
+  clusterAnimateLayer.setVisible(false);
+}
+else {
+  clusterLayer.setVisible(false);
+}
+
+}
+
+function addBusFeaturesReasign(dataArr) {
   var featuresArr = [];
   var image_path = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
       for (let i = 0; i < dataArr.length; i++) {
@@ -562,6 +647,41 @@ function resetgeofenceEditForm(){
 
 }
 
+var companyList = [
+
+];
+
+var devicesList = [
+
+];
+
+function loadFiltersDataDevicesCompany() {
+
+}
+
+function trackingDevicesSearchEvent(event){
+  var value = document.getElementById(event).value;
+  if(value && value != ''){
+    if(busesData && busesData.length){
+      value = value.toLowerCase()
+      var dataFilter = busesData.filter(x =>
+         String(x.device.bus_oper_no).toLowerCase().includes(value) ||
+         String(x.device.busid).toLowerCase().includes(value) ||
+         String(x.device.device_comp).toLowerCase().includes(value) ||
+         String(x.device.engplate_no).toLowerCase().includes(value) ||
+         String(x.device.license_ser_no).toLowerCase().includes(value) ||
+         String(x.device.plate_no).toLowerCase().includes(value) ||
+         String(x.device.trnspt_comp_ar).toLowerCase().includes(value) ||
+         String(x.device.trnspt_comp_id).toLowerCase().includes(value)
+         );  
+      if(dataFilter && dataFilter.length){
+        addBusFeaturesReasign(dataFilter);
+      }
+    }
+  }else{
+    addBusFeaturesReasign(busesData);
+  }
+}
 
 $( document ).ready(function() {
   initMap();
@@ -569,8 +689,8 @@ $( document ).ready(function() {
   getAllGeofence();
   switchBaseMaps();
   getAllBusesData();
-
- document.getElementById("geofenceDialogBoxEditClickButton").addEventListener("click", showgeofenceEditForm); //
+  loadFiltersDataDevicesCompany();
+   document.getElementById("geofenceDialogBoxEditClickButton").addEventListener("click", showgeofenceEditForm); //
 
   $("#geofenceDialogBoxExitEvent").click(function(){
     resetgeofenceEditForm();

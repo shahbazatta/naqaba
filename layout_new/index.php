@@ -210,7 +210,7 @@ require_once("lang/language.php");
 
             <div class="popMenuBox" id="trackingDevicesBox">
               <div class="searchBoxForMenu">
-                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Device" class="search">
+                <input type="text" name="trackingDevicesSearch" value="" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')" id="trackingDevicesSearch" placeholder="Search Device" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
               <div class="headerList">
@@ -226,7 +226,7 @@ require_once("lang/language.php");
               </div>
 
               <!--Companies list-->
-              <div class="mainListRows">
+              <div class="mainListRows" id="">
 
                 <div class="listRow">
                   <label class="cCheckBox2">
@@ -775,11 +775,51 @@ require_once("lang/language.php");
 </div>
 
 <script type="text/javascript">
+  function getAvlDevicesData()
+{
+	
+    $.ajax({
+         url: "data/get_avlDevicesData.php",
+         method: "POST",
+         dataType: "json",
+        data: {
+          api_key: "becdf4fbbbf49dbc",
+         },
+         success: function(data){
+			 console.log(data);
+			 debugger
+			 },
+         error: function (jqXHR, exception) {
+           var msg = '';
+          //alert(msg);
+           console.log(jqXHR.responseText);
+
+           if (jqXHR.status === 0) {
+             msg = 'Not connect.\n Verify Network.';
+           } else if (jqXHR.status == 404) {
+             msg = 'Requested page not found. [404]';
+           } else if (jqXHR.status == 500) {
+             msg = 'Internal Server Error [500].';
+           } else if (exception === 'parsererror') {
+             msg = 'Requested JSON parse failed.';
+           } else if (exception === 'timeout') {
+             msg = 'Time out error.';
+           } else if (exception === 'abort') {
+             msg = 'Ajax request aborted.';
+           } else {
+             msg = 'Uncaught Error.\n' + jqXHR.responseText;
+           }
+           alert(msg);
+          // $('#toolTipBox').show();
+         },
+     });
+}
 $( document ).ready(function() {
 
   //$('#busDialogBox').show();
   //$('#geofenceDialogBox').show();
 
+  getAvlDevicesData();
   $("#geofenceSave").click(function() { 
         //get input field values
         var arabic_name     = $('#arabic_name').val(); 
