@@ -237,7 +237,7 @@ function addDrawInteraction() {
 					  //lineDash: [5]
 					}),
 					fill: new ol.style.Fill({
-					  color: 'rgba(255, 0, 0, 0.5)',
+					  color: 'rgba(0, 0, 255, 0.1)',
 					}),
 				  });
 
@@ -426,10 +426,10 @@ function getAllGeofence()
 					stroke: new ol.style.Stroke({
 					  color: 'green',
 					  width: 2,
-					  lineDash: [5]
+					  //lineDash: [5]
 					}),
 					fill: new ol.style.Fill({
-					  color: 'rgba(0, 0, 255, 0.1)',
+					  color: 'rgba(255, 0, 0, 0.5)',
 					}),
 					text: new ol.style.Text({
 						font: '12px Calibri,sans-serif',
@@ -446,7 +446,7 @@ function getAllGeofence()
 					source: stationSource,
 					style: stationStyle,
 				  });
-			  stationLyr.setZIndex(11);
+			  //stationLyr.setZIndex(11);
 			  map.addLayer(stationLyr);
 			  map.getView().fit(stationSource.getExtent());
 
