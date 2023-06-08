@@ -429,7 +429,7 @@ function getAllGeofence()
 					  //lineDash: [5]
 					}),
 					fill: new ol.style.Fill({
-					  color: 'rgba(255, 0, 0, 0.5)',
+					  color: 'rgb(39, 234, 146,0.8)', 
 					}),
 					text: new ol.style.Text({
 						font: '12px Calibri,sans-serif',
