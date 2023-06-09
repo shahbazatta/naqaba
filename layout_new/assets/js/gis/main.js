@@ -496,10 +496,10 @@ function getAllGeofence()
         var category =obj.attributes.Category;
         var color_rgba = "rgb(20, 79, 173,0.8)";
         if (category=="موقف") {
-          color_rgba ='rgb(39, 234, 146,0.7)', 
+          color_rgba ='rgb(39, 234, 146,0.7)';
         }
         if (category=="محطة") {
-          color_rgba ='rgb(147, 140, 140,0.7)', 
+          color_rgba ='rgb(147, 140, 140,0.7)';
         }
         
 				var feature = new ol.Feature({
