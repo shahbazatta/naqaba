@@ -494,12 +494,12 @@ function getAllGeofence()
 				var obj = data[i];
 				var polygon = new ol.geom.Polygon(obj.geometry.coordinates).transform('EPSG:4326','EPSG:3857');
         var category =obj.attributes.Category;
-        var color_rgba = "rgb(20, 79, 173,0.8)";
+        var color_rgba = "rgb(20, 79, 173,0.6)";
         if (category=="موقف") {
-          color_rgba ='rgb(39, 234, 146,0.7)';
+          color_rgba ='rgb(39, 234, 146,0.6)';
         }
         if (category=="محطة") {
-          color_rgba ='rgb(147, 140, 140,0.7)';
+          color_rgba ='rgb(147, 140, 140,0.6)';
         }
         
 				var feature = new ol.Feature({
