@@ -493,28 +493,27 @@ function getAllGeofence()
 			  for (let i = 0; i < data.length; i++) {
 				var obj = data[i];
 				var polygon = new ol.geom.Polygon(obj.geometry.coordinates).transform('EPSG:4326','EPSG:3857');
-
+        var category =obj.attributes.Category;
+        var color_rgba = "rgb(20, 79, 173,0.8)";
+        if (category=="موقف") {
+          color_rgba ='rgb(39, 234, 146,0.7)', 
+        }
+        if (category=="محطة") {
+          color_rgba ='rgb(147, 140, 140,0.7)', 
+        }
+        
 				var feature = new ol.Feature({
 				  geometry:polygon,
 				  properties: obj
-				});
-				//feature.setId(obj._id);
-				stationArr.push(feature);
-			  }
-			  
-			  
-			  var stationSource = new ol.source.Vector({
-											features: stationArr
-											});
-			  
-				var stationStyle = new ol.style.Style({
+        });
+        var stationStyle = new ol.style.Style({
 					stroke: new ol.style.Stroke({
-					  color: 'green',
+					  color: color_rgba,
 					  width: 2,
 					  //lineDash: [5]
 					}),
 					fill: new ol.style.Fill({
-					  color: 'rgb(39, 234, 146,0.8)', 
+					  color: color_rgba, 
 					}),
 					text: new ol.style.Text({
 						font: '12px Calibri,sans-serif',
@@ -527,6 +526,17 @@ function getAllGeofence()
 					//	text: this.getProperties().properties['attributes']['Arabic_Name'] : ''
 					  })
 				  });
+        feature.setStyle(stationStyle);
+				//feature.setId(obj._id);
+				stationArr.push(feature);
+			  }
+			  
+			  
+			  var stationSource = new ol.source.Vector({
+											features: stationArr
+											});
+			  
+				
 				stationLyr = new ol.layer.Vector({
 					source: stationSource,
 					style: stationStyle,
