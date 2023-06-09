@@ -81,7 +81,7 @@ require_once("lang/language.php");
 
             <div class="popMenuBox" id="trackingComBox">
               <div class="searchBoxForMenu">
-                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <input type="text"onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')"  name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
 
@@ -90,17 +90,17 @@ require_once("lang/language.php");
                 <div class="close"><img src="assets/images/icons/close.svg"></div>
                 <div class="selectAllCheckBox">
                   <label class="cCheckBox2">
-                    <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                    <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" checked value="true">
                     <span class="checkmark"></span>
                   </label>
-                  <label for="trackingComSeAl" class="lebelText"> Search All</label>
+                  <label for="trackingComSeAl" class="lebelText"> Select All</label>
                 </div>
               </div>
 
               <!--Companies list-->
-              <div class="mainListRows">
+              <div class="mainListRows" id="mainListRowscompanyList">
 
-                <div class="listRow">
+                <!-- <div class="listRow">
                   <label class="cCheckBox2">
                     <input type="checkbox" id="listRow1" name="listRow1" value="">
                     <span class="checkmark"></span>
@@ -134,7 +134,7 @@ require_once("lang/language.php");
                     <p>Engineer Guarantee</p>
                   </label>
                   <div class="clear"></div>
-                </div>
+                </div> -->
 
               </div>
             </div>
@@ -146,7 +146,7 @@ require_once("lang/language.php");
 
             <div class="popMenuBox" id="transportationComBox">
               <div class="searchBoxForMenu">
-                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <input type="text" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')" name="TransportationComSearch" id="TransportationComSearch" placeholder="Search Company" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
               <div class="headerList">
@@ -154,17 +154,17 @@ require_once("lang/language.php");
                 <div class="close"><img src="assets/images/icons/close.svg"></div>
                 <div class="selectAllCheckBox">
                   <label class="cCheckBox2">
-                    <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                    <input type="checkbox" id="mainListRowsTransportationCompanies" name="mainListRowsTransportationCompanies" checked value="true">
                     <span class="checkmark"></span>
                   </label>
-                  <label for="trackingComSeAl" class="lebelText"> Search All</label>
+                  <label for="mainListRowsTransportationCompanies" class="lebelText"> Select All</label>
                 </div>
               </div>
 
               <!--Companies list-->
-              <div class="mainListRows">
+              <div class="mainListRows" style="overflow-y:scroll;" id="mainListRowsTransportationCompaniesDynamic">
 
-                <div class="listRow">
+                <!-- <div class="listRow">
                   <label class="cCheckBox2">
                     <input type="checkbox" id="listRow1" name="listRow1" value="">
                     <span class="checkmark"></span>
@@ -198,7 +198,7 @@ require_once("lang/language.php");
                     <p>Dollah Company for Transporting Pilgrims</p>
                   </label>
                   <div class="clear"></div>
-                </div>
+                </div> -->
 
               </div>
             </div>
@@ -218,17 +218,17 @@ require_once("lang/language.php");
                 <div class="close"><img src="assets/images/icons/close.svg"></div>
                 <div class="selectAllCheckBox">
                   <label class="cCheckBox2">
-                    <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                    <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" checked value="">
                     <span class="checkmark"></span>
                   </label>
-                  <label for="trackingComSeAl" class="lebelText"> Search All</label>
+                  <label for="trackingComSeAl" class="lebelText"> Select All</label>
                 </div>
               </div>
 
               <!--Companies list-->
-              <div class="mainListRows" id="">
+              <div class="mainListRows" style="overflow-y:scroll;" id="mainListRowsTrackingDevices">
 
-                <div class="listRow">
+                <!-- <div class="listRow">
                   <label class="cCheckBox2">
                     <input type="checkbox" id="listRow1" name="listRow1" value="">
                     <span class="checkmark"></span>
@@ -262,7 +262,7 @@ require_once("lang/language.php");
                     <p>Machinestalk</p>
                   </label>
                   <div class="clear"></div>
-                </div>
+                </div> -->
 
               </div>
             </div>
@@ -892,7 +892,82 @@ require_once("lang/language.php");
 </div>
 
 <script type="text/javascript">
-  function getAvlDevicesData()
+var companyList = [];
+
+var transportationCompanyList = [];
+
+var devicesList = [];
+
+function loadFiltersDatacompanyList(list) {
+  var x = "";
+  // <img src="assets/images/companies/c1.png">
+  for (let i = 0; i < list.length; i++) {
+    x = x  +  `
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" onchange="updateFilterList1(${list[i]},${i});" id="companyListlistRow${i}" name="companyListlistRow${i}" checked value="true">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="companyListlistRow${i}" class="lebelText">
+                    <p> ${list[i].avl_comp}
+                     </p>
+                  </label>
+                  <div class="clear"></div>
+                </div> 
+
+                `
+    ;
+  }
+  document.getElementById("mainListRowscompanyList").innerHTML = x;
+}
+
+function loadFiltersDataDevicesCompany(list) {
+  var x = "";
+  // <img src="assets/images/companies/c1.png">
+  for (let i = 0; i < list.length; i++) {
+    x = x  +  `
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" onchange="updateFilterList2(${list[i]},${i});" id="TrackingDeviceslistRow${i}" name="TrackingDeviceslistRow${i}" checked value="true">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="TrackingDeviceslistRow${i}" class="lebelText">
+                    <p> ${list[i].device_comp}
+                     </p>
+                  </label>
+                  <div class="clear"></div>
+                </div> 
+
+                `
+    ;
+  }
+  document.getElementById("mainListRowsTrackingDevices").innerHTML = x;
+}
+
+function loadFiltersDatatransportationCompanyList(list) {
+  var x = "";
+  // <img src="assets/images/companies/c1.png">
+  for (let i = 0; i < list.length; i++) {
+    x = x  +  `
+                <div class="listRow">
+                  <label class="cCheckBox2">
+                    <input type="checkbox" onchange="updateFilterList3(${list[i]},${i});" id="mainListRowsTransportationCompaniesDynamiclistRow${i}" name="mainListRowsTransportationCompaniesDynamiclistRow${i}" checked value="true">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="mainListRowsTransportationCompaniesDynamiclistRow${i}" class="lebelText">
+                    <p> ${list[i].trnspt_comp}
+                     </p>
+                  </label>
+                  <div class="clear"></div>
+                </div> 
+
+                `
+    ;
+  }
+  document.getElementById("mainListRowsTransportationCompaniesDynamic").innerHTML = x;
+}
+
+function getAvlDevicesData()
 {
 	
     $.ajax({
@@ -903,8 +978,34 @@ require_once("lang/language.php");
           api_key: "becdf4fbbbf49dbc",
          },
          success: function(data){
-			 console.log(data);
-			 debugger
+          if(data && data.length){
+            for (let i = 0; i < data.length; i++) {
+              companyList.push(
+                {
+                  avl_comp: data[i].avl_comp,
+                  avl_comp_ar: data[i].avl_comp_ar,
+                  avl_comp_id: data[i].avl_comp_id,
+                }
+              );
+              transportationCompanyList.push(
+                {
+                  trnspt_comp : data[i].trnspt_comp, 
+                  trnspt_comp_ar : data[i].trnspt_comp_ar, 
+                  trnspt_comp_id : data[i].trnspt_comp_id, 
+                }
+              );
+              devicesList.push(
+                {device_comp:data[i].device_comp}
+              );
+            }
+            devicesList = [...new Map(devicesList.map(v => [v.device_comp, v])).values()];
+            transportationCompanyList = [...new Map(transportationCompanyList.map(v => [v.trnspt_comp_id, v])).values()];
+            companyList = [...new Map(companyList.map(v => [v.avl_comp_id, v])).values()];
+            
+            loadFiltersDataDevicesCompany(devicesList);
+            loadFiltersDatatransportationCompanyList(transportationCompanyList);
+            loadFiltersDatacompanyList(companyList);
+          }
 			 },
          error: function (jqXHR, exception) {
            var msg = '';
@@ -931,14 +1032,14 @@ require_once("lang/language.php");
          },
      });
 }
+
 $( document ).ready(function() {
+  getAvlDevicesData();
 
   //$('#newGeofenceDialogBox').show();
   //$('#busDialogBox').show();
   //$('#geofenceDialogBox').show();
 
-
-  getAvlDevicesData();
   //reset previously set border colors and hide all message on .keyup()
   $("#geofenceAdd input, #geofenceAdd textarea").keyup(function() { 
       $("#geofenceAdd input, #geofenceAdd textarea").css('border-color',''); 
@@ -1280,6 +1381,8 @@ $( document ).ready(function() {
             });
         }
     });
+
+
 </script>
 
 <script src="assets/js/functions.js"></script>
