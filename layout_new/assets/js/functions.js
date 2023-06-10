@@ -95,4 +95,21 @@ $( document ).ready(function() {
     });
 
 
+  $("#geofenceEditButton").click(function() { 
+      $('#viewGeofenceDetails').hide();
+      $('#editGeofenceDetails').show();
+  });
+  $("#geofenceEditCancelButton").click(function() { 
+      $('#viewGeofenceDetails').show();
+      $('#editGeofenceDetails').hide();
+  });
+
+
 });
+
+function showGeofenceDialogBox()
+{
+    $('#viewGeofenceDialogBox').show();
+    $('#viewGeofenceDetails').show();
+    $('#editGeofenceDetails').hide();
+}

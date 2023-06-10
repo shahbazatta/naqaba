@@ -588,16 +588,16 @@ require_once("lang/language.php");
   </div>
 </div>
 
-
-<div class="popUpBox" id="geofenceDialogBox">
-  <div class="boxPopUpTab ">
-    <span class="close exit" id="geofenceDialogBoxExitEvent"></span>
+<!-- View and update geofences details -->
+<div class="popUpBox" id="viewGeofenceDialogBox">
+  <div class="boxPopUpTab viewEdit">
+    <span class="close exit" id=""></span>
     <div class="boxHeader">
       <img src="assets/images/icons/icon-fg.png">
       <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'GeofenceInformation'); ?></h1>
     </div>
-    <div id="result"></div>
-    <div id="geofenceDialogBoxData">
+    <div id="result2"></div>
+    <div id="viewGeofenceDetails">
       <div class="boxBody">
         <table>
           <tr>
@@ -659,121 +659,134 @@ require_once("lang/language.php");
         </table>
       </div>
       <div class="boxFooter">
+        
         <button type="button" class="exportGeo" id="" onclick=""><img src="assets/images/icons/export.svg">
           <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'exportGeoJSON'); ?></span>
         </button>
+        
+        <input type="hidden" id="geofence_id" name="geofence_id" value="">
         <button type="button" class="delete" id="geofenceDelete" onclick=""><img src="assets/images/icons/trash.svg">
           <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'delete'); ?></span>
         </button>
-        <button type="button" class="edit" id="geofenceDialogBoxEditClickButton" onclick=""><img src="assets/images/icons/edit.svg">
+        
+        <button type="button" class="edit" id="geofenceEditButton" onclick=""><img src="assets/images/icons/edit.svg">
           <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'edit'); ?></span>
         </button>
       </div>
     </div>
-    <div id="geofenceDialogBoxDataEdit" class="d-none">
-      <div class="boxBody">
+
+
+    <div id="editGeofenceDetails">
+
+      <form role="form" id="geofenceEditForm" action="" >
+        <div class="boxBody">
           <table>
             <tr>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?>
-                <div class="formRow">
-                  <input type="text" id="arabic_name_toolTip" name="arabic_name_toolTip" class="text">
-                </div>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?>:</label>
+                <input type="text" class="inputText" id="arabic_name_edit" name="arabic_name_edit" maxlength="120"/>
               </td>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?>
-                <div class="formRow">
-                  <input type="text" id="english_name_toolTip" name="english_name_toolTip" class="text">
-                </div>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?>:</label>
+                <input type="text" class="inputText" id="english_name_edit" name="english_name_edit" maxlength="120"/>
               </td>
             </tr>
             <tr>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?>
-                <div class="formRow">
-                  <input type="text" id="type_toolTip" name="type_toolTip" class="text">
-                </div>
-              </td>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?>
-                <div class="formRow">
-                  <input type="text" id="district_toolTip" name="district_toolTip" class="text">
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?>
-                <div class="formRow">
-                  <input type="text" id="area_toolTip" name="area_toolTip" class="text">
-                </div>
-              </td>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?>
-                <div class="formRow">
-                  <input type="text" id="description_toolTip" name="description_toolTip" class="text">
-                </div>
+              <td colspan="2" class="np">
+                <table>
+                  <tr>
+                    <td>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?>:</label>
+                      <input type="text" class="inputText" id="type_edit" name="type_edit" maxlength="120"/>
+                    </td>
+                    <td>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?>:</label>
+                      <input type="text" class="inputText" id="district_edit" name="district_edit" maxlength="120"/>
+                    </td>
+                    <td>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?>:</label>
+                      <input type="text" class="inputText" id="site_edit" name="site_edit" maxlength="120"/>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
             <tr>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?>
-                <div class="formRow">
-                  <input type="text" id="category_toolTip" name="category_toolTip" class="text">
-                </div>
-              </td>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?>
-                <div class="formRow">
-                  <input type="text" id="site_toolTip" name="site_toolTip" class="text">
-                </div>
+              <td colspan="2">
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?>:</label>
+                <input type="text" class="inputText" id="description_edit" name="description_edit" maxlength="280"/>
               </td>
             </tr>
             <tr>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?>
-                <div class="formRow">
-                  <input type="text" id="station_type_toolTip" name="station_type_toolTip" class="text">
-                </div>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?>:</label>
+                <input type="text" class="inputText" id="area_edit" name="area_edit" maxlength="120"/>
               </td>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?>
-                <div class="formRow">
-                  <input type="text" id="station_code_toolTip" name="station_code_toolTip" class="text">
-                </div>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?>:</label>
+                <input type="text" class="inputText" id="category_edit" name="category_edit" maxlength="120"/>
               </td>
             </tr>
             <tr>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?>
-                <div class="formRow">
-                  <input type="text" id="station_name_toolTip" name="station_name_toolTip" class="text">
-                </div>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?>:</label>
+                <input type="text" class="inputText" id="station_type_edit" name="station_type_edit" maxlength="120"/>
               </td>
-              <td class="d-none"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?>
-                <div class="formRow">
-                  <input type="text" id="code_id_toolTip" name="code_id_toolTip" class="text">
-                </div>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?>:</label>
+                <input type="text" class="inputText" id="station_code_edit" name="station_code_edit" maxlength="120"/>
               </td>
             </tr>
-            <tr>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?>
-                <div class="formRow">
-                  <input type="number" id="shape_length_toolTip" name="shape_length_toolTip" class="text">
-                </div>
-              </td>
-              <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?>
-                <div class="formRow">
-                  <input type="number" id="shape_area_toolTip" name="shape_area_toolTip" class="text">
 
-                  <input type="hidden" id="coordinate_arr_toolTip"  name="coordinate_arr_toolTip" class="text">
+            <tr>
+              <td colspan="2">
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?>:</label>
+                <input type="text" class="inputText" id="station_name_edit" name="station_name_edit" maxlength="120"/>
+              </td>
+            </tr>
 
-                </div>
+            <tr>
+              <td colspan="2" class="np">
+                <table>
+                  <tr>
+                    <td>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?>:</label>
+                      <input type="text" class="inputText" id="code_id_edit" name="code_id_edit" maxlength="120"/>
+                    </td>
+                    <td>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?>:</label>
+                      <input type="text" class="inputText" id="shape_length_edit" name="shape_length_edit" maxlength="120"/>
+                    </td>
+                    <td>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?>:</label>
+                      <input type="text" class="inputText" id="shape_area_edit" name="shape_area_edit" maxlength="120"/>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
           </table>
-      </div>
-      <div class="boxFooter">
-          <button type="button" class="delete" id="geofenceUpdate" onclick="">
-            <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Update'); ?></span>
-          </button>
-          <button type="button" class="edit" id="geofenceDialogBoxEditClickCancelButton" onclick="">
+        </div>
+
+        <div class="boxFooter">
+          <!-- <input type="hidden" id="coordinate_arr_edit" name="coordinate_arr_edit" value=""> -->
+          <input type="hidden" id="geofenceUpdate_id" name="geofenceUpdate_id" value="">
+          
+          <button type="button" class="delete" id="geofenceEditCancelButton">
             <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Cancel'); ?></span>
           </button>
+          <button type="button" class="save" id="geofenceUpdate"><img src="assets/images/icons/check-mark-32.png">
+            <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Update'); ?></span>
+          </button>
         </div>
-      </div>
+      </form>
+      
+    </div>
   </div>
 </div>
 
+
+<!-- New geofences Added -->
 <div class="popUpBox" id="newGeofenceDialogBox">
   <div class="boxPopUpTab addNew">
     <span class="close exit" id=""></span>
@@ -876,8 +889,6 @@ require_once("lang/language.php");
         <div class="boxFooter">
           <input type="hidden" id="coordinate_arr" name="coordinate_arr" value="">
           
-          
-
           <button type="button" class="delete exit" id="geofenceDiscard" onclick=""><img src="assets/images/icons/trash.svg">
             <span>Discard</span>
           </button>
@@ -891,9 +902,93 @@ require_once("lang/language.php");
   </div>
 </div>
 
+<!-- Notification -->
+<div class="notification">
+  <div class="nWrapper"></div>
+  <p id="notificationText"></p>
+  <div class="nClose"><img src="assets/images/icons/close.svg"></div>
+</div>
+
+<!-- Confirmation Box -->
+<div class="popUpBox popUpConfirm" id="confirmationBox">
+  <div class="boxPopUpTabCon">
+    <div class="boxHeader">
+      <img src="assets/images/icons/question-mark.png">
+      <h1>Confirmation</h1>
+    </div>
+    <div id="result"></div>
+    <div id="">
+      <form role="form" id="" action="" >
+        <div class="boxBody">
+          <p id="confirmationText"></p>
+        </div>
+
+        <div class="boxFooter">
+          <button type="button" class="no noConfirm"><img src="assets/images/icons/trash.svg">
+            <span>No</span>
+          </button>
+          <button type="button" class="yes yesConfirm" id="geofenceDeleteConfirm"><img src="assets/images/icons/check-mark-32.png">
+            <span>Yes</span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
+
+  $( document ).ready(function() {
+
+    //showNotification("Success: Here is text for notification");
+    //showConfirmation("Do you really want to delete?");
+    
+    //$("#confirmationBox").show();
+
+    $(".nClose").click(function() { 
+        $('.notification').animate({top:"0px",opacity:"0.1"}, function(){
+        $('.notification').hide();
+        $('.notification').css({"opacity":"1.0"});
+      });
+    });
+
+    $(".noConfirm").click(function() { 
+        $('.boxPopUpTabCon').animate({top:"0px",opacity:"0.1"}, function(){
+        $('.boxPopUpTabCon').hide();
+        $('.boxPopUpTabCon').css({"opacity":"1.0","top":"50%"});
+        $("#confirmationBox").hide();
+        $('.boxPopUpTabCon').show();
+      });
+    });
+
+    $(".yesConfirm").click(function() { 
+      $("#confirmationBox").hide();
+      $(".popUpBox").hide();
+    });
+
+  });
+
+  function showNotification(txt)
+  {
+    $("#notificationText").html(txt);
+    $(".notification").show();
+      setTimeout(function(){
+        $('.notification').animate({top:"0px",opacity:"0.1"}, function(){
+        $('.notification').hide();
+        $('.notification').css({top:"20px","opacity":"1.0"});
+        });        
+      }, 6000);
+  }
+  function showConfirmation(txt)
+  {
+    $("#confirmationText").html(txt);
+    $("#confirmationBox").show();
+  }
+
+
   function getAvlDevicesData()
-{
+  {
 	
     $.ajax({
          url: "data/get_avlDevicesData.php",
@@ -904,7 +999,6 @@ require_once("lang/language.php");
          },
          success: function(data){
 			 console.log(data);
-			 debugger
 			 },
          error: function (jqXHR, exception) {
            var msg = '';
@@ -930,21 +1024,22 @@ require_once("lang/language.php");
           // $('#toolTipBox').show();
          },
      });
-}
+  }
+
 $( document ).ready(function() {
 
   //$('#newGeofenceDialogBox').show();
   //$('#busDialogBox').show();
   //$('#geofenceDialogBox').show();
-
-
-  getAvlDevicesData();
+  //getAvlDevicesData();
+  
   //reset previously set border colors and hide all message on .keyup()
   $("#geofenceAdd input, #geofenceAdd textarea").keyup(function() { 
       $("#geofenceAdd input, #geofenceAdd textarea").css('border-color',''); 
       $("#newGeofenceDialogBox #result").slideUp();
   });
   $("#newGeofenceDialogBox #result").slideUp();
+
 
   $("#geofenceSave").click(function() {
 
@@ -1033,13 +1128,13 @@ $( document ).ready(function() {
                 {
                   if(data.type == 'error')
                   {
-                      output = '<div class="error">'+data.text+'</div>';
+                      output = 'Error: '+data.text+'';
                   }else{
-                      output = '<div class="success">'+data.text+'</div>';
+                      output = 'Success: '+data.text+'';
                       $('#geofenceAdd input[type=text]').val(''); 
                       $('#geofenceAdd textarea').val(''); 
 
-                      $('.boxPopUpTab').animate({top:"0px",opacity:"0.1"}.delay( 800 ), function(){
+                      $('.boxPopUpTab').animate({top:"0px",opacity:"0.1"}, function(){
                           $('.boxPopUpTab').hide();
                           //Black Box hide
                           $('.popUpBox').animate({opacity:"0.1"}, function(){
@@ -1050,9 +1145,12 @@ $( document ).ready(function() {
                             $('.boxPopUpTab').css({"top":"20px","opacity":"1.0"});
                           });
                       }); 
+
+                      toggleDrawGeofenceCtrl();
                   }
 
-                  $("#newGeofenceDialogBox #result").hide().html(output).slideDown();
+                  //$("#newGeofenceDialogBox #result").hide().html(output).slideDown();
+                  showNotification(output);
                           
                 }
             });
@@ -1063,50 +1161,56 @@ $( document ).ready(function() {
 
   $("#geofenceUpdate").click(function() { 
         //get input field values
-        var arabic_name     = $('#arabic_name_toolTip').val(); 
-        var english_name    = $('#english_name_toolTip').val();
-        var type            = $('#type_toolTip').val();
-        var district        = $('#district_toolTip').val();
-        var area            = $('#area_toolTip').val();
-        var description     = $('#description_toolTip').val();
-        var category        = $('#category_toolTip').val();
-        var site            = $('#site_toolTip').val();
-        var station_type    = $('#station_type_toolTip').val();
-        var station_code    = $('#station_code_toolTip').val();
-        var station_name    = $('#station_name_toolTip').val();
-        var code_id         = $('#code_id_toolTip').val();
-        var shape_length    = $('#shape_length_toolTip').val();
-        var shape_area      = $('#shape_area_toolTip').val();
-        var coordinate_arr  = $('#coordinate_arr_toolTip').val();
+        var arabic_name     = $('#arabic_name_edit').val(); 
+        var english_name    = $('#english_name_edit').val();
+        var type            = $('#type_edit').val();
+        var district        = $('#district_edit').val();
+        var area            = $('#area_edit').val();
+        var description     = $('#description_edit').val();
+        var category        = $('#category_edit').val();
+        var site            = $('#site_edit').val();
+        var station_type    = $('#station_type_edit').val();
+        var station_code    = $('#station_code_edit').val();
+        var station_name    = $('#station_name_edit').val();
+        var code_id         = $('#code_id_edit').val();
+        var shape_length    = $('#shape_length_edit').val();
+        var shape_area      = $('#shape_area_edit').val();
+        //var coordinate_arr  = $('#coordinate_arr_edit').val();
+        var geofence_update_id  = $('#geofenceUpdate_id').val();
+        
         var flag = true;
         /********validate all our form fields***********/
-        if(arabic_name==""){ $('#arabic_name_toolTip').css('border-color','red'); flag = false; }
-        if(english_name==""){ $('#english_name_toolTip').css('border-color','red'); flag = false; } 
-        if(type=="") { $('#type_toolTip').css('border-color','red'); flag = false; }
-        if(district=="") { $('#district_toolTip').css('border-color','red'); flag = false; }
-        if(area=="") { $('#area_toolTip').css('border-color','red'); flag = false; }
-        if(description=="") { $('#description_toolTip').css('border-color','red'); flag = false; }
-        if(category=="") { $('#category_toolTip').css('border-color','red'); flag = false; }
-        if(site=="") { $('#site_toolTip').css('border-color','red'); flag = false; }
-        if(station_type=="") { $('#station_type_toolTip').css('border-color','red'); flag = false; }
-        if(station_code=="") { $('#station_code_toolTip').css('border-color','red'); flag = false; }
-        if(station_name=="") { $('#station_name_toolTip').css('border-color','red'); flag = false; }
-        if(code_id=="") { $('#code_id_toolTip').css('border-color','red'); flag = false; }
-        if(shape_length=="") { $('#shape_length_toolTip').css('border-color','red'); flag = false; }
-        if(shape_area=="") { $('#shape_area_toolTip').css('border-color','red'); flag = false; }
-        if(coordinate_arr=="") { 
-          $("#result").hide().html('<div class="error">Wrong Draw Geofence Coordinates</div>').slideDown();
+        if(arabic_name==""){ $('#arabic_name_edit').css('border-color','red'); flag = false; }
+        if(english_name==""){ $('#english_name_edit').css('border-color','red'); flag = false; } 
+        if(type=="") { $('#type_edit').css('border-color','red'); flag = false; }
+        if(district=="") { $('#district_edit').css('border-color','red'); flag = false; }
+        if(area=="") { $('#area_edit').css('border-color','red'); flag = false; }
+        if(description=="") { $('#description_edit').css('border-color','red'); flag = false; }
+        if(category=="") { $('#category_edit').css('border-color','red'); flag = false; }
+        if(site=="") { $('#site_edit').css('border-color','red'); flag = false; }
+        if(station_type=="") { $('#station_type_edit').css('border-color','red'); flag = false; }
+        if(station_code=="") { $('#station_code_edit').css('border-color','red'); flag = false; }
+        if(station_name=="") { $('#station_name_edit').css('border-color','red'); flag = false; }
+        if(code_id=="") { $('#code_id_edit').css('border-color','red'); flag = false; }
+        if(shape_length=="") { $('#shape_length_edit').css('border-color','red'); flag = false; }
+        if(shape_area=="") { $('#shape_area_edit').css('border-color','red'); flag = false; }
+        // if(coordinate_arr=="") { 
+        //   $("#result").hide().html('<div class="error">Wrong Draw Geofence Coordinates</div>').slideDown();
+        //   flag = false; 
+        // }
+        if(geofence_update_id=="") { 
+          showNotification("Error: Wrong Geofence Id, reload the page and try again.");
           flag = false; 
         }
 
         //check int
-        if(Math.floor(station_type) == station_type && $.isNumeric(station_type)){ }else{ $('#station_type_toolTip').css('border-color','red').val(''); flag = false; }
-        if(Math.floor(station_code) == station_code && $.isNumeric(station_code)){ }else{ $('#station_code_toolTip').css('border-color','red').val(''); flag = false; }
+        if(Math.floor(station_type) == station_type && $.isNumeric(station_type)){ }else{ $('#station_type_edit').css('border-color','red').val(''); flag = false; }
+        if(Math.floor(station_code) == station_code && $.isNumeric(station_code)){ }else{ $('#station_code_edit').css('border-color','red').val(''); flag = false; }
         
         // check float
-        if($.isNumeric(area)){ }else{ $('#area_toolTip').css('border-color','red').val('');  flag = false; }
-        if($.isNumeric(shape_length)){ }else{ $('#shape_length_toolTip').css('border-color','red').val(''); flag = false; }
-        if($.isNumeric(shape_area)){ }else{ $('#shape_area_toolTip').css('border-color','red').val(''); flag = false; }
+        if($.isNumeric(area)){ }else{ $('#area_edit').css('border-color','red').val('');  flag = false; }
+        if($.isNumeric(shape_length)){ }else{ $('#shape_length_edit').css('border-color','red').val(''); flag = false; }
+        if($.isNumeric(shape_area)){ }else{ $('#shape_area_edit').css('border-color','red').val(''); flag = false; }
 
         /********Validation end here ****/
         /* If all are ok then we send ajax request to email_send.php *******/
@@ -1131,93 +1235,67 @@ $( document ).ready(function() {
                   code_id : code_id,
                   shape_length : shape_length,
                   shape_area : shape_area,
-                  coordinates : coordinate_arr
+                  //coordinates : coordinate_arr,
+                  geofence_update_id : geofence_update_id
                 },
                 beforeSend: function() {
-                    $('#geofenceSave').attr('disabled', true);
-                    //$('#geofenceSave').after('<span class="wait">&nbsp;<img src="image/loading.gif" alt="" /></span>');
+                    $('#geofenceUpdate, #geofenceCancle').attr('disabled', true);
+                    $('#geofenceSave').after('<div class="wait">&nbsp;<img src="assets/images/icons/loading.gif" alt="" /></div>');
                 },
                 complete: function() {
-                    $('#geofenceSave').attr('disabled', false);
-                    //$('.wait').remove();
+                    $('#geofenceUpdate, #geofenceCancle').attr('disabled', false);
+                    $('.wait').remove();
                 },  
                 success: function(data)
                 {
                   if(data.type == 'error')
                   {
-                      output = '<div class="error">'+data.text+'</div>';
+                      //output = '<div class="error">'+data.text+'</div>';
+                      output = 'Error: '+data.text+'';
+
                   }else{
-                      output = '<div class="success">'+data.text+'</div>';
+                      //output = '<div class="success">'+data.text+'</div>';
+                      output = 'Success: '+data.text+'';
+
                       $('#geofenceAdd input[type=text]').val(''); 
                       $('#geofenceAdd textarea').val(''); 
 
-                      $('.popUpBoxTab').animate({top:"0px",opacity:"0.1"}, function(){
-                          $('.popUpBoxTab').hide();
+                      $('.boxPopUpTab').animate({top:"0px",opacity:"0.1"}, function(){
+                          $('.boxPopUpTab').hide();
                           //Black Box hide
                           $('.popUpBox').animate({opacity:"0.1"}, function(){
                             $('.popUpBox').hide();
                             $('.popUpBox').css({"opacity":"1.0"});
-                            $('.popUpBoxTab').show();
+                            $('.boxPopUpTab').show();
                             //Set to Default
-                            $('.popUpBoxTab').css({"top":"20px","opacity":"1.0"});
+                            $('.boxPopUpTab').css({"top":"20px","opacity":"1.0"});
                           });
                       }); 
+
                   }
 
                   $("#result").hide().html(output).slideDown();
+                  showNotification(output);
                           
                 }
             });
         }
     });
-
+    
     $("#geofenceDelete").click(function() { 
+      showConfirmation("Do you really want to delete?");
+    });
+
+    $("#geofenceDeleteConfirm").click(function() { 
         //get input field values
-        var arabic_name     = $('#arabic_name').val(); 
-        var english_name    = $('#english_name').val();
-        var type            = $('#type').val();
-        var district        = $('#district').val();
-        var area            = $('#area').val();
-        var description     = $('#description').val();
-        var category        = $('#category').val();
-        var site            = $('#site').val();
-        var station_type    = $('#station_type').val();
-        var station_code    = $('#station_code').val();
-        var station_name    = $('#station_name').val();
-        var code_id         = $('#code_id').val();
-        var shape_length    = $('#shape_length').val();
-        var shape_area      = $('#shape_area').val();
-        var coordinate_arr  = $('#coordinate_arr').val();
+        var geofence_id  = $('#geofence_id').val();
         var flag = true;
         /********validate all our form fields***********/
-        if(arabic_name==""){ $('#arabic_name').css('border-color','red'); flag = false; }
-        if(english_name==""){ $('#english_name').css('border-color','red'); flag = false; } 
-        if(type=="") { $('#type').css('border-color','red'); flag = false; }
-        if(district=="") { $('#district').css('border-color','red'); flag = false; }
-        if(area=="") { $('#area').css('border-color','red'); flag = false; }
-        if(description=="") { $('#description').css('border-color','red'); flag = false; }
-        if(category=="") { $('#category').css('border-color','red'); flag = false; }
-        if(site=="") { $('#site').css('border-color','red'); flag = false; }
-        if(station_type=="") { $('#station_type').css('border-color','red'); flag = false; }
-        if(station_code=="") { $('#station_code').css('border-color','red'); flag = false; }
-        if(station_name=="") { $('#station_name').css('border-color','red'); flag = false; }
-        if(code_id=="") { $('#code_id').css('border-color','red'); flag = false; }
-        if(shape_length=="") { $('#shape_length').css('border-color','red'); flag = false; }
-        if(shape_area=="") { $('#shape_area').css('border-color','red'); flag = false; }
-        if(coordinate_arr=="") { 
-          $("#result").hide().html('<div class="error">Wrong Draw Geofence Coordinates</div>').slideDown();
+        if(geofence_id=="") { 
+          //$("#result2").hide().html('<div class="error">Wrong Draw Geofence Id</div>').slideDown();
+          showNotification("Error: Wrong Geofence Id, reload the page and try again.");
           flag = false; 
         }
-
-        //check int
-        if(Math.floor(station_type) == station_type && $.isNumeric(station_type)){ }else{ $('#station_type').css('border-color','red').val(''); flag = false; }
-        if(Math.floor(station_code) == station_code && $.isNumeric(station_code)){ }else{ $('#station_code').css('border-color','red').val(''); flag = false; }
-        
-        // check float
-        if($.isNumeric(area)){ }else{ $('#area').css('border-color','red').val('');  flag = false; }
-        if($.isNumeric(shape_length)){ }else{ $('#shape_length').css('border-color','red').val(''); flag = false; }
-        if($.isNumeric(shape_area)){ }else{ $('#shape_area').css('border-color','red').val(''); flag = false; }
-
         /********Validation end here ****/
         /* If all are ok then we send ajax request to email_send.php *******/
         if(flag) 
@@ -1227,37 +1305,27 @@ $( document ).ready(function() {
                 url: "./data/delete_geofence.php", 
                 dataType: 'json',
                 data: {
-                  arabic_name : arabic_name,
-                  english_name : english_name,
-                  type : type,
-                  district : district,
-                  area : area,
-                  description : description,
-                  category : category,
-                  site : site,
-                  station_type : station_type,
-                  station_code : station_code,
-                  station_name : station_name,
-                  code_id : code_id,
-                  shape_length : shape_length,
-                  shape_area : shape_area,
-                  coordinates : coordinate_arr
+                  geofence_id : geofence_id
                 },
                 beforeSend: function() {
-                    $('#geofenceSave').attr('disabled', true);
+                    //$('#geofenceSave').attr('disabled', true);
                     //$('#geofenceSave').after('<span class="wait">&nbsp;<img src="image/loading.gif" alt="" /></span>');
+                    
                 },
                 complete: function() {
-                    $('#geofenceSave').attr('disabled', false);
+                    //$('#geofenceSave').attr('disabled', false);
                     //$('.wait').remove();
                 },  
                 success: function(data)
                 {
+                  //alert(geofence_id);
+                  console.log(data);
+
                   if(data.type == 'error')
                   {
-                      output = '<div class="error">'+data.text+'</div>';
+                      output = 'Error: '+data.text;
                   }else{
-                      output = '<div class="success">'+data.text+'</div>';
+                      output = 'Success: '+data.text;
                       $('#geofenceAdd input[type=text]').val(''); 
                       $('#geofenceAdd textarea').val(''); 
 
@@ -1272,10 +1340,18 @@ $( document ).ready(function() {
                             $('.popUpBoxTab').css({"top":"20px","opacity":"1.0"});
                           });
                       }); 
+
+
                   }
 
-                  $("#result").hide().html(output).slideDown();
+                  //$("#result2").hide().html(output).slideDown();
+                  showNotification(output);
                           
+                },
+                error: function (request, status, error) {
+                    //alert(request.responseText);
+                    //$("#result2").hide().html(request.responseText).slideDown();
+                    showNotification(request.responseText);
                 }
             });
         }

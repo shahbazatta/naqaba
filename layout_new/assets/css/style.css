@@ -776,7 +776,7 @@ h1{
 
 }
 
-.boxPopUpTab{
+.boxPopUpTab, .boxPopUpTabCon{
 	width: 550px;
 	margin-left:-275px;
 	height: auto;
@@ -791,27 +791,33 @@ h1{
 	left:50%;
 
 }
-.boxPopUpTab.addNew{
+.popUpConfirm .boxPopUpTabCon{
+	top:50%;
+	margin-top: -200px;
+}
+.boxPopUpTab.addNew, .boxPopUpTab.viewEdit, .boxPopUpTabCon{
 	width: 700px;
 	margin-left:-350px;
 }
-.boxPopUpTab .boxHeader{
+.boxPopUpTab .boxHeader, .boxPopUpTabCon .boxHeader{
     border-bottom: 1px solid #f0f0f0;
     padding: 0px 0px 8px 0px;
 }
-.boxPopUpTab .boxHeader img{
+.boxPopUpTab .boxHeader img, .boxPopUpTabCon .boxHeader img{
 	margin-right: 10px;
 	display: inline-block;
 }
-.boxPopUpTab .boxHeader h1{
+.boxPopUpTab .boxHeader h1, .boxPopUpTabCon .boxHeader h1{
 	font-size: 18px;
     line-height: 30px;
     font-weight: 500;
 	display: inline-block;
     color: #000;
 }
-.boxPopUpTab .boxHeader h1.text2{line-height: 20px;}
-.boxPopUpTab .boxHeader h1 span{
+.boxPopUpTab .boxHeader h1.text2, .boxPopUpTabCon .boxHeader h1.text2{
+	line-height: 20px;
+}
+.boxPopUpTab .boxHeader h1 span, .boxPopUpTabCon .boxHeader h1 span{
 	font-size: 14px;
     line-height: 16px;
     font-weight: 500;
@@ -853,10 +859,10 @@ h1{
 	line-height: 26px;
 	color: #333333;
 }
-.addNew .boxBody table tr td{
+.addNew .boxBody table tr td, .viewEdit .boxBody table tr td{
 	padding: 0px 18px 10px 18px;
 }
-.addNew .boxBody table tr td.np{
+.addNew .boxBody table tr td.np, .viewEdit .boxBody table tr td.np{
 	padding: 0px 0px 0px 0px;
 }
 .boxBody table tr td span{
@@ -920,7 +926,7 @@ h1{
 }
 .boxFooter button.exportGeo{	
 }
-.boxFooter button.edit, .boxFooter button.save{	
+.boxFooter button.edit, .boxFooter button.save, .boxFooter button.yes{	
 	float: right;
 	margin-right: 10px;
 }
@@ -931,25 +937,26 @@ h1{
 	cursor: not-allowed;
 	opacity: 0.7;
 }
-.boxFooter button.save img{
+.boxFooter button.save img, .boxFooter button.yes img{
 	width: 22px;
 	height: 22px;
 	display: inline-block;
 	margin: 1px 4px 0px 0px;
 }
-.boxFooter button.delete{
+.boxFooter button.delete, .boxFooter button.no{
 	float: right;	
 	border: 2px solid #000;
 	background-color: #fff;
 	color: #000;
 }
-.addNew .boxFooter button.delete{
+.addNew .boxFooter button.delete, .addNew .boxFooter button.no{
 	margin-right: 20px;
 }
 .boxFooter button.delete:hover{
 	background-color: #eee;
 	color: #000;
 }
+
 .boxPopUpTab .close{
 	background:url(../images/icons/close.svg) no-repeat;
 	width:24px;
@@ -1004,4 +1011,51 @@ h1{
 .wait img{
 	width: 32px;
 	height: 32px;
+}
+
+.notification{
+	width: auto;
+	height: 20px;
+	padding: 10px 44px 10px 20px;
+	background: #000;
+	position: absolute;
+	top: 20px;
+	left: 100px;
+	display: none;
+	border-radius: 9px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+	z-index: 999999;
+}
+.notification .nWrapper{
+	position: relative;
+}
+.notification p{ 
+	color: #fff;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 500; 
+}
+.notification p strong{
+	font-weight: 600;
+}
+.notification .nClose{ 
+	position: absolute; 
+	width: 24px;
+	height: 24px;
+	top: 7px;
+	right: 7px;
+	cursor: pointer;
+}
+.notification .nClose img{}
+#confirmationBox{ display: none; }
+#confirmationText{
+	color: #000;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 500; 
+	padding: 0px 15px;
+}
+
+.popUpConfirm{
+	background-color: rgba(0, 0, 0, 0.5);
 }

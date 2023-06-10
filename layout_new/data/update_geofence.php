@@ -37,10 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     || !isset($_POST["station_name"]) 
     || !isset($_POST["code_id"]) 
     || !isset($_POST["shape_length"]) 
-    || !isset($_POST["shape_area"]) 
-    || !isset($_POST["coordinates"]) ) {
+    || !isset($_POST["shape_area"])
+    || !isset($_POST["geofence_update_id"]) ) {
+
 	    $output = json_encode(array('type' => 'error', 'text' => 'Input fields are empty!'));
 	    die($output);
+
 	}
 
 	//Sanitize input data using PHP filter_var().
@@ -58,43 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$code_id = filter_var(trim($_POST["code_id"]), FILTER_SANITIZE_STRING);
 	$shape_length = filter_var(trim($_POST["shape_length"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 	$shape_area = filter_var(trim($_POST["shape_area"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-
-
-	$coordinates_array = trim($_POST["coordinates"]);
-	//$output = json_encode(array('type' => 'message', 'text' => 'Success2 ' . $coordinates_array));
-	//die($output);
-	
-	$arrr = explode(",",$coordinates_array);
-	$array_set = array();
-	$coordinates = array();
-	$kk = 0;
-
-	for($i = 0; $i < count($arrr); $i++) {
-    	$kk++;
-    	array_push($array_set,(float)$arrr[$i]);
-      	if($kk == 2){
-        	array_push($coordinates,$array_set);
-        	$kk = 0;
-        	$array_set = array();
-      	}
-	}
-	
-	//$output = json_encode(array('type' => 'message', 'text' => 'Success ' . $array_set));
-	//die($output);
-
-	//additional php validation
-	// if (strlen($username) < 4) { // If length is less than 4 it will throw an HTTP error.
-	//     $output = json_encode(array('type' => 'error', 'text' => 'Name is too short!'));
-	//     die($output);
-	// }
-	// if (!filter_var($useremail, FILTER_VALIDATE_EMAIL)) { //email validation
-	//     $output = json_encode(array('type' => 'error', 'text' => 'Please enter a valid email!'));
-	//     die($output);
-	// }
-	// if (strlen($message) < 5) { //check emtpy message
-	//     $output = json_encode(array('type' => 'error', 'text' => 'Too short message!'));
-	//     die($output);
-	// }
+	//$coordinates_array = trim($_POST["coordinates"]);
+	$geofence_id = trim($_POST["geofence_update_id"]);
 
 	//Atlas connection string
 	$uri = 'mongodb://64.227.118.83:27017/';
@@ -114,6 +81,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$db = $client->selectDatabase('local');
 	$collection = $db->geofence;
 
+	$updateResult = $collection->updateOne(
+	   ['_id' => new \MongoDB\BSON\ObjectID($geofence_id)],
+	   [ '$set' => [ 
+	   	'attributes.Arabic_Name' => $arabic_name, 
+	   	'attributes.English_Name' => $english_name, 
+	   	'attributes.Type' => $type, 
+	   	'attributes.District' => $district, 
+	   	'attributes.Area' => (float)$area, 
+	   	'attributes.Description' => $description, 
+	   	'attributes.Category' => $category, 
+	   	'attributes.Site' => $site, 
+	   	'attributes.Station_type' => (int)$station_type, 
+	   	'attributes.Station_Code' => (int)$station_code, 
+	   	'attributes.Station_Name' => $station_name, 
+	   	'attributes.Code_ID' => $code_id, 
+	   	'attributes.SHAPE_Length' => (float)$shape_length, 
+	   	'attributes.SHAPE_Area' => (float)$shape_area 
+	   ] ]
+	);
+
+	$uresult = ("Matched ".$updateResult->getMatchedCount()." document(s)");
+	$uresult .= (" Modified ".$updateResult->getModifiedCount()." document(s)");
+
+	/*
 	$document = array( 
 	  "attributes" => array(
 	        "OBJECTID" => 0,
@@ -139,10 +130,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	        )
 	    )
 	 );
+	*/
 
-
-	$collection->updateOne($document);
-	$output = json_encode(array('type' => 'message', 'text' => 'Update Geofense Successfully'));
+	$output = json_encode(array('type' => 'message', 'text' => 'Update Geofense Successfully: '.$uresult));
 	die($output);
 
 }else{

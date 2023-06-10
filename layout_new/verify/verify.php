@@ -2,7 +2,7 @@
 
 $cookie_name = "login_string";
 $cookie_value = "5fe69c95ed70a9869d9f9af7d8400a6673bb9ce9";
-$cookie_time = 60 * 10; //10 minutes
+$cookie_time = 60 * 1000; //10 minutes
 
 $error = "";
 
