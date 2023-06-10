@@ -664,18 +664,17 @@ function resetgeofenceEditForm(){
 
 }
 
-var companyList = [
-
-];
-
-var devicesList = [
-
-];
-
-function loadFiltersDataDevicesCompany() {
+function updateFilterList1(event,i){
 
 }
 
+function updateFilterList2(event,i){
+
+}
+
+function updateFilterList3(event,i){
+
+}
 function trackingDevicesSearchEvent(event){
   var value = document.getElementById(event).value;
   if(value && value != ''){
@@ -693,10 +692,34 @@ function trackingDevicesSearchEvent(event){
          );  
       if(dataFilter && dataFilter.length){
         addBusFeaturesReasign(dataFilter);
+        for (let i = 0; i < devicesList.length; i++) {
+          var check = busesData.filter(x =>
+              String(x.device.device_comp).toLowerCase().includes(devicesList[i].device_comp) 
+            );  
+         if(check && check.length){
+           document.getElementById(`mainListRowsTransportationCompaniesDynamiclistRow${i}`).checked = true;
+         }else{
+          document.getElementById(`mainListRowsTransportationCompaniesDynamiclistRow${i}`).checked = false;
+         }
+        }
+        for (let i = 0; i < transportationCompanyList.length; i++) {
+          var check = busesData.filter(x =>
+            String(x.device.trnspt_comp_ar).toLowerCase().includes(transportationCompanyList[i].trnspt_comp_ar) 
+            );  
+         if(check && check.length){
+           document.getElementById(`TrackingDeviceslistRow${i}`).checked = true;
+         }else{
+           document.getElementById(`TrackingDeviceslistRow${i}`).checked = false;
+         }
+        }
+        
       }
     }
   }else{
     addBusFeaturesReasign(busesData);
+    loadFiltersDataDevicesCompany(devicesList);
+    loadFiltersDatatransportationCompanyList(transportationCompanyList);
+    loadFiltersDatacompanyList(companyList);
   }
 }
 
@@ -706,7 +729,6 @@ $( document ).ready(function() {
   getAllGeofence();
   switchBaseMaps();
   getAllBusesData();
-  loadFiltersDataDevicesCompany();
    document.getElementById("geofenceDialogBoxEditClickButton").addEventListener("click", showgeofenceEditForm); //
 
   $("#geofenceDialogBoxExitEvent").click(function(){
