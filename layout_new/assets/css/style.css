@@ -260,7 +260,7 @@ body.login {
 
 .leftTopButtons{
 	position: absolute;
-	width: 64px;
+	width: 48px;
 	height: auto;
 	left: 16px;
 	top: 16px;
@@ -284,7 +284,7 @@ body.login {
 
 .leftBottomButtons{
 	position: absolute;
-	width: 64px;
+	width: 48px;
 	height: auto;
 	left: 16px;
 	bottom: 16px;
