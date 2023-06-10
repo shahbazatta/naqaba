@@ -27,12 +27,19 @@ map.addLayer(osmLayer);
 //.then(function(mapboxLayer) {
   // map is an ol/Map instance with the layers from the Mapbox style object
 //});
-mapboxLayer =  new ol.layer.Tile({
-      source: new ol.source.XYZ({
-	      //url: 'https://api.mapbox.com/styles/v1/shahbazatta/cli1o0xfg02hy01qyfvv19qkf.html?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
-		          url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
-	  })
-    })
+// mapboxLayer =  new ol.layer.Tile({
+//       source: new ol.source.XYZ({
+// 	      //url: 'https://api.mapbox.com/styles/v1/shahbazatta/cli1o0xfg02hy01qyfvv19qkf.html?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
+// 		          url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
+// 	  })
+//     })
+
+mapboxLayer = new ol.layer.Tile({
+  source: new ol.source.XYZ({
+    url: 'https://api.mapbox.com/styles/v1/shahbazatta/cli1o0xfg02hy01qyfvv19qkf/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ',
+    attributions: 'Map data © <a href="https://www.mapbox.com/">Mapbox</a>',
+  }),
+})
 map.addLayer(mapboxLayer);
 	
 googleMap = new ol.layer.Tile({
@@ -499,28 +506,27 @@ function getAllGeofence()
 			  for (let i = 0; i < data.length; i++) {
 				var obj = data[i];
 				var polygon = new ol.geom.Polygon(obj.geometry.coordinates).transform('EPSG:4326','EPSG:3857');
-
+        var category =obj.attributes.Category;
+        var color_rgba = "rgb(20, 79, 173,0.6)";
+        if (category=="موقف") {
+          color_rgba ='rgb(39, 234, 146,0.6)';
+        }
+        if (category=="محطة") {
+          color_rgba ='rgb(147, 140, 140,0.)';
+        }
+        
 				var feature = new ol.Feature({
 				  geometry:polygon,
 				  properties: obj
-				});
-				//feature.setId(obj._id);
-				stationArr.push(feature);
-			  }
-			  
-			  
-			  var stationSource = new ol.source.Vector({
-											features: stationArr
-											});
-			  
-				var stationStyle = new ol.style.Style({
+        });
+        var stationStyle = new ol.style.Style({
 					stroke: new ol.style.Stroke({
-					  color: 'green',
+					  color: color_rgba,
 					  width: 2,
 					  //lineDash: [5]
 					}),
 					fill: new ol.style.Fill({
-					  color: 'rgb(39, 234, 146,0.8)', 
+					  color: color_rgba, 
 					}),
 					text: new ol.style.Text({
 						font: '12px Calibri,sans-serif',
@@ -533,6 +539,17 @@ function getAllGeofence()
 					//	text: this.getProperties().properties['attributes']['Arabic_Name'] : ''
 					  })
 				  });
+        feature.setStyle(stationStyle);
+				//feature.setId(obj._id);
+				stationArr.push(feature);
+			  }
+			  
+			  
+			  var stationSource = new ol.source.Vector({
+											features: stationArr
+											});
+			  
+				
 				stationLyr = new ol.layer.Vector({
 					source: stationSource,
 					style: stationStyle,
@@ -635,18 +652,17 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
 
 
 
-var companyList = [
-
-];
-
-var devicesList = [
-
-];
-
-function loadFiltersDataDevicesCompany() {
+function updateFilterList1(event,i){
 
 }
 
+function updateFilterList2(event,i){
+
+}
+
+function updateFilterList3(event,i){
+
+}
 function trackingDevicesSearchEvent(event){
   var value = document.getElementById(event).value;
   if(value && value != ''){
@@ -664,10 +680,34 @@ function trackingDevicesSearchEvent(event){
          );  
       if(dataFilter && dataFilter.length){
         addBusFeaturesReasign(dataFilter);
+        for (let i = 0; i < devicesList.length; i++) {
+          var check = busesData.filter(x =>
+              String(x.device.device_comp).toLowerCase().includes(devicesList[i].device_comp) 
+            );  
+         if(check && check.length){
+           document.getElementById(`mainListRowsTransportationCompaniesDynamiclistRow${i}`).checked = true;
+         }else{
+          document.getElementById(`mainListRowsTransportationCompaniesDynamiclistRow${i}`).checked = false;
+         }
+        }
+        for (let i = 0; i < transportationCompanyList.length; i++) {
+          var check = busesData.filter(x =>
+            String(x.device.trnspt_comp_ar).toLowerCase().includes(transportationCompanyList[i].trnspt_comp_ar) 
+            );  
+         if(check && check.length){
+           document.getElementById(`TrackingDeviceslistRow${i}`).checked = true;
+         }else{
+           document.getElementById(`TrackingDeviceslistRow${i}`).checked = false;
+         }
+        }
+        
       }
     }
   }else{
     addBusFeaturesReasign(busesData);
+    loadFiltersDataDevicesCompany(devicesList);
+    loadFiltersDatatransportationCompanyList(transportationCompanyList);
+    loadFiltersDatacompanyList(companyList);
   }
 }
 
@@ -679,8 +719,7 @@ $( document ).ready(function() {
   getAllGeofence();
   switchBaseMaps();
   getAllBusesData();
-  loadFiltersDataDevicesCompany();
-
+  //loadFiltersDataDevicesCompany();
     
   document.getElementById("bmap").onchange = function(){ //add switch basemap listener
 					switchBaseMaps();
