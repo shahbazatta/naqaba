@@ -27,12 +27,19 @@ map.addLayer(osmLayer);
 //.then(function(mapboxLayer) {
   // map is an ol/Map instance with the layers from the Mapbox style object
 //});
-mapboxLayer =  new ol.layer.Tile({
-      source: new ol.source.XYZ({
-	      //url: 'https://api.mapbox.com/styles/v1/shahbazatta/cli1o0xfg02hy01qyfvv19qkf.html?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
-		          url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
-	  })
-    })
+// mapboxLayer =  new ol.layer.Tile({
+//       source: new ol.source.XYZ({
+// 	      //url: 'https://api.mapbox.com/styles/v1/shahbazatta/cli1o0xfg02hy01qyfvv19qkf.html?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
+// 		          url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ' //this works
+// 	  })
+//     })
+
+mapboxLayer = new ol.layer.Tile({
+  source: new ol.source.XYZ({
+    url: 'https://api.mapbox.com/styles/v1/shahbazatta/cli1o0xfg02hy01qyfvv19qkf/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ',
+    attributions: 'Map data © <a href="https://www.mapbox.com/">Mapbox</a>',
+  }),
+})
 map.addLayer(mapboxLayer);
 	
 googleMap = new ol.layer.Tile({
@@ -499,7 +506,7 @@ function getAllGeofence()
           color_rgba ='rgb(39, 234, 146,0.6)';
         }
         if (category=="محطة") {
-          color_rgba ='rgb(147, 140, 140,0.6)';
+          color_rgba ='rgb(147, 140, 140,0.)';
         }
         
 				var feature = new ol.Feature({
