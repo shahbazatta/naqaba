@@ -507,7 +507,7 @@ function getAllGeofence()
 				var obj = data[i];
 				var polygon = new ol.geom.Polygon(obj.geometry.coordinates).transform('EPSG:4326','EPSG:3857');
         var category =obj.attributes.Category;
-        var color_rgba = "rgb(255, 103, 0,0.6)";
+        var color_rgba = "rgb(242, 220, 15,0.6)";
         if (category=="موقف") {
           color_rgba ='rgb(125, 0, 155,0.6)';
         }
