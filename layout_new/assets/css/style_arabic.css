@@ -21,7 +21,7 @@ input, textarea {
 .cCheckBox2 {float: right;}
 .cCheckBox2>input {right: 0;}
 .checkmark {right: 0;}
-.mainListRows .listRow .lebelText { padding: 0px 0px 0px 0px; }
+.mainListRows .listRow .lebelText { padding: 0px 0px 0px 0px; float: right; }
 .mainListRows .listRow .lebelText>img { right: 0px;}
 .searchBoxForMenu>input.search {float: right}
 .searchBoxForMenu>button.searchButton {float: left;}
