@@ -26,6 +26,10 @@ require_once("lang/language.php");
 <!-- jQuery -->
 <script src="assets/js/jquery-1.11.2.min.js"></script>
 
+<!-- Scroll Bar -->
+<link type="text/css" href="assets/plugin/scrollBar/css/perfect-scrollbar.css" rel="stylesheet" media="all" />
+<script type="text/javascript" src="assets/plugin/scrollBar/js/perfect-scrollbar.js"></script>
+
 <!--Table Sorter-->
 <script src="assets/plugin/sorter/jquery.tablesorter.js"></script>
 <link rel="stylesheet" href="assets/plugin/sorter/style.css" type="text/css" />
@@ -98,9 +102,9 @@ require_once("lang/language.php");
               </div>
 
               <!--Companies list-->
-              <div class="mainListRows" id="mainListRowscompanyList">
+              <div class="mainListRows newScrollBar" id="mainListRowscompanyList">
 
-                
+
 
                 <!-- <div class="listRow">
                   <label class="cCheckBox2">
@@ -164,7 +168,7 @@ require_once("lang/language.php");
               </div>
 
               <!--Companies list-->
-              <div class="mainListRows" style="overflow-y:scroll;" id="mainListRowsTransportationCompaniesDynamic">
+              <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTransportationCompaniesDynamic">
 
                 <!-- <div class="listRow">
                   <label class="cCheckBox2">
@@ -228,7 +232,7 @@ require_once("lang/language.php");
               </div>
 
               <!--Companies list-->
-              <div class="mainListRows" style="overflow-y:scroll;" id="mainListRowsTrackingDevices">
+              <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTrackingDevices">
 
                 <!-- <div class="listRow">
                   <label class="cCheckBox2">

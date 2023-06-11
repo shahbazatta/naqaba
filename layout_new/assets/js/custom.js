@@ -37,3 +37,9 @@ $(document).ready(function() {
 	});
 
 });
+
+window.onload = function () {
+	[].forEach.call(document.querySelectorAll('.newScrollBar'), function (el) {
+	  Ps.initialize(el);
+	});
+};
