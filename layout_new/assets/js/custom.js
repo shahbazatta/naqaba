@@ -11,6 +11,11 @@ $(document).ready(function() {
 	var $setHeightRightNav = $windowHeight - 120;
 	$(".rightMenu nav").css({"height": $setHeightRightNav});
 	$(".mainContainer").css({"min-height": $windowHeight});
+	
+	$(".trackingCom .mainListRows").css({"max-height": $windowHeight - 301});
+	$(".transportationCom .mainListRows").css({"max-height": $windowHeight - 351});
+	$(".trackingDevices .mainListRows").css({"max-height": $windowHeight - 421});
+
 
 
 

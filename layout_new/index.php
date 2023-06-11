@@ -100,6 +100,8 @@ require_once("lang/language.php");
               <!--Companies list-->
               <div class="mainListRows" id="mainListRowscompanyList">
 
+                
+
                 <!-- <div class="listRow">
                   <label class="cCheckBox2">
                     <input type="checkbox" id="listRow1" name="listRow1" value="">
@@ -1010,8 +1012,7 @@ require_once("lang/language.php");
   }
 
 
-  function getAvlDevicesData()
-  {
+
 var companyList = [];
 
 var transportationCompanyList = [];
@@ -1089,6 +1090,7 @@ function loadFiltersDatatransportationCompanyList(list) {
 
 function getAvlDevicesData()
 {	
+
     $.ajax({
          url: "data/get_avlDevicesData.php",
          method: "POST",
@@ -1097,7 +1099,7 @@ function getAvlDevicesData()
           api_key: "becdf4fbbbf49dbc",
          },
          success: function(data){
-			 console.log(data);
+			   console.log(data);
 
           if(data && data.length){
             for (let i = 0; i < data.length; i++) {
@@ -1155,15 +1157,12 @@ function getAvlDevicesData()
 
   }
 
-}
-
 $( document ).ready(function() {
   getAvlDevicesData();
 
   //$('#newGeofenceDialogBox').show();
   //$('#busDialogBox').show();
   //$('#geofenceDialogBox').show();
-  //getAvlDevicesData();
   
 
   //reset previously set border colors and hide all message on .keyup()

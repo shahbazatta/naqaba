@@ -447,6 +447,7 @@ body.login {
 .mainListRows{
 	position: relative;
 	padding: 15px 0px 0px 0px;
+	max-height: 200px;
 }
 .geofencesBox .mainListRows, .busFinderBox .mainListRows{
 	padding: 0px 0px 0px 0px;
@@ -459,7 +460,7 @@ body.login {
 }
 .mainListRows .listRow .lebelText{
 	position: relative;
-	padding: 0px 0px 0px 40px;
+	padding: 0px 0px 0px 0px;
 	display: block;
 	float: left;
 	width: 280px;
@@ -542,8 +543,8 @@ table.tableNeo button.actionBtn:hover>img{
   position: absolute;
   top: 0;
   left: 0;
-  height: 19px;
-  width: 19px;
+  height: 20px;
+  width: 20px;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   display: block;
@@ -575,7 +576,7 @@ table.tableNeo button.actionBtn:hover>img{
 
 /* Style the checkmark/indicator */
 .cCheckBox2 .checkmark:after {
-  left: 6px;
+  left: 7px;
   top: 4px;
   width: 4px;
   height: 8px;
