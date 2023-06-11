@@ -89,7 +89,7 @@ function toggleDrawGeofenceCtrl() {
    var size = feature.get('features').length;
    var style = styleCache[size];
    if (!style) {
-     var color = size>25 ? "7,98,229" : size>8 ? "242,220,15" : "0,149,52";
+     var color = size>50 ? "0, 197, 115" : size>10 ? "255, 103, 0" : "0, 151, 222";
      var radius = Math.max(8, Math.min(size*0.75, 20));
      var dash = 2*Math.PI*radius/6;
      var dash = [ 0, dash, dash, dash, dash, dash, dash ];
@@ -507,12 +507,12 @@ function getAllGeofence()
 				var obj = data[i];
 				var polygon = new ol.geom.Polygon(obj.geometry.coordinates).transform('EPSG:4326','EPSG:3857');
         var category =obj.attributes.Category;
-        var color_rgba = "rgb(242, 220, 15,0.6)";
+        var color_rgba = "rgba(0, 199, 254, 0.24)";
         if (category=="موقف") {
-          color_rgba ='rgb(125, 0, 155,0.6)';
+          color_rgba ='rgba(171, 71, 194, 0.24)';
         }
         if (category=="محطة") {
-          color_rgba ='rgb(141, 104, 202,0.)';
+          color_rgba ='rgba(141, 104, 202,0.24)';
         }
         
 				var feature = new ol.Feature({
