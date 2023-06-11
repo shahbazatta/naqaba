@@ -509,7 +509,7 @@ function getAllGeofence()
         var category =obj.attributes.Category;
         var color_rgba = "rgb(255, 103, 0,0.6)";
         if (category=="موقف") {
-          color_rgba ='rgb(104, 134, 202,0.6)';
+          color_rgba ='rgb(125, 0, 155,0.6)';
         }
         if (category=="محطة") {
           color_rgba ='rgb(141, 104, 202,0.)';
