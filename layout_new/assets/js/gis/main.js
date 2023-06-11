@@ -89,7 +89,7 @@ function toggleDrawGeofenceCtrl() {
    var size = feature.get('features').length;
    var style = styleCache[size];
    if (!style) {
-     var color = size>25 ? "7,98,229" : size>8 ? "225,208,64" : "0,149,52";
+     var color = size>25 ? "7,98,229" : size>8 ? "242,220,15" : "0,149,52";
      var radius = Math.max(8, Math.min(size*0.75, 20));
      var dash = 2*Math.PI*radius/6;
      var dash = [ 0, dash, dash, dash, dash, dash, dash ];
@@ -507,7 +507,7 @@ function getAllGeofence()
 				var obj = data[i];
 				var polygon = new ol.geom.Polygon(obj.geometry.coordinates).transform('EPSG:4326','EPSG:3857');
         var category =obj.attributes.Category;
-        var color_rgba = "rgb(255, 208, 64,0.6)";
+        var color_rgba = "rgb(255, 103, 0,0.6)";
         if (category=="موقف") {
           color_rgba ='rgb(104, 134, 202,0.6)';
         }
