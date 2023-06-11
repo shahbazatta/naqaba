@@ -89,7 +89,7 @@ function toggleDrawGeofenceCtrl() {
    var size = feature.get('features').length;
    var style = styleCache[size];
    if (!style) {
-     var color = size>50 ? "0, 197, 115" : size>15 ? "255, 103, 0" : "0, 151, 222";
+     var color = size>50 ? "0, 197, 115" : size>10 ? "255, 103, 0" : "0, 151, 222";
      var radius = Math.max(8, Math.min(size*0.75, 20));
      var dash = 2*Math.PI*radius/6;
      var dash = [ 0, dash, dash, dash, dash, dash, dash ];
