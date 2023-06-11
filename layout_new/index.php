@@ -600,63 +600,85 @@ require_once("lang/language.php");
     <div id="viewGeofenceDetails">
       <div class="boxBody">
         <table>
-          <tr>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?>
-              <span id ="arabicNameGeofence" ></span>
-            </td>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?>
-              <span id ="englishNameGeofence"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?>
-              <span id ="typeGeofence"></span>
-            </td>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?>
-              <span id ="districtGeofence"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?>
-              <span id ="areaGeofence"></span>
-            </td>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?>
-              <span id ="descriptionGeofence"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?>
-              <span id ="categoryGeofence"></span>
-            </td>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?>
-              <span id ="siteGeofence"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?>
-              <span id ="stationTypeGeofence"></span>
-            </td>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?>
-              <span id ="stationCodeGeofence"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?>
-              <span id ="stationNameGeofence"></span>
-            </td>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?>
-              <span id ="codeIdGeofence"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?>
-              <span id ="shapeLengthGeofence"></span>
-            </td>
-            <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?>
-              <span id ="shapeAreaGeofence"></span>
-            </td>
-          </tr>
-        </table>
+            <tr>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?>
+                <span id ="arabicNameGeofence" ></span>
+              </td>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?>
+                <span id ="englishNameGeofence"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?>
+                <span id ="typeGeofence"></span>
+              </td>
+              <td class="np">
+                <table>
+                  <tr>
+                    <td>
+                      <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?>
+                      <span id ="districtGeofence"></span>
+                    </td>
+                     <td>
+                      <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?>
+                      <span id ="siteGeofence"></span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?>
+                <span id ="descriptionGeofence"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?>
+                <span id ="stationNameGeofence"></span>
+              </td>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?>
+                <span id ="categoryGeofence"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?>
+                <span id ="stationTypeGeofence"></span>
+              </td>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?>
+                <span id ="stationCodeGeofence"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?>
+                <span id ="codeIdGeofence"></span>
+              </td>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?>
+                <span id ="areaGeofence"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?>
+                <span id ="shapeLengthGeofence"></span>
+              </td>
+              <td>
+                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?>
+                <span id ="shapeAreaGeofence"></span>
+              </td>
+            </tr>
+          </table>
       </div>
       <div class="boxFooter">
         
