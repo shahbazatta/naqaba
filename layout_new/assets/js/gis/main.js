@@ -376,6 +376,8 @@ function addDrawInteraction() {
 
 var busDataArr ;
 var selectedGeofence ;
+var selectInteraction;
+
 function getAllBusesData() {
   //ajax call to api get all bus data
   $.ajax({
@@ -385,7 +387,7 @@ function getAllBusesData() {
     success: function(response) {
       busDataArr = response;
       addBusFeatures(busDataArr);
-var selectInteraction = new ol.interaction.Select({
+selectInteraction = new ol.interaction.Select({
   layers: [clusterLayer,stationLyr,clusterAnimateLayer]
 });
 
@@ -712,7 +714,10 @@ function trackingDevicesSearchEvent(event){
   }
 }
 
-
+function unselectAllFeatures() {
+//call this function to unselect features
+  selectInteraction.getFeatures().clear();
+}
 
 $( document ).ready(function() {
   initMap();
