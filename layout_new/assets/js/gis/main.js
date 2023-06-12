@@ -409,10 +409,11 @@ selectInteraction.on('select', function(event) {
     			data = selectedFeatures[0].getProperties().properties['attributes']
     			selectedGeofence = selectedFeatures[0];
           coordinates = selectedFeatures[0].getProperties().properties['geometry']
+          main_Id = selectedGeofence.getProperties().properties._id.$oid;
+          document.getElementById("geofence_id").value = main_Id;
     		}
 
-      main_Id = selectedGeofence.getProperties().properties._id.$oid;
-      document.getElementById("geofence_id").value = main_Id;
+     
 
 		  var obj_str ="";
 		  // for (var key in data)
