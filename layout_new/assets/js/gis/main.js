@@ -9,7 +9,11 @@ map = new ol.Map({
   target: 'mapContainer1', // The ID of the div element where the map should be rendered
   view: new ol.View({
     center: ol.proj.fromLonLat([45.0792, 23.8859]), // The initial center coordinates of the map, transformed to EPSG:3857
-    zoom: 7 // The initial zoom level
+    zoom: 7, // The initial zoom level
+    controls: ol.control.defaults({
+      attribution : false,
+      zoom : false,
+  }),
   })
 });
 
@@ -717,6 +721,12 @@ function trackingDevicesSearchEvent(event){
 function unselectAllFeatures() {
 //call this function to unselect features
   selectInteraction.getFeatures().clear();
+}
+
+function zoomTo(amount){
+  const view = map.getView();
+  const zoom = view.getZoom();
+  view.animate({ zoom: zoom + amount})
 }
 
 $( document ).ready(function() {

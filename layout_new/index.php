@@ -518,8 +518,8 @@ require_once("lang/language.php");
      <div class="leftBottomButtons">
        <nav>
          <div><a href="javascript:void(0)"><img src="assets/images/icons/navigate.svg"></a></div>
-         <div><a href="javascript:void(0)"><img src="assets/images/icons/plus.svg"></a></div>
-         <div><a href="javascript:void(0)"><img src="assets/images/icons/minus.svg"></a></div>
+         <div onclick="zoomTo(+1)"><a href="javascript:void(0)"><img src="assets/images/icons/plus.svg"></a></div>
+         <div onclick="zoomTo(-1)"><a href="javascript:void(0)"><img src="assets/images/icons/minus.svg"></a></div>
        </nav>
      </div>
 
