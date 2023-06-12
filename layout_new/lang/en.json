@@ -125,6 +125,21 @@
     "EnginePlateNo":"Engine Plate No",
     "GeofenceInformation":"Geofence Information",
     "Update":"Update",
-    "Cancel":"Cancel"
+    "Cancel":"Cancel",
+    "Yes":"Yes",
+    "No":"No",
+    "Confirmation":"Confirmation",
+    "Discard":"Discard",
+    "WriteGeofenceDetials":"Write the Geofence detials",
+    "Action":"Action",
+
+    "Name":"Name",
+    "BusOperatingNo":"Bus Operating No",
+    "BusNo":"Bus No",
+    "IMEINo":"IMEI No",
+    "SearchIMEINumber":"Search IMEI Number",
+    "SelectAll":"Select All",
+    "SearchDevice":"Search Device",
+    "SearchCompany":"Search Company"
 
 }

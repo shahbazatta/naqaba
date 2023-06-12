@@ -85,19 +85,19 @@ require_once("lang/language.php");
 
             <div class="popMenuBox" id="trackingComBox">
               <div class="searchBoxForMenu">
-                <input type="text"onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')"  name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+                <input type="text"onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')"  name="trackingComSearch" id="trackingComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
 
               <div class="headerList">
-                <h1>Tracking Companies</h1>
+                <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingCompanies'); ?></h1>
                 <div class="close"><img src="assets/images/icons/close.svg"></div>
                 <div class="selectAllCheckBox">
                   <label class="cCheckBox2">
                     <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" checked value="true">
                     <span class="checkmark"></span>
                   </label>
-                  <label for="trackingComSeAl" class="lebelText"> Select All</label>
+                  <label for="trackingComSeAl" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
                 </div>
               </div>
 
@@ -152,18 +152,18 @@ require_once("lang/language.php");
 
             <div class="popMenuBox" id="transportationComBox">
               <div class="searchBoxForMenu">
-                <input type="text" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')" name="TransportationComSearch" id="TransportationComSearch" placeholder="Search Company" class="search">
+                <input type="text" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')" name="TransportationComSearch" id="TransportationComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
               <div class="headerList">
-                <h1>Transportation Companies</h1>
+                <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanies'); ?></h1>
                 <div class="close"><img src="assets/images/icons/close.svg"></div>
                 <div class="selectAllCheckBox">
                   <label class="cCheckBox2">
                     <input type="checkbox" id="mainListRowsTransportationCompanies" name="mainListRowsTransportationCompanies" checked value="true">
                     <span class="checkmark"></span>
                   </label>
-                  <label for="mainListRowsTransportationCompanies" class="lebelText"> Select All</label>
+                  <label for="mainListRowsTransportationCompanies" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
                 </div>
               </div>
 
@@ -216,18 +216,18 @@ require_once("lang/language.php");
 
             <div class="popMenuBox" id="trackingDevicesBox">
               <div class="searchBoxForMenu">
-                <input type="text" name="trackingDevicesSearch" value="" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')" id="trackingDevicesSearch" placeholder="Search Device" class="search">
+                <input type="text" name="trackingDevicesSearch" value="" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')" id="trackingDevicesSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchDevice'); ?>" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
               <div class="headerList">
-                <h1>Tracking Devices</h1>
+                <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingDevices'); ?></h1>
                 <div class="close"><img src="assets/images/icons/close.svg"></div>
                 <div class="selectAllCheckBox">
                   <label class="cCheckBox2">
                     <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" checked value="">
                     <span class="checkmark"></span>
                   </label>
-                  <label for="trackingComSeAl" class="lebelText"> Select All</label>
+                  <label for="trackingComSeAl" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
                 </div>
               </div>
 
@@ -280,7 +280,7 @@ require_once("lang/language.php");
 
             <div class="popMenuBox busFinderBox" id="busFinderBox">
               <div class="searchBoxForMenu">
-                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search IMEI Number" class="search">
+                <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchIMEINumber'); ?>" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
 
@@ -289,10 +289,10 @@ require_once("lang/language.php");
                 <table id="busFinderTable" class="tableNeo tablesorter">
                   <thead>
                     <tr>
-                      <th>IMEI No.</th>
-                      <th>Bus No.</th>
-                      <th>Bus Operating No.</th>
-                      <th>Action</th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'IMEINo'); ?></th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'BusNo'); ?></th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'BusOperatingNo'); ?></th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -353,12 +353,12 @@ require_once("lang/language.php");
                 <table id="geofencesTable" class="tableNeo tablesorter">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Description</th>
-                      <th>Type</th>
-                      <th>Station Name</th>
-                      <th>Station Code</th>
-                      <th>Action</th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?></th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?></th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?></th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Action'); ?></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -711,11 +711,11 @@ require_once("lang/language.php");
           <table>
             <tr>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?>:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?></label>
                 <input type="text" class="inputText" id="arabic_name_edit" name="arabic_name_edit" maxlength="120"/>
               </td>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?>:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?></label>
                 <input type="text" class="inputText" id="english_name_edit" name="english_name_edit" maxlength="120"/>
               </td>
             </tr>
@@ -724,15 +724,15 @@ require_once("lang/language.php");
                 <table>
                   <tr>
                     <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?>:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?></label>
                       <input type="text" class="inputText" id="type_edit" name="type_edit" maxlength="120"/>
                     </td>
                     <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?>:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?></label>
                       <input type="text" class="inputText" id="district_edit" name="district_edit" maxlength="120"/>
                     </td>
                     <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?>:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?></label>
                       <input type="text" class="inputText" id="site_edit" name="site_edit" maxlength="120"/>
                     </td>
                   </tr>
@@ -741,34 +741,34 @@ require_once("lang/language.php");
             </tr>
             <tr>
               <td colspan="2">
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?>:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?></label>
                 <input type="text" class="inputText" id="description_edit" name="description_edit" maxlength="280"/>
               </td>
             </tr>
             <tr>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?>:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?></label>
                 <input type="text" class="inputText" id="area_edit" name="area_edit" maxlength="120"/>
               </td>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?>:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?></label>
                 <input type="text" class="inputText" id="category_edit" name="category_edit" maxlength="120"/>
               </td>
             </tr>
             <tr>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?>:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?></label>
                 <input type="text" class="inputText" id="station_type_edit" name="station_type_edit" maxlength="120"/>
               </td>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?>:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?></label>
                 <input type="text" class="inputText" id="station_code_edit" name="station_code_edit" maxlength="120"/>
               </td>
             </tr>
 
             <tr>
               <td colspan="2">
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?>:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></label>
                 <input type="text" class="inputText" id="station_name_edit" name="station_name_edit" maxlength="120"/>
               </td>
             </tr>
@@ -778,15 +778,15 @@ require_once("lang/language.php");
                 <table>
                   <tr>
                     <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?>:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?></label>
                       <input type="text" class="inputText" id="code_id_edit" name="code_id_edit" maxlength="120"/>
                     </td>
                     <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?>:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?></label>
                       <input type="text" class="inputText" id="shape_length_edit" name="shape_length_edit" maxlength="120"/>
                     </td>
                     <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?>:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?></label>
                       <input type="text" class="inputText" id="shape_area_edit" name="shape_area_edit" maxlength="120"/>
                     </td>
                   </tr>
@@ -820,7 +820,7 @@ require_once("lang/language.php");
     <span class="close exit" id=""></span>
     <div class="boxHeader">
       <img src="assets/images/icons/icon-fg.png">
-      <h1>Write the Geofence detials</h1>
+      <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'WriteGeofenceDetials'); ?></h1>
     </div>
     <div id="result"></div>
     <div id="geofenceDialogBoxData">
@@ -829,11 +829,11 @@ require_once("lang/language.php");
           <table>
             <tr>
               <td>
-                <label>Arabic Name:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabicName'); ?></label>
                 <input type="text" class="inputText" id="arabic_name" name="arabic_name" maxlength="120"/>
               </td>
               <td>
-                <label>English Name:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'englishName'); ?></label>
                 <input type="text" class="inputText" id="english_name" name="english_name" maxlength="120"/>
               </td>
             </tr>
@@ -842,15 +842,15 @@ require_once("lang/language.php");
                 <table>
                   <tr>
                     <td>
-                      <label>Type:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?></label>
                       <input type="text" class="inputText" id="type" name="type" maxlength="120"/>
                     </td>
                     <td>
-                      <label>District:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?></label>
                       <input type="text" class="inputText" id="district" name="district" maxlength="120"/>
                     </td>
                     <td>
-                      <label>Site:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'site'); ?></label>
                       <input type="text" class="inputText" id="site" name="site" maxlength="120"/>
                     </td>
                   </tr>
@@ -859,34 +859,34 @@ require_once("lang/language.php");
             </tr>
             <tr>
               <td colspan="2">
-                <label>Description:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?></label>
                 <input type="text" class="inputText" id="description" name="description" maxlength="280"/>
               </td>
             </tr>
             <tr>
               <td>
-                <label>Area:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?></label>
                 <input type="text" class="inputText" id="area" name="area" maxlength="120"/>
               </td>
               <td>
-                <label>Category:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?></label>
                 <input type="text" class="inputText" id="category" name="category" maxlength="120"/>
               </td>
             </tr>
             <tr>
               <td>
-                <label>Station Type:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationType'); ?></label>
                 <input type="text" class="inputText" id="station_type" name="station_type" maxlength="120"/>
               </td>
               <td>
-                <label>Station Code:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?></label>
                 <input type="text" class="inputText" id="station_code" name="station_code" maxlength="120"/>
               </td>
             </tr>
 
             <tr>
               <td colspan="2">
-                <label>Station Name:</label>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></label>
                 <input type="text" class="inputText" id="station_name" name="station_name" maxlength="120"/>
               </td>
             </tr>
@@ -896,15 +896,15 @@ require_once("lang/language.php");
                 <table>
                   <tr>
                     <td>
-                      <label>Code ID:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?></label>
                       <input type="text" class="inputText" id="code_id" name="code_id" maxlength="120"/>
                     </td>
                     <td>
-                      <label>Shape Length:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?> </label>
                       <input type="text" class="inputText" id="shape_length" name="shape_length" maxlength="120"/>
                     </td>
                     <td>
-                      <label>Shape Area:</label>
+                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?></label>
                       <input type="text" class="inputText" id="shape_area" name="shape_area" maxlength="120"/>
                     </td>
                   </tr>
@@ -918,10 +918,10 @@ require_once("lang/language.php");
           <input type="hidden" id="coordinate_arr" name="coordinate_arr" value="">
           
           <button type="button" class="delete exit" id="geofenceDiscard" onclick=""><img src="assets/images/icons/trash.svg">
-            <span>Discard</span>
+            <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Discard'); ?></span>
           </button>
           <button type="button" class="save" id="geofenceSave" onclick=""><img src="assets/images/icons/check-mark-32.png">
-            <span>Save</span>
+            <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'save'); ?></span>
           </button>
         </div>
       </form>
@@ -942,7 +942,7 @@ require_once("lang/language.php");
   <div class="boxPopUpTabCon">
     <div class="boxHeader">
       <img src="assets/images/icons/question-mark.png">
-      <h1>Confirmation</h1>
+      <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Confirmation'); ?></h1>
     </div>
     <div id="result"></div>
     <div id="">
@@ -953,10 +953,10 @@ require_once("lang/language.php");
 
         <div class="boxFooter">
           <button type="button" class="no noConfirm"><img src="assets/images/icons/trash.svg">
-            <span>No</span>
+            <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'No'); ?></span>
           </button>
           <button type="button" class="yes yesConfirm" id="geofenceDeleteConfirm"><img src="assets/images/icons/check-mark-32.png">
-            <span>Yes</span>
+            <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Yes'); ?></span>
           </button>
         </div>
       </form>
