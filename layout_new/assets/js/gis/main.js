@@ -384,11 +384,13 @@ var selectInteraction;
 
 function getAllBusesData() {
   //ajax call to api get all bus data
+  // open loader @khuram,waqas
   $.ajax({
     url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
     method: 'GET',
     dataType: 'json',
     success: function(response) {
+      //close laoder
       busDataArr = response;
       addBusFeatures(busDataArr);
 selectInteraction = new ol.interaction.Select({
@@ -499,7 +501,7 @@ error: function(xhr, status, error) {
 
 function getAllGeofence()
 {
-	
+	//show loader box  @khuram,waqas
     $.ajax({
          url: "./data/get_geofence.php",
          method: "POST",
@@ -508,7 +510,8 @@ function getAllGeofence()
           api_key: "becdf4fbbbf49dbc",
          },
          success: function(data){
-			 console.log(data);
+       console.log(data);
+       //hide loader dialog box @khuram,waqas
 			 var stationArr = [];
 			  for (let i = 0; i < data.length; i++) {
 				var obj = data[i];
