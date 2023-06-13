@@ -649,9 +649,7 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
         addBusFeatures(busDataArr);
     }); 
 	
-	$("#exportGeofence").click(function(){
-        downloadJSON();
-    }); 
+
 	
 //});
 
@@ -739,7 +737,9 @@ $( document ).ready(function() {
   switchBaseMaps();
   getAllBusesData();
   //loadFiltersDataDevicesCompany();
-    
+  $("#exportGeofence").click(function(){
+    downloadJSON();
+}); 
   document.getElementById("bmap").onchange = function(){ //add switch basemap listener
 					switchBaseMaps();
  };
