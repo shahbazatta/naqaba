@@ -499,6 +499,7 @@ error: function(xhr, status, error) {
 
 }
 
+
 function getAllGeofence()
 {
 	//show loader box  @khuram,waqas
@@ -524,6 +525,45 @@ function getAllGeofence()
         if (category=="محطة") {
           color_rgba ='rgba(141, 104, 202,0.24)';
         }
+
+        var styleFunction = function(feature) {
+         
+          var attributeValue = feature.getProperties().properties.attributes.Category; // Replace 'attributeName' with the actual attribute name
+        
+          // Define different styles based on attribute values
+          if (attributeValue === 'موقف') {
+            return new ol.style.Style({
+              fill: new ol.style.Fill({
+                color: 'red'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'black',
+                width: 2
+              })
+            });
+          } else if (attributeValue === 'محطة') {
+            return new ol.style.Style({
+              fill: new ol.style.Fill({
+                color: 'blue'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'black',
+                width: 2
+              })
+            });
+          } else {
+            // Default style for other attribute values
+            return new ol.style.Style({
+              fill: new ol.style.Fill({
+                color: 'gray'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'black',
+                width: 2
+              })
+            });
+          }
+        };
         
 				var feature = new ol.Feature({
 				  geometry:polygon,
@@ -549,7 +589,7 @@ function getAllGeofence()
 					//	text: this.getProperties().properties['attributes']['Arabic_Name'] : ''
 					  })
 				  });
-        feature.setStyle(stationStyle);
+        //feature.setStyle(stationStyle);
 				//feature.setId(obj._id);
 				stationArr.push(feature);
 			  }
@@ -562,7 +602,7 @@ function getAllGeofence()
 				
 				stationLyr = new ol.layer.Vector({
 					source: stationSource,
-					style: stationStyle,
+					style: styleFunction,
 				  });
 			  //stationLyr.setZIndex(11);
 			  map.addLayer(stationLyr);
