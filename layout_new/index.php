@@ -834,7 +834,7 @@ $classObject = new GetAvlDevicesData();
 <!-- New geofences Added -->
 <div class="popUpBox" id="newGeofenceDialogBox">
   <div class="boxPopUpTab addNew">
-    <span class="close exit" id=""></span>
+    <!-- <span class="close exit" id=""></span> -->
     <div class="boxHeader">
       <img src="assets/images/icons/icon-fg.png">
       <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'WriteGeofenceDetials'); ?></h1>
@@ -934,7 +934,7 @@ $classObject = new GetAvlDevicesData();
         <div class="boxFooter">
           <input type="hidden" id="coordinate_arr" name="coordinate_arr" value="">
           
-          <button type="button" class="delete exit" id="geofenceDiscard" onclick=""><img src="assets/images/icons/trash.svg">
+          <button type="button" class="delete exit" id="geofenceDiscard" onclick="toggleDrawGeofenceCtrl()"><img src="assets/images/icons/trash.svg">
             <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Discard'); ?></span>
           </button>
           <button type="button" class="save" id="geofenceSave" onclick=""><img src="assets/images/icons/check-mark-32.png">
@@ -1499,7 +1499,7 @@ $( document ).ready(function() {
                           });
                       }); 
 
-
+                      getAllGeofence();
                   }
 
                   //$("#result2").hide().html(output).slideDown();
