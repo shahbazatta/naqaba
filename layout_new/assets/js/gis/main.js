@@ -544,10 +544,10 @@ function getAllGeofence()
           } else if (attributeValue === 'محطة') {
             return new ol.style.Style({
               fill: new ol.style.Fill({
-                color: 'blue'
+                color: 'rgba(0, 199, 254, 0.24)'
               }),
               stroke: new ol.style.Stroke({
-                color: 'black',
+                color: 'rgba(0, 199, 254, 0.24)',
                 width: 2
               })
             });
@@ -555,10 +555,10 @@ function getAllGeofence()
             // Default style for other attribute values
             return new ol.style.Style({
               fill: new ol.style.Fill({
-                color: 'gray'
+                color: 'rgba(141, 104, 202,0.24)'
               }),
               stroke: new ol.style.Stroke({
-                color: 'black',
+                color: 'rgba(141, 104, 202,0.24)',
                 width: 2
               })
             });
@@ -569,26 +569,7 @@ function getAllGeofence()
 				  geometry:polygon,
 				  properties: obj
         });
-        var stationStyle = new ol.style.Style({
-					stroke: new ol.style.Stroke({
-					  color: color_rgba,
-					  width: 2,
-					  //lineDash: [5]
-					}),
-					fill: new ol.style.Fill({
-					  color: color_rgba, 
-					}),
-					text: new ol.style.Text({
-						font: '12px Calibri,sans-serif',
-						fill: new ol.style.Fill({ color: '#000' }),
-						stroke: new ol.style.Stroke({
-						  color: '#fff', width: 2
-						}),
-						// get the text from the feature - `this` is ol.Feature
-						// and show only under certain resolution
-					//	text: this.getProperties().properties['attributes']['Arabic_Name'] : ''
-					  })
-				  });
+       
         //feature.setStyle(stationStyle);
 				//feature.setId(obj._id);
 				stationArr.push(feature);
