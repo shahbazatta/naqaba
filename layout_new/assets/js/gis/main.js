@@ -499,6 +499,7 @@ error: function(xhr, status, error) {
 
 }
 
+
 function getAllGeofence()
 {
 	//show loader box  @khuram,waqas
@@ -524,32 +525,52 @@ function getAllGeofence()
         if (category=="محطة") {
           color_rgba ='rgba(141, 104, 202,0.24)';
         }
+
+        var styleFunction = function(feature) {
+         
+          var attributeValue = feature.getProperties().properties.attributes.Category; // Replace 'attributeName' with the actual attribute name
+        
+          // Define different styles based on attribute values
+          if (attributeValue === 'موقف') {
+            return new ol.style.Style({
+              fill: new ol.style.Fill({
+                color: 'rgba(141, 104, 202,0.24)'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'rgba(141, 104, 202,0.24)',
+                width: 2
+              })
+            });
+          } else if (attributeValue === 'محطة') {
+            return new ol.style.Style({
+              fill: new ol.style.Fill({
+                color: 'rgba(0, 199, 254, 0.24)'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'rgba(0, 199, 254, 0.24)',
+                width: 2
+              })
+            });
+          } else {
+            // Default style for other attribute values
+            return new ol.style.Style({
+              fill: new ol.style.Fill({
+                color: 'rgba(209, 26, 219,0.24)'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'rgba(209, 26, 219,0.24)',
+                width: 2
+              })
+            });
+          }
+        };
         
 				var feature = new ol.Feature({
 				  geometry:polygon,
 				  properties: obj
         });
-        var stationStyle = new ol.style.Style({
-					stroke: new ol.style.Stroke({
-					  color: color_rgba,
-					  width: 2,
-					  //lineDash: [5]
-					}),
-					fill: new ol.style.Fill({
-					  color: color_rgba, 
-					}),
-					text: new ol.style.Text({
-						font: '12px Calibri,sans-serif',
-						fill: new ol.style.Fill({ color: '#000' }),
-						stroke: new ol.style.Stroke({
-						  color: '#fff', width: 2
-						}),
-						// get the text from the feature - `this` is ol.Feature
-						// and show only under certain resolution
-					//	text: this.getProperties().properties['attributes']['Arabic_Name'] : ''
-					  })
-				  });
-        feature.setStyle(stationStyle);
+       
+        //feature.setStyle(stationStyle);
 				//feature.setId(obj._id);
 				stationArr.push(feature);
 			  }
@@ -562,7 +583,7 @@ function getAllGeofence()
 				
 				stationLyr = new ol.layer.Vector({
 					source: stationSource,
-					style: stationStyle,
+					style: styleFunction,
 				  });
 			  //stationLyr.setZIndex(11);
 			  map.addLayer(stationLyr);
@@ -649,9 +670,7 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
         addBusFeatures(busDataArr);
     }); 
 	
-	$("#exportGeofence").click(function(){
-        downloadJSON();
-    }); 
+
 	
 //});
 
@@ -739,7 +758,9 @@ $( document ).ready(function() {
   switchBaseMaps();
   getAllBusesData();
   //loadFiltersDataDevicesCompany();
-    
+  $("#exportGeofence").click(function(){
+    downloadJSON();
+}); 
   document.getElementById("bmap").onchange = function(){ //add switch basemap listener
 					switchBaseMaps();
  };

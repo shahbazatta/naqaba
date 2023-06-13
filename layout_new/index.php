@@ -705,7 +705,7 @@ $classObject = new GetAvlDevicesData();
       </div>
       <div class="boxFooter">
         
-        <button type="button" class="exportGeo" id="" onclick=""><img src="assets/images/icons/export.svg">
+        <button type="button" class="exportGeo" id="exportGeofence" onclick=""><img src="assets/images/icons/export.svg">
           <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'exportGeoJSON'); ?></span>
         </button>
         
