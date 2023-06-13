@@ -1,6 +1,8 @@
 <?php 
 require_once("verify/verify.php");
 require_once("lang/language.php");
+require_once("data/get_avlDevicesDataAll.php");
+$classObject = new GetAvlDevicesData();
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
@@ -44,10 +46,6 @@ require_once("lang/language.php");
 <script src="assets/js/custom.js"></script>
 <script src="assets/js/gis/main.js"></script>
 <script src="assets/js/gis/ol-ext.js"></script>
-
-<!--Table Sorter-->
-<script src="assets/plugin/sorter/jquery.tablesorter.js"></script>
-<link rel="stylesheet" href="assets/plugin/sorter/style.css" type="text/css" />
 <link rel="stylesheet" href="assets/css/ol-ext.css" type="text/css" />
 
 <!-- Styling -->
@@ -85,7 +83,7 @@ require_once("lang/language.php");
 
             <div class="popMenuBox" id="trackingComBox">
               <div class="searchBoxForMenu">
-                <input type="text"onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')"  name="trackingComSearch" id="trackingComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
+                <input type="text" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')"  name="trackingComSearch" id="trackingComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
                 <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
               </div>
 
@@ -285,53 +283,44 @@ require_once("lang/language.php");
               </div>
 
               <!--Companies list-->
-              <div class="mainListRows">
+              <div class="mainListRows newScrollBar">
                 <table id="busFinderTable" class="tableNeo tablesorter">
                   <thead>
                     <tr>
                       <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'IMEINo'); ?></th>
                       <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'BusNo'); ?></th>
                       <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'BusOperatingNo'); ?></th>
-                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?></th>
+                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Action'); ?></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <label class="cCheckBox2">
-                          <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
-                          <span class="checkmark"></span>
-                        </label>
-                        357-9120-4987-6543
-                      </td>
-                      <td>123-A</td>
-                      <td>6547</td>
-                      <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <label class="cCheckBox2">
-                          <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
-                          <span class="checkmark"></span>
-                        </label>
-                        357-9120-4987-6543
-                      </td>
-                      <td>123-A</td>
-                      <td>6547</td>
-                      <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <label class="cCheckBox2">
-                          <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
-                          <span class="checkmark"></span>
-                        </label>
-                        357-9120-4987-6543
-                      </td>
-                      <td>123-A</td>
-                      <td>6547</td>
-                      <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
-                    </tr>
+                    <?php
+                      $count = 0;
+                      foreach ($classObject->avl_Bus_data as $output) {
+                        $count ++;
+                        if ($lang_type == 'ar'){
+                          $plate_no = $output['plate_no'];
+                        }
+                        else{
+                          $plate_no = $output['engplate_no'];
+                        }
+                        echo "<tr>
+                                <td>
+                                  <label class='cCheckBox2'>
+                                    <input type='checkbox' id='' name='' value=''>
+                                    <span class='checkmark'></span>
+                                  </label>
+                                  ".(int)$output['imei']."
+                                </td>
+                                <td>".$plate_no."</td>
+                                <td>".$output['bus_oper_no']."</td>
+                                <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'></button></td>
+                              </tr>";
+                        if ($count == 100) {
+                          break;
+                        }
+                      }
+                    ?>
                   </tbody>
                 </table>
               </div>
@@ -349,19 +338,47 @@ require_once("lang/language.php");
               </div>
 
               <!--Companies list-->
-              <div class="mainListRows">
+              <div class="mainListRows newScrollBar">
                 <table id="geofencesTable" class="tableNeo tablesorter">
                   <thead>
                     <tr>
-                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
+                      <th width="370px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
                       <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?></th>
                       <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?></th>
-                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></th>
-                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?></th>
-                      <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Action'); ?></th>
+                      <th width="120px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></th>
+                      <th width="120px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?></th>
+                      <th width="70px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Action'); ?></th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                      foreach ($classObject->geofence_data as $output) {
+                        if(isset($output['attributes']['Arabic_Name']) && isset($output['attributes']['English_Name'])){
+                          if ($lang_type == 'ar'){
+                            $name = $output['attributes']['Arabic_Name'];
+                          }
+                          else{
+                            $name = $output['attributes']['English_Name'];
+                          }
+                          echo "<tr>
+                                <td>
+                                  <label class='cCheckBox2'>
+                                    <input type='checkbox' id='' name='' value=''>
+                                    <span class='checkmark'></span>
+                                  </label>
+                                  ".$name."
+                                </td>
+                                <td>".$output['attributes']['Description']."</td>
+                                <td>".$output['attributes']['Type']."</td>
+                                <td>".$output['attributes']['Station_Name']."</td>
+                                <td>".$output['attributes']['Station_Code']."</td>
+                                <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'></button></td>
+                              </tr>";
+                        }
+                      }
+
+                    ?>
+
                     <tr>
                       <td>
                         <label class="cCheckBox2">
@@ -936,6 +953,7 @@ require_once("lang/language.php");
   <p id="notificationText"></p>
   <div class="nClose"><img src="assets/images/icons/close.svg"></div>
 </div>
+
 
 <!-- Confirmation Box -->
 <div class="popUpBox popUpConfirm" id="confirmationBox">

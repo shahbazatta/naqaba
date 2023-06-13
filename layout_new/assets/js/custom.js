@@ -16,6 +16,10 @@ $(document).ready(function() {
 	$(".transportationCom .mainListRows").css({"max-height": $windowHeight - 351});
 	$(".trackingDevices .mainListRows").css({"max-height": $windowHeight - 421});
 
+	$(".busFinder .mainListRows").css({"max-height": $windowHeight - 331});
+	$(".geofences .mainListRows").css({"max-height": $windowHeight - 381,"max-width": $windowWidth - 97});
+
+
 
 
 
