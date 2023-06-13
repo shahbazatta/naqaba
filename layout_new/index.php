@@ -956,8 +956,8 @@ $classObject = new GetAvlDevicesData();
 
 <!-- Loading -->
 <div class="loadingData">
-  <div id="loadingBusData">Loading Bus Data...</div>
-  <div id="loadingGeofenceData">Loading Geofence Data...</div>
+  <div id="loadingBusData"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'LoadingBusData'); ?>...</div>
+  <div id="loadingGeofenceData"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'LoadingGeofenceData'); ?>...</div>
 </div>
 
 <!-- Confirmation Box -->

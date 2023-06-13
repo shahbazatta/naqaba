@@ -141,5 +141,8 @@
     "SearchIMEINumber":"ابحث عن رقم IMEI",
     "SelectAll":"اختر الكل",
     "SearchDevice":"جهاز البحث",
-    "SearchCompany":"البحث عن شركة"
+    "SearchCompany":"البحث عن شركة",
+
+    "LoadingBusData":"تحميل بيانات الحافلة",
+    "LoadingGeofenceData":"تحميل بيانات السياج الجغرافي"
 }

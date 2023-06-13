@@ -135,16 +135,16 @@ function addBusFeatures(dataArr) {
           properties: obj
         });
         feature.setId(obj.imei);
-		feature.setProperties(obj);
+		    feature.setProperties(obj);
         var iconStyle = new ol.style.Style({
           image: new ol.style.Icon({
             src: image_path, // Replace with the path to your bus icon image
             scale: 0.60, // Adjust the scale as needed
-			//opacity: 0.23
+    			//opacity: 0.23
 
-			opacity: parseFloat(document.getElementById("slider-value").value)
+    			opacity: parseFloat(document.getElementById("slider-value").value)
 
-			})
+    			})
         });
 
         // Set the icon style for the feature
@@ -157,55 +157,58 @@ function addBusFeatures(dataArr) {
 
       busesDataSource = new ol.source
 	  .Vector({
-		features: featuresArr
+		  features: featuresArr
 		});
 		  // Create a cluster source with a distance of 40 pixels
-  clusterSource = new ol.source.Cluster({
-    distance: 50,
-    source: busesDataSource
-  });
-
-clusterLayer = new ol.layer.Vector({
-  source: clusterSource,
-  style: function(feature) {
-    var size = feature.get('features').length;
-    var style = new ol.style.Style({
-      image: new ol.style.Icon({
-        src: image_path, // Replace with the path to your bus icon image
-        scale: 0.60, // Adjust the scale as needed
-		opacity: parseFloat(document.getElementById("slider-value").value)
-      }),
-      text: new ol.style.Text({
-        text: size.toString(),
-        fill: new ol.style.Fill({
-          color: '#FFFFFF'
-        })
-      })
+    clusterSource = new ol.source.Cluster({
+      distance: 50,
+      source: busesDataSource
     });
-    return style;
-  }
-});
-//clusterLayer.setZIndex(10);
 
-// Add the cluster layer to the map
-map.addLayer(clusterLayer);
+    clusterLayer = new ol.layer.Vector({
+      source: clusterSource,
+      style: function(feature) {
+        var size = feature.get('features').length;
+        var style = new ol.style.Style({
+          image: new ol.style.Icon({
+            src: image_path, // Replace with the path to your bus icon image
+            scale: 0.60, // Adjust the scale as needed
+    		opacity: parseFloat(document.getElementById("slider-value").value)
+          }),
+          text: new ol.style.Text({
+            text: size.toString(),
+            fill: new ol.style.Fill({
+              color: '#FFFFFF'
+            })
+          })
+        });
+        return style;
+      }
+    });
+    //clusterLayer.setZIndex(10);
 
-clusterAnimateLayer = new ol.layer.AnimatedCluster({
-  name: 'Cluster',
-  source: clusterSource,
-  animationDuration: 700,
-  // Cluster style
-  style: getStyle
-});
-map.addLayer(clusterAnimateLayer);
-var vizTypeId = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('id');
-if (vizTypeId ==null) {
-  clusterAnimateLayer.setVisible(false);
-}
-else {
-  clusterLayer.setVisible(false);
-}
+    // Add the cluster layer to the map
+    map.addLayer(clusterLayer);
 
+    clusterAnimateLayer = new ol.layer.AnimatedCluster({
+      name: 'Cluster',
+      source: clusterSource,
+      animationDuration: 700,
+      // Cluster style
+      style: getStyle
+    });
+
+    map.addLayer(clusterAnimateLayer);
+    var vizTypeId = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('id');
+    if (vizTypeId ==null) {
+      clusterAnimateLayer.setVisible(false);
+    }
+    else {
+      clusterLayer.setVisible(false);
+    }
+
+    //Hide loading bus data message
+    $('#loadingBusData').hide();
 }
 
 function addBusFeaturesReasign(dataArr) {
@@ -385,6 +388,8 @@ var selectInteraction;
 function getAllBusesData() {
   //ajax call to api get all bus data
   // open loader @khuram,waqas
+  $('#loadingBusData').show();
+
   $.ajax({
     url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
     method: 'GET',
@@ -393,9 +398,9 @@ function getAllBusesData() {
       //close laoder
       busDataArr = response;
       addBusFeatures(busDataArr);
-selectInteraction = new ol.interaction.Select({
-  layers: [clusterLayer,stationLyr,clusterAnimateLayer]
-});
+      selectInteraction = new ol.interaction.Select({
+        layers: [clusterLayer,stationLyr,clusterAnimateLayer]
+      });
 
 // Add the Select interaction to the map
 map.addInteraction(selectInteraction);
@@ -503,6 +508,8 @@ error: function(xhr, status, error) {
 function getAllGeofence()
 {
 	//show loader box  @khuram,waqas
+  $('#loadingGeofenceData').show();
+
     $.ajax({
          url: "./data/get_geofence.php",
          method: "POST",
@@ -588,6 +595,9 @@ function getAllGeofence()
 			  //stationLyr.setZIndex(11);
 			  map.addLayer(stationLyr);
 			  map.getView().fit(stationSource.getExtent());
+
+        //Hide Geofence Data message
+        $('#loadingGeofenceData').hide();
 
 			 },
          error: function (jqXHR, exception) {

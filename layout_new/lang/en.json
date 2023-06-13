@@ -140,6 +140,9 @@
     "SearchIMEINumber":"Search IMEI Number",
     "SelectAll":"Select All",
     "SearchDevice":"Search Device",
-    "SearchCompany":"Search Company"
+    "SearchCompany":"Search Company",
+
+    "LoadingBusData":"Loading Bus Data",
+    "LoadingGeofenceData":"Loading Geofence Data"
 
 }
