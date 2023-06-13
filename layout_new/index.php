@@ -614,7 +614,7 @@ $classObject = new GetAvlDevicesData();
 <!-- View and update geofences details -->
 <div class="popUpBox" id="viewGeofenceDialogBox">
   <div class="boxPopUpTab viewEdit">
-    <span class="close exit" id=""></span>
+    <span class="close exit" onclick="unselectAllFeatures()"></span>
     <div class="boxHeader">
       <img src="assets/images/icons/icon-fg.png">
       <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'GeofenceInformation'); ?></h1>
@@ -1199,6 +1199,7 @@ $( document ).ready(function() {
   });
   $("#newGeofenceDialogBox #result").slideUp();
 
+});
 
   $("#geofenceSave").click(function() {
 
@@ -1315,8 +1316,6 @@ $( document ).ready(function() {
             });
         }
     });
-
-  });
 
   $("#geofenceUpdate").click(function() { 
         //get input field values
@@ -1441,11 +1440,11 @@ $( document ).ready(function() {
         }
     });
     
-    $("#geofenceDelete").click(function() { 
+  $("#geofenceDelete").click(function() { 
       showConfirmation("Do you really want to delete?");
     });
 
-    $("#geofenceDeleteConfirm").click(function() { 
+  $("#geofenceDeleteConfirm").click(function() { 
         //get input field values
         var geofence_id  = $('#geofence_id').val();
         var flag = true;
