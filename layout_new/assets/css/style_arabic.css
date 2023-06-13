@@ -68,3 +68,13 @@ table.tablesorter thead tr .header { background-position: center left 20px; }
     left: 7px;
     right: auto;
 }
+
+.loadingData{
+    right: 100px;
+    left: auto;
+}
+.loadingData>div{
+    background-position: right 5px center;
+    padding: 10px 48px 10px 20px;
+    text-align: right;
+}

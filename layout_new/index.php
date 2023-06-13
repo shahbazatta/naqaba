@@ -954,6 +954,11 @@ $classObject = new GetAvlDevicesData();
   <div class="nClose"><img src="assets/images/icons/close.svg"></div>
 </div>
 
+<!-- Loading -->
+<div class="loadingData">
+  <div id="loadingBusData">Loading Bus Data...</div>
+  <div id="loadingGeofenceData">Loading Geofence Data...</div>
+</div>
 
 <!-- Confirmation Box -->
 <div class="popUpBox popUpConfirm" id="confirmationBox">
