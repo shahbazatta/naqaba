@@ -534,10 +534,10 @@ function getAllGeofence()
           if (attributeValue === 'موقف') {
             return new ol.style.Style({
               fill: new ol.style.Fill({
-                color: 'red'
+                color: 'rgba(141, 104, 202,0.24)'
               }),
               stroke: new ol.style.Stroke({
-                color: 'black',
+                color: 'rgba(141, 104, 202,0.24)',
                 width: 2
               })
             });
@@ -555,10 +555,10 @@ function getAllGeofence()
             // Default style for other attribute values
             return new ol.style.Style({
               fill: new ol.style.Fill({
-                color: 'rgba(141, 104, 202,0.24)'
+                color: 'rgba(209, 26, 219,0.24)'
               }),
               stroke: new ol.style.Stroke({
-                color: 'rgba(141, 104, 202,0.24)',
+                color: 'rgba(209, 26, 219,0.24)',
                 width: 2
               })
             });
