@@ -4,6 +4,7 @@ var mapboxLayer;
 var googleMap;
 var googleMapHybrid;
 var map;
+
 function initMap() {
 map = new ol.Map({
   target: 'mapContainer1', // The ID of the div element where the map should be rendered
@@ -74,6 +75,7 @@ var drawSource = new ol.source.Vector();
 var draw;
 var clusterLayer;
 var clusterAnimateLayer;
+var stationSource;
 // Use this function on the draw geofence button click
 function toggleDrawGeofenceCtrl() {
   draw.setActive(!draw.getActive());
@@ -583,7 +585,7 @@ function getAllGeofence()
 			  }
 			  
 			  
-			  var stationSource = new ol.source.Vector({
+			   stationSource = new ol.source.Vector({
 											features: stationArr
 											});
 			  
