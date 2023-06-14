@@ -79,6 +79,10 @@ var stationSource;
 // Use this function on the draw geofence button click
 function toggleDrawGeofenceCtrl() {
   draw.setActive(!draw.getActive());
+  if (draw.getActive()==false)
+  {
+    drawSource.clear();
+  }
   if($('#draw_geofence').is(':visible'))
   {
     $('#activeDGF').hide();
