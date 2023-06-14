@@ -588,7 +588,9 @@ function getAllGeofence()
 				stationArr.push(feature);
 			  }
 			  
-			  
+			  if (stationSource!==undefined) {
+          stationSource.clear();
+        }
 			   stationSource = new ol.source.Vector({
 											features: stationArr
 											});
