@@ -1112,3 +1112,6 @@ h1{
 	text-align: left;
 	display: none;
 }
+table.tablesorter thead tr .header {
+	text-align: center;
+}
