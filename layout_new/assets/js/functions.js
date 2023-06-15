@@ -198,7 +198,6 @@ $("#geofenceSave").click(function() {
     var english_name    = $('#english_name').val();
     var type            = $('#type').val();
     var district        = $('#district').val();
-    var area            = $('#area').val();
     var description     = $('#description').val();
     var category        = $('#category').val();
     var site            = $('#site').val();
@@ -206,16 +205,19 @@ $("#geofenceSave").click(function() {
     var station_code    = $('#station_code').val();
     var station_name    = $('#station_name').val();
     var code_id         = $('#code_id').val();
-    var shape_length    = $('#shape_length').val();
-    var shape_area      = $('#shape_area').val();
-    var coordinate_arr  = $('#coordinate_arr').val();
+    //var area            = $('#area').val();
+    //var shape_length    = $('#shape_length').val();
+    //var shape_area      = $('#shape_area').val();
+    var generic_name     = $('#generic_name').val();
+    var geofence_type    = $('#geofence_type').val();
+    var season           = $('#season').val();
+    var coordinate_arr   = $('#coordinate_arr').val();
     var flag = true;
     /********validate all our form fields***********/
     if(arabic_name==""){ $('#arabic_name').css('border-color','red'); flag = false; }
     if(english_name==""){ $('#english_name').css('border-color','red'); flag = false; } 
     if(type=="") { $('#type').css('border-color','red'); flag = false; }
     if(district=="") { $('#district').css('border-color','red'); flag = false; }
-    if(area=="") { $('#area').css('border-color','red'); flag = false; }
     if(description=="") { $('#description').css('border-color','red'); flag = false; }
     if(category=="") { $('#category').css('border-color','red'); flag = false; }
     if(site=="") { $('#site').css('border-color','red'); flag = false; }
@@ -223,8 +225,9 @@ $("#geofenceSave").click(function() {
     if(station_code=="") { $('#station_code').css('border-color','red'); flag = false; }
     if(station_name=="") { $('#station_name').css('border-color','red'); flag = false; }
     if(code_id=="") { $('#code_id').css('border-color','red'); flag = false; }
-    if(shape_length=="") { $('#shape_length').css('border-color','red'); flag = false; }
-    if(shape_area=="") { $('#shape_area').css('border-color','red'); flag = false; }
+    if(generic_name=="") { $('#generic_name').css('border-color','red'); flag = false; }
+    if(geofence_type=="") { $('#geofence_type').css('border-color','red'); flag = false; }
+    if(season=="") { $('#season').css('border-color','red'); flag = false; }
     
     if(coordinate_arr=="") { 
       $("#newGeofenceDialogBox #result").hide().html('<div class="error">Wrong Draw Geofence Coordinates</div>').slideDown();
@@ -236,9 +239,9 @@ $("#geofenceSave").click(function() {
     if(Math.floor(station_code) == station_code && $.isNumeric(station_code)){ }else{ $('#station_code').css('border-color','red').val(''); flag = false; }
     
     // check float
-    if($.isNumeric(area)){ }else{ $('#area').css('border-color','red').val('');  flag = false; }
-    if($.isNumeric(shape_length)){ }else{ $('#shape_length').css('border-color','red').val(''); flag = false; }
-    if($.isNumeric(shape_area)){ }else{ $('#shape_area').css('border-color','red').val(''); flag = false; }
+    //if($.isNumeric(area)){ }else{ $('#area').css('border-color','red').val('');  flag = false; }
+    //if($.isNumeric(shape_length)){ }else{ $('#shape_length').css('border-color','red').val(''); flag = false; }
+    //if($.isNumeric(shape_area)){ }else{ $('#shape_area').css('border-color','red').val(''); flag = false; }
 
     /********Validation end here ****/
     /* If all are ok then we send ajax request to email_send.php *******/
@@ -253,21 +256,22 @@ $("#geofenceSave").click(function() {
               english_name : english_name,
               type : type,
               district : district,
-              area : area,
-              description : description,
-              category : category,
               site : site,
+              description : description,
+              station_name : station_name,
+              category : category,
               station_type : station_type,
               station_code : station_code,
-              station_name : station_name,
               code_id : code_id,
-              shape_length : shape_length,
-              shape_area : shape_area,
+              generic_name : generic_name,
+              geofence_type : geofence_type,
+              season : season,
               coordinates : coordinate_arr
             },
             beforeSend: function() {
                 $('#geofenceSave, #geofenceDiscard').attr('disabled', true);
                 $('#geofenceSave').after('<div class="wait">&nbsp;<img src="assets/images/icons/loading.gif" alt="" /></div>');
+
             },
             complete: function() {
                 $('#geofenceSave, #geofenceDiscard').attr('disabled', false);
@@ -312,7 +316,6 @@ $("#geofenceUpdate").click(function() {
     var english_name    = $('#english_name_edit').val();
     var type            = $('#type_edit').val();
     var district        = $('#district_edit').val();
-    var area            = $('#area_edit').val();
     var description     = $('#description_edit').val();
     var category        = $('#category_edit').val();
     var site            = $('#site_edit').val();
@@ -320,18 +323,18 @@ $("#geofenceUpdate").click(function() {
     var station_code    = $('#station_code_edit').val();
     var station_name    = $('#station_name_edit').val();
     var code_id         = $('#code_id_edit').val();
-    var shape_length    = $('#shape_length_edit').val();
-    var shape_area      = $('#shape_area_edit').val();
+    var generic_name    = $('#generic_name_edit').val();
+    var geofence_type   = $('#geofence_type_edit').val();
+    var season          = $('#season_edit').val();
     //var coordinate_arr  = $('#coordinate_arr_edit').val();
     var geofence_update_id  = $('#geofenceUpdate_id').val();
-    
+
     var flag = true;
     /********validate all our form fields***********/
     if(arabic_name==""){ $('#arabic_name_edit').css('border-color','red'); flag = false; }
     if(english_name==""){ $('#english_name_edit').css('border-color','red'); flag = false; } 
     if(type=="") { $('#type_edit').css('border-color','red'); flag = false; }
     if(district=="") { $('#district_edit').css('border-color','red'); flag = false; }
-    if(area=="") { $('#area_edit').css('border-color','red'); flag = false; }
     if(description=="") { $('#description_edit').css('border-color','red'); flag = false; }
     if(category=="") { $('#category_edit').css('border-color','red'); flag = false; }
     if(site=="") { $('#site_edit').css('border-color','red'); flag = false; }
@@ -339,8 +342,9 @@ $("#geofenceUpdate").click(function() {
     if(station_code=="") { $('#station_code_edit').css('border-color','red'); flag = false; }
     if(station_name=="") { $('#station_name_edit').css('border-color','red'); flag = false; }
     if(code_id=="") { $('#code_id_edit').css('border-color','red'); flag = false; }
-    if(shape_length=="") { $('#shape_length_edit').css('border-color','red'); flag = false; }
-    if(shape_area=="") { $('#shape_area_edit').css('border-color','red'); flag = false; }
+    if(generic_name=="") { $('#generic_name_edit').css('border-color','red'); flag = false; }
+    if(geofence_type=="") { $('#geofence_type_edit').css('border-color','red'); flag = false; }
+    if(season=="") { $('#season_edit').css('border-color','red'); flag = false; }
     // if(coordinate_arr=="") { 
     //   $("#result").hide().html('<div class="error">Wrong Draw Geofence Coordinates</div>').slideDown();
     //   flag = false; 
@@ -355,9 +359,9 @@ $("#geofenceUpdate").click(function() {
     if(Math.floor(station_code) == station_code && $.isNumeric(station_code)){ }else{ $('#station_code_edit').css('border-color','red').val(''); flag = false; }
     
     // check float
-    if($.isNumeric(area)){ }else{ $('#area_edit').css('border-color','red').val('');  flag = false; }
-    if($.isNumeric(shape_length)){ }else{ $('#shape_length_edit').css('border-color','red').val(''); flag = false; }
-    if($.isNumeric(shape_area)){ }else{ $('#shape_area_edit').css('border-color','red').val(''); flag = false; }
+    //if($.isNumeric(area)){ }else{ $('#area_edit').css('border-color','red').val('');  flag = false; }
+    //if($.isNumeric(shape_length)){ }else{ $('#shape_length_edit').css('border-color','red').val(''); flag = false; }
+   // if($.isNumeric(shape_area)){ }else{ $('#shape_area_edit').css('border-color','red').val(''); flag = false; }
 
     /********Validation end here ****/
     /* If all are ok then we send ajax request to email_send.php *******/
@@ -372,7 +376,6 @@ $("#geofenceUpdate").click(function() {
             english_name : english_name,
             type : type,
             district : district,
-            area : area,
             description : description,
             category : category,
             site : site,
@@ -380,8 +383,9 @@ $("#geofenceUpdate").click(function() {
             station_code : station_code,
             station_name : station_name,
             code_id : code_id,
-            shape_length : shape_length,
-            shape_area : shape_area,
+            generic_name : generic_name,
+            geofence_type : geofence_type,
+            season : season,
             //coordinates : coordinate_arr,
             geofence_update_id : geofence_update_id
           },

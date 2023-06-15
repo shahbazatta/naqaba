@@ -1115,3 +1115,32 @@ h1{
 table.tablesorter thead tr .header {
 	text-align: center;
 }
+
+
+.bgSelect2{
+	width:100%;
+	height:41px;
+	display:block;
+	margin:0px;
+	font-family: 'Prompt', sans-serif;
+	font-size:17px;
+	line-height:24px;
+	font-weight: 500;
+	color:#000;
+	cursor:pointer;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0px 12px;
+    margin: 0px;
+    border-radius: 8px;
+    border: 1px solid #c1c1c1;
+    background: transparent url(../images/icons/left_actionable.png) center right no-repeat;
+}
+.bgSelect2 option{ background-color: #fff; font-family: 'Prompt', sans-serif; }
+.bgSelect2:active,
+.bgSelect2:hover,
+.bgSelect2:focus,
+.bgSelect2:visited{ 
+	border: 1px solid #c1c1c1; 
+}

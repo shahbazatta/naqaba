@@ -74,19 +74,19 @@
                 <span id ="codeIdGeofence"></span>
               </td>
               <td>
-                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?>
-                <span id ="areaGeofence"></span>
+                Name
+                <span id ="genericName"></span>
               </td>
             </tr>
 
             <tr>
               <td>
-                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?>
-                <span id ="shapeLengthGeofence"></span>
+                Geofence Type
+                <span id ="geofenceType"></span>
               </td>
               <td>
-                <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?>
-                <span id ="shapeAreaGeofence"></span>
+                Season
+                <span id ="seasonType"></span>
               </td>
             </tr>
           </table>
@@ -152,8 +152,8 @@
             </tr>
             <tr>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?></label>
-                <input type="text" class="inputText" id="area_edit" name="area_edit" maxlength="120"/>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></label>
+                <input type="text" class="inputText" id="station_name_edit" name="station_name_edit" maxlength="120"/>
               </td>
               <td>
                 <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?></label>
@@ -172,30 +172,30 @@
             </tr>
 
             <tr>
-              <td colspan="2">
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></label>
-                <input type="text" class="inputText" id="station_name_edit" name="station_name_edit" maxlength="120"/>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?></label>
+                <input type="text" class="inputText" id="code_id_edit" name="code_id_edit" maxlength="120"/>
+              </td>
+              <td>
+                <label>Name</label>
+                <input type="text" class="inputText" id="generic_name_edit" name="generic_name_edit" maxlength="120"/>
               </td>
             </tr>
 
             <tr>
-              <td colspan="2" class="np">
-                <table>
-                  <tr>
-                    <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?></label>
-                      <input type="text" class="inputText" id="code_id_edit" name="code_id_edit" maxlength="120"/>
-                    </td>
-                    <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?></label>
-                      <input type="text" class="inputText" id="shape_length_edit" name="shape_length_edit" maxlength="120"/>
-                    </td>
-                    <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?></label>
-                      <input type="text" class="inputText" id="shape_area_edit" name="shape_area_edit" maxlength="120"/>
-                    </td>
-                  </tr>
-                </table>
+              <td>
+                <label>Geofence Type</label>
+                <select id="geofence_type_edit" name="geofence_type_edit" class="bgSelect2">
+                  <option value="Polygon">Polygon</option>
+                  <option value="Line">Line</option>
+                </select>
+              </td>
+              <td>
+                <label>Season</label>
+                <select id="season_edit" name="season_edit" class="bgSelect2">
+                  <option value="Hajj">Hajj</option>
+                  <option value="Umrah">Umrah</option>
+                </select>
               </td>
             </tr>
           </table>
@@ -295,19 +295,27 @@
                 <input type="text" class="inputText" id="code_id" name="code_id" maxlength="120"/>
               </td>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?></label>
-                <input type="text" class="inputText" id="area" name="area" maxlength="120"/>
+                <label>Name</label>
+                <input type="text" class="inputText" id="generic_name" name="generic_name" maxlength="120"/>
               </td>
             </tr>
 
             <tr>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?> </label>
-                <input type="text" class="inputText" id="shape_length" name="shape_length" maxlength="120"/>
+                <label>Geofence Type</label>
+                <!-- <input type="text" class="inputText" id="season" name="geofence_type" maxlength="120"/> -->
+                <select id="geofence_type" name="geofence_type" class="bgSelect2">
+                  <option value="Polygon">Polygon</option>
+                  <option value="Line">Line</option>
+                </select>
               </td>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?></label>
-                <input type="text" class="inputText" id="shape_area" name="shape_area" maxlength="120"/>
+                <label>Season</label>
+                <!-- <input type="text" class="inputText" id="season" name="season" maxlength="120"/> -->
+                <select id="season" name="season" class="bgSelect2">
+                  <option value="Hajj">Hajj</option>
+                  <option value="Umrah">Umrah</option>
+                </select>
               </td>
             </tr>
           </table>

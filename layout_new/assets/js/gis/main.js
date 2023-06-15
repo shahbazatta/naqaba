@@ -483,7 +483,6 @@ selectInteraction.on('select', function(event) {
           document.getElementById("englishNameGeofence").innerHTML = data['English_Name'];
           document.getElementById("typeGeofence").innerHTML = data['Type']
           document.getElementById("districtGeofence").innerHTML = data['District'];
-          document.getElementById("areaGeofence").innerHTML = data['Area'];
           document.getElementById("descriptionGeofence").innerHTML = data['Description'];
           document.getElementById("categoryGeofence").innerHTML = data['Category'];
           document.getElementById("siteGeofence").innerHTML = data['Site']; 
@@ -491,14 +490,14 @@ selectInteraction.on('select', function(event) {
           document.getElementById("stationCodeGeofence").innerHTML = data['Station_Code'];
           document.getElementById("stationNameGeofence").innerHTML = data['Station_Name'];
           document.getElementById("codeIdGeofence").innerHTML = data['Code_ID'];
-          document.getElementById("shapeLengthGeofence").innerHTML = data['SHAPE_Length'];
-          document.getElementById("shapeAreaGeofence").innerHTML = data['SHAPE_Area'];
+          document.getElementById("genericName").innerHTML = data['Name'];
+          document.getElementById("geofenceType").innerHTML = data['Geofence_Type'];
+          document.getElementById("seasonType").innerHTML = data['Season'];
 
           document.getElementById("arabic_name_edit").value = data['Arabic_Name'];
           document.getElementById("english_name_edit").value = data['English_Name'];
           document.getElementById("type_edit").value = data['Type']
           document.getElementById("district_edit").value = data['District'];
-          document.getElementById("area_edit").value = data['Area'];
           document.getElementById("description_edit").value = data['Description'];
           document.getElementById("category_edit").value = data['Category'];
           document.getElementById("site_edit").value = data['Site']; 
@@ -506,8 +505,9 @@ selectInteraction.on('select', function(event) {
           document.getElementById("station_code_edit").value = data['Station_Code'];
           document.getElementById("station_name_edit").value = data['Station_Name'];
           document.getElementById("code_id_edit").value = data['Code_ID'];
-          document.getElementById("shape_length_edit").value = data['SHAPE_Length'];
-          document.getElementById("shape_area_edit").value = data['SHAPE_Area'];
+          document.getElementById("generic_name_edit").value = data['Name'];
+          document.getElementById("geofence_type_edit").value = data['Geofence_Type'];
+          document.getElementById("season_edit").value = data['Season'];
           //document.getElementById("coordinate_arr_edit").value = coordinates.coordinates;
           document.getElementById("geofenceUpdate_id").value = main_Id;
           //alert(main_Id);

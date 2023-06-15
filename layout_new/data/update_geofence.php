@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     || !isset($_POST["english_name"]) 
     || !isset($_POST["type"]) 
     || !isset($_POST["district"]) 
-    || !isset($_POST["area"]) 
     || !isset($_POST["description"]) 
     || !isset($_POST["category"]) 
     || !isset($_POST["site"]) 
@@ -37,8 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     || !isset($_POST["station_code"]) 
     || !isset($_POST["station_name"]) 
     || !isset($_POST["code_id"]) 
-    || !isset($_POST["shape_length"]) 
-    || !isset($_POST["shape_area"])
+    || !isset($_POST["generic_name"]) 
+    || !isset($_POST["geofence_type"]) 
+    || !isset($_POST["season"])
     || !isset($_POST["geofence_update_id"]) ) {
 
 	    $output = json_encode(array('type' => 'error', 'text' => 'Input fields are empty!'));
@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$english_name = filter_var(trim($_POST["english_name"]), FILTER_SANITIZE_STRING);
 	$type = filter_var(trim($_POST["type"]), FILTER_SANITIZE_STRING);
 	$district = filter_var(trim($_POST["district"]), FILTER_SANITIZE_STRING);
-	$area = filter_var(trim($_POST["area"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 	$description = filter_var(trim($_POST["description"]), FILTER_SANITIZE_STRING);
 	$category = filter_var(trim($_POST["category"]), FILTER_SANITIZE_STRING);
 	$site = filter_var(trim($_POST["site"]), FILTER_SANITIZE_STRING);
@@ -59,8 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$station_code = filter_var(trim($_POST["station_code"]), FILTER_SANITIZE_NUMBER_INT);
 	$station_name = filter_var(trim($_POST["station_name"]), FILTER_SANITIZE_STRING);
 	$code_id = filter_var(trim($_POST["code_id"]), FILTER_SANITIZE_STRING);
-	$shape_length = filter_var(trim($_POST["shape_length"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-	$shape_area = filter_var(trim($_POST["shape_area"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+	$generic_name = filter_var(trim($_POST["generic_name"]), FILTER_SANITIZE_STRING);
+	$geofence_type = filter_var(trim($_POST["geofence_type"]), FILTER_SANITIZE_STRING);
+	$season = filter_var(trim($_POST["season"]), FILTER_SANITIZE_STRING);
+	//$shape_area = filter_var(trim($_POST["shape_area"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 	//$coordinates_array = trim($_POST["coordinates"]);
 	$geofence_id = trim($_POST["geofence_update_id"]);
 
@@ -89,16 +90,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	   	'attributes.English_Name' => $english_name, 
 	   	'attributes.Type' => $type, 
 	   	'attributes.District' => $district, 
-	   	'attributes.Area' => (float)$area, 
 	   	'attributes.Description' => $description, 
 	   	'attributes.Category' => $category, 
 	   	'attributes.Site' => $site, 
 	   	'attributes.Station_type' => (int)$station_type, 
 	   	'attributes.Station_Code' => (int)$station_code, 
 	   	'attributes.Station_Name' => $station_name, 
-	   	'attributes.Code_ID' => $code_id, 
-	   	'attributes.SHAPE_Length' => (float)$shape_length, 
-	   	'attributes.SHAPE_Area' => (float)$shape_area 
+	   	'attributes.Code_ID' => $code_id,  
+	   	'attributes.Name' => $generic_name,
+	   	'attributes.Geofence_Type' => $geofence_type, 
+	   	'attributes.Season' => $season 
 	   ] ]
 	);
 
