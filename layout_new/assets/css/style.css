@@ -559,8 +559,8 @@ table.tableNeo button.actionBtn:hover>img{
 
 /* When the checkbox is checked, add a blue background */
 .cCheckBox2 input:checked ~ .checkmark {
-  background-color: #1bd527;
-  border: 1px solid #1bd527;
+  background-color: #02c472;
+  border: 1px solid #02c472;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
