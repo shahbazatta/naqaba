@@ -31,12 +31,13 @@
 
           <?php
             foreach ($classObject->tracking_com as $output) {
+              $ocid = preg_replace("/[^a-zA-Z0-9]/", "", $output);
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
-              <input type='checkbox' id='' name='' value='".$output."' checked>
+              <input type='checkbox' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
               <span class='checkmark'></span>
             </label>
-            <label for='listRow3' class='lebelText'>
+            <label for='".$ocid."' class='lebelText'>
               <p>".$output."</p>
             </label>
             <div class='clear'></div>
@@ -74,12 +75,13 @@
 
           <?php
             foreach ($classObject->transpotation_com as $output) {
+              $ocid = preg_replace("/[^a-zA-Z0-9]/", "", $output);
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
-              <input type='checkbox' id='' name='' value='".$output."' checked>
+              <input type='checkbox' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
               <span class='checkmark'></span>
             </label>
-            <label for='listRow3' class='lebelText'>
+            <label for='".$ocid."' class='lebelText'>
               <p>".$output."</p>
             </label>
             <div class='clear'></div>
@@ -117,12 +119,13 @@
 
           <?php
             foreach ($classObject->tracking_devices as $output) {
+              $ocid = preg_replace("/[^a-zA-Z0-9]/", "", $output);
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
-              <input type='checkbox' id='' name='' value='".$output."' checked>
+              <input type='checkbox' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
               <span class='checkmark'></span>
             </label>
-            <label for='listRow3' class='lebelText'>
+            <label for='".$ocid."' class='lebelText'>
               <p>".$output."</p>
             </label>
             <div class='clear'></div>
@@ -184,18 +187,6 @@
                   }
                 }
               ?>
-              <tr>
-                <td>
-                  <label class='cCheckBox2'>
-                    <input type='checkbox' id='' name='' value=''>
-                    <span class='checkmark'></span>
-                  </label>
-                  43545435345
-                </td>
-                <td>A34</td>
-                <td>R567DF</td>
-                <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'></button></td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -218,10 +209,10 @@
             <thead>
               <tr>
                 <th width="370px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'description'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?></th>
-                <th width="120px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></th>
-                <th width="120px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationCode'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Geofence_Type'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Season'); ?></th>
+                <th width="120px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
+                <th width="120px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Code_ID'); ?></th>
                 <th width="70px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Action'); ?></th>
               </tr>
             </thead>
@@ -243,46 +234,16 @@
                             </label>
                             ".$name."
                           </td>
-                          <td>".$output['attributes']['Description']."</td>
-                          <td>".$output['attributes']['Type']."</td>
-                          <td>".$output['attributes']['Station_Name']."</td>
-                          <td>".$output['attributes']['Station_Code']."</td>
+                          <td>".$output['attributes']['Geofence_Type']."</td>
+                          <td>".$output['attributes']['Season']."</td>
+                          <td>".$output['attributes']['Name']."</td>
+                          <td>".$output['attributes']['Code_ID']."</td>
                           <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'></button></td>
                         </tr>";
                   }
                 }
 
               ?>
-
-              <tr>
-                <td>
-                  <label class="cCheckBox2">
-                    <input type="checkbox" id="" name="" value="">
-                    <span class="checkmark"></span>
-                  </label>
-                  SAPTCO
-                </td>
-                <td>Testing</td>
-                <td>Motor Coach</td>
-                <td>Jeddah</td>
-                <td>JDH</td>
-                <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
-              </tr>
-
-              <!-- <tr>
-                <td>
-                  <label class="cCheckBox2">
-                    <input type="checkbox" id="" name="" value="">
-                    <span class="checkmark"></span>
-                  </label>
-                  SAPTCO
-                </td>
-                <td>Testing</td>
-                <td>Motor Coach</td>
-                <td>Jeddah</td>
-                <td>JDH</td>
-                <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
-              </tr> -->
 
             </tbody>
           </table>
