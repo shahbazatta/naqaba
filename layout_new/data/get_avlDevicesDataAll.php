@@ -9,13 +9,23 @@ class GetAvlDevicesData
 	public $messages = array();
     public $avl_Bus_data = array();
     public $geofence_data = array();
+    public $current_language = "";
     public $db;
+
+    public $tracking_com = array();
+    public $transpotation_com = array();
+    public $tracking_devices = array();
+
 
     public function __construct()
     {
     	$this->connectDbB();
     	$this->getBusesData();
     	$this->getGeofenceData();
+
+    	$this->getTrackingCompaniesData();
+    	$this->getTransportationCompaniesData();
+    	$this->getTrackingDevicesData();
     }
 
     private function connectDbB()
@@ -45,15 +55,13 @@ class GetAvlDevicesData
 		$this->avl_Bus_data = $cursor;
 		//print_r($this->avl_Bus_data);
     }
-
-
-
     private function getGeofenceData()
     {
 
 		$collection2 = $this->db->geofence;
 		$cursor2 = $collection2->find(array(), array('projection' => array('_id' => 1, 'attributes.Arabic_Name' => 1, 'attributes.English_Name' => 1, 'attributes.Description' => 1, 'attributes.Type' => 1, 'attributes.Station_Name' => 1, 'attributes.Station_Code' => 1)))->toArray();
 		$this->geofence_data = $cursor2;
+		//print_r($cursor2);
 
 		// foreach ($this->geofence_data as $output) {
 		// 	if(isset($output['attributes']['English_Name'])){
@@ -74,6 +82,84 @@ class GetAvlDevicesData
 		//	echo (int)$record['imei'];
 		//}
 			
+    }
+
+
+    private function getTrackingCompaniesData()
+    {	
+    	if($this->current_language == ""){
+    		$lang_cookie = 'language_json';
+			if(isset($_GET['lang'])) {
+			    if($_GET['lang']=='ar'){
+			      $this->current_language = 'ar';
+			    }else{
+			      $this->current_language = 'en';
+			    }
+			} else {
+			    if(isset($_COOKIE[$lang_cookie])) {
+			      if($_COOKIE[$lang_cookie] == 'ar'){
+			        $this->current_language = 'ar';
+			      }else{
+			        $this->current_language = 'en';
+			      }
+			    }else{
+			      $this->current_language = 'ar';  
+			    }
+			}
+    	}
+
+    	$collection = $this->db->avlDevices;
+
+    	if($this->current_language == 'en'){
+  			$cursor = $collection->distinct('avl_comp');	
+		}else{
+		  	$cursor = $collection->distinct('avl_comp_ar');
+		}
+
+		$this->tracking_com = $cursor;
+    }
+
+
+    private function getTransportationCompaniesData()
+    {
+    	if($this->current_language == ""){
+    		$lang_cookie = 'language_json';
+			if(isset($_GET['lang'])) {
+			    if($_GET['lang']=='ar'){
+			      $this->current_language = 'ar';
+			    }else{
+			      $this->current_language = 'en';
+			    }
+			} else {
+			    if(isset($_COOKIE[$lang_cookie])) {
+			      if($_COOKIE[$lang_cookie] == 'ar'){
+			        $this->current_language = 'ar';
+			      }else{
+			        $this->current_language = 'en';
+			      }
+			    }else{
+			      $this->current_language = 'ar';  
+			    }
+			}
+    	}
+
+    	$collection = $this->db->avlDevices;
+
+    	if($this->current_language == 'en'){
+  			$cursor = $collection->distinct('trnspt_comp');	
+		}else{
+		  	$cursor = $collection->distinct('trnspt_comp_ar');
+		}
+
+		$this->transpotation_com = $cursor;
+    }
+
+
+    private function getTrackingDevicesData()
+    {
+    	$collection = $this->db->avlDevices;
+  		$cursor = $collection->distinct('device_comp');
+		$this->tracking_devices = $cursor;
     }
 
 }

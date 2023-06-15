@@ -29,19 +29,20 @@
         <!--Companies list-->
         <div class="mainListRows newScrollBar" id="mainListRowscompanyList">
 
-
-
-          <!-- <div class="listRow">
-            <label class="cCheckBox2">
-              <input type="checkbox" id="listRow3" name="listRow3" value="">
-              <span class="checkmark"></span>
+          <?php
+            foreach ($classObject->tracking_com as $output) {
+              echo "<div class='listRow'>
+            <label class='cCheckBox2'>
+              <input type='checkbox' id='' name='' value='".$output."' checked>
+              <span class='checkmark'></span>
             </label>
-            <label for="listRow3" class="lebelText">
-              <img src="assets/images/companies/c3.png">
-              <p>Engineer Guarantee</p>
+            <label for='listRow3' class='lebelText'>
+              <p>".$output."</p>
             </label>
-            <div class="clear"></div>
-          </div> -->
+            <div class='clear'></div>
+          </div>";
+            }
+          ?>
 
         </div>
       </div>
@@ -71,17 +72,20 @@
         <!--Transportaion list-->
         <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTransportationCompaniesDynamic">
 
-          <!-- <div class="listRow">
-            <label class="cCheckBox2">
-              <input type="checkbox" id="listRow3" name="listRow3" value="">
-              <span class="checkmark"></span>
+          <?php
+            foreach ($classObject->transpotation_com as $output) {
+              echo "<div class='listRow'>
+            <label class='cCheckBox2'>
+              <input type='checkbox' id='' name='' value='".$output."' checked>
+              <span class='checkmark'></span>
             </label>
-            <label for="listRow3" class="lebelText">
-              <img src="assets/images/companies/c3.png">
-              <p>Dollah Company for Transporting Pilgrims</p>
+            <label for='listRow3' class='lebelText'>
+              <p>".$output."</p>
             </label>
-            <div class="clear"></div>
-          </div> -->
+            <div class='clear'></div>
+          </div>";
+            }
+          ?>
 
         </div>
       </div>
@@ -111,17 +115,20 @@
         <!--Devices list-->
         <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTrackingDevices">
 
-          <!-- <div class="listRow">
-            <label class="cCheckBox2">
-              <input type="checkbox" id="listRow3" name="listRow3" value="">
-              <span class="checkmark"></span>
+          <?php
+            foreach ($classObject->tracking_devices as $output) {
+              echo "<div class='listRow'>
+            <label class='cCheckBox2'>
+              <input type='checkbox' id='' name='' value='".$output."' checked>
+              <span class='checkmark'></span>
             </label>
-            <label for="listRow3" class="lebelText">
-              <img src="assets/images/companies/c3.png">
-              <p>Machinestalk</p>
+            <label for='listRow3' class='lebelText'>
+              <p>".$output."</p>
             </label>
-            <div class="clear"></div>
-          </div> -->
+            <div class='clear'></div>
+          </div>";
+            }
+          ?>
 
         </div>
       </div>
