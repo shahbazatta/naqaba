@@ -396,32 +396,32 @@ function getAllBusesData() {
   // open loader @khuram,waqas
   $('#loadingBusData').show();
 
-  // $.ajax({
-  //   url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
-  //   method: 'GET',
-  //   dataType: 'json',
-  //   success: function(response) {
-  //     //close laoder
-  //     busDataArr = response;
-  //     addBusFeatures(busDataArr);
-  //     selectInteraction = new ol.interaction.Select({
-  //       layers: [clusterLayer,stationLyr,clusterAnimateLayer]
-  //     });
-
-$.ajax({
-         url: "./data/get_deviceDataLive.php",
-         method: "POST",
-         dataType: "json",
-        data: {
-          api_key: "becdf4fbbbf49dbc",
-         },
-         success: function(response) {
+  $.ajax({
+    url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
+    method: 'GET',
+    dataType: 'json',
+    success: function(response) {
       //close laoder
       busDataArr = response;
       addBusFeatures(busDataArr);
       selectInteraction = new ol.interaction.Select({
         layers: [clusterLayer,stationLyr,clusterAnimateLayer]
       });
+
+// $.ajax({
+//          url: "./data/get_deviceDataLive.php",
+//          method: "POST",
+//          dataType: "json",
+//         data: {
+//           api_key: "becdf4fbbbf49dbc",
+//          },
+//          success: function(response) {
+//       //close laoder
+//       busDataArr = response;
+//       addBusFeatures(busDataArr);
+//       selectInteraction = new ol.interaction.Select({
+//         layers: [clusterLayer,stationLyr,clusterAnimateLayer]
+//       });
 	
 
 
@@ -665,6 +665,11 @@ function exportAsGeoJson()
 	dw_geojson.setAttribute("download", "export_geofence.geojson");
 	dw_geojson.click();
 	
+}
+
+function resetExtent() {
+  map.getView().fit(busesDataSource.getExtent());
+
 }
 
 function downloadJSON() {
