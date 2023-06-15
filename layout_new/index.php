@@ -1,4 +1,5 @@
 <?php 
+require_once("config/config.php");
 require_once("verify/verify.php");
 require_once("lang/language.php");
 require_once("data/get_avlDevicesDataAll.php");
