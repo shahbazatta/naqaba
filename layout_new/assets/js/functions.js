@@ -104,10 +104,47 @@ $( document ).ready(function() {
       $('#editGeofenceDetails').hide();
   });
 
+  $(".nClose").click(function() { 
+      $('.notification').animate({top:"0px",opacity:"0.1"}, function(){
+      $('.notification').hide();
+      $('.notification').css({"opacity":"1.0"});
+    });
+  });
+
+  $(".noConfirm").click(function() { 
+      $('.boxPopUpTabCon').animate({top:"0px",opacity:"0.1"}, function(){
+      $('.boxPopUpTabCon').hide();
+      $('.boxPopUpTabCon').css({"opacity":"1.0","top":"50%"});
+      $("#confirmationBox").hide();
+      $('.boxPopUpTabCon').show();
+    });
+  });
+
+  $(".yesConfirm").click(function() { 
+    $("#confirmationBox").hide();
+    $(".popUpBox").hide();
+  });
+
 
 });
 
+function showNotification(txt)
+{
+  $("#notificationText").html(txt);
+  $(".notification").show();
+    setTimeout(function(){
+      $('.notification').animate({top:"0px",opacity:"0.1"}, function(){
+      $('.notification').hide();
+      $('.notification').css({top:"20px","opacity":"1.0"});
+      });        
+    }, 6000);
+}
 
+function showConfirmation(txt)
+{
+  $("#confirmationText").html(txt);
+  $("#confirmationBox").show();
+}
 
 
 /////Geofence--------------------------------
