@@ -24,7 +24,7 @@ input, textarea {
 .mainListRows .listRow .lebelText { padding: 0px 0px 0px 0px; float: right; }
 .mainListRows .listRow .lebelText>img { right: 0px;}
 .searchBoxForMenu>input.search {float: right}
-.searchBoxForMenu>button.searchButton {float: left;}
+.searchBoxForMenu>button.searchButton {right: auto; left: 0px;}
 .headerList div.close { right:auto; left: 5px; }
 table.tableNeo tbody tr td:first-child, table.tableNeo thead tr th { text-align: right; }
 table.tablesorter thead tr .header { background-position: center left 20px; }
