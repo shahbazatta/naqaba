@@ -3,6 +3,8 @@
    <img src="assets/images/mini_logo.png">
   </a>
   <nav>
+
+
     <div class="trackingCom">
       <a href="javascript:void(0)"><img src="assets/images/icons/gps.svg"></a>
 
@@ -66,7 +68,7 @@
           </div>
         </div>
 
-        <!--Companies list-->
+        <!--Transportaion list-->
         <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTransportationCompaniesDynamic">
 
           <!-- <div class="listRow">
@@ -99,14 +101,14 @@
           <div class="close"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
-              <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" checked value="">
+              <input type="checkbox" id="devicesSeAl" name="devicesSeAl" checked value="">
               <span class="checkmark"></span>
             </label>
-            <label for="trackingComSeAl" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
+            <label for="devicesSeAl" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
           </div>
         </div>
 
-        <!--Companies list-->
+        <!--Devices list-->
         <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTrackingDevices">
 
           <!-- <div class="listRow">
@@ -126,12 +128,13 @@
       
     </div>
 
+
     <div class="busFinder">
       <a href="javascript:void(0)"><img src="assets/images/icons/bus.svg"></a>
 
       <div class="popMenuBox busFinderBox" id="busFinderBox">
         <div class="searchBoxForMenu">
-          <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchIMEINumber'); ?>" class="search">
+          <input type="text" name="busListSearch" id="busListSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchIMEINumber'); ?>" class="search">
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
 
@@ -174,6 +177,18 @@
                   }
                 }
               ?>
+              <tr>
+                <td>
+                  <label class='cCheckBox2'>
+                    <input type='checkbox' id='' name='' value=''>
+                    <span class='checkmark'></span>
+                  </label>
+                  43545435345
+                </td>
+                <td>A34</td>
+                <td>R567DF</td>
+                <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'></button></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -186,7 +201,7 @@
 
       <div class="popMenuBox geofencesBox" id="geofencesBox">
         <div class="searchBoxForMenu">
-          <input type="text" name="trackingComSearch" id="trackingComSearch" placeholder="Search Company" class="search">
+          <input type="text" name="geofenceSearch" id="geofenceSearch" placeholder="Search Company" class="search">
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
 
@@ -232,10 +247,25 @@
 
               ?>
 
+              <tr>
+                <td>
+                  <label class="cCheckBox2">
+                    <input type="checkbox" id="" name="" value="">
+                    <span class="checkmark"></span>
+                  </label>
+                  SAPTCO
+                </td>
+                <td>Testing</td>
+                <td>Motor Coach</td>
+                <td>Jeddah</td>
+                <td>JDH</td>
+                <td><button type="button" class="actionBtn"><img src="assets/images/icons/more.svg"></button></td>
+              </tr>
+
               <!-- <tr>
                 <td>
                   <label class="cCheckBox2">
-                    <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" value="">
+                    <input type="checkbox" id="" name="" value="">
                     <span class="checkmark"></span>
                   </label>
                   SAPTCO
@@ -290,8 +320,8 @@
             <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'language'); ?></h3>
             <img src="assets/images/icons/language.svg">
             <select id="setLanguage" name="setLanguage" class="bgSelect" title="Basemap" >
-              <option value="2" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabic'); ?></option>  
-              <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'english'); ?></option>
+              <option value="ar" <?php if ($lang_type == 'ar'){ echo 'selected'; }?> ><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabic'); ?></option>  
+              <option value="en" <?php if ($lang_type == 'en'){ echo 'selected'; }?> ><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'english'); ?></option>
             </select>
           </div>
         </div>

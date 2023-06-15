@@ -125,6 +125,16 @@ $( document ).ready(function() {
     $(".popUpBox").hide();
   });
 
+  //Language Change from Dropdown
+  $("#setLanguage").on("change",function(){
+    var SelectedLang = $(this).val();
+    if(SelectedLang == 'en'){
+      location.href = '?lang=en';
+    }else{
+      location.href = '?lang=ar';
+    }
+  });
+
 
 });
 
