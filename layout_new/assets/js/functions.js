@@ -172,6 +172,12 @@ function showConfirmation(txt)
   $("#confirmationBox").show();
 }
 
+function showBusCounter(activeNo, totalNumber)
+{
+  $("#showBusData").html(activeNo);
+  $("#totalBusData").html(totalNumber);
+}
+
 
 /////Geofence--------------------------------
 $( document ).ready(function() {

@@ -123,6 +123,11 @@ $classObject = new GetAvlDevicesData();
   <div id="loadingGeofenceData"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'LoadingGeofenceData'); ?>...</div>
 </div>
 
+<!-- Bus Counter  -->
+<div class="busCounterData">
+    <span id="showBusData">0</span> / <span id="totalBusData">0</span>
+</div>
+
 <script type="text/javascript">
 $( document ).ready(function() {
 
@@ -132,8 +137,6 @@ $( document ).ready(function() {
   //$('#newGeofenceDialogBox').show();
   //$('#busDialogBox').show();
   //$('#geofenceDialogBox').show();
-  
-
 });
 </script>
 <script src="assets/js/functions.js"></script>
