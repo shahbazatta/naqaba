@@ -208,7 +208,7 @@
           <table id="geofencesTable" class="tableNeo tablesorter">
             <thead>
               <tr>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Details'); ?></th>
                 <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Geofence_Type'); ?></th>
                 <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Season'); ?></th>
                 <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
