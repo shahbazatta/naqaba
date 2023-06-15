@@ -144,5 +144,9 @@
     "SearchCompany":"البحث عن شركة",
 
     "LoadingBusData":"تحميل بيانات الحافلة",
-    "LoadingGeofenceData":"تحميل بيانات السياج الجغرافي"
+    "LoadingGeofenceData":"تحميل بيانات السياج الجغرافي",
+
+    "Geofence_Type":"نوع السياج الجغرافي",
+    "Season":"موسم",
+    "Code_ID":"معرف الرمز"
 }

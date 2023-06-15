@@ -143,6 +143,10 @@
     "SearchCompany":"Search Company",
 
     "LoadingBusData":"Loading Bus Data",
-    "LoadingGeofenceData":"Loading Geofence Data"
+    "LoadingGeofenceData":"Loading Geofence Data",
+
+    "Geofence_Type":"Geofence Type",
+    "Season":"Season",
+    "Code_ID":"Code ID"
 
 }
