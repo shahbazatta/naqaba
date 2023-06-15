@@ -337,6 +337,10 @@
 
     </div>
 
+    <div class="apiDocs">
+      <a href="api/docs.php" target="_blank"><img src="assets/images/icons/apiDoc.png"></a>
+    </div>
+
     <div class="logout"><a href="login.php?logout"><img src="assets/images/icons/exit.svg"></a></div>
   </nav>
 </div>
