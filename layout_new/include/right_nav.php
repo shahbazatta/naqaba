@@ -197,7 +197,7 @@
     </div>
 
     <div class="geofences">
-      <a href="javascript:void(0)"><img src="assets/images/icons/barcode.svg"></a>
+      <a href="javascript:void(0)"><img src="assets/images/icons/routing.png"></a>
 
       <div class="popMenuBox geofencesBox" id="geofencesBox">
         <div class="searchBoxForMenu">
