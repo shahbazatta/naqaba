@@ -173,7 +173,7 @@
                   echo "<tr>
                           <td>
                             <label class='cCheckBox2'>
-                              <input type='checkbox' id='' name='' value=''>
+                              <input type='checkbox' id='".$output['_id']."' name='".$output['_id']."' value='".$output['_id']."'>
                               <span class='checkmark'></span>
                             </label>
                             ".(int)$output['imei']."
@@ -208,12 +208,12 @@
           <table id="geofencesTable" class="tableNeo tablesorter">
             <thead>
               <tr>
-                <th width="370px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
                 <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Geofence_Type'); ?></th>
                 <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Season'); ?></th>
-                <th width="120px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
-                <th width="120px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Code_ID'); ?></th>
-                <th width="70px"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Action'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Code_ID'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Action'); ?></th>
               </tr>
             </thead>
             <tbody>
@@ -229,7 +229,7 @@
                     echo "<tr>
                           <td>
                             <label class='cCheckBox2'>
-                              <input type='checkbox' id='' name='' value=''>
+                              <input type='checkbox' id='".$output['_id']."' name='".$output['_id']."' value='".$output['_id']."'>
                               <span class='checkmark'></span>
                             </label>
                             ".$name."
