@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	    printf($e->getMessage());
 	}
 
-	$db = $client->selectDatabase('local');
+	$db = $client->selectDatabase('naqaba');
 	$collection = $db->geofence;
 
 	$deleteResult = $collection->deleteOne(array( '_id' => new MongoDB\BSON\ObjectId ($geofence_id )));
