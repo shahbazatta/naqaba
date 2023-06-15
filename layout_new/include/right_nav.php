@@ -10,7 +10,7 @@
 
       <div class="popMenuBox" id="trackingComBox">
         <div class="searchBoxForMenu">
-          <input type="text" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')"  name="trackingComSearch" id="trackingComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
+          <input type="text" onkeyup="trackingDevicesSearchEvent('trackingComSearch',1)"  name="trackingComSearch" id="trackingComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
 
@@ -19,7 +19,7 @@
           <div class="close"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
-              <input type="checkbox" id="trackingComSeAl" name="trackingComSeAl" checked value="true">
+              <input type="checkbox" onclick="onSelectAllCheckBox('trackingComSeAl',1)" id="trackingComSeAl" name="trackingComSeAl" checked value="true">
               <span class="checkmark"></span>
             </label>
             <label for="trackingComSeAl" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
@@ -30,11 +30,13 @@
         <div class="mainListRows newScrollBar" id="mainListRowscompanyList">
 
           <?php
+            $a=0;
             foreach ($classObject->tracking_com as $output) {
               $ocid = preg_replace("/[^a-zA-Z0-9]/", "", $output);
+              $a++;
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
-              <input type='checkbox' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
+              <input type='checkbox' onclick='trackingDevicesFilterCheckbox(this,$ocid,$a,1)' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
               <span class='checkmark'></span>
             </label>
             <label for='".$ocid."' class='lebelText'>
@@ -55,7 +57,7 @@
 
       <div class="popMenuBox" id="transportationComBox">
         <div class="searchBoxForMenu">
-          <input type="text" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')" name="TransportationComSearch" id="TransportationComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
+          <input type="text" onkeyup="trackingDevicesSearchEvent('TransportationComSearch',2)" name="TransportationComSearch" id="TransportationComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
         <div class="headerList">
@@ -63,7 +65,7 @@
           <div class="close"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
-              <input type="checkbox" id="mainListRowsTransportationCompanies" name="mainListRowsTransportationCompanies" checked value="true">
+              <input type="checkbox" onclick="onSelectAllCheckBox('mainListRowsTransportationCompanies',2)" id="mainListRowsTransportationCompanies" name="mainListRowsTransportationCompanies" checked value="true">
               <span class="checkmark"></span>
             </label>
             <label for="mainListRowsTransportationCompanies" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
@@ -74,11 +76,13 @@
         <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTransportationCompaniesDynamic">
 
           <?php
+            $b = 0;
             foreach ($classObject->transpotation_com as $output) {
               $ocid = preg_replace("/[^a-zA-Z0-9]/", "", $output);
+              $b++;
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
-              <input type='checkbox' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
+              <input type='checkbox' onclick='trackingDevicesFilterCheckbox(this,$ocid,$b,2)' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
               <span class='checkmark'></span>
             </label>
             <label for='".$ocid."' class='lebelText'>
@@ -99,7 +103,7 @@
 
       <div class="popMenuBox" id="trackingDevicesBox">
         <div class="searchBoxForMenu">
-          <input type="text" name="trackingDevicesSearch" value="" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch')" id="trackingDevicesSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchDevice'); ?>" class="search">
+          <input type="text" name="trackingDevicesSearch" value="" onkeyup="trackingDevicesSearchEvent('trackingDevicesSearch',3)" id="trackingDevicesSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchDevice'); ?>" class="search">
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
         <div class="headerList">
@@ -107,7 +111,7 @@
           <div class="close"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
-              <input type="checkbox" id="devicesSeAl" name="devicesSeAl" checked value="">
+              <input type="checkbox" onclick="onSelectAllCheckBox('devicesSeAl',3)" id="devicesSeAl" name="devicesSeAl" checked value="">
               <span class="checkmark"></span>
             </label>
             <label for="devicesSeAl" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
@@ -118,11 +122,14 @@
         <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTrackingDevices">
 
           <?php
+
+          $c =0;
             foreach ($classObject->tracking_devices as $output) {
-              $ocid = preg_replace("/[^a-zA-Z0-9]/", "", $output);
+              $ocid = (string) preg_replace("/[^a-zA-Z0-9]/", "", $output);
+              $c++;
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
-              <input type='checkbox' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
+              <input type='checkbox' onclick='trackingDevicesFilterCheckbox(this,$ocid,$c,3)' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
               <span class='checkmark'></span>
             </label>
             <label for='".$ocid."' class='lebelText'>

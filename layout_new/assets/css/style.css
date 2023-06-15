@@ -1170,3 +1170,6 @@ table.tablesorter thead tr .header {
 .bgSelect2:visited{ 
 	border: 1px solid #c1c1c1; 
 }
+.d-none{
+	display: none !important;
+}
