@@ -722,65 +722,130 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
 */
 
 
+function trackingDevicesFilterCheckbox(cb,oid,index,filterType){
 
-function updateFilterList1(event,i){
+  var value = document.getElementById(oid.id).value;
 
+  if(cb.checked){
+    if(busesData && busesData.length){
+    }
+  }else{
+    if(busesData && busesData.length){
+      var dataFilter = busesData.filter(x =>
+        filterType == 1 ? String(x.device.avl_comp_ar) != value ||
+                          String(x.device.avl_comp) != value : 
+        filterType == 2 ? String(x.device.trnspt_comp_ar) != value ||
+                          String(x.device.trnspt_comp) != value :
+        filterType == 3 ? String(x.device.device_comp) != value :
+        filterType == 4 ? String(x.device.imei) != value  : false
+         );  
+      if(dataFilter && dataFilter.length){
+        addBusFeaturesReasign(dataFilter);
+      }
+    }
+  }
 }
 
-function updateFilterList2(event,i){
-
+function onSelectAllCheckBox(id,filterType){
+  const myDiv = document.getElementById(id);
+  if(myDiv.checked){
+    addBusFeaturesReasign(busesData);
+    if(filterType == 1){
+      resetfilterCheckBoxSettings("mainListRowscompanyList");
+    }else if(filterType == 2){
+      resetfilterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic");
+    }else if(filterType == 3){
+      resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
+    }else if(filterType == 4){
+      // resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
+    }
+  }else{
+    addBusFeaturesReasign([]);
+    if(filterType == 1){
+      uncheckfilterCheckBoxSettings("mainListRowscompanyList");
+    }else if(filterType == 2){
+      uncheckfilterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic");
+    }else if(filterType == 3){
+      uncheckfilterCheckBoxSettings("mainListRowsTrackingDevices");
+    }else if(filterType == 4){
+      // uncheckfilterCheckBoxSettings("mainListRowsTrackingDevices",value);
+    }
+  }
 }
 
-function updateFilterList3(event,i){
-
+function uncheckfilterCheckBoxSettings(id){
+  const myDiv = document.getElementById(id);
+     const inputElements = myDiv.querySelectorAll("input");
+    for (i = 0; i < inputElements.length; ++i) {
+      each = inputElements[i];
+      document.getElementById(each.id).removeAttribute("checked");
+    }
 }
-function trackingDevicesSearchEvent(event){
+
+function trackingDevicesSearchEvent(event,filterType){
   var value = document.getElementById(event).value;
   if(value && value != ''){
     if(busesData && busesData.length){
       value = value.toLowerCase()
       var dataFilter = busesData.filter(x =>
-         String(x.device.bus_oper_no).toLowerCase().includes(value) ||
-         String(x.device.busid).toLowerCase().includes(value) ||
-         String(x.device.device_comp).toLowerCase().includes(value) ||
-         String(x.device.engplate_no).toLowerCase().includes(value) ||
-         String(x.device.license_ser_no).toLowerCase().includes(value) ||
-         String(x.device.plate_no).toLowerCase().includes(value) ||
-         String(x.device.trnspt_comp_ar).toLowerCase().includes(value) ||
-         String(x.device.trnspt_comp_id).toLowerCase().includes(value)
+        filterType == 1 ? String(x.device.avl_comp_ar).toLowerCase().includes(value) ||
+                          String(x.device.avl_comp).toLowerCase().includes(value) : 
+        filterType == 2 ? String(x.device.trnspt_comp_ar).toLowerCase().includes(value) ||
+                          String(x.device.trnspt_comp).toLowerCase().includes(value) :
+        filterType == 3 ? String(x.device.device_comp).toLowerCase().includes(value) :
+        filterType == 4 ? String(x.device.imei).toLowerCase().includes(value)  : false
          );  
       if(dataFilter && dataFilter.length){
         addBusFeaturesReasign(dataFilter);
-        for (let i = 0; i < devicesList.length; i++) {
-          var check = busesData.filter(x =>
-              String(x.device.device_comp).toLowerCase().includes(devicesList[i].device_comp) 
-            );  
-         if(check && check.length){
-           document.getElementById(`mainListRowsTransportationCompaniesDynamiclistRow${i}`).checked = true;
-         }else{
-          document.getElementById(`mainListRowsTransportationCompaniesDynamiclistRow${i}`).checked = false;
-         }
-        }
-        for (let i = 0; i < transportationCompanyList.length; i++) {
-          var check = busesData.filter(x =>
-            String(x.device.trnspt_comp_ar).toLowerCase().includes(transportationCompanyList[i].trnspt_comp_ar) 
-            );  
-         if(check && check.length){
-           document.getElementById(`TrackingDeviceslistRow${i}`).checked = true;
-         }else{
-           document.getElementById(`TrackingDeviceslistRow${i}`).checked = false;
-         }
+        if(filterType == 1){
+          filterCheckBoxSettings("mainListRowscompanyList",value);
+        }else if(filterType == 2){
+          filterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic",value);
+        }else if(filterType == 3){
+          filterCheckBoxSettings("mainListRowsTrackingDevices",value);
+        }else if(filterType == 4){
+          // filterCheckBoxSettings("mainListRowsTrackingDevices",value);
         }
         
       }
     }
   }else{
     addBusFeaturesReasign(busesData);
-    loadFiltersDataDevicesCompany(devicesList);
-    loadFiltersDatatransportationCompanyList(transportationCompanyList);
-    loadFiltersDatacompanyList(companyList);
+    if(filterType == 1){
+      resetfilterCheckBoxSettings("mainListRowscompanyList");
+    }else if(filterType == 2){
+      resetfilterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic");
+    }else if(filterType == 3){
+      resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
+    }else if(filterType == 4){
+      // filterCheckBoxSettings("mainListRowsTrackingDevices",value);
+    }
   }
 }
+
+  function filterCheckBoxSettings(id,value){
+    const myDiv = document.getElementById(id);
+       const inputElements = myDiv.querySelectorAll("input");
+      for (i = 0; i < inputElements.length; ++i) {
+        each = inputElements[i];
+        if (String(each.value).toLowerCase().includes(value) ) {
+          document.getElementById(each.id).setAttribute("checked",true);
+          document.getElementById(each.id).classList.add("d-none");
+        }else{
+          document.getElementById(each.id).removeAttribute("checked");
+          document.getElementById(each.id).classList.add("d-none");
+        }
+      }
+  }
+
+  function resetfilterCheckBoxSettings(id){
+    const myDiv = document.getElementById(id);
+       const inputElements = myDiv.querySelectorAll("input");
+      for (i = 0; i < inputElements.length; ++i) {
+        each = inputElements[i];
+        document.getElementById(each.id).setAttribute("checked",true);
+      }
+  }
 
 function unselectAllFeatures() {
 //call this function to unselect features
