@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$geofence_id = trim($_POST["geofence_update_id"]);
 
 	//Atlas connection string
-	$uri = 'mongodb://64.227.118.83:27017/';
+	$uri = 'mongodb://shahbaz:Islam786ian@64.227.118.83:27017/';
 
 	// Create a new client and connect to the server
 	$client = new \MongoDB\Client($uri);
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	    printf($e->getMessage());
 	}
 
-	$db = $client->selectDatabase('local');
+	$db = $client->selectDatabase('naqaba');
 	$collection = $db->geofence;
 
 	$updateResult = $collection->updateOne(
