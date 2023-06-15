@@ -26,7 +26,7 @@ if(isset($_POST["api_key"]) && trim($_POST["api_key"])) {
 		    printf($e->getMessage());
 		}
 
-		$db = $client->selectDatabase('local');
+		$db = $client->selectDatabase('naqaba');
 		$collection = $db->gpsLiveNew;
 
 		$cursor = $collection->find();
