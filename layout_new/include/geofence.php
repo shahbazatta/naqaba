@@ -270,8 +270,8 @@
             </tr>
             <tr>
               <td>
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?></label>
-                <input type="text" class="inputText" id="area" name="area" maxlength="120"/>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></label>
+                <input type="text" class="inputText" id="station_name" name="station_name" maxlength="120"/>
               </td>
               <td>
                 <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'category'); ?></label>
@@ -290,30 +290,24 @@
             </tr>
 
             <tr>
-              <td colspan="2">
-                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stationName'); ?></label>
-                <input type="text" class="inputText" id="station_name" name="station_name" maxlength="120"/>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?></label>
+                <input type="text" class="inputText" id="code_id" name="code_id" maxlength="120"/>
+              </td>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'area'); ?></label>
+                <input type="text" class="inputText" id="area" name="area" maxlength="120"/>
               </td>
             </tr>
 
             <tr>
-              <td colspan="2" class="np">
-                <table>
-                  <tr>
-                    <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'codeId'); ?></label>
-                      <input type="text" class="inputText" id="code_id" name="code_id" maxlength="120"/>
-                    </td>
-                    <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?> </label>
-                      <input type="text" class="inputText" id="shape_length" name="shape_length" maxlength="120"/>
-                    </td>
-                    <td>
-                      <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?></label>
-                      <input type="text" class="inputText" id="shape_area" name="shape_area" maxlength="120"/>
-                    </td>
-                  </tr>
-                </table>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeLength'); ?> </label>
+                <input type="text" class="inputText" id="shape_length" name="shape_length" maxlength="120"/>
+              </td>
+              <td>
+                <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'shapeArea'); ?></label>
+                <input type="text" class="inputText" id="shape_area" name="shape_area" maxlength="120"/>
               </td>
             </tr>
           </table>
