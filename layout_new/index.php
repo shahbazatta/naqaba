@@ -78,9 +78,13 @@ $classObject = new GetAvlDevicesData();
      <!-- Left Top Buttons -->
      <div class="leftTopButtons">
        <nav>
+         
          <div id="activeDGF"><a href="javascript:void(0)" id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></a></div>
          <div id="deactiveDGF"><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
-         <div><a href="javascript:void(0)"><img src="assets/images/icons/maximize.svg"></a></div>
+         
+         <div id="fullScreenOn" class="fullscreen"><a href="javascript:void(0)"><img src="assets/images/icons/maximize.svg"></a></div>
+         <div id="fullScreenOff" class=""><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
+      
        </nav>
      </div>
 

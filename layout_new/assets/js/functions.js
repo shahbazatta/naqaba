@@ -135,6 +135,22 @@ $( document ).ready(function() {
     }
   });
 
+  //Browser Full Screen ON/OFF
+  $(".fullscreen").click(function(){
+    $(document).fullScreen(true);
+    //check if broswer deniy the full screen
+    $(document).bind("fullscreenchange", function(e) {
+       $(document).fullScreen() ? $("#fullScreenOn").hide() : $("#fullScreenOn").show();
+       $(document).fullScreen() ? $("#fullScreenOff").show() : $("#fullScreenOff").hide();
+    });
+  });
+
+  $("#fullScreenOff").click(function(){
+    $(document).fullScreen(false);
+    $(this).hide();
+    $("#fullScreenOn").show();
+  });
+
 
 });
 

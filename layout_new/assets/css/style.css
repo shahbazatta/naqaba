@@ -981,11 +981,12 @@ h1{
 .d-none{
 	display: none !important;
 }
-#deactiveDGF{display: none;}
-.leftTopButtons nav #deactiveDGF a {
+#deactiveDGF, #fullScreenOff{display: none;}
+
+.leftTopButtons nav #deactiveDGF a, .leftTopButtons nav #fullScreenOff a {
     background-color: #000;
 }
-.leftTopButtons nav #deactiveDGF a img {
+.leftTopButtons nav #deactiveDGF a img, .leftTopButtons nav #fullScreenOff a img {
     width: 32px;
     height: 32px;
 }
