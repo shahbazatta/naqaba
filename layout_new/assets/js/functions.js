@@ -125,6 +125,17 @@ $( document ).ready(function() {
     $(".popUpBox").hide();
   });
 
+  //Layer Change from Dropdown
+  $("#setLayer").on("change",function(){
+    var SelectedLang = $(this).val();
+    if(SelectedLang == '1'){
+      filterGeofenceLayerData(1,'Hajj');
+    }else{
+      filterGeofenceLayerData(2,'Umrah');
+    }
+  });
+
+
   //Language Change from Dropdown
   $("#setLanguage").on("change",function(){
     var SelectedLang = $(this).val();
