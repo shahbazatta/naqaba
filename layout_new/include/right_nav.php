@@ -283,8 +283,8 @@
             <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h3>
             <img src="assets/images/icons/layer.svg">
             <select id="setLayer" name="setLayer" class="bgSelect" title="Basemap" >  
-              <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'liveLocations'); ?></option>
-              <option value="2" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'stopsGeofence'); ?></option>
+              <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'hajjSeason'); ?></option>
+              <option value="2" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'umrahSeason'); ?></option>
             </select>
           </div>
         </div>
