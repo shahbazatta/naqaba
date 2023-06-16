@@ -32,7 +32,7 @@
           <?php
             $a=0;
             foreach ($classObject->tracking_com as $output) {
-              $ocid = preg_replace("/[^a-zA-Z0-9]/", "", $output);
+              $ocid = preg_replace("/[^ي-أa-zA-Z0-9]/", "", $output);
               $a++;
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
@@ -78,7 +78,7 @@
           <?php
             $b = 0;
             foreach ($classObject->transpotation_com as $output) {
-              $ocid = preg_replace("/[^a-zA-Z0-9]/", "", $output);
+              $ocid = preg_replace("/[^ي-أa-zA-Z0-9]/", "", $output);
               $b++;
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
@@ -125,7 +125,7 @@
 
           $c =0;
             foreach ($classObject->tracking_devices as $output) {
-              $ocid = (string) preg_replace("/[^a-zA-Z0-9]/", "", $output);
+              $ocid = (string) preg_replace("/[^ي-أa-zA-Z0-9]/", "", $output);
               $c++;
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
@@ -283,8 +283,8 @@
             <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h3>
             <img src="assets/images/icons/layer.svg">
             <select id="setLayer" name="setLayer" class="bgSelect" title="Basemap" >  
-              <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'hajjSeason'); ?></option>
-              <option value="2" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'umrahSeason'); ?></option>
+              <option value="1" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'hajjSeason'); ?></option>
+              <option value="2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'umrahSeason'); ?></option>
             </select>
           </div>
         </div>

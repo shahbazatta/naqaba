@@ -221,7 +221,7 @@ function addBusFeatures(dataArr) {
 function addBusFeaturesReasign(dataArr) {
   var featuresArr = [];
   busesDataFilterReference = dataArr;
-  showBusCounter(busesDataFilterReference.length, "14,120");
+  showBusCounter(busesDataFilterReference.length, "14120");
   var image_path = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
   for (let i = 0; i < dataArr.length; i++) {
     var obj = dataArr[i];
@@ -783,6 +783,7 @@ function onSelectAllCheckBox(id, filterType) {
       // uncheckfilterCheckBoxSettings("mainListRowsTrackingDevices",value);
     }
   }
+  busesDataFilterReference = [];
 }
 
 function uncheckfilterCheckBoxSettings(id) {
