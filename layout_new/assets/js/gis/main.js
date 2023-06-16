@@ -737,7 +737,7 @@ function trackingDevicesFilterCheckbox(cb, oid, index, filterType) {
       if (dataFilter && dataFilter.length) {
         var array1 = busesDataFilterReference.concat(dataFilter);
         addBusFeaturesReasign(array1);
-        document.getElementById(oid.id).setAttribute("checked", true);
+        document.getElementById(oid.id).checked = true;// .setAttribute("checked", true);
       }
     }
   } else {
@@ -752,7 +752,7 @@ function trackingDevicesFilterCheckbox(cb, oid, index, filterType) {
       );
       if (dataFilter && dataFilter.length) {
         addBusFeaturesReasign(dataFilter);
-        document.getElementById(oid.id).removeAttribute("checked");
+        document.getElementById(oid.id).checked = false;// .removeAttribute("checked");
       }
     }
   }
@@ -791,7 +791,7 @@ function uncheckfilterCheckBoxSettings(id) {
   const inputElements = myDiv.querySelectorAll("input");
   for (i = 0; i < inputElements.length; ++i) {
     each = inputElements[i];
-    document.getElementById(each.id).removeAttribute("checked");
+    document.getElementById(each.id).checked = false;// .removeAttribute("checked");
   }
 }
 
@@ -842,10 +842,10 @@ function filterCheckBoxSettings(id, value) {
   for (i = 0; i < inputElements.length; ++i) {
     each = inputElements[i];
     if (String(each.value).toLowerCase().includes(value)) {
-      document.getElementById(each.id).setAttribute("checked", true);
+      document.getElementById(each.id).checked = true;// .setAttribute("checked", true);
       document.getElementById(each.id).classList.add("d-none");
     } else {
-      document.getElementById(each.id).removeAttribute("checked");
+      document.getElementById(each.id).checked = false;// .removeAttribute("checked");
       document.getElementById(each.id).classList.add("d-none");
     }
   }
@@ -856,7 +856,7 @@ function resetfilterCheckBoxSettings(id) {
   const inputElements = myDiv.querySelectorAll("input");
   for (i = 0; i < inputElements.length; ++i) {
     each = inputElements[i];
-    document.getElementById(each.id).setAttribute("checked", true);
+    document.getElementById(each.id).checked = true;// .setAttribute("checked", true);
   }
 }
 
