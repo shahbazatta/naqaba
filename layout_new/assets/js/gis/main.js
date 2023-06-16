@@ -135,7 +135,7 @@ function addBusFeatures(dataArr) {
   var featuresArr = [];
   busesDataFilterReference = [];
   busesData = dataArr;
-  showBusCounter(busesData.length,"14,120");
+  showBusCounter(busesData.length,"14120");
   var image_path = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
       for (let i = 0; i < dataArr.length; i++) {
         var obj = dataArr[i];
