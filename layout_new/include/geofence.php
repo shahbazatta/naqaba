@@ -98,7 +98,7 @@
         </button>
         
         <input type="hidden" id="geofence_id" name="geofence_id" value="">
-        <button type="button" class="delete" id="geofenceDelete" onclick=""><img src="assets/images/icons/trash.svg">
+        <button type="button" class="delete" id="geofenceDelete" onclick="" disabled><img src="assets/images/icons/trash.svg">
           <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'delete'); ?></span>
         </button>
         
