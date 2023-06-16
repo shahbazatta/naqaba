@@ -99,7 +99,7 @@
     </div>
 
     <div class="trackingDevices">
-      <a href="javascript:void(0)"><img src="assets/images/icons/truck_fast.svg"></a>
+      <a href="javascript:void(0)" id="trackingDevicesBoxShowImg"><img src="assets/images/icons/truck_fast.svg"></a>
 
       <div class="popMenuBox" id="trackingDevicesBox">
         <div class="searchBoxForMenu">
@@ -108,7 +108,7 @@
         </div>
         <div class="headerList">
           <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingDevices'); ?></h1>
-          <div class="close"><img src="assets/images/icons/close.svg"></div>
+          <div class="close" onclick="closeFilterOnClose('trackingDevicesBox','trackingDevicesBoxShowImg')"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
               <input type="checkbox" onclick="onSelectAllCheckBox('devicesSeAl',3)" id="devicesSeAl" name="devicesSeAl" checked value="">

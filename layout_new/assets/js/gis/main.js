@@ -943,11 +943,12 @@ $( document ).ready(function() {
   $("#applySettingBtn").click(function(){
     addBusFeatures(busDataArr);
   }); 
-
-
   
-  
-  
-
 
 });
+
+function closeFilterOnClose(id,imageid){
+  document.getElementById(id).style.display = "none";
+  var element = document.getElementById(imageid);
+  element.classList.remove("active");
+}
