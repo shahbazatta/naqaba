@@ -130,9 +130,12 @@ function toggleDrawGeofenceCtrl() {
  }
 
  var busesData = [];
+ var busesDataFilterReference = [];
 function addBusFeatures(dataArr) {
   var featuresArr = [];
+  busesDataFilterReference = [];
   busesData = dataArr;
+  showBusCounter(busesData.length,"14,120");
   var image_path = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
       for (let i = 0; i < dataArr.length; i++) {
         var obj = dataArr[i];
@@ -219,6 +222,8 @@ function addBusFeatures(dataArr) {
 
 function addBusFeaturesReasign(dataArr) {
   var featuresArr = [];
+  busesDataFilterReference = dataArr;
+  showBusCounter(busesDataFilterReference.length,"14,120");
   var image_path = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
       for (let i = 0; i < dataArr.length; i++) {
         var obj = dataArr[i];
@@ -729,7 +734,20 @@ function trackingDevicesFilterCheckbox(cb,oid,index,filterType){
   var value = document.getElementById(oid.id).value;
 
   if(cb.checked){
-    if(busesData && busesData.length){
+    if(busesDataFilterReference && busesDataFilterReference.length){
+      var dataFilter = busesData.filter(x =>
+        filterType == 1 ? String(x.device.avl_comp_ar) == value ||
+                          String(x.device.avl_comp) == value : 
+        filterType == 2 ? String(x.device.trnspt_comp_ar) == value ||
+                          String(x.device.trnspt_comp) == value :
+        filterType == 3 ? String(x.device.device_comp) == value :
+        filterType == 4 ? String(x.device.imei) == value  : false
+         ); 
+      if (dataFilter && dataFilter.length) { 
+        var array1 = busesDataFilterReference.concat(dataFilter);
+        addBusFeaturesReasign(array1);
+        document.getElementById(oid.id).setAttribute("checked",true);
+      }
     }
   }else{
     if(busesData && busesData.length){
@@ -743,6 +761,7 @@ function trackingDevicesFilterCheckbox(cb,oid,index,filterType){
          );  
       if(dataFilter && dataFilter.length){
         addBusFeaturesReasign(dataFilter);
+        document.getElementById(oid.id).removeAttribute("checked");
       }
     }
   }
