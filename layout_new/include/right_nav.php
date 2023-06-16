@@ -343,6 +343,9 @@
       </div>
 
     </div>
+         
+         <div id="activeDGF"><a href="javascript:void(0)" id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></a></div>
+         <div id="deactiveDGF"><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
 
     <div class="apiDocs">
       <a href="api/docs.php" target="_blank"><img src="assets/images/icons/apiDoc.png"></a>

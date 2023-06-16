@@ -77,17 +77,15 @@ $classObject = new GetAvlDevicesData();
      <?php include 'include/right_nav.php'; ?>
 
      <!-- Left Top Buttons -->
-     <div class="leftTopButtons">
+     <!-- <div class="leftTopButtons">
        <nav>
          
          <div id="activeDGF"><a href="javascript:void(0)" id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></a></div>
          <div id="deactiveDGF"><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
          
-         <div id="fullScreenOn" class="fullscreen"><a href="javascript:void(0)"><img src="assets/images/icons/maximize.svg"></a></div>
-         <div id="fullScreenOff" class=""><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
       
        </nav>
-     </div>
+     </div> -->
 
      <!-- Left Bottom Buttons -->
      <div class="leftBottomButtons">
@@ -95,6 +93,8 @@ $classObject = new GetAvlDevicesData();
          <div onclick="resetExtent()"><a href="javascript:void(0)"><img src="assets/images/icons/navigate.svg"></a></div>
          <div onclick="zoomTo(+1)"><a href="javascript:void(0)"><img src="assets/images/icons/plus.svg"></a></div>
          <div onclick="zoomTo(-1)"><a href="javascript:void(0)"><img src="assets/images/icons/minus.svg"></a></div>
+         <div id="fullScreenOn" class="fullscreen"><a href="javascript:void(0)"><img src="assets/images/icons/maximize.svg"></a></div>
+         <div id="fullScreenOff" class=""><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
        </nav>
      </div>
 
