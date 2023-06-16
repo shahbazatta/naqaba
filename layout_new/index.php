@@ -90,11 +90,21 @@ $classObject = new GetAvlDevicesData();
      <!-- Left Bottom Buttons -->
      <div class="leftBottomButtons">
        <nav>
-         <div onclick="resetExtent()"><a href="javascript:void(0)"><img src="assets/images/icons/navigate.svg"></a></div>
-         <div onclick="zoomTo(+1)"><a href="javascript:void(0)"><img src="assets/images/icons/plus.svg"></a></div>
-         <div onclick="zoomTo(-1)"><a href="javascript:void(0)"><img src="assets/images/icons/minus.svg"></a></div>
-         <div id="fullScreenOn" class="fullscreen"><a href="javascript:void(0)"><img src="assets/images/icons/maximize.svg"></a></div>
-         <div id="fullScreenOff" class=""><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
+         <div>
+          <div onclick="zoomTo(+1)"><a href="javascript:void(0)"><img src="assets/images/icons/plus.svg"></a></div>
+          <div onclick="zoomTo(-1)"><a href="javascript:void(0)"><img src="assets/images/icons/minus.svg"></a></div>
+        </div>
+        
+       </nav>
+     </div>
+     <div class="leftBottomButtonsR">
+       <nav>
+        <div>
+          <div onclick="resetExtent()"><a href="javascript:void(0)"><img src="assets/images/icons/navigate.svg"></a></div>
+          <div id="fullScreenOn" class="fullscreen"><a href="javascript:void(0)"><img src="assets/images/icons/maximize.svg"></a></div>
+          <div id="fullScreenOff" class=""><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
+        </div>
+        
        </nav>
      </div>
 
