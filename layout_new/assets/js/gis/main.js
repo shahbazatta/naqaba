@@ -806,7 +806,7 @@ function trackingDevicesSearchEvent(event, filterType) {
           filterType == 2 ? String(x.device.trnspt_comp_ar).toLowerCase().includes(value) ||
             String(x.device.trnspt_comp).toLowerCase().includes(value) :
             filterType == 3 ? String(x.device.device_comp).toLowerCase().includes(value) :
-              filterType == 4 ? String(x.device.imei).toLowerCase().includes(value) : false
+              filterType == 4 ? String(x.imei).toLowerCase().includes(value) : false
       );
       if (dataFilter && dataFilter.length) {
         addBusFeaturesReasign(dataFilter);
@@ -817,7 +817,7 @@ function trackingDevicesSearchEvent(event, filterType) {
         } else if (filterType == 3) {
           filterCheckBoxSettings("mainListRowsTrackingDevices", value);
         } else if (filterType == 4) {
-          // filterCheckBoxSettings("mainListRowsTrackingDevices",value);
+          applyIemiFilter('iemiSearchList',value);
         }
 
       }
@@ -831,8 +831,39 @@ function trackingDevicesSearchEvent(event, filterType) {
     } else if (filterType == 3) {
       resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
     } else if (filterType == 4) {
-      // filterCheckBoxSettings("mainListRowsTrackingDevices",value);
+      resetIemiFilter('iemiSearchList');
     }
+  }
+}
+
+function applyIemiFilter(id,value){
+  const myDiv = document.getElementById(id);
+  const inputElements = myDiv.querySelectorAll("tr");
+  for (i = 0; i < inputElements.length; ++i) {
+    each = inputElements[i];
+    if (String(each.id).includes(value)) {
+      var el = document.getElementById(each.id);
+      if(el){
+        el.classList.remove("d-none");
+      }
+    } else {
+      var el = document.getElementById(each.id);
+      if(el){
+        el.classList.add("d-none");
+      }
+    }
+  }
+}
+
+function resetIemiFilter(id){
+  const myDiv = document.getElementById(id);
+  const inputElements = myDiv.querySelectorAll("tr");
+  for (i = 0; i < inputElements.length; ++i) {
+    each = inputElements[i];
+      var el = document.getElementById(each.id);
+      if(el){
+        el.classList.remove("d-none");
+      }
   }
 }
 

@@ -151,12 +151,12 @@
 
       <div class="popMenuBox busFinderBox" id="busFinderBox">
         <div class="searchBoxForMenu">
-          <input type="text" name="busListSearch" id="busListSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchIMEINumber'); ?>" class="search">
+          <input type="text" onkeyup="trackingDevicesSearchEvent('busListSearch',4)"  name="busListSearch" id="busListSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchIMEINumber'); ?>" class="search">
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
 
         <!--Companies list-->
-        <div class="mainListRows newScrollBar">
+        <div class="mainListRows newScrollBar" id="iemiSearchList">
           <table id="busFinderTable" class="tableNeo tablesorter">
             <thead>
               <tr>
@@ -177,7 +177,7 @@
                   else{
                     $plate_no = $output['engplate_no'];
                   }
-                  echo "<tr>
+                  echo "<tr id='".(int)$output['imei']."'>
                           <td>
                             <label class='cCheckBox2'>
                               <input type='checkbox' id='".$output['_id']."' name='".$output['_id']."' value='".$output['_id']."'>
