@@ -529,23 +529,8 @@ error: function(xhr, status, error) {
 
 }
 
-
-function getAllGeofence()
-{
-	//show loader box  @khuram,waqas
-  $('#loadingGeofenceData').show();
-
-    $.ajax({
-         url: "./data/get_geofence.php",
-         method: "POST",
-         dataType: "json",
-        data: {
-          api_key: "becdf4fbbbf49dbc",
-         },
-         success: function(data){
-       console.log(data);
-       //hide loader dialog box @khuram,waqas
-			 var stationArr = [];
+function addGeofenceData(data) {
+  var stationArr = [];
 			  for (let i = 0; i < data.length; i++) {
 				var obj = data[i];
 				var polygon = new ol.geom.Polygon(obj.geometry.coordinates).transform('EPSG:4326','EPSG:3857');
@@ -622,6 +607,26 @@ function getAllGeofence()
 			  //stationLyr.setZIndex(11);
 			  map.addLayer(stationLyr);
 			  map.getView().fit(stationSource.getExtent());
+}
+
+var geofenceDataArr =[];
+function getAllGeofence()
+{
+	//show loader box  @khuram,waqas
+  $('#loadingGeofenceData').show();
+
+    $.ajax({
+         url: "./data/get_geofence.php",
+         method: "POST",
+         dataType: "json",
+        data: {
+          api_key: "becdf4fbbbf49dbc",
+         },
+         success: function(data){
+      // console.log(data);
+       //hide loader dialog box @khuram,waqas
+       geofenceDataArr =data;
+			 addGeofenceData(geofenceDataArr);
 
         //Hide Geofence Data message
         $('#loadingGeofenceData').hide();
@@ -667,10 +672,7 @@ function exportAsGeoJson()
 	
 }
 
-function resetExtent() {
-  map.getView().fit(busesDataSource.getExtent());
 
-}
 
 function downloadJSON() {
 	
@@ -793,6 +795,36 @@ function zoomTo(amount){
   view.animate({ zoom: zoom + amount})
 }
 
+function resetExtent() {
+  map.getView().fit(busesDataSource.getExtent());
+
+}
+
+var filterBusDataArr =[]
+function filterBusesData (filter_type, value) {
+for (var idx in busDataArr)
+  {
+    if (filter_type ==1)
+      {
+        if (busDataArr[idx].device.trnspt_comp_ar==value) {
+          filterBusDataArr.push(busDataArr[idx]);
+        }
+      }
+  }
+}
+
+var filterGeofenceArr =[];
+function filterGeofenceData (filter_type, value) {
+  for (var idx in busDataArr)
+    {
+      if (filter_type ==1)
+        {
+          if (busDataArr[idx].device.trnspt_comp_ar==value) {
+            filterBusDataArr.push(busDataArr[idx]);
+          }
+        }
+    }
+  }
 $( document ).ready(function() {
   initMap();
   addDrawInteraction();
@@ -812,6 +844,7 @@ $( document ).ready(function() {
 
  document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
  document.getElementById("de_draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
+
 
   $("#applySettingBtn").click(function(){
     addBusFeatures(busDataArr);
