@@ -6,7 +6,7 @@
 
 
     <div class="trackingCom">
-      <a href="javascript:void(0)"><img src="assets/images/icons/gps.svg"></a>
+      <a href="javascript:void(0)" id="trackingComBoxImg"><img src="assets/images/icons/gps.svg"></a>
 
       <div class="popMenuBox" id="trackingComBox">
         <div class="searchBoxForMenu">
@@ -16,7 +16,7 @@
 
         <div class="headerList">
           <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingCompanies'); ?></h1>
-          <div class="close"><img src="assets/images/icons/close.svg"></div>
+          <div class="close" onclick="closeFilterOnClose('trackingComBox','trackingComBoxImg')"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
               <input type="checkbox" onclick="onSelectAllCheckBox('trackingComSeAl',1)" id="trackingComSeAl" name="trackingComSeAl" checked value="true">
@@ -53,7 +53,7 @@
     </div>
 
     <div class="transportationCom">
-      <a href="javascript:void(0)"><img src="assets/images/icons/truck.svg"></a>
+      <a href="javascript:void(0)" id="transportationComBoxImg"><img src="assets/images/icons/truck.svg"></a>
 
       <div class="popMenuBox" id="transportationComBox">
         <div class="searchBoxForMenu">
@@ -62,7 +62,7 @@
         </div>
         <div class="headerList">
           <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanies'); ?></h1>
-          <div class="close"><img src="assets/images/icons/close.svg"></div>
+          <div class="close" onclick="closeFilterOnClose('transportationComBox','transportationComBoxImg')"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
               <input type="checkbox" onclick="onSelectAllCheckBox('mainListRowsTransportationCompanies',2)" id="mainListRowsTransportationCompanies" name="mainListRowsTransportationCompanies" checked value="true">
