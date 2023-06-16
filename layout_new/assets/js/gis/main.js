@@ -879,17 +879,27 @@ for (var idx in busDataArr)
 }
 
 var filterGeofenceArr =[];
-function filterGeofenceData (filter_type, value) {
-  for (var idx in busDataArr)
+function filterGeofenceData (filter_type,geofenceName) {
+  filterGeofenceArr =[];
+  for (var idx in geofenceDataArr)
     {
-      if (filter_type ==1)
-        {
-          if (busDataArr[idx].device.trnspt_comp_ar==value) {
-            filterBusDataArr.push(busDataArr[idx]);
-          }
+        if (filter_type==1) {
+              if (geofenceDataArr[idx].attributes.English_Name==geofenceName) {
+                filterGeofenceArr.push(geofenceDataArr[idx]);
+              }
         }
+        if(filter_type==2) {
+
+          if (geofenceDataArr[idx].attributes.Arabic_Name==geofenceName) {
+          filterGeofenceArr.push(geofenceDataArr[idx]);
+        }
+      }
     }
+    addGeofenceData(filterGeofenceArr);
   }
+
+  //filterGeofenceData(1,'Parking Allith Road - the coast'); call to search geofence on english name
+  //filterGeofenceData(2,'موقف السيارات ربوة منى (صدقي)');  call to search geofence on arabic name
 $( document ).ready(function() {
   initMap();
   addDrawInteraction();
