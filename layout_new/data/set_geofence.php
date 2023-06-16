@@ -1,4 +1,5 @@
 <?php
+require_once("../config/config.php");
 require_once '../vendor/autoload.php';
 
 
@@ -24,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 	//check $_POST vars are set, exit if any missing
-	if ( !isset($_POST["arabic_name"]) || !isset($_POST["english_name"]) || !isset($_POST["type"]) || !isset($_POST["district"]) || !isset($_POST["area"]) || !isset($_POST["description"]) || !isset($_POST["category"]) || !isset($_POST["site"]) || !isset($_POST["station_type"]) || !isset($_POST["station_code"]) || !isset($_POST["station_name"]) || !isset($_POST["code_id"]) || !isset($_POST["shape_length"]) || !isset($_POST["shape_area"]) || !isset($_POST["coordinates"]) ) {
+	if ( !isset($_POST["arabic_name"]) || !isset($_POST["english_name"]) || !isset($_POST["type"]) || !isset($_POST["district"]) || !isset($_POST["description"]) || !isset($_POST["category"]) || !isset($_POST["site"]) || !isset($_POST["station_type"]) || !isset($_POST["station_code"]) || !isset($_POST["station_name"]) || !isset($_POST["code_id"]) || !isset($_POST["generic_name"]) || !isset($_POST["geofence_type"]) || !isset($_POST["season"]) || !isset($_POST["coordinates"]) ) {
 	    $output = json_encode(array('type' => 'error', 'text' => 'Input fields are empty!'));
 	    die($output);
 	}
@@ -34,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$english_name = filter_var(trim($_POST["english_name"]), FILTER_SANITIZE_STRING);
 	$type = filter_var(trim($_POST["type"]), FILTER_SANITIZE_STRING);
 	$district = filter_var(trim($_POST["district"]), FILTER_SANITIZE_STRING);
-	$area = filter_var(trim($_POST["area"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 	$description = filter_var(trim($_POST["description"]), FILTER_SANITIZE_STRING);
 	$category = filter_var(trim($_POST["category"]), FILTER_SANITIZE_STRING);
 	$site = filter_var(trim($_POST["site"]), FILTER_SANITIZE_STRING);
@@ -42,8 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$station_code = filter_var(trim($_POST["station_code"]), FILTER_SANITIZE_NUMBER_INT);
 	$station_name = filter_var(trim($_POST["station_name"]), FILTER_SANITIZE_STRING);
 	$code_id = filter_var(trim($_POST["code_id"]), FILTER_SANITIZE_STRING);
-	$shape_length = filter_var(trim($_POST["shape_length"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-	$shape_area = filter_var(trim($_POST["shape_area"]), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+	$generic_name = filter_var(trim($_POST["generic_name"]), FILTER_SANITIZE_STRING);
+	$geofence_type = filter_var(trim($_POST["geofence_type"]), FILTER_SANITIZE_STRING);
+	$season = filter_var(trim($_POST["season"]), FILTER_SANITIZE_STRING);
 
 
 	$coordinates_array = trim($_POST["coordinates"]);
@@ -83,21 +84,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// }
 
 	//Atlas connection string
-	$uri = 'mongodb://64.227.118.83:27017/';
+	//$uri = 'mongodb://shahbaz:Islam786ian@64.227.118.83:27017/';
 
 	// Create a new client and connect to the server
-	$client = new \MongoDB\Client($uri);
+	$client = new \MongoDB\Client(DB_SERVER_URL);
 	//$client = new \MongoDB\Client(CONNECTION_STRING );
 
 	try {
 	    // Send a ping to confirm a successful connection
-	    $client->selectDatabase('local')->command(['ping' => 1]);
+	    $client->selectDatabase(DB_NAME)->command(['ping' => 1]);
 	    //echo "Pinged your deployment. You successfully connected to MongoDB! <br>";
 	} catch (Exception $e) {
 	    printf($e->getMessage());
 	}
 
-	$db = $client->selectDatabase('local');
+	$db = $client->selectDatabase(DB_NAME);
 	$collection = $db->geofence;
 
 	$document = array( 
@@ -107,7 +108,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	        "English_Name" => $english_name,
 	        "Type" => $type,
 	        "District" => $district,
-	        "Area" => (float)$area,
 	        "Description" => $description,
 	        "Category" => $category,
 	        "Site" => $site,
@@ -115,8 +115,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	        "Station_Code" => (int)$station_code,
 	        "Station_Name" => $station_name,
 	        "Code_ID" => $code_id,
-	        "SHAPE_Length" => (float)$shape_length,
-	        "SHAPE_Area" => (float)$shape_area
+	        "Name" => $generic_name,
+	        "Geofence_Type" => $geofence_type,
+	        "Season" => $season
 	    ), 
 	  "geometry" => array(
 	        "type" => "Polygon", 

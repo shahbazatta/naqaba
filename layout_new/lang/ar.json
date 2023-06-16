@@ -90,7 +90,7 @@
     "exportGeoJSON":"تصدير GeoJSON",
     "cancel":"يلغي",
     "titleOfGeofenceDialogBox":"عنوان مربع الحوار Geofence",
-    "save":"يحفظ",
+    "save":"حفظ",
     "mapSettings":"إعدادات الخريطة",
     "mapBox":"MapBox",
     "satelliteMap":"خريطة القمر الصناعي",
@@ -130,7 +130,7 @@
     "Yes":"نعم",
     "No":"لا",
     "Confirmation":"تأكيد",
-    "Discard":"ينبذ",
+    "Discard":"الغاء",
     "WriteGeofenceDetials":"اكتب تفاصيل سياج جغرافي",
     "Action":"فعل",
 
@@ -144,5 +144,10 @@
     "SearchCompany":"البحث عن شركة",
 
     "LoadingBusData":"تحميل بيانات الحافلة",
-    "LoadingGeofenceData":"تحميل بيانات السياج الجغرافي"
+    "LoadingGeofenceData":"تحميل بيانات السياج الجغرافي",
+
+    "Details":"تفاصيل",
+    "Geofence_Type":"نوع السياج الجغرافي",
+    "Season":"موسم",
+    "Code_ID":"معرف الرمز"
 }

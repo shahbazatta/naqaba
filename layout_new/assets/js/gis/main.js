@@ -396,32 +396,32 @@ function getAllBusesData() {
   // open loader @khuram,waqas
   $('#loadingBusData').show();
 
-  $.ajax({
-    url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
-    method: 'GET',
-    dataType: 'json',
-    success: function(response) {
+  // $.ajax({
+  //   url: 'https://tracking.naqaba.com.sa/api/getDevicesDataLive?token=cebc8011932a85c60a7e079b840bf083161812d3&min=10',
+  //   method: 'GET',
+  //   dataType: 'json',
+  //   success: function(response) {
+  //     //close laoder
+  //     busDataArr = response;
+  //     addBusFeatures(busDataArr);
+  //     selectInteraction = new ol.interaction.Select({
+  //       layers: [clusterLayer,stationLyr,clusterAnimateLayer]
+  //     });
+
+$.ajax({
+         url: "./data/get_deviceDataLive.php",
+         method: "POST",
+         dataType: "json",
+        data: {
+          api_key: "becdf4fbbbf49dbc",
+         },
+         success: function(response) {
       //close laoder
       busDataArr = response;
       addBusFeatures(busDataArr);
       selectInteraction = new ol.interaction.Select({
         layers: [clusterLayer,stationLyr,clusterAnimateLayer]
       });
-
-// $.ajax({
-//          url: "./data/get_deviceDataLive.php",
-//          method: "POST",
-//          dataType: "json",
-//         data: {
-//           api_key: "becdf4fbbbf49dbc",
-//          },
-//          success: function(response) {
-//       //close laoder
-//       busDataArr = response;
-//       addBusFeatures(busDataArr);
-//       selectInteraction = new ol.interaction.Select({
-//         layers: [clusterLayer,stationLyr,clusterAnimateLayer]
-//       });
 	
 
 
@@ -483,7 +483,6 @@ selectInteraction.on('select', function(event) {
           document.getElementById("englishNameGeofence").innerHTML = data['English_Name'];
           document.getElementById("typeGeofence").innerHTML = data['Type']
           document.getElementById("districtGeofence").innerHTML = data['District'];
-          document.getElementById("areaGeofence").innerHTML = data['Area'];
           document.getElementById("descriptionGeofence").innerHTML = data['Description'];
           document.getElementById("categoryGeofence").innerHTML = data['Category'];
           document.getElementById("siteGeofence").innerHTML = data['Site']; 
@@ -491,14 +490,14 @@ selectInteraction.on('select', function(event) {
           document.getElementById("stationCodeGeofence").innerHTML = data['Station_Code'];
           document.getElementById("stationNameGeofence").innerHTML = data['Station_Name'];
           document.getElementById("codeIdGeofence").innerHTML = data['Code_ID'];
-          document.getElementById("shapeLengthGeofence").innerHTML = data['SHAPE_Length'];
-          document.getElementById("shapeAreaGeofence").innerHTML = data['SHAPE_Area'];
+          document.getElementById("genericName").innerHTML = data['Name'];
+          document.getElementById("geofenceType").innerHTML = data['Geofence_Type'];
+          document.getElementById("seasonType").innerHTML = data['Season'];
 
           document.getElementById("arabic_name_edit").value = data['Arabic_Name'];
           document.getElementById("english_name_edit").value = data['English_Name'];
           document.getElementById("type_edit").value = data['Type']
           document.getElementById("district_edit").value = data['District'];
-          document.getElementById("area_edit").value = data['Area'];
           document.getElementById("description_edit").value = data['Description'];
           document.getElementById("category_edit").value = data['Category'];
           document.getElementById("site_edit").value = data['Site']; 
@@ -506,8 +505,9 @@ selectInteraction.on('select', function(event) {
           document.getElementById("station_code_edit").value = data['Station_Code'];
           document.getElementById("station_name_edit").value = data['Station_Name'];
           document.getElementById("code_id_edit").value = data['Code_ID'];
-          document.getElementById("shape_length_edit").value = data['SHAPE_Length'];
-          document.getElementById("shape_area_edit").value = data['SHAPE_Area'];
+          document.getElementById("generic_name_edit").value = data['Name'];
+          document.getElementById("geofence_type_edit").value = data['Geofence_Type'];
+          document.getElementById("season_edit").value = data['Season'];
           //document.getElementById("coordinate_arr_edit").value = coordinates.coordinates;
           document.getElementById("geofenceUpdate_id").value = main_Id;
           //alert(main_Id);
@@ -724,65 +724,130 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
 */
 
 
+function trackingDevicesFilterCheckbox(cb,oid,index,filterType){
 
-function updateFilterList1(event,i){
+  var value = document.getElementById(oid.id).value;
 
+  if(cb.checked){
+    if(busesData && busesData.length){
+    }
+  }else{
+    if(busesData && busesData.length){
+      var dataFilter = busesData.filter(x =>
+        filterType == 1 ? String(x.device.avl_comp_ar) != value ||
+                          String(x.device.avl_comp) != value : 
+        filterType == 2 ? String(x.device.trnspt_comp_ar) != value ||
+                          String(x.device.trnspt_comp) != value :
+        filterType == 3 ? String(x.device.device_comp) != value :
+        filterType == 4 ? String(x.device.imei) != value  : false
+         );  
+      if(dataFilter && dataFilter.length){
+        addBusFeaturesReasign(dataFilter);
+      }
+    }
+  }
 }
 
-function updateFilterList2(event,i){
-
+function onSelectAllCheckBox(id,filterType){
+  const myDiv = document.getElementById(id);
+  if(myDiv.checked){
+    addBusFeaturesReasign(busesData);
+    if(filterType == 1){
+      resetfilterCheckBoxSettings("mainListRowscompanyList");
+    }else if(filterType == 2){
+      resetfilterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic");
+    }else if(filterType == 3){
+      resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
+    }else if(filterType == 4){
+      // resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
+    }
+  }else{
+    addBusFeaturesReasign([]);
+    if(filterType == 1){
+      uncheckfilterCheckBoxSettings("mainListRowscompanyList");
+    }else if(filterType == 2){
+      uncheckfilterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic");
+    }else if(filterType == 3){
+      uncheckfilterCheckBoxSettings("mainListRowsTrackingDevices");
+    }else if(filterType == 4){
+      // uncheckfilterCheckBoxSettings("mainListRowsTrackingDevices",value);
+    }
+  }
 }
 
-function updateFilterList3(event,i){
-
+function uncheckfilterCheckBoxSettings(id){
+  const myDiv = document.getElementById(id);
+     const inputElements = myDiv.querySelectorAll("input");
+    for (i = 0; i < inputElements.length; ++i) {
+      each = inputElements[i];
+      document.getElementById(each.id).removeAttribute("checked");
+    }
 }
-function trackingDevicesSearchEvent(event){
+
+function trackingDevicesSearchEvent(event,filterType){
   var value = document.getElementById(event).value;
   if(value && value != ''){
     if(busesData && busesData.length){
       value = value.toLowerCase()
       var dataFilter = busesData.filter(x =>
-         String(x.device.bus_oper_no).toLowerCase().includes(value) ||
-         String(x.device.busid).toLowerCase().includes(value) ||
-         String(x.device.device_comp).toLowerCase().includes(value) ||
-         String(x.device.engplate_no).toLowerCase().includes(value) ||
-         String(x.device.license_ser_no).toLowerCase().includes(value) ||
-         String(x.device.plate_no).toLowerCase().includes(value) ||
-         String(x.device.trnspt_comp_ar).toLowerCase().includes(value) ||
-         String(x.device.trnspt_comp_id).toLowerCase().includes(value)
+        filterType == 1 ? String(x.device.avl_comp_ar).toLowerCase().includes(value) ||
+                          String(x.device.avl_comp).toLowerCase().includes(value) : 
+        filterType == 2 ? String(x.device.trnspt_comp_ar).toLowerCase().includes(value) ||
+                          String(x.device.trnspt_comp).toLowerCase().includes(value) :
+        filterType == 3 ? String(x.device.device_comp).toLowerCase().includes(value) :
+        filterType == 4 ? String(x.device.imei).toLowerCase().includes(value)  : false
          );  
       if(dataFilter && dataFilter.length){
         addBusFeaturesReasign(dataFilter);
-        for (let i = 0; i < devicesList.length; i++) {
-          var check = busesData.filter(x =>
-              String(x.device.device_comp).toLowerCase().includes(devicesList[i].device_comp) 
-            );  
-         if(check && check.length){
-           document.getElementById(`mainListRowsTransportationCompaniesDynamiclistRow${i}`).checked = true;
-         }else{
-          document.getElementById(`mainListRowsTransportationCompaniesDynamiclistRow${i}`).checked = false;
-         }
-        }
-        for (let i = 0; i < transportationCompanyList.length; i++) {
-          var check = busesData.filter(x =>
-            String(x.device.trnspt_comp_ar).toLowerCase().includes(transportationCompanyList[i].trnspt_comp_ar) 
-            );  
-         if(check && check.length){
-           document.getElementById(`TrackingDeviceslistRow${i}`).checked = true;
-         }else{
-           document.getElementById(`TrackingDeviceslistRow${i}`).checked = false;
-         }
+        if(filterType == 1){
+          filterCheckBoxSettings("mainListRowscompanyList",value);
+        }else if(filterType == 2){
+          filterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic",value);
+        }else if(filterType == 3){
+          filterCheckBoxSettings("mainListRowsTrackingDevices",value);
+        }else if(filterType == 4){
+          // filterCheckBoxSettings("mainListRowsTrackingDevices",value);
         }
         
       }
     }
   }else{
     addBusFeaturesReasign(busesData);
-    loadFiltersDataDevicesCompany(devicesList);
-    loadFiltersDatatransportationCompanyList(transportationCompanyList);
-    loadFiltersDatacompanyList(companyList);
+    if(filterType == 1){
+      resetfilterCheckBoxSettings("mainListRowscompanyList");
+    }else if(filterType == 2){
+      resetfilterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic");
+    }else if(filterType == 3){
+      resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
+    }else if(filterType == 4){
+      // filterCheckBoxSettings("mainListRowsTrackingDevices",value);
+    }
   }
 }
+
+  function filterCheckBoxSettings(id,value){
+    const myDiv = document.getElementById(id);
+       const inputElements = myDiv.querySelectorAll("input");
+      for (i = 0; i < inputElements.length; ++i) {
+        each = inputElements[i];
+        if (String(each.value).toLowerCase().includes(value) ) {
+          document.getElementById(each.id).setAttribute("checked",true);
+          document.getElementById(each.id).classList.add("d-none");
+        }else{
+          document.getElementById(each.id).removeAttribute("checked");
+          document.getElementById(each.id).classList.add("d-none");
+        }
+      }
+  }
+
+  function resetfilterCheckBoxSettings(id){
+    const myDiv = document.getElementById(id);
+       const inputElements = myDiv.querySelectorAll("input");
+      for (i = 0; i < inputElements.length; ++i) {
+        each = inputElements[i];
+        document.getElementById(each.id).setAttribute("checked",true);
+      }
+  }
 
 function unselectAllFeatures() {
 //call this function to unselect features
