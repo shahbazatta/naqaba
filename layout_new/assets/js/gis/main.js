@@ -972,7 +972,9 @@ function filterGeofenceData(geofenceName) {
   for (var idx in geofenceDataArr) {
       if (geofenceDataArr[idx].attributes.English_Name.includes(geofenceName) || 
           geofenceDataArr[idx].attributes.Arabic_Name.includes(geofenceName) ||
-          geofenceDataArr[idx].attributes.Name.includes(geofenceName)
+          geofenceDataArr[idx].attributes.Name.includes(geofenceName) ||
+          geofenceDataArr[idx].attributes.Code_ID.includes(geofenceName)
+         
         ) {
         filterGeofenceArr.push(geofenceDataArr[idx]);
     }
