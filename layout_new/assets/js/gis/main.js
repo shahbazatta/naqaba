@@ -300,7 +300,7 @@ function addBusFeaturesReasign(dataArr) {
   else {
     clusterLayer.setVisible(false);
   }
-
+initSelectInteraction();
 }
 function switchBaseMaps() {
   var options = document.getElementById("bmap").options;
