@@ -206,7 +206,7 @@
 
       <div class="popMenuBox geofencesBox" id="geofencesBox">
         <div class="searchBoxForMenu">
-          <input type="text" name="geofenceSearch" id="geofenceSearch" placeholder="Search Company" class="search">
+          <input type="text" onkeyup="geofenceSearchEvent('geofenceSearch','geofencesTable')" name="geofenceSearch" id="geofenceSearch" placeholder="Search Company" class="search">
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
 
@@ -233,10 +233,11 @@
                     else{
                       $name = $output['attributes']['English_Name'];
                     }
-                    echo "<tr>
+                    echo "<tr id='geofence".$output['_id']."'>
                           <td>
                             <label class='cCheckBox2'>
-                              <input type='checkbox' id='".$output['_id']."' name='".$output['_id']."' value='".$output['_id']."'>
+                              <input type='checkbox' id='".$output['_id']."' data-geofenceName='".$output['attributes']['Name']."' data-Arabic_Name='".$output['attributes']['Arabic_Name']."' data-English_Name='".$output['attributes']['English_Name']."' 
+                               name='".$output['_id']."' value='".$output['_id']."'>
                               <span class='checkmark'></span>
                             </label>
                             ".$name."

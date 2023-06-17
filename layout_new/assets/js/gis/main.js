@@ -896,6 +896,54 @@ function unselectAllFeatures() {
   selectInteraction.getFeatures().clear();
 }
 
+function geofenceSearchEvent(event, geofencesTable) {
+  var value = document.getElementById(event).value;
+  if (value != null && value != '') {
+    const myDiv = document.getElementById(geofencesTable);
+    const inputElements = myDiv.querySelectorAll("tr");
+    for (i = 0; i < inputElements.length; ++i) {
+      each = inputElements[i];
+      if (each.id && each.id != '') {
+        const myDiv = document.getElementById(each.id);
+        const trInputs = myDiv.querySelectorAll("input");
+        if (trInputs && trInputs.length) {
+          for (j = 0; j < trInputs.length; ++j) {
+            var element = trInputs[j].dataset;
+            if (String(element.geofencename).includes(value) ||
+              String(element.english_name).includes(value) ||
+              String(element.arabic_name).includes(value)) {
+              var el = document.getElementById(each.id);
+              if (el) {
+                el.classList.remove("d-none");
+              }
+            } else {
+              var el = document.getElementById(each.id);
+              if (el) {
+                el.classList.add("d-none");
+              }
+            }
+          }
+        }
+      }
+
+    }
+    filterGeofenceData(value);
+  } else {
+    const myDiv = document.getElementById(geofencesTable);
+    const inputElements = myDiv.querySelectorAll("tr");
+    for (i = 0; i < inputElements.length; ++i) {
+      each = inputElements[i];
+      if (each.id && each.id != '') {
+        var el = document.getElementById(each.id);
+        if (el) {
+          el.classList.remove("d-none");
+        }
+      }
+    }
+    addGeofenceData(geofenceDataArr);
+  }
+}
+
 function zoomTo(amount) {
   const view = map.getView();
   const zoom = view.getZoom();
@@ -919,24 +967,20 @@ function filterBusesData(filter_type, value) {
 }
 
 var filterGeofenceArr = [];
-function filterGeofenceData(filter_type, geofenceName) {
+function filterGeofenceData(geofenceName) {
   filterGeofenceArr = [];
   for (var idx in geofenceDataArr) {
     if (filter_type == 1) {
-      if (geofenceDataArr[idx].attributes.English_Name == geofenceName) {
-        filterGeofenceArr.push(geofenceDataArr[idx]);
-      }
-    }
-    if (filter_type == 2) {
-
-      if (geofenceDataArr[idx].attributes.Arabic_Name == geofenceName) {
+      if (geofenceDataArr[idx].attributes.English_Name.includes(geofenceName) || 
+          geofenceDataArr[idx].attributes.Arabic_Name.includes(geofenceName) ||
+          geofenceDataArr[idx].attributes.Name.includes(geofenceName)
+        ) {
         filterGeofenceArr.push(geofenceDataArr[idx]);
       }
     }
   }
   addGeofenceData(filterGeofenceArr);
 }
-
 
 var filterGeofenceLayerArr = [];
 function filterGeofenceLayerData(filter_type, geofenceName) {
