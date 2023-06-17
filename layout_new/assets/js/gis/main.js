@@ -970,13 +970,11 @@ var filterGeofenceArr = [];
 function filterGeofenceData(geofenceName) {
   filterGeofenceArr = [];
   for (var idx in geofenceDataArr) {
-    if (filter_type == 1) {
       if (geofenceDataArr[idx].attributes.English_Name.includes(geofenceName) || 
           geofenceDataArr[idx].attributes.Arabic_Name.includes(geofenceName) ||
           geofenceDataArr[idx].attributes.Name.includes(geofenceName)
         ) {
         filterGeofenceArr.push(geofenceDataArr[idx]);
-      }
     }
   }
   addGeofenceData(filterGeofenceArr);
