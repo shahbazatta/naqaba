@@ -317,6 +317,7 @@ $("#geofenceSave").click(function() {
                   }); 
 
                   toggleDrawGeofenceCtrl();
+                  getAllGeofence(); //add all geofence
               }
 
               //$("#newGeofenceDialogBox #result").hide().html(output).slideDown();
@@ -439,7 +440,7 @@ $("#geofenceUpdate").click(function() {
                       $('.boxPopUpTab').css({"top":"20px","opacity":"1.0"});
                     });
                 }); 
-
+                getAllGeofence(); //add all geofence
             }
 
             $("#result").hide().html(output).slideDown();
