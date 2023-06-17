@@ -603,6 +603,7 @@ function addGeofenceData(data) {
   });
   //stationLyr.setZIndex(11);
   map.addLayer(stationLyr);
+  initSelectInteraction();
   map.getView().fit(stationSource.getExtent());
 }
 
