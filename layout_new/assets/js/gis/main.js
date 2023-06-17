@@ -390,6 +390,104 @@ var busDataArr;
 var selectedGeofence;
 var selectInteraction;
 
+function initSelectInteraction () {
+  selectInteraction = new ol.interaction.Select({
+    layers: [clusterLayer, stationLyr, clusterAnimateLayer]
+  });
+
+  // Add the Select interaction to the map
+  map.addInteraction(selectInteraction);
+  // Listen for feature selection event
+  selectInteraction.on('select', function (event) {
+    if (draw.getActive() == false) {
+      var selectedFeatures = event.selected; // Array of selected features
+      var deselectedFeatures = event.deselected; // Array of deselected features
+      if (selectedFeatures.length > 0) {
+        var data;
+        var coordinates;
+        var main_Id;
+
+        if (selectedFeatures[0].getProperties().properties == undefined) {
+          data = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
+        }
+        else {
+          data = selectedFeatures[0].getProperties().properties['attributes']
+          selectedGeofence = selectedFeatures[0];
+          coordinates = selectedFeatures[0].getProperties().properties['geometry']
+          main_Id = selectedGeofence.getProperties().properties._id.$oid;
+          document.getElementById("geofence_id").value = main_Id;
+        }
+
+
+
+        var obj_str = "";
+        // for (var key in data)
+        // {
+        //   obj_str += key+" : "+data[key] +"\n"
+        // }
+
+        // alert(obj_str);
+        if (data['_id'] != null && data['_id'] != undefined) {
+          //document.getElementById('resultbusToolTipBox').innerText = obj_str;
+          //$('#busToolTipBox').show();
+          document.getElementById("imei_no").innerHTML = data['imei'];
+          document.getElementById("avltm").innerHTML = new Date(data["avltm"]).toISOString();
+          document.getElementById("up_time").innerHTML = new Date(data["updatedon"]).toISOString();
+          document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toISOString();
+          document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toISOString();
+          document.getElementById("ang").innerHTML = data['ang'];
+          document.getElementById("speed").innerHTML = data['spd'];
+          document.getElementById("bus_no").innerHTML = data['device'].hasOwnProperty('busid') ? data['device']['busid'] : 'N/A';
+          document.getElementById("operator_no").innerHTML = data['device'].hasOwnProperty('bus_oper_no') ? data['device']['bus_oper_no'] : 'N/A';
+          document.getElementById("device_comp").innerHTML = data['device'].hasOwnProperty('device_comp') ? data['device']['device_comp'] : 'N/A';
+          document.getElementById("engplate_no").innerHTML = data['device'].hasOwnProperty('engplate_no') ? data['device']['engplate_no'] : 'N/A';
+          document.getElementById("odata").innerHTML = data['odata'];
+
+          $('#busDialogBox').show();
+
+        } else {
+          document.getElementById("arabicNameGeofence").innerHTML = data['Arabic_Name'];
+          document.getElementById("englishNameGeofence").innerHTML = data['English_Name'];
+          document.getElementById("typeGeofence").innerHTML = data['Type']
+          document.getElementById("districtGeofence").innerHTML = data['District'];
+          document.getElementById("descriptionGeofence").innerHTML = data['Description'];
+          document.getElementById("categoryGeofence").innerHTML = data['Category'];
+          document.getElementById("siteGeofence").innerHTML = data['Site'];
+          document.getElementById("stationTypeGeofence").innerHTML = data['Station_type'];
+          document.getElementById("stationCodeGeofence").innerHTML = data['Station_Code'];
+          document.getElementById("stationNameGeofence").innerHTML = data['Station_Name'];
+          document.getElementById("codeIdGeofence").innerHTML = data['Code_ID'];
+          document.getElementById("genericName").innerHTML = data['Name'];
+          document.getElementById("geofenceType").innerHTML = data['Geofence_Type'];
+          document.getElementById("seasonType").innerHTML = data['Season'];
+
+          document.getElementById("arabic_name_edit").value = data['Arabic_Name'];
+          document.getElementById("english_name_edit").value = data['English_Name'];
+          document.getElementById("type_edit").value = data['Type']
+          document.getElementById("district_edit").value = data['District'];
+          document.getElementById("description_edit").value = data['Description'];
+          document.getElementById("category_edit").value = data['Category'];
+          document.getElementById("site_edit").value = data['Site'];
+          document.getElementById("station_type_edit").value = data['Station_type'];
+          document.getElementById("station_code_edit").value = data['Station_Code'];
+          document.getElementById("station_name_edit").value = data['Station_Name'];
+          document.getElementById("code_id_edit").value = data['Code_ID'];
+          document.getElementById("generic_name_edit").value = data['Name'];
+          document.getElementById("geofence_type_edit").value = data['Geofence_Type'];
+          document.getElementById("season_edit").value = data['Season'];
+          //document.getElementById("coordinate_arr_edit").value = coordinates.coordinates;
+          document.getElementById("geofenceUpdate_id").value = main_Id;
+          //alert(main_Id);
+
+          showGeofenceDialogBox();
+        }
+      }
+
+    }
+    // Perform actions with selected or deselected features
+    // ...
+  });
+}
 function getAllBusesData() {
   //ajax call to api get all bus data
   // open loader @khuram,waqas
@@ -418,106 +516,7 @@ function getAllBusesData() {
       //close laoder
       busDataArr = response;
       addBusFeatures(busDataArr);
-      selectInteraction = new ol.interaction.Select({
-        layers: [clusterLayer, stationLyr, clusterAnimateLayer]
-      });
-
-
-
-
-
-      // Add the Select interaction to the map
-      map.addInteraction(selectInteraction);
-      // Listen for feature selection event
-      selectInteraction.on('select', function (event) {
-        if (draw.getActive() == false) {
-          var selectedFeatures = event.selected; // Array of selected features
-          var deselectedFeatures = event.deselected; // Array of deselected features
-          if (selectedFeatures.length > 0) {
-            var data;
-            var coordinates;
-            var main_Id;
-
-            if (selectedFeatures[0].getProperties().properties == undefined) {
-              data = selectedFeatures[0].getProperties().features[0]['values_']['properties'];
-            }
-            else {
-              data = selectedFeatures[0].getProperties().properties['attributes']
-              selectedGeofence = selectedFeatures[0];
-              coordinates = selectedFeatures[0].getProperties().properties['geometry']
-              main_Id = selectedGeofence.getProperties().properties._id.$oid;
-              document.getElementById("geofence_id").value = main_Id;
-            }
-
-
-
-            var obj_str = "";
-            // for (var key in data)
-            // {
-            //   obj_str += key+" : "+data[key] +"\n"
-            // }
-
-            // alert(obj_str);
-            if (data['_id'] != null && data['_id'] != undefined) {
-              //document.getElementById('resultbusToolTipBox').innerText = obj_str;
-              //$('#busToolTipBox').show();
-              document.getElementById("imei_no").innerHTML = data['imei'];
-              document.getElementById("avltm").innerHTML = new Date(data["avltm"]).toISOString();
-              document.getElementById("up_time").innerHTML = new Date(data["updatedon"]).toISOString();
-              document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toISOString();
-              document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toISOString();
-              document.getElementById("ang").innerHTML = data['ang'];
-              document.getElementById("speed").innerHTML = data['spd'];
-              document.getElementById("bus_no").innerHTML = data['device'].hasOwnProperty('busid') ? data['device']['busid'] : 'N/A';
-              document.getElementById("operator_no").innerHTML = data['device'].hasOwnProperty('bus_oper_no') ? data['device']['bus_oper_no'] : 'N/A';
-              document.getElementById("device_comp").innerHTML = data['device'].hasOwnProperty('device_comp') ? data['device']['device_comp'] : 'N/A';
-              document.getElementById("engplate_no").innerHTML = data['device'].hasOwnProperty('engplate_no') ? data['device']['engplate_no'] : 'N/A';
-              document.getElementById("odata").innerHTML = data['odata'];
-
-              $('#busDialogBox').show();
-
-            } else {
-              document.getElementById("arabicNameGeofence").innerHTML = data['Arabic_Name'];
-              document.getElementById("englishNameGeofence").innerHTML = data['English_Name'];
-              document.getElementById("typeGeofence").innerHTML = data['Type']
-              document.getElementById("districtGeofence").innerHTML = data['District'];
-              document.getElementById("descriptionGeofence").innerHTML = data['Description'];
-              document.getElementById("categoryGeofence").innerHTML = data['Category'];
-              document.getElementById("siteGeofence").innerHTML = data['Site'];
-              document.getElementById("stationTypeGeofence").innerHTML = data['Station_type'];
-              document.getElementById("stationCodeGeofence").innerHTML = data['Station_Code'];
-              document.getElementById("stationNameGeofence").innerHTML = data['Station_Name'];
-              document.getElementById("codeIdGeofence").innerHTML = data['Code_ID'];
-              document.getElementById("genericName").innerHTML = data['Name'];
-              document.getElementById("geofenceType").innerHTML = data['Geofence_Type'];
-              document.getElementById("seasonType").innerHTML = data['Season'];
-
-              document.getElementById("arabic_name_edit").value = data['Arabic_Name'];
-              document.getElementById("english_name_edit").value = data['English_Name'];
-              document.getElementById("type_edit").value = data['Type']
-              document.getElementById("district_edit").value = data['District'];
-              document.getElementById("description_edit").value = data['Description'];
-              document.getElementById("category_edit").value = data['Category'];
-              document.getElementById("site_edit").value = data['Site'];
-              document.getElementById("station_type_edit").value = data['Station_type'];
-              document.getElementById("station_code_edit").value = data['Station_Code'];
-              document.getElementById("station_name_edit").value = data['Station_Name'];
-              document.getElementById("code_id_edit").value = data['Code_ID'];
-              document.getElementById("generic_name_edit").value = data['Name'];
-              document.getElementById("geofence_type_edit").value = data['Geofence_Type'];
-              document.getElementById("season_edit").value = data['Season'];
-              //document.getElementById("coordinate_arr_edit").value = coordinates.coordinates;
-              document.getElementById("geofenceUpdate_id").value = main_Id;
-              //alert(main_Id);
-
-              showGeofenceDialogBox();
-            }
-          }
-
-        }
-        // Perform actions with selected or deselected features
-        // ...
-      });
+      initSelectInteraction();
     },
     error: function (xhr, status, error) {
       console.log('Error:', error);
