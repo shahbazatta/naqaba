@@ -758,7 +758,7 @@ function singalCheckbox(cb, oid, filterType) {
         return data.device.imei == value;
       }
     });
-    alert("add dataFilter: " + dataFilter.length + " busesData.length: " + busesData.length + " value: " + value);
+    //alert("add dataFilter: " + dataFilter.length + " busesData.length: " + busesData.length + " value: " + value);
     
     if(busesDataFiltered.length <= 0){
       busesDataFiltered = dataFilter;
@@ -807,12 +807,6 @@ function singalCheckbox(cb, oid, filterType) {
     addBusFeaturesReasign(busesDataFiltered);
     
     
-    //console.log("busesDataFiltered "+busesDataFiltered.length);
-
-    alert("remove busesDataFiltered: " + busesDataFiltered.length 
-      + " busesData.length: " + busesData.length 
-      + " value: " + value
-      + " language: " + language);
     
       //document.getElementById(oid.id).checked = false;// .removeAttribute("checked");
     
