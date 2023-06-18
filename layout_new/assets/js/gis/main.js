@@ -488,6 +488,7 @@ function initSelectInteraction () {
     // ...
   });
 }
+var busesDataFiltered = [];
 function getAllBusesData() {
   //ajax call to api get all bus data
   // open loader @khuram,waqas
@@ -514,7 +515,7 @@ function getAllBusesData() {
     },
     success: function (response) {
       //close laoder
-      busDataArr = response;
+      busesDataFiltered = busDataArr = response;
       addBusFeatures(busDataArr);
       initSelectInteraction();
     },
@@ -714,58 +715,121 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
 	
 //});
 
-
-
-
 */
 
 
-function trackingDevicesFilterCheckbox(cb, oid, index, filterType) {
+
+
+function singalCheckbox(cb, oid, filterType) {
 
   var value = document.getElementById(oid.id).value;
+  //alert("lang: " + cb.getAttribute('data-language'));
+  var language = cb.getAttribute('data-language');
+
+
+  //alert(cb.checked);
+  if (!cb.checked) {
+    if(filterType == 1){ document.getElementById('trackingComSeAl').checked = false; }
+    if(filterType == 2){ document.getElementById('transportationComSeA1').checked = false; }
+    if(filterType == 3){ document.getElementById('trackingDevicesSeAl').checked = false; }
+  }
 
   if (cb.checked) {
-    if (busesDataFilterReference && busesDataFilterReference.length) {
-      var dataFilter = busesData.filter(x =>
-        filterType == 1 ? String(x.device.avl_comp_ar) == value ||
-          String(x.device.avl_comp) == value :
-          filterType == 2 ? String(x.device.trnspt_comp_ar) == value ||
-            String(x.device.trnspt_comp) == value :
-            filterType == 3 ? String(x.device.device_comp) == value :
-              filterType == 4 ? String(x.device.imei) == value : false
-      );
-      if (dataFilter && dataFilter.length) {
-        var array1 = busesDataFilterReference.concat(dataFilter);
-        addBusFeaturesReasign(array1);
-        document.getElementById(oid.id).checked = true;// .setAttribute("checked", true);
+    //Add
+    // var dataFilter = busesData.filter(x =>
+    //   filterType == 1 ? String(x.device.avl_comp_ar) == value ||
+    //     String(x.device.avl_comp) == value :
+    //     filterType == 2 ? String(x.device.trnspt_comp_ar) == value ||
+    //       String(x.device.trnspt_comp) == value :
+    //       filterType == 3 ? String(x.device.device_comp) == value :
+    //         filterType == 4 ? String(x.device.imei) == value : false
+    // );
+    
+    var dataFilter = busesData.filter(function(data) {
+      if(filterType == 1){
+        return data.device.avl_comp_ar == value  || data.device.avl_comp == value;
+      }else if (filterType == 2) {
+        return data.device.trnspt_comp_ar == value  || data.device.trnspt_comp == value;
       }
+      else if (filterType == 3) {
+        return data.device.device_comp == value;
+      }
+      else{
+        return data.device.imei == value;
+      }
+    });
+    alert("add dataFilter: " + dataFilter.length + " busesData.length: " + busesData.length + " value: " + value);
+    
+    if(busesDataFiltered.length <= 0){
+      busesDataFiltered = dataFilter;
+    }else{
+      var tem_arr = busesDataFiltered.concat(dataFilter);
+      busesDataFiltered = tem_arr;
     }
+    addBusFeaturesReasign(busesDataFiltered);
+    //document.getElementById(oid.id).checked = true;// .setAttribute("checked", true);
+    
   } else {
-    if (busesData && busesData.length) {
-      var dataFilter = busesData.filter(x =>
-        filterType == 1 ? String(x.device.avl_comp_ar) != value ||
-          String(x.device.avl_comp) != value :
-          filterType == 2 ? String(x.device.trnspt_comp_ar) != value ||
-            String(x.device.trnspt_comp) != value :
-            filterType == 3 ? String(x.device.device_comp) != value :
-              filterType == 4 ? String(x.device.imei) != value : false
-      );
-      if (dataFilter && dataFilter.length) {
-        addBusFeaturesReasign(dataFilter);
-        document.getElementById(oid.id).checked = false;// .removeAttribute("checked");
+    //remove
+
+    // var dataFilter = busesData.filter(x =>
+    //   filterType == 1 ? String(x.device.avl_comp_ar) != value ||
+    //     String(x.device.avl_comp) != value :
+    //     filterType == 2 ? String(x.device.trnspt_comp_ar) != value ||
+    //       String(x.device.trnspt_comp) != value :
+    //       filterType == 3 ? String(x.device.device_comp) != value :
+    //         filterType == 4 ? String(x.device.imei) != value : false
+    // );
+    //console.log("busesDataFiltered "+busesDataFiltered.length);
+
+    
+    busesDataFiltered = busesDataFiltered.filter(function(data) {
+      if(filterType == 1){
+        if(language == 'ar'){
+          return data.device.avl_comp_ar != value
+        }else{
+          return data.device.avl_comp != value  
+        }
+      }else if(filterType == 2){
+        if(language == 'ar'){
+          return data.device.trnspt_comp_ar != value
+        }else{
+          return data.device.trnspt_comp != value  
+        }
+      }else if(filterType == 3){
+        return data.device.device_comp != value 
+      }else{
+        //filterType == 4
+        return data.device.imei != value
       }
-    }
+    });
+
+    addBusFeaturesReasign(busesDataFiltered);
+    
+    
+    //console.log("busesDataFiltered "+busesDataFiltered.length);
+
+    alert("remove busesDataFiltered: " + busesDataFiltered.length 
+      + " busesData.length: " + busesData.length 
+      + " value: " + value
+      + " language: " + language);
+    
+      //document.getElementById(oid.id).checked = false;// .removeAttribute("checked");
+    
+
   }
 }
 
 function onSelectAllCheckBox(id, filterType) {
   const myDiv = document.getElementById(id);
+
   if (myDiv.checked) {
     addBusFeaturesReasign(busesData);
+    busesDataFiltered = busesData;
     if (filterType == 1) {
-      resetfilterCheckBoxSettings("mainListRowscompanyList");
+      resetfilterCheckBoxSettings("mainListRowsTrackingCompany");
     } else if (filterType == 2) {
-      resetfilterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic");
+      resetfilterCheckBoxSettings("mainListRowsTransportationCompanies");
     } else if (filterType == 3) {
       resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
     } else if (filterType == 4) {
@@ -773,17 +837,27 @@ function onSelectAllCheckBox(id, filterType) {
     }
   } else {
     addBusFeaturesReasign([]);
+    busesDataFiltered = [];
     if (filterType == 1) {
-      uncheckfilterCheckBoxSettings("mainListRowscompanyList");
+      uncheckfilterCheckBoxSettings("mainListRowsTrackingCompany");
     } else if (filterType == 2) {
-      uncheckfilterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic");
+      uncheckfilterCheckBoxSettings("mainListRowsTransportationCompanies");
     } else if (filterType == 3) {
       uncheckfilterCheckBoxSettings("mainListRowsTrackingDevices");
     } else if (filterType == 4) {
       // uncheckfilterCheckBoxSettings("mainListRowsTrackingDevices",value);
     }
   }
-  busesDataFilterReference = [];
+}
+
+
+function resetfilterCheckBoxSettings(id) {
+  const myDiv = document.getElementById(id);
+  const inputElements = myDiv.querySelectorAll("input");
+  for (i = 0; i < inputElements.length; ++i) {
+    each = inputElements[i];
+    document.getElementById(each.id).checked = true;// .setAttribute("checked", true);
+  }
 }
 
 function uncheckfilterCheckBoxSettings(id) {
@@ -811,9 +885,9 @@ function trackingDevicesSearchEvent(event, filterType) {
       if (dataFilter && dataFilter.length) {
         addBusFeaturesReasign(dataFilter);
         if (filterType == 1) {
-          filterCheckBoxSettings("mainListRowscompanyList", value);
+          filterCheckBoxSettings("mainListRowsTrackingCompany", value);
         } else if (filterType == 2) {
-          filterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic", value);
+          filterCheckBoxSettings("mainListRowsTransportationCompanies", value);
         } else if (filterType == 3) {
           filterCheckBoxSettings("mainListRowsTrackingDevices", value);
         } else if (filterType == 4) {
@@ -825,9 +899,9 @@ function trackingDevicesSearchEvent(event, filterType) {
   } else {
     addBusFeaturesReasign(busesData);
     if (filterType == 1) {
-      resetfilterCheckBoxSettings("mainListRowscompanyList");
+      resetfilterCheckBoxSettings("mainListRowsTrackingCompany");
     } else if (filterType == 2) {
-      resetfilterCheckBoxSettings("mainListRowsTransportationCompaniesDynamic");
+      resetfilterCheckBoxSettings("mainListRowsTransportationCompanies");
     } else if (filterType == 3) {
       resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
     } else if (filterType == 4) {
@@ -879,15 +953,6 @@ function filterCheckBoxSettings(id, value) {
       document.getElementById(each.id).checked = false;// .removeAttribute("checked");
       document.getElementById(each.id).classList.add("d-none");
     }
-  }
-}
-
-function resetfilterCheckBoxSettings(id) {
-  const myDiv = document.getElementById(id);
-  const inputElements = myDiv.querySelectorAll("input");
-  for (i = 0; i < inputElements.length; ++i) {
-    each = inputElements[i];
-    document.getElementById(each.id).checked = true;// .setAttribute("checked", true);
   }
 }
 

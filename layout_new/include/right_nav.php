@@ -26,17 +26,18 @@
           </div>
         </div>
 
-        <!--Companies list-->
-        <div class="mainListRows newScrollBar" id="mainListRowscompanyList">
+        <!--Tracking Companies list-->
+        <div class="mainListRows newScrollBar" id="mainListRowsTrackingCompany">
 
           <?php
-            $a=0;
+            $x=0;
             foreach ($classObject->tracking_com as $output) {
               $ocid = preg_replace("/[^ي-أa-zA-Z0-9]/", "", $output);
-              $a++;
+              $x++;
+              $ocid = "trackingCom".$x;
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
-              <input type='checkbox' onclick='trackingDevicesFilterCheckbox(this,$ocid,$a,1)' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
+              <input type='checkbox' onclick='singalCheckbox(this,$ocid,1)' id='".$ocid."' name='".$ocid."' value='".$output."' data-language='$lang_type' checked>
               <span class='checkmark'></span>
             </label>
             <label for='".$ocid."' class='lebelText'>
@@ -57,7 +58,7 @@
 
       <div class="popMenuBox" id="transportationComBox">
         <div class="searchBoxForMenu">
-          <input type="text" onkeyup="trackingDevicesSearchEvent('TransportationComSearch',2)" name="TransportationComSearch" id="TransportationComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
+          <input type="text" onkeyup="trackingDevicesSearchEvent('transportationComSearch',2)" name="transportationComSearch" id="transportationComSearch" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SearchCompany'); ?>" class="search">
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
         <div class="headerList">
@@ -65,24 +66,25 @@
           <div class="close" onclick="closeFilterOnClose('transportationComBox','transportationComBoxImg')"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
-              <input type="checkbox" onclick="onSelectAllCheckBox('mainListRowsTransportationCompanies',2)" id="mainListRowsTransportationCompanies" name="mainListRowsTransportationCompanies" checked value="true">
+              <input type="checkbox" onclick="onSelectAllCheckBox('transportationComSeA1',2)" id="transportationComSeA1" name="transportationComSeA1" checked value="true">
               <span class="checkmark"></span>
             </label>
-            <label for="mainListRowsTransportationCompanies" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
+            <label for="transportationComSeA1" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
           </div>
         </div>
 
         <!--Transportaion list-->
-        <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTransportationCompaniesDynamic">
+        <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTransportationCompanies">
 
           <?php
-            $b = 0;
+            $y=0;
             foreach ($classObject->transpotation_com as $output) {
               $ocid = preg_replace("/[^ي-أa-zA-Z0-9]/", "", $output);
-              $b++;
+              $y++;
+              $ocid = "transpotationCom".$y;
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
-              <input type='checkbox' onclick='trackingDevicesFilterCheckbox(this,$ocid,$b,2)' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
+              <input type='checkbox' onclick='singalCheckbox(this,$ocid,2,)' id='".$ocid."' name='".$ocid."' value='".$output."' data-language='$lang_type' checked>
               <span class='checkmark'></span>
             </label>
             <label for='".$ocid."' class='lebelText'>
@@ -111,10 +113,10 @@
           <div class="close" onclick="closeFilterOnClose('trackingDevicesBox','trackingDevicesBoxShowImg')"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
-              <input type="checkbox" onclick="onSelectAllCheckBox('devicesSeAl',3)" id="devicesSeAl" name="devicesSeAl" checked value="">
+              <input type="checkbox" onclick="onSelectAllCheckBox('trackingDevicesSeAl',3)" id="trackingDevicesSeAl" name="trackingDevicesSeAl" checked value="">
               <span class="checkmark"></span>
             </label>
-            <label for="devicesSeAl" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
+            <label for="trackingDevicesSeAl" class="lebelText"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SelectAll'); ?></label>
           </div>
         </div>
 
@@ -122,14 +124,14 @@
         <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTrackingDevices">
 
           <?php
-
-          $c =0;
+            $z=0;
             foreach ($classObject->tracking_devices as $output) {
               $ocid = (string) preg_replace("/[^ي-أa-zA-Z0-9]/", "", $output);
-              $c++;
+              $z++;
+              $ocid = "trackingDevices".$z;
               echo "<div class='listRow'>
             <label class='cCheckBox2'>
-              <input type='checkbox' onclick='trackingDevicesFilterCheckbox(this,$ocid,$c,3)' id='".$ocid."' name='".$ocid."' value='".$output."' checked>
+              <input type='checkbox' onclick='singalCheckbox(this,$ocid,3)' id='".$ocid."' name='".$ocid."' value='".$output."' data-language='$lang_type' checked>
               <span class='checkmark'></span>
             </label>
             <label for='".$ocid."' class='lebelText'>
