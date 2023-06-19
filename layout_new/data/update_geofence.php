@@ -79,6 +79,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} catch (Exception $e) {
 	    printf($e->getMessage());
 	}
+	
+	// var typecode = '';
+	// if ($geo_type == "مركز تفويج")
+	// 	typecode = "TC";
+	// elseif($geo_type == "محطة  نقل")
+	// 	typecode = "S"
+	// elseif($geo_type == "موقف سيارات")
+	// 	typecode = "P"
+	// elseif($geo_type == "مخزن حافلات")
+	// 	typecode = "BD"
+	// elseif($geo_type == "صالة")
+	// 	typecode = "T"
+	// elseif($geo_type == "ميقات")
+	// 	typecode = "L"
+	// elseif($geo_type == "مركز ترجيب")
+	// 	typecode = "WC"
+	// elseif($geo_type == "مركز اسناد")
+	// 	typecode = "EC"
+	// elseif($geo_type == "مسار")
+	// 	typecode = "M"
+	// elseif($geo_type == "حي")
+	// 	typecode = "D"
+
+
 
 	$db = $client->selectDatabase(DB_NAME);
 	$collection = $db->geofence;
@@ -86,8 +110,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$updateResult = $collection->updateOne(
 	   ['_id' => new \MongoDB\BSON\ObjectID($geofence_id)],
 	   [ '$set' => [ 
-	   	'attributes.Arabic_Name' => $arabic_name, 
-	   	'attributes.English_Name' => $english_name, 
+	   	'attributes.ArabicName' => $arabic_name, 
+	   	'attributes.EnglishName' => $english_name, 
 	   	'attributes.Type' => $type, 
 	   	'attributes.District' => $district, 
 	   	'attributes.Description' => $description, 
@@ -97,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	   	'attributes.Station_Code' => (int)$station_code, 
 	   	'attributes.Station_Name' => $station_name, 
 	   	'attributes.Code_ID' => $code_id,  
-	   	'attributes.Name' => $generic_name,
+	   	'attributes.Description' => $generic_name,
 	   	'attributes.Geofence_Type' => $geofence_type, 
 	   	'attributes.Season' => $season 
 	   ] ]

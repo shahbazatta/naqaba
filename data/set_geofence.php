@@ -103,8 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$document = array( 
 	  "attributes" => array(
 	        "OBJECTID" => 0,
-	        "Arabic_Name" => $arabic_name,
-	        "English_Name" => $english_name,
+	        "ArabicName" => $arabic_name,
+	        "EnglishName" => $english_name,
 	        "Type" => $type,
 	        "District" => $district,
 	        "Area" => (float)$area,

@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 	//check $_POST vars are set, exit if any missing
-	if ( !isset($_POST["arabic_name"]) || !isset($_POST["english_name"]) || !isset($_POST["type"]) || !isset($_POST["district"]) || !isset($_POST["description"]) || !isset($_POST["category"]) || !isset($_POST["site"]) || !isset($_POST["station_type"]) || !isset($_POST["station_code"]) || !isset($_POST["station_name"]) || !isset($_POST["code_id"]) || !isset($_POST["generic_name"]) || !isset($_POST["geofence_type"]) || !isset($_POST["season"]) || !isset($_POST["coordinates"]) ) {
+	if ( !isset($_POST["arabic_name"]) || !isset($_POST["english_name"]) || !isset($_POST["type"]) || !isset($_POST["district"]) || !isset($_POST["description"]) || !isset($_POST["category"]) || !isset($_POST["site"]) || !isset($_POST["station_type"]) || !isset($_POST["station_code"]) || !isset($_POST["station_name"]) || !isset($_POST["code_id"]) || !isset($_POST["generic_name"]) || !isset($_POST["geofence_type"]) || !isset($_POST["season"])|| !isset($_POST["coordinates"]) ) {
 	    $output = json_encode(array('type' => 'error', 'text' => 'Input fields are empty!'));
 	    die($output);
 	}
@@ -104,8 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$document = array( 
 	  "attributes" => array(
 	        "OBJECTID" => 0,
-	        "Arabic_Name" => $arabic_name,
-	        "English_Name" => $english_name,
+	        "ArabicName" => $arabic_name,
+	        "EnglishName" => $english_name,
 	        "Type" => $type,
 	        "District" => $district,
 	        "Description" => $description,
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	        "Station_Code" => (int)$station_code,
 	        "Station_Name" => $station_name,
 	        "Code_ID" => $code_id,
-	        "Name" => $generic_name,
+	        "Description" => $generic_name,
 	        "Geofence_Type" => $geofence_type,
 	        "Season" => $season
 	    ), 

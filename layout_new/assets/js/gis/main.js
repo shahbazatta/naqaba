@@ -446,8 +446,8 @@ function initSelectInteraction () {
           $('#busDialogBox').show();
 
         } else {
-          document.getElementById("arabicNameGeofence").innerHTML = data['Arabic_Name'];
-          document.getElementById("englishNameGeofence").innerHTML = data['English_Name'];
+          document.getElementById("arabicNameGeofence").innerHTML = data['ArabicName'];
+          document.getElementById("englishNameGeofence").innerHTML = data['EnglishName'];
           document.getElementById("typeGeofence").innerHTML = data['Type']
           document.getElementById("districtGeofence").innerHTML = data['District'];
           document.getElementById("descriptionGeofence").innerHTML = data['Description'];
@@ -457,12 +457,12 @@ function initSelectInteraction () {
           document.getElementById("stationCodeGeofence").innerHTML = data['Station_Code'];
           document.getElementById("stationNameGeofence").innerHTML = data['Station_Name'];
           document.getElementById("codeIdGeofence").innerHTML = data['Code_ID'];
-          document.getElementById("genericName").innerHTML = data['Name'];
+          document.getElementById("genericName").innerHTML = data['Description'];
           document.getElementById("geofenceType").innerHTML = data['Geofence_Type'];
           document.getElementById("seasonType").innerHTML = data['Season'];
 
-          document.getElementById("arabic_name_edit").value = data['Arabic_Name'];
-          document.getElementById("english_name_edit").value = data['English_Name'];
+          document.getElementById("arabic_name_edit").value = data['ArabicName'];
+          document.getElementById("english_name_edit").value = data['EnglishName'];
           document.getElementById("type_edit").value = data['Type']
           document.getElementById("district_edit").value = data['District'];
           document.getElementById("description_edit").value = data['Description'];
@@ -472,9 +472,10 @@ function initSelectInteraction () {
           document.getElementById("station_code_edit").value = data['Station_Code'];
           document.getElementById("station_name_edit").value = data['Station_Name'];
           document.getElementById("code_id_edit").value = data['Code_ID'];
-          document.getElementById("generic_name_edit").value = data['Name'];
+          document.getElementById("generic_name_edit").value = data['Description'];
           document.getElementById("geofence_type_edit").value = data['Geofence_Type'];
           document.getElementById("season_edit").value = data['Season'];
+          // document.getElementById("gtype_edit").value = data['gtype'];
           //document.getElementById("coordinate_arr_edit").value = coordinates.coordinates;
           document.getElementById("geofenceUpdate_id").value = main_Id;
           //alert(main_Id);
@@ -1029,9 +1030,9 @@ var filterGeofenceArr = [];
 function filterGeofenceData(geofenceName) {
   filterGeofenceArr = [];
   for (var idx in geofenceDataArr) {
-      if (geofenceDataArr[idx].attributes.English_Name.includes(geofenceName) || 
-          geofenceDataArr[idx].attributes.Arabic_Name.includes(geofenceName) ||
-          geofenceDataArr[idx].attributes.Name.includes(geofenceName) ||
+      if (geofenceDataArr[idx].attributes.EnglishName.includes(geofenceName) || 
+          geofenceDataArr[idx].attributes.ArabicName.includes(geofenceName) ||
+          geofenceDataArr[idx].attributes.Description.includes(geofenceName) ||
           geofenceDataArr[idx].attributes.Code_ID.includes(geofenceName)
          
         ) {
@@ -1046,13 +1047,13 @@ function filterGeofenceLayerData(filter_type, geofenceName) {
   filterGeofenceLayerArr = [];
   for (var idx in geofenceDataArr) {
     if (filter_type == 1) {
-      if (geofenceDataArr[idx].attributes.Season == 'Hajj') {
+      if (geofenceDataArr[idx].attributes.Season == 'الحج') {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
     }
     if (filter_type == 2) {
 
-      if (geofenceDataArr[idx].attributes.Season == 'Umrah') {
+      if (geofenceDataArr[idx].attributes.Season == 'رمضان') {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
     }

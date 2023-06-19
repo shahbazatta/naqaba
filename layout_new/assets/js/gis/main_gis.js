@@ -256,8 +256,8 @@ selectInteraction.on('select', function(event) {
           document.getElementById('resultbusToolTipBox').innerText = obj_str;
           $('#busToolTipBox').show();
         }else{
-          document.getElementById("arabicNameGeofence").innerHTML = data['Arabic_Name'];
-          document.getElementById("englishNameGeofence").innerHTML = data['English_Name'];
+          document.getElementById("arabicNameGeofence").innerHTML = data['ArabicName'];
+          document.getElementById("englishNameGeofence").innerHTML = data['EnglishName'];
           document.getElementById("typeGeofence").innerHTML = data['Type']
           document.getElementById("districtGeofence").innerHTML = data['District'];
           document.getElementById("areaGeofence").innerHTML = data['Area'];
@@ -271,8 +271,8 @@ selectInteraction.on('select', function(event) {
           document.getElementById("shapeLengthGeofence").innerHTML = data['SHAPE_Length'];
           document.getElementById("shapeAreaGeofence").innerHTML = data['SHAPE_Area'];
 
-          document.getElementById("arabic_name_toolTip").value = data['Arabic_Name'];
-          document.getElementById("english_name_toolTip").value = data['English_Name'];
+          document.getElementById("arabic_name_toolTip").value = data['ArabicName'];
+          document.getElementById("english_name_toolTip").value = data['EnglishName'];
           document.getElementById("type_toolTip").value = data['Type']
           document.getElementById("district_toolTip").value = data['District'];
           document.getElementById("area_toolTip").value = data['Area'];

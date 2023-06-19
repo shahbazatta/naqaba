@@ -228,17 +228,17 @@
             <tbody>
               <?php
                 foreach ($classObject->geofence_data as $output) {
-                  if(isset($output['attributes']['Arabic_Name']) && isset($output['attributes']['English_Name'])){
+                  if(isset($output['attributes']['ArabicName']) && isset($output['attributes']['EnglishName'])){
                     if ($lang_type == 'ar'){
-                      $name = $output['attributes']['Arabic_Name'];
+                      $name = $output['attributes']['ArabicName'];
                     }
                     else{
-                      $name = $output['attributes']['English_Name'];
+                      $name = $output['attributes']['EnglishName'];
                     }
                     echo "<tr id='geofence".$output['_id']."'>
                           <td>
                             <label class='cCheckBox2'>
-                              <input type='checkbox' id='".$output['_id']."' data-geofenceName='".$output['attributes']['Name']."' data-Arabic_Name='".$output['attributes']['Arabic_Name']."' data-English_Name='".$output['attributes']['English_Name']."' 
+                              <input type='checkbox' id='".$output['_id']."' data-geofenceName='".$output['attributes']['Name']."' data-ArabicName='".$output['attributes']['ArabicName']."' data-EnglishName='".$output['attributes']['EnglishName']."' 
                                name='".$output['_id']."' value='".$output['_id']."'>
                               <span class='checkmark'></span>
                             </label>
@@ -246,7 +246,7 @@
                           </td>
                           <td>".$output['attributes']['Geofence_Type']."</td>
                           <td>".$output['attributes']['Season']."</td>
-                          <td>".$output['attributes']['Name']."</td>
+                          <td>".$output['attributes']['Description']."</td>
                           <td>".$output['attributes']['Code_ID']."</td>
                           <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'></button></td>
                         </tr>";
