@@ -1047,13 +1047,19 @@ function filterGeofenceLayerData(filter_type, geofenceName) {
   filterGeofenceLayerArr = [];
   for (var idx in geofenceDataArr) {
     if (filter_type == 1) {
-      if (geofenceDataArr[idx].attributes.Season == 'الحج') {
+      if (geofenceDataArr[idx].attributes.Season == 'Hajj') {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
     }
     if (filter_type == 2) {
 
-      if (geofenceDataArr[idx].attributes.Season == 'رمضان') {
+      if (geofenceDataArr[idx].attributes.Season == 'Umrah') {
+        filterGeofenceLayerArr.push(geofenceDataArr[idx]);
+      }
+    }
+    if (filter_type == 3) {
+
+      if (geofenceDataArr[idx].attributes.Season.includes('المصلين بين المدن')) {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
     }

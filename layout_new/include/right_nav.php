@@ -286,6 +286,8 @@
             <select id="setLayer" name="setLayer" class="bgSelect" title="Basemap" >  
               <option value="1" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'hajjSeason'); ?></option>
               <option value="2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'umrahSeason'); ?></option>
+              <option value="3">المصلين بين المدن</option>
+              
             </select>
           </div>
         </div>

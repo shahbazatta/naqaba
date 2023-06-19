@@ -130,8 +130,12 @@ $( document ).ready(function() {
     var SelectedLang = $(this).val();
     if(SelectedLang == '1'){
       filterGeofenceLayerData(1,'Hajj');
-    }else{
+    }
+    else if(SelectedLang == '2'){
       filterGeofenceLayerData(2,'Umrah');
+    }
+    else{
+      filterGeofenceLayerData(3,' المصلين بين المدن');
     }
   });
 
@@ -380,7 +384,29 @@ $("#geofenceUpdate").click(function() {
     //if($.isNumeric(area)){ }else{ $('#area_edit').css('border-color','red').val('');  flag = false; }
     //if($.isNumeric(shape_length)){ }else{ $('#shape_length_edit').css('border-color','red').val(''); flag = false; }
    // if($.isNumeric(shape_area)){ }else{ $('#shape_area_edit').css('border-color','red').val(''); flag = false; }
-
+  //  var typecode = '';
+  //  if ($geo_type == "مركز تفويج")
+  //    typecode = "TC";
+  //  elseif(geo_type == "محطة  نقل")
+  //    typecode = "S"
+  //  elseif(geo_type == "موقف سيارات")
+  //    typecode = "P"
+  //  elseif(geo_type == "مخزن حافلات")
+  //    typecode = "BD"
+  //  elseif(geo_type == "صالة")
+  //    typecode = "T"
+  //  elseif(geo_type == "ميقات")
+  //    typecode = "L"
+  //  elseif(geo_type == "مركز ترجيب")
+  //    typecode = "WC"
+  //  elseif(geo_type == "مركز اسناد")
+  //    typecode = "EC"
+  //  elseif(geo_type == "مسار")
+  //    typecode = "M"
+  //  elseif(geo_type == "حي")
+  //    typecode = "D"
+ 
+ 
     /********Validation end here ****/
     /* If all are ok then we send ajax request to email_send.php *******/
     if(flag) 
