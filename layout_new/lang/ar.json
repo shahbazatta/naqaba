@@ -79,6 +79,7 @@
     "district":"يصرف",
     "area":"منطقة",
     "description":"وصف",
+    "Description":"وصف",
     "category":"فئة",
     "site":"موقع",
     "stationType":"نوع المحطة",
@@ -150,6 +151,7 @@
 
     "Details":"تفاصيل",
     "Geofence_Type":"نوع السياج الجغرافي",
+    "SearchGeofence=":"ابحث عن السياج الجغرافي",
     "Season":"موسم",
     "Code_ID":"معرف الرمز"
 }

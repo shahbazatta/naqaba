@@ -208,7 +208,7 @@
 
       <div class="popMenuBox geofencesBox" id="geofencesBox">
         <div class="searchBoxForMenu">
-          <input type="text" onkeyup="geofenceSearchEvent('geofenceSearch','geofencesTable')" name="geofenceSearch" id="geofenceSearch" placeholder="Search Company" class="search">
+          <input type="text" onkeyup="geofenceSearchEvent('geofenceSearch','geofencesTable')" name="geofenceSearch" id="geofenceSearch" placeholder="Search Geofence" class="search">
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
 
@@ -217,10 +217,9 @@
           <table id="geofencesTable" class="tableNeo tablesorter">
             <thead>
               <tr>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Details'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Geofence_Type'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Season'); ?></th>
                 <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Name'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Season'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Description'); ?></th>
                 <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Code_ID'); ?></th>
                 <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Action'); ?></th>
               </tr>
@@ -238,13 +237,12 @@
                     echo "<tr id='geofence".$output['_id']."'>
                           <td>
                             <label class='cCheckBox2'>
-                              <input type='checkbox' id='".$output['_id']."' data-geofenceName='".$output['attributes']['Name']."' data-ArabicName='".$output['attributes']['ArabicName']."' data-EnglishName='".$output['attributes']['EnglishName']."' 
+                              <input type='checkbox' id='".$output['_id']."' data-geofenceName='".$output['attributes']['Description']."' data-ArabicName='".$output['attributes']['ArabicName']."' data-EnglishName='".$output['attributes']['EnglishName']."' 
                                name='".$output['_id']."' value='".$output['_id']."'>
                               <span class='checkmark'></span>
                             </label>
                             ".$name."
                           </td>
-                          <td>".$output['attributes']['Geofence_Type']."</td>
                           <td>".$output['attributes']['Season']."</td>
                           <td>".$output['attributes']['Description']."</td>
                           <td>".$output['attributes']['Code_ID']."</td>

@@ -79,6 +79,7 @@
     "district":"District",
     "area":"Area",
     "description":"Description",
+    "Description":"Description",
     "category":"Category",
     "site":"Site",
     "stationType":"Station Type",
@@ -149,7 +150,9 @@
 
     "Details":"Details",
     "Geofence_Type":"Geofence Type",
+    "SearchGeofence=":"Search Geofence",
     "Season":"Season",
     "Code_ID":"Code ID"
+    
 
 }
