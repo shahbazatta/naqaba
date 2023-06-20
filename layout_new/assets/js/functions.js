@@ -18,6 +18,7 @@ $( document ).ready(function() {
       $(this).addClass("active");
       hidelefttabs();
       $('#trackingComBox').show();
+      resetTheFilterOnClose('trackingComSeAl',1);
     }
   });
    
@@ -30,6 +31,7 @@ $( document ).ready(function() {
       $(this).addClass("active");
       hidelefttabs();
       $('#transportationComBox').show();
+      resetTheFilterOnClose('transportationComSeA1',2);
     }
   });
    
@@ -42,6 +44,7 @@ $( document ).ready(function() {
       $(this).addClass("active");
       hidelefttabs();
       $('#trackingDevicesBox').show();
+      resetTheFilterOnClose('trackingDevicesSeAl',3);
     }
   });
    

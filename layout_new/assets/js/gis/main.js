@@ -719,7 +719,24 @@ setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
 */
 
 
+function resetTheFilterOnClose(id, filterType){
+  addBusFeatures(busesData);
+  //onSelectAllCheckBox(id, filterType);
+  //const myDiv = document.getElementById(id);
+  document.getElementById(id).checked = true;
 
+  if (filterType == 1) {
+    resetfilterCheckBoxSettings("mainListRowsTrackingCompany");
+  } else if (filterType == 2) {
+    resetfilterCheckBoxSettings("mainListRowsTransportationCompanies");
+  } else if (filterType == 3) {
+    resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
+  } else if (filterType == 4) {
+    // resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
+  }
+  
+
+}
 
 function singalCheckbox(cb, oid, filterType) {
 

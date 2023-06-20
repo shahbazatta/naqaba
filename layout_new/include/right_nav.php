@@ -6,7 +6,7 @@
 
 
     <div class="trackingCom">
-      <a href="javascript:void(0)" id="trackingComBoxImg"><img src="assets/images/icons/gps.svg"></a>
+      <a href="javascript:void(0)" id="trackingComBoxImg" onclick=""><img src="assets/images/icons/gps.svg"></a>
 
       <div class="popMenuBox" id="trackingComBox">
         <div class="searchBoxForMenu">
