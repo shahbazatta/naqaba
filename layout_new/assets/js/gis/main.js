@@ -428,6 +428,7 @@ function addClipBusDataInteraction() {
   // Event listener for drawstart event
   drawClip.on('drawstart', function (event) {
     console.log('Polygon drawing started');
+    clipBusDataSource.clear();
   });
 
   // Event listener for drawend event
