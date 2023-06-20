@@ -72,6 +72,7 @@ var busesLyr;
 var busesDataSource;
 var clusterSource;
 var drawSource = new ol.source.Vector();
+var clipBusDataSource = new ol.source.Vector();
 var draw;
 var clusterLayer;
 var clusterAnimateLayer;
@@ -89,6 +90,14 @@ function toggleDrawGeofenceCtrl() {
     $('#activeDGF').show();
     $('#deactiveDGF').hide();
   }
+}
+
+function toggleClipBusDataCtrl() {
+  drawClip.setActive(!drawClip.getActive());
+  if (drawClip.getActive() == false) {
+    clipBusDataSource.clear();
+  }
+ 
 }
 
 // Style for the clusters
@@ -385,6 +394,59 @@ function addDrawInteraction() {
   map.addInteraction(draw);
   draw.setActive(false);
 }
+
+var drawClip;
+function addClipBusDataInteraction() {
+  var geofenceStyle = new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'orange',
+      width: 2,
+      //lineDash: [5]
+    }),
+    fill: new ol.style.Fill({
+      color: 'rgba(255, 0, 255, 0.1)',
+    }),
+  });
+
+  var clipLayer = new ol.layer.Vector({
+    source: clipBusDataSource,
+    style: geofenceStyle,
+  });
+
+  // Add the vector layer to the map
+  // drawLayer.setZIndex(12);
+  map.addLayer(clipLayer);
+
+  // Create a draw interaction for polygons
+  drawClip = new ol.interaction.Draw({
+    source: clipBusDataSource,
+    type: 'Polygon',
+    active: false
+  });
+
+  // Event listener for drawstart event
+  drawClip.on('drawstart', function (event) {
+    console.log('Polygon drawing started');
+  });
+
+  // Event listener for drawend event
+  drawClip.on('drawend', function (event) {
+    var polygon = event.feature.getGeometry().clone();
+    var src = 'EPSG:3857';
+    var dest = 'EPSG:4326';
+    polygon.transform(src, dest)
+
+    var clipCord = polygon.getCoordinates();
+    console.log('get point in polygon');
+    // Do something with the drawn polygon geometry
+
+  });
+
+  // Add the draw interaction to the map
+  map.addInteraction(drawClip);
+  drawClip.setActive(false);
+}
+
 
 var busDataArr;
 var selectedGeofence;
@@ -1105,6 +1167,7 @@ $(document).ready(function () {
 
   document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
   document.getElementById("de_draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
+  document.getElementById("activeGeoAna").addEventListener("click", toggleClipBusDataCtrl); //draw gerofence control listener
 
 
   $("#applySettingBtn").click(function () {
