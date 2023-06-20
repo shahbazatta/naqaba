@@ -501,16 +501,19 @@ function initSelectInteraction () {
           //document.getElementById('resultbusToolTipBox').innerText = obj_str;
           //$('#busToolTipBox').show();
           document.getElementById("imei_no").innerHTML = data['imei'];
-          document.getElementById("avltm").innerHTML = new Date(data["avltm"]).toISOString();
-          document.getElementById("up_time").innerHTML = new Date(data["updatedon"]).toISOString();
-          document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toISOString();
-          document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toISOString();
+          document.getElementById("avltm").innerHTML = new Date(data["avltm"]).toLocaleString();
+          document.getElementById("up_time").innerHTML = new Date(data["updatedon"]).toLocaleString();
+          document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toLocaleString();
+          document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toLocaleString();
           document.getElementById("ang").innerHTML = data['ang'];
           document.getElementById("speed").innerHTML = data['spd'];
           document.getElementById("bus_no").innerHTML = data['device'].hasOwnProperty('busid') ? data['device']['busid'] : 'N/A';
           document.getElementById("operator_no").innerHTML = data['device'].hasOwnProperty('bus_oper_no') ? data['device']['bus_oper_no'] : 'N/A';
           document.getElementById("device_comp").innerHTML = data['device'].hasOwnProperty('device_comp') ? data['device']['device_comp'] : 'N/A';
           document.getElementById("engplate_no").innerHTML = data['device'].hasOwnProperty('engplate_no') ? data['device']['engplate_no'] : 'N/A';
+          document.getElementById("plate_no").innerHTML = data['device'].hasOwnProperty('plate_no') ? data['device']['plate_no'] : 'N/A';
+          // document.getElementById("trnspt_comp_ar").innerHTML = data['device'].hasOwnProperty('trnspt_comp_ar') ? data['device']['trnspt_comp_ar'] : 'N/A';
+          document.getElementById("trnspt_comp").innerHTML = data['device'].hasOwnProperty('trnspt_comp_ar') ? data['device']['trnspt_comp_ar'] : 'N/A';
           document.getElementById("odata").innerHTML = data['odata'];
 
           $('#busDialogBox').show();
