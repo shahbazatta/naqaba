@@ -1150,6 +1150,12 @@ function filterGeofenceLayerData(filter_type, geofenceName) {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
     }
+    if (filter_type == 4) {
+
+      if (geofenceDataArr[idx].attributes.Season.includes('المشاعر المقدسة')) {
+        filterGeofenceLayerArr.push(geofenceDataArr[idx]);
+      }
+    }
   }
   addGeofenceData(filterGeofenceLayerArr);
 }

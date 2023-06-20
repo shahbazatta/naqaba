@@ -287,7 +287,7 @@
               <option value="1" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'hajjSeason'); ?></option>
               <option value="2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'umrahSeason'); ?></option>
               <option value="3">المصلين بين المدن</option>
-              
+              <option value="4">المشاعر المقدسة</option>
             </select>
           </div>
         </div>

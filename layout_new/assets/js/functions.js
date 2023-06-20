@@ -137,8 +137,11 @@ $( document ).ready(function() {
     else if(SelectedLang == '2'){
       filterGeofenceLayerData(2,'Umrah');
     }
-    else{
+    else if(SelectedLang == '3'){
       filterGeofenceLayerData(3,' المصلين بين المدن');
+    }
+    else if(SelectedLang == '4'){
+      filterGeofenceLayerData(4,'المشاعر المقدسة');
     }
   });
 

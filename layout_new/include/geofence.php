@@ -200,6 +200,7 @@
                   <option value="Hajj">Hajj</option>
                   <option value="Umrah">Umrah</option>
                   <option value=" المصلين بين المدن"> المصلين بين المدن</option>
+                  <option value="المشاعر المقدسة">المشاعر المقدسة</option>
                 </select>
               </td>
             </tr>
@@ -326,6 +327,7 @@
                   <option value="Hajj">Hajj</option>
                   <option value="Umrah">Umrah</option>
                   <option value=" المصلين بين المدن"> المصلين بين المدن</option>
+                  <option value="المشاعر المقدسة">المشاعر المقدسة</option>
                 </select>
               </td>
             </tr>
