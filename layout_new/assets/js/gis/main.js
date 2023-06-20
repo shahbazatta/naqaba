@@ -457,7 +457,7 @@ function initSelectInteraction () {
           document.getElementById("stationCodeGeofence").innerHTML = data['Station_Code'];
           document.getElementById("stationNameGeofence").innerHTML = data['Station_Name'];
           document.getElementById("codeIdGeofence").innerHTML = data['Code_ID'];
-          document.getElementById("genericName").innerHTML = data['Description'];
+          document.getElementById("genericName").innerHTML = data['Name'];
           document.getElementById("geofenceType").innerHTML = data['Geofence_Type'];
           document.getElementById("seasonType").innerHTML = data['Season'];
 
@@ -472,7 +472,7 @@ function initSelectInteraction () {
           document.getElementById("station_code_edit").value = data['Station_Code'];
           document.getElementById("station_name_edit").value = data['Station_Name'];
           document.getElementById("code_id_edit").value = data['Code_ID'];
-          document.getElementById("generic_name_edit").value = data['Description'];
+          document.getElementById("generic_name_edit").value = data['Name'];
           document.getElementById("geofence_type_edit").value = data['Geofence_Type'];
           document.getElementById("season_edit").value = data['Season'];
           // document.getElementById("gtype_edit").value = data['gtype'];

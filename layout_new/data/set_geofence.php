@@ -50,6 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$coordinates_array = trim($_POST["coordinates"]);
 	//$output = json_encode(array('type' => 'message', 'text' => 'Success2 ' . $coordinates_array));
 	//die($output);
+
+	$type_code = "";
+	if($type == "مركز ترحيب"){
+		$type_code = "WC";
+	}elseif ($type == "مخازن حافلات") {
+		$type_code = "K";
+	}else{
+
+	}
 	
 	$arrr = explode(",",$coordinates_array);
 	$array_set = array();
@@ -107,6 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	        "ArabicName" => $arabic_name,
 	        "EnglishName" => $english_name,
 	        "Type" => $type,
+	        "TypeCode" => $type_code,
 	        "District" => $district,
 	        "Description" => $description,
 	        "Category" => $category,
@@ -115,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	        "Station_Code" => (int)$station_code,
 	        "Station_Name" => $station_name,
 	        "Code_ID" => $code_id,
-	        "Description" => $generic_name,
+	        "Name" => $generic_name,
 	        "Geofence_Type" => $geofence_type,
 	        "Season" => $season
 	    ), 

@@ -130,7 +130,11 @@
                   <tr>
                     <td>
                       <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?></label>
-                      <input type="text" class="inputText" id="type_edit" name="type_edit" maxlength="120"/>
+                      <!-- <input type="text" class="inputText" id="type_edit" name="type_edit" maxlength="120"/> -->
+                      <select id="type_edit" name="type_edit" class="bgSelect2">
+                        <option value="مركز ترحيب">مركز ترحيب</option>
+                        <option value="مخازن حافلات"></option>
+                      </select>
                     </td>
                     <td>
                       <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?></label>
@@ -249,7 +253,12 @@
                   <tr>
                     <td>
                       <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'type'); ?></label>
-                      <input type="text" class="inputText" id="type" name="type" maxlength="120"/>
+                      
+                      <!-- <input type="text" class="inputText" id="type" name="type" maxlength="120"/> -->
+                      <select id="type" name="type" class="bgSelect2">
+                        <option value="مركز ترحيب">مركز ترحيب</option>
+                        <option value="مخازن حافلات"></option>
+                      </select>
                     </td>
                     <td>
                       <label><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'district'); ?></label>

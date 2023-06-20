@@ -1197,6 +1197,7 @@ table.tablesorter thead tr .header {
 
 .bgSelect2{
 	width:100%;
+	min-width: 185px;
 	height:41px;
 	display:block;
 	margin:0px;
