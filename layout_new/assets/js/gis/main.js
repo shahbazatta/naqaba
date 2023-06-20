@@ -1158,6 +1158,7 @@ function filterGeofenceLayerData(filter_type, geofenceName) {
 $(document).ready(function () {
   initMap();
   addDrawInteraction();
+  addClipBusDataInteraction();
   getAllGeofence();
   switchBaseMaps();
   getAllBusesData();
