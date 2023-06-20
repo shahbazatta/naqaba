@@ -396,6 +396,7 @@ function addDrawInteraction() {
 }
 
 var drawClip;
+var filterGeoData =[];
 function addClipBusDataInteraction() {
   var geofenceStyle = new ol.style.Style({
     stroke: new ol.style.Stroke({
@@ -435,9 +436,15 @@ function addClipBusDataInteraction() {
     var src = 'EPSG:3857';
     var dest = 'EPSG:4326';
     polygon.transform(src, dest)
-
-    var clipCord = polygon.getCoordinates();
-    console.log('get point in polygon');
+    filterGeoData =[];
+    for (var idx in busDataArr){
+      var cord = busDataArr[idx].location.coordinates;
+      var intersect = polygon.intersectsCoordinate(cord);
+      if (intersect){
+        filterGeoData.push(busDataArr[idx]);
+      }
+    }
+    addBusFeatures(filterGeoData);
     // Do something with the drawn polygon geometry
 
   });
