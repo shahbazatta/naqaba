@@ -118,11 +118,11 @@
     "alreadyHaveAccount":"هل لديك حساب؟",
 
 
-    "Avltm":"Avltm",
-    "Avl":"Avl",
-    "Ang":"Ang",
-    "Spd":"Spd",
-    "Odata":"Odata",
+    "Avltm":"توقيت الجهاز",
+    "Avl":"Altitude",
+    "Ang":"Angle",
+    "Spd":"Speed",
+    "Odata":"Port",
     "Createdon":"تم إنشاؤها على",
     "Updatedon":"تحديث في",
     "DeviceCompany":"شركة الأجهزة",

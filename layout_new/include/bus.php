@@ -55,16 +55,17 @@
           <td colspan="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'OperatorNo'); ?>
             <span id ="operator_no">1685387738376</span>
           </td>
-          <td colspan="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'EnginePlateNo'); ?>
-            <span id ="engplate_no">6474f9da97c5bc121663c1a9</span>
-          </td>
-        </tr>
-        <tr>
           <td colspan="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompany'); ?>
             <span id ="trnspt_comp">1685387738376</span>
           </td>
+          
+        </tr>
+        <tr>
           <td colspan="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'PlateNo'); ?>
             <span id ="plate_no">6474f9da97c5bc121663c1a9</span>
+          </td>
+          <td colspan="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'EnginePlateNo'); ?>
+            <span id ="engplate_no">6474f9da97c5bc121663c1a9</span>
           </td>
         </tr>
       </table>
