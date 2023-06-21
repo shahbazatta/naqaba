@@ -96,7 +96,6 @@ function toggleClipBusDataCtrl() {
   drawClip.setActive(!drawClip.getActive());
   if (drawClip.getActive() == false) {
     clipBusDataSource.clear();
-    addBusFeatures(busDataArr); //reset data
   }
  
 }
@@ -1134,7 +1133,12 @@ function filterGeofenceData(geofenceName) {
 }
 
 var filterGeofenceLayerArr = [];
+var firstTime = true;
 function filterGeofenceLayerData(filter_type, geofenceName) {
+  if (firstTime) {
+    getAllGeofence();
+    firstTime = false;
+  }
   filterGeofenceLayerArr = [];
   for (var idx in geofenceDataArr) {
     if (filter_type == 1) {
@@ -1170,7 +1174,7 @@ $(document).ready(function () {
   initMap();
   addDrawInteraction();
   addClipBusDataInteraction();
-  getAllGeofence();
+  // getAllGeofence();
   switchBaseMaps();
   getAllBusesData();
   //loadFiltersDataDevicesCompany();
