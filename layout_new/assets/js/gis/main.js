@@ -96,6 +96,7 @@ function toggleClipBusDataCtrl() {
   drawClip.setActive(!drawClip.getActive());
   if (drawClip.getActive() == false) {
     clipBusDataSource.clear();
+    addBusFeatures(busDataArr); //reset data
   }
  
 }
