@@ -201,7 +201,7 @@ function addBusFeatures(dataArr) {
       return style;
     }
   });
-  //clusterLayer.setZIndex(10);
+  clusterLayer.setZIndex(5);
 
   // Add the cluster layer to the map
   map.addLayer(clusterLayer);
@@ -215,6 +215,7 @@ function addBusFeatures(dataArr) {
   });
 
   map.addLayer(clusterAnimateLayer);
+  clusterAnimateLayer.setZIndex(4);
   var vizTypeId = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('id');
   if (vizTypeId == null) {
     clusterAnimateLayer.setVisible(false);
@@ -676,7 +677,7 @@ function addGeofenceData(data) {
     source: stationSource,
     style: styleFunction,
   });
-  //stationLyr.setZIndex(11);
+  stationLyr.setZIndex(2);
   map.addLayer(stationLyr);
   initSelectInteraction();
   map.getView().fit(stationSource.getExtent());
