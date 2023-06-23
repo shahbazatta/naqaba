@@ -143,7 +143,7 @@ function getStyle(feature, resolution) {
       })
     });
   }
-  if (size<10) {
+  if (size<=1) {
     style = iconStyle;
   }
   return style;
