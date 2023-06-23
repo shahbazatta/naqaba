@@ -10,7 +10,7 @@
 define("DB_NAME", "naqaba");
 //define("DB_USER_NAME", "shahbaz");
 //define("DB_PASS_NAME", "Islam786ian");
-define("DB_SERVER_URL", "mongodb://shahbaz:Islam786ian@localhost:27017/");
+define("DB_SERVER_URL", "mongodb://shahbaz:Islam786ian@64.227.118.83:27017/");
 
 
 ?>
