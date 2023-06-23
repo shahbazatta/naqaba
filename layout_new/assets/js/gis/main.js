@@ -103,6 +103,16 @@ function toggleClipBusDataCtrl() {
 // Style for the clusters
 var styleCache = {};
 function getStyle(feature, resolution) {
+  var iconStyle = new ol.style.Style({
+    image: new ol.style.Icon({
+      src: 'assets/images/icons/mapPoint2.png', // Replace with the path to your bus icon image
+      scale: 0.60, // Adjust the scale as needed
+      //opacity: 0.23
+
+      opacity: parseFloat(document.getElementById("slider-value").value)
+
+    })
+  })
   var size = feature.get('features').length;
   var style = styleCache[size];
   if (!style) {
@@ -132,6 +142,9 @@ function getStyle(feature, resolution) {
         })
       })
     });
+  }
+  if (size<10) {
+    style = iconStyle;
   }
   return style;
 }
