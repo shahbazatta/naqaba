@@ -461,7 +461,8 @@ function addClipBusDataInteraction() {
     }
     addBusFeatures(filterGeoData);
     // Do something with the drawn polygon geometry
-
+    // open buses filter popup
+    showGeofenceFilterBusesPopup(busesData)
   });
 
   // Add the draw interaction to the map
@@ -1211,6 +1212,10 @@ $(document).ready(function () {
     addBusFeatures(busDataArr);
   });
 
+  $("#busesFilterFromDrawGeofenceCancelButton").click(function () {
+    $('#busesFilterFromDrawGeofence').hide();
+  });
+
 
 });
 
@@ -1218,4 +1223,25 @@ function closeFilterOnClose(id, imageid) {
   document.getElementById(id).style.display = "none";
   var element = document.getElementById(imageid);
   element.classList.remove("active");
+}
+
+function showGeofenceFilterBusesPopup(busesData){
+  $('#busesFilterFromDrawGeofence').show();
+  if(busesData && busesData.length){
+    var data = "";
+    busesData.forEach((element,i) => {
+      data = data + `<tr id='busesFilterFromDrawGeofence_tbody_id_tr_${i}'>
+                          <td>${element.device.avl_comp}</td>
+                          <td>${element.device.avl_comp_ar}</td>
+                          <td>${element.device.bus_oper_no}</td>
+                          <td>${element.device.device_comp}</td>
+                          <td>${element.device.trnspt_comp}</td>
+                          <td>${element.device.trnspt_comp_ar}</td>
+                          <td>${element.imei}</td>
+      </tr>`;
+    });
+    document.getElementById("busesFilterFromDrawGeofence_tbody_id").innerHTML = data;
+  }else{
+    document.getElementById("busesFilterFromDrawGeofence_tbody_id").innerHTML = "";
+  }
 }

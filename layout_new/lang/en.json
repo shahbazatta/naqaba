@@ -15,6 +15,7 @@
     "dimensionsSystemsCoLtd":"Dimensions Systems Co., Ltd",
     "transportationCompanies":"Transportation Companies",
     "transportationCompany":"Transportation Company",
+    "transportationCompanyArabic":"Transportation Company Arabic",
     "saudiPublicTransportCompany":"Saudi Public Transport Company",
     "makkahTransportCompany":"Makkah Transport Company",
     "arabTransportCompany":"Arab Transport Company",
@@ -154,7 +155,8 @@
     "Geofence_Type":"Geofence Type",
     "SearchGeofence=":"Search Geofence",
     "Season":"Season",
-    "Code_ID":"Code ID"
+    "Code_ID":"Code ID",
     
-
+    "Company":"Company",
+    "CompanyArabic":"Company Arabic"
 }

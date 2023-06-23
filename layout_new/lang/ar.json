@@ -15,6 +15,7 @@
     "dimensionsSystemsCoLtd":"شركة أنظمة الأبعاد المحدودة",
     "transportationCompanies":"شركات النقل",
     "transportationCompany":"شركة النقل",
+    "transportationCompanyArabic":"شركة النقل عربي",
     "saudiPublicTransportCompany":"الشركة السعودية للنقل العام",
     "makkahTransportCompany":"شركة نقليات مكة",
     "arabTransportCompany":"شركة النقل العربي",
@@ -155,5 +156,8 @@
     "Geofence_Type":"نوع السياج الجغرافي",
     "SearchGeofence=":"ابحث عن السياج الجغرافي",
     "Season":"موسم",
-    "Code_ID":"معرف الرمز"
+    "Code_ID":"معرف الرمز",
+
+    "Company":"شركة",
+    "CompanyArabic":"الشركة العربية"
 }
