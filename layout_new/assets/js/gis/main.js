@@ -96,6 +96,7 @@ function toggleClipBusDataCtrl() {
   drawClip.setActive(!drawClip.getActive());
   if (drawClip.getActive() == false) {
     clipBusDataSource.clear();
+    addBusFeatures(busDataArr);
   }
  
 }
@@ -103,6 +104,16 @@ function toggleClipBusDataCtrl() {
 // Style for the clusters
 var styleCache = {};
 function getStyle(feature, resolution) {
+  var iconStyle = new ol.style.Style({
+    image: new ol.style.Icon({
+      src: 'assets/images/icons/mapPoint2.png', // Replace with the path to your bus icon image
+      scale: 0.60, // Adjust the scale as needed
+      //opacity: 0.23
+
+      opacity: parseFloat(document.getElementById("slider-value").value)
+
+    })
+  })
   var size = feature.get('features').length;
   var style = styleCache[size];
   if (!style) {
@@ -132,6 +143,9 @@ function getStyle(feature, resolution) {
         })
       })
     });
+  }
+  if (size<=1) {
+    style = iconStyle;
   }
   return style;
 }
@@ -201,7 +215,7 @@ function addBusFeatures(dataArr) {
       return style;
     }
   });
-  //clusterLayer.setZIndex(10);
+  clusterLayer.setZIndex(5);
 
   // Add the cluster layer to the map
   map.addLayer(clusterLayer);
@@ -215,6 +229,7 @@ function addBusFeatures(dataArr) {
   });
 
   map.addLayer(clusterAnimateLayer);
+  clusterAnimateLayer.setZIndex(4);
   var vizTypeId = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('id');
   if (vizTypeId == null) {
     clusterAnimateLayer.setVisible(false);
@@ -447,7 +462,8 @@ function addClipBusDataInteraction() {
     }
     addBusFeatures(filterGeoData);
     // Do something with the drawn polygon geometry
-
+    // open buses filter popup
+    showGeofenceFilterBusesPopup(busesData)
   });
 
   // Add the draw interaction to the map
@@ -679,7 +695,7 @@ function addGeofenceData(data) {
     source: stationSource,
     style: styleFunction,
   });
-  //stationLyr.setZIndex(11);
+  stationLyr.setZIndex(2);
   map.addLayer(stationLyr);
   initSelectInteraction();
   map.getView().fit(stationSource.getExtent());
@@ -1244,6 +1260,10 @@ $(document).ready(function () {
     addBusFeatures(busDataArr);
   });
 
+  $("#busesFilterFromDrawGeofenceCancelButton").click(function () {
+    $('#busesFilterFromDrawGeofence').hide();
+  });
+
 
 });
 
@@ -1251,4 +1271,25 @@ function closeFilterOnClose(id, imageid) {
   document.getElementById(id).style.display = "none";
   var element = document.getElementById(imageid);
   element.classList.remove("active");
+}
+
+function showGeofenceFilterBusesPopup(busesData){
+  $('#busesFilterFromDrawGeofence').show();
+  if(busesData && busesData.length){
+    var data = "";
+    busesData.forEach((element,i) => {
+      data = data + `<tr id='busesFilterFromDrawGeofence_tbody_id_tr_${i}'>
+                          <td>${element.device.avl_comp}</td>
+                          <td>${element.device.avl_comp_ar}</td>
+                          <td>${element.device.bus_oper_no}</td>
+                          <td>${element.device.device_comp}</td>
+                          <td>${element.device.trnspt_comp}</td>
+                          <td>${element.device.trnspt_comp_ar}</td>
+                          <td>${element.imei}</td>
+      </tr>`;
+    });
+    document.getElementById("busesFilterFromDrawGeofence_tbody_id").innerHTML = data;
+  }else{
+    document.getElementById("busesFilterFromDrawGeofence_tbody_id").innerHTML = "";
+  }
 }

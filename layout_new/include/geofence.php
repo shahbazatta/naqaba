@@ -378,3 +378,38 @@
     </div>
   </div>
 </div>
+
+<!-- Geofence Delete Confirmation Box -->
+<div class="popUpBox popUpConfirm" id="busesFilterFromDrawGeofence">
+  <div class="boxPopUpTabCon" style="width: auto;left:30%">
+    <div class="boxHeader">
+      <img src="assets/images/icons/icon-fg.png">
+      <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'GeofenceInformation'); ?></h1>
+    </div>
+    <div id="">
+      <table id="busesFilterFromDrawGeofenceTable" class="tableNeo tablesorter">
+            <thead>
+              <tr>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Company'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'CompanyArabic'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'BusOperatingNo'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'DeviceCompany'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompany'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanyArabic'); ?></th>
+                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'IMEINo'); ?></th>
+              </tr>
+            </thead>
+            <tbody id="busesFilterFromDrawGeofence_tbody_id">
+              
+
+            </tbody>
+          </table>
+
+    </div>
+    <div class="boxFooter">
+          <button type="button" class="delete" id="busesFilterFromDrawGeofenceCancelButton">
+            <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Cancel'); ?></span>
+          </button>
+        </div>
+  </div>
+</div>

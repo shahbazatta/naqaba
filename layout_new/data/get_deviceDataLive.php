@@ -29,9 +29,7 @@ if(isset($_POST["api_key"]) && trim($_POST["api_key"])) {
 
 		$db = $client->selectDatabase(DB_NAME);
 		$collection = $db->gpsLiveNew;
-		$cursor = $collection->find();
-	//    $cursor = $collection->find({avltm: { $gt: 1687211706-86400000 }});
-		// $cursor = $collection->find({avltm: {$gte: (ISODate()*1)-86400000}});
+		$cursor = $collection->find(array('avltm'=>array ('$gte'=>(microtime(true)*1000)-(60*60*5*1000))));
 		$json_data = null;
 		//print_r($cursor);
 		 
