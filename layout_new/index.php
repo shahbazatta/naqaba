@@ -1,4 +1,9 @@
 <?php 
+// ----------------------------------------------------------------------------------------------------
+// - Display Errors
+// ----------------------------------------------------------------------------------------------------
+ini_set('display_errors', 'On');
+ini_set('html_errors', 0);
 require_once("config/config.php");
 require_once("verify/verify.php");
 require_once("lang/language.php");
