@@ -50,11 +50,12 @@ class GetAvlDevicesData
 
     private function getBusesData()
     {
-		$collection = $this->db->avlDevices;
-		$cursor = $collection->find(array(), array('projection' => array('_id' => 1, 'imei' => 1, 'plate_no' => 1, 'engplate_no' => 1, 'bus_oper_no' => 1)))->toArray();
+		$collection = $this->db->gpsLiveNew;
+		$cursor = $collection->find(array(), array('projection' => array('_id' => 1, 'imei' => 1, 'device.plate_no' => 1, 'device.engplate_no' => 1, 'device.bus_oper_no' => 1)))->toArray();
 		$this->avl_Bus_data = $cursor;
 		//print_r($this->avl_Bus_data);
     }
+
     private function getGeofenceData()
     {
 

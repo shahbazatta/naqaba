@@ -159,6 +159,7 @@
 
         <!--Companies list-->
         <div class="mainListRows newScrollBar" id="iemiSearchList">
+          <div id="busFinderTablePages"></div>
           <table id="busFinderTable" class="tableNeo tablesorter">
             <thead>
               <tr>
@@ -172,32 +173,35 @@
               <?php
                 $count = 0;
                 foreach ($classObject->avl_Bus_data as $output) {
+                  //print_r($output);
                   $count ++;
                   if ($lang_type == 'ar'){
-                    $plate_no = $output['plate_no'];
+                    $plate_no = $output['device']['plate_no'];
                   }
                   else{
-                    $plate_no = $output['engplate_no'];
+                    //$plate_no = $output['device']['engplate_no'];
+                    $plate_no = $output['device']['plate_no'];
                   }
                   echo "<tr id='".(int)$output['imei']."'>
                           <td>
                             <label class='cCheckBox2'>
-                              <input type='checkbox' id='".$output['_id']."' name='".$output['_id']."' value='".$output['_id']."'>
+                              <input type='checkbox' id='".$output['_id']."' name='".$output['_id']."' value='".$output['_id']."' data-imei = '".(int)$output['imei']."' onclick='busImeiCheckBox(this)'>
                               <span class='checkmark'></span>
                             </label>
                             ".(int)$output['imei']."
                           </td>
                           <td>".$plate_no."</td>
-                          <td>".$output['bus_oper_no']."</td>
+                          <td>".$output['device']['bus_oper_no']."</td>
                           <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'></button></td>
                         </tr>";
                   if ($count == 100) {
-                    break;
+                    //break;
                   }
                 }
               ?>
             </tbody>
           </table>
+
         </div>
       </div>
       

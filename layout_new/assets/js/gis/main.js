@@ -563,6 +563,8 @@ function initSelectInteraction () {
   });
 }
 var busesDataFiltered = [];
+
+
 function getAllBusesData() {
   //ajax call to api get all bus data
   // open loader @khuram,waqas
@@ -590,6 +592,7 @@ function getAllBusesData() {
     success: function (response) {
       //close laoder
       busesDataFiltered = busDataArr = response;
+
       addBusFeatures(busDataArr);
       initSelectInteraction();
     },
@@ -1093,6 +1096,50 @@ function geofenceSearchEvent(event, geofencesTable) {
     addGeofenceData(geofenceDataArr);
   }
 }
+
+
+var imeiBusesFiltered = [];
+function busImeiCheckBox (cb){
+  const imeiNo = cb.getAttribute('data-imei');
+  if (cb.checked) {
+    //console.log(imeiBusesFiltered);
+    var dataFilter1 = busesData.filter(function(data) {
+      return data.imei == imeiNo;
+    });
+    //console.log(dataFilter1);
+
+    if(imeiBusesFiltered.length <= 0){
+      imeiBusesFiltered = dataFilter1;
+    }else{
+      var tem_arr = imeiBusesFiltered.concat(dataFilter1);
+      imeiBusesFiltered = tem_arr;
+    }
+    addBusFeaturesReasign(imeiBusesFiltered);
+
+  }else{
+
+    var dataFilter2 = imeiBusesFiltered.filter(function(data) {
+      return data.imei != imeiNo;
+    });
+
+    console.log(dataFilter2.length);
+
+    if(dataFilter2.length > 0){
+
+      imeiBusesFiltered = dataFilter2;
+      addBusFeaturesReasign(imeiBusesFiltered);
+
+    }else{
+      imeiBusesFiltered = [];
+      addBusFeaturesReasign(busesData);
+    }
+
+    
+    //console.log(dataFilter);
+    
+  }
+}
+
 
 function zoomTo(amount) {
   const view = map.getView();

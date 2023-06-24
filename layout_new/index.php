@@ -27,7 +27,7 @@ $classObject = new GetAvlDevicesData();
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 
 <!-- jQuery -->
-<script src="assets/js/jquery-1.11.2.min.js"></script>
+<script src="assets/js/jquery-3.6.0.min.js"></script>
 
 <!-- Scroll Bar -->
 <link type="text/css" href="assets/plugin/scrollBar/css/perfect-scrollbar.css" rel="stylesheet" media="all" />
