@@ -19,9 +19,15 @@ $(document).ready(function() {
 	$(".busFinder .mainListRows").css({"max-height": $windowHeight - 331});
 	$(".geofences .mainListRows").css({"max-height": $windowHeight - 381,"max-width": $windowWidth - 97});
 
+	$("#busesFilterFromDrawGeofence #bffdg").css({
+		"width": $windowWidth - 200,
+		"margin-left": -1*(($windowWidth - 200)/2 + 40),
+		"max-height": $windowHeight - 200
+	});
 
-
-
+	$("#busesFilterFDGCLose").click(function () {
+		$('#busesFilterFromDrawGeofence').hide();
+	});
 
 	//Popup Box functions
 	//$('.popUpBox').show();

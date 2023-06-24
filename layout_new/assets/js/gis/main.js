@@ -1254,15 +1254,14 @@ $(document).ready(function () {
   document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
   document.getElementById("de_draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
   document.getElementById("activeGeoAna").addEventListener("click", toggleClipBusDataCtrl); //draw gerofence control listener
+  document.getElementById("deactive_bffdg").addEventListener("click", toggleClipBusDataCtrl); //draw gerofence control listener
 
 
   $("#applySettingBtn").click(function () {
     addBusFeatures(busDataArr);
   });
 
-  $("#busesFilterFromDrawGeofenceCancelButton").click(function () {
-    $('#busesFilterFromDrawGeofence').hide();
-  });
+  
 
 
 });

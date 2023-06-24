@@ -379,37 +379,36 @@
   </div>
 </div>
 
-<!-- Geofence Delete Confirmation Box -->
-<div class="popUpBox popUpConfirm" id="busesFilterFromDrawGeofence">
-  <div class="boxPopUpTabCon" style="width: auto;left:30%">
-    <div class="boxHeader">
-      <img src="assets/images/icons/icon-fg.png">
-      <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'GeofenceInformation'); ?></h1>
-    </div>
-    <div id="">
-      <table id="busesFilterFromDrawGeofenceTable" class="tableNeo tablesorter">
-            <thead>
-              <tr>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Company'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'CompanyArabic'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'BusOperatingNo'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'DeviceCompany'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompany'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanyArabic'); ?></th>
-                <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'IMEINo'); ?></th>
-              </tr>
-            </thead>
-            <tbody id="busesFilterFromDrawGeofence_tbody_id">
-              
+<!-- Geofence Bus Filter From Draw Selection Box -->
+<div class="popUpBox busesFilterFromDrawGeofence" id="busesFilterFromDrawGeofence">
+  <!-- <div class="searchBoxForMenu">
+    <input type="text" onkeyup=""  name="busListSearch" id="busListSearch" placeholder="Search" class="search">
+    <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
+  </div> -->
 
-            </tbody>
-          </table>
+  <!--Companies list-->
+  <div class="mainListRows newScrollBar" id="bffdg">
+    <table id="busesFilterFromDrawGeofenceTable" class="tableNeo tablesorter">
+      <thead>
+          <tr>
+            <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Company'); ?></th>
+            <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'CompanyArabic'); ?></th>
+            <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'BusOperatingNo'); ?></th>
+            <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'DeviceCompany'); ?></th>
+            <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompany'); ?></th>
+            <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanyArabic'); ?></th>
+            <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'IMEINo'); ?></th>
+          </tr>
+        </thead>
+        <tbody id="busesFilterFromDrawGeofence_tbody_id">
+          
+        </tbody>
+    </table>
 
-    </div>
-    <div class="boxFooter">
-          <button type="button" class="delete" id="busesFilterFromDrawGeofenceCancelButton">
-            <span><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Cancel'); ?></span>
-          </button>
-        </div>
+  </div>
+  <div id="deactive_bffdg">
+    <a href="javascript:void(0)" id="busesFilterFDGCLose">
+      <img src="assets/images/icons/back_white.png">
+    </a>
   </div>
 </div>
