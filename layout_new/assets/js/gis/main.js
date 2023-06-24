@@ -1205,27 +1205,29 @@ function filterGeofenceLayerData(filter_type, geofenceName) {
   filterGeofenceLayerArr = [];
   for (var idx in geofenceDataArr) {
     if (filter_type == 1) {
-      if (geofenceDataArr[idx].attributes.Season == 'Hajj') {
+      if (geofenceDataArr[idx].attributes.Season.includes('المنافذ')) {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
     }
     if (filter_type == 2) {
 
-      if (geofenceDataArr[idx].attributes.Season == 'Umrah') {
+      if (geofenceDataArr[idx].attributes.Season.includes('رمضان')) {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
     }
     if (filter_type == 3) {
-
-      if (geofenceDataArr[idx].attributes.Season.includes('المصلين بين المدن')) {
-        filterGeofenceLayerArr.push(geofenceDataArr[idx]);
-      }
-    }
-    if (filter_type == 4) {
-
       if (geofenceDataArr[idx].attributes.Season.includes('المشاعر المقدسة')) {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
+      
+    }
+    if (filter_type == 4) {
+      if (!geofenceDataArr[idx].attributes.Season.includes('المنافذ')
+      && !geofenceDataArr[idx].attributes.Season.includes('رمضان')
+      && !geofenceDataArr[idx].attributes.Season.includes('المشاعر المقدسة')) {
+        filterGeofenceLayerArr.push(geofenceDataArr[idx]);
+      }
+      
     }
   }
   addGeofenceData(filterGeofenceLayerArr);

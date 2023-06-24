@@ -197,11 +197,11 @@
               <td>
                 <label>Season</label>
                 <select id="season_edit" name="season_edit" class="bgSelect2">
-                  <option value="Hajj">Hajj</option>
-                  <option value="Umrah">Umrah</option>
-                  <option value=" المصلين بين المدن"> المصلين بين المدن</option>
+                  <option value="المنافذ">المنافذ</option>
+                  <option value='رمضان'>رمضان</option>
                   <option value="المشاعر المقدسة">المشاعر المقدسة</option>
-                </select>
+                  <option value="غير محدد">غير محدد</option>
+                  </select>
               </td>
             </tr>
           </table>
@@ -324,11 +324,11 @@
                 <label>Season</label>
                 <!-- <input type="text" class="inputText" id="season" name="season" maxlength="120"/> -->
                 <select id="season" name="season" class="bgSelect2">
-                  <option value="Hajj">Hajj</option>
-                  <option value="Umrah">Umrah</option>
-                  <option value=" المصلين بين المدن"> المصلين بين المدن</option>
+                  <option value="المنافذ">المنافذ</option>
+                  <option value='رمضان'>رمضان</option>
                   <option value="المشاعر المقدسة">المشاعر المقدسة</option>
-                </select>
+                  <option value="غير محدد">غير محدد</option>
+                  </select>
               </td>
             </tr>
           </table>

@@ -288,11 +288,11 @@
             <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h3>
             <img src="assets/images/icons/layer.svg">
             <select id="setLayer" name="setLayer" class="bgSelect" title="Basemap" >  
-              <option value="1" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'hajjSeason'); ?></option>
-              <option value="2"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'umrahSeason'); ?></option>
-              <option value="3">المصلين بين المدن</option>
-              <option value="4">المشاعر المقدسة</option>
-            </select>
+              <option value="1">المنافذ</option>
+              <option value="2">رمضان</option>
+              <option value="3">المشاعر المقدسة</option>
+              <option value="4">غير محدد</option>
+              </select>
           </div>
         </div>
         

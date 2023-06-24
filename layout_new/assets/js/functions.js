@@ -132,16 +132,16 @@ $( document ).ready(function() {
   $("#setLayer").on("change",function(){
     var SelectedLang = $(this).val();
     if(SelectedLang == '1'){
-      filterGeofenceLayerData(1,'Hajj');
+      filterGeofenceLayerData(1,'المنافذ');
     }
     else if(SelectedLang == '2'){
-      filterGeofenceLayerData(2,'Umrah');
+      filterGeofenceLayerData(2,'رمضان');
     }
     else if(SelectedLang == '3'){
-      filterGeofenceLayerData(3,' المصلين بين المدن');
+      filterGeofenceLayerData(3,'المشاعر المقدسة');
     }
     else if(SelectedLang == '4'){
-      filterGeofenceLayerData(4,'المشاعر المقدسة');
+      filterGeofenceLayerData(4,'غير محدد');
     }
   });
 
