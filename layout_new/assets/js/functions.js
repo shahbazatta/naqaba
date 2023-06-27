@@ -94,6 +94,7 @@ $( document ).ready(function() {
   });
 
    $("#busFinderTable,#geofencesTable,#busesFilterFromDrawGeofenceTable").tablesorter({
+      //widgets: ['zebra'], sortList: [[0,0]]
       widgets: ['zebra'], sortList: [[0,0]]
     });
 
