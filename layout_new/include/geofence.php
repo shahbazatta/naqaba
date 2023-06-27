@@ -401,7 +401,15 @@
           </tr>
         </thead>
         <tbody id="busesFilterFromDrawGeofence_tbody_id">
-          
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
         </tbody>
     </table>
 

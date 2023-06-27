@@ -1293,4 +1293,5 @@ function showGeofenceFilterBusesPopup(busesData){
   }else{
     document.getElementById("busesFilterFromDrawGeofence_tbody_id").innerHTML = "";
   }
+  tableSorterDataUpdate();
 }

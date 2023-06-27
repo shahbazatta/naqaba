@@ -93,10 +93,9 @@ $( document ).ready(function() {
     $('#slider-value').html($(this).val());
   });
 
-   $("#busFinderTable,#geofencesTable").tablesorter({
+   $("#busFinderTable,#geofencesTable,#busesFilterFromDrawGeofenceTable").tablesorter({
       widgets: ['zebra'], sortList: [[0,0]]
     });
-
 
   $("#geofenceEditButton").click(function() { 
       $('#viewGeofenceDetails').hide();
@@ -174,6 +173,11 @@ $( document ).ready(function() {
 
 
 });
+
+function tableSorterDataUpdate() {
+  $("#busesFilterFromDrawGeofenceTable").trigger("update");
+  //console.log("tableSorterDataUpdate");
+}
 
 function showNotification(txt)
 {
