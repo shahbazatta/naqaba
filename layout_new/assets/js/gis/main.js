@@ -1280,11 +1280,9 @@ function showGeofenceFilterBusesPopup(busesData){
     var data = "";
     busesData.forEach((element,i) => {
       data = data + `<tr id='busesFilterFromDrawGeofence_tbody_id_tr_${i}'>
-                          <td>${element.device.avl_comp}</td>
                           <td>${element.device.avl_comp_ar}</td>
                           <td>${element.device.bus_oper_no}</td>
                           <td>${element.device.device_comp}</td>
-                          <td>${element.device.trnspt_comp}</td>
                           <td>${element.device.trnspt_comp_ar}</td>
                           <td>${element.imei}</td>
       </tr>`;

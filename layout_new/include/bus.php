@@ -39,9 +39,6 @@
           <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Createdon'); ?>
             <span id ="cr_time">14/05/2023</span>
           </td>
-          <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Updatedon'); ?>
-            <span id ="up_time">02/06/2023</span>
-          </td>
         </tr>
         <tr>
           <td colspan="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'busNumber'); ?>

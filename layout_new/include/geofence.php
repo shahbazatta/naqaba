@@ -391,19 +391,15 @@
     <table id="busesFilterFromDrawGeofenceTable" class="tableNeo tablesorter">
       <thead>
           <tr>
-            <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Company'); ?></th>
             <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'CompanyArabic'); ?></th>
             <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'BusOperatingNo'); ?></th>
             <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'DeviceCompany'); ?></th>
-            <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompany'); ?></th>
             <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanyArabic'); ?></th>
             <th><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'IMEINo'); ?></th>
           </tr>
         </thead>
         <tbody id="busesFilterFromDrawGeofence_tbody_id">
           <tr>
-            <td></td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>

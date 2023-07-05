@@ -15,7 +15,7 @@
     "dimensionsSystemsCoLtd":"شركة أنظمة الأبعاد المحدودة",
     "transportationCompanies":"شركات النقل",
     "transportationCompany":"شركة النقل",
-    "transportationCompanyArabic":"شركة النقل عربي",
+    "transportationCompanyArabic":"شركة النقل",
     "saudiPublicTransportCompany":"الشركة السعودية للنقل العام",
     "makkahTransportCompany":"شركة نقليات مكة",
     "arabTransportCompany":"شركة النقل العربي",
@@ -126,10 +126,10 @@
     "Odata":"Port",
     "Createdon":"تم إنشاؤها على",
     "Updatedon":"تحديث في",
-    "DeviceCompany":"شركة الأجهزة",
+    "DeviceCompany":"نوح الجهاز",
     "OperatorNo":"رقم التشغيل",
-    "EnginePlateNo":"لوحة المركبة لا",
-    "PlateNo":"لوحة لا",
+    "EnginePlateNo":"(إنجليزي)رقم أللوحة",
+    "PlateNo":"(عربي)رقم أللوحة",
     "GeofenceInformation":"معلومات السياج الجغرافي",
     "Update":"تحديث",
     "Cancel":"يلغي",
@@ -141,7 +141,7 @@
     "Action":"فعل",
 
     "Name":"اسم",
-    "BusOperatingNo":"رقم تشغيل الحافلة",
+    "BusOperatingNo":"رقم أللوحة",
     "BusNo":"رقم الحافلة",
     "IMEINo":"رقم IMEI",
     "SearchIMEINumber":"ابحث عن رقم IMEI",
@@ -159,5 +159,5 @@
     "Code_ID":"معرف الرمز",
 
     "Company":"شركة",
-    "CompanyArabic":"الشركة العربية"
+    "CompanyArabic":"شركة ألتتبع"
 }
