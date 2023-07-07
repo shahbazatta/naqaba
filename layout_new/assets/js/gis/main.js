@@ -518,8 +518,7 @@ function initSelectInteraction () {
           //$('#busToolTipBox').show();
           document.getElementById("imei_no").innerHTML = data['imei'];
           document.getElementById("avltm").innerHTML = new Date(data["avltm"]).toLocaleString();
-          document.getElementById("up_time").innerHTML = new Date(data["updatedon"]).toLocaleString();
-          document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toLocaleString();
+          //document.getElementById("up_time").innerHTML = new Date(data["updatedon"]).toLocaleString();
           document.getElementById("cr_time").innerHTML = new Date(data["createdon"]).toLocaleString();
           document.getElementById("ang").innerHTML = data['ang'];
           document.getElementById("speed").innerHTML = data['spd'];
