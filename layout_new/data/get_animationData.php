@@ -30,7 +30,7 @@ if( isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
 		$imei_rec = (int)trim($_POST["imei_no"]);
 
 		$db = $client->selectDatabase(DB_NAME);
-		$collection = $db->gpsLiveNew;
+		$collection = $db->gpsLive;
 		$cursor = $collection->find(array('imei' => $imei_rec));
 		$json_data = null;
 		//print_r($cursor);
