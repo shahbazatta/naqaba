@@ -172,8 +172,52 @@ $( document ).ready(function() {
     $("#fullScreenOn").show();
   });
 
+  $("button.actionBtn").click(function(){
+    $(".moreAction").hide();
+    $(this).children(".moreAction").show();
+    //console.log("button.actionBtn");
+  });
 
 });
+var getImeiNo;
+
+function animationImei(cb) {
+  const imeiNo = cb.getAttribute('data-imei');
+  $("#datePickerWrapper").show();
+  $('#dateRangeImei').focus();
+  $('.daterangepicker .drp-buttons .btn.btn-primary').prop('disabled', true);
+  getImeiNo = imeiNo;
+  //console.log("this is: " + imeiNo);
+}
+
+$(function() {
+  $('#dateRangeImei').daterangepicker({
+    opens: 'right',
+    locale: {
+        applyLabel: 'Apply Date Range',
+        format: "DD/MM/YYYY"
+    }
+  }, function(start, end, label) {
+    closeDateRange();
+    $(".moreAction").hide();
+
+    $(".busFinder>a").removeClass("active");
+    $('#busFinderBox').hide();
+
+    $(".animationPanel").show();
+    $("#startDateRange").html(start.format('D MMMM, YYYY'));
+    $("#endDateRange").html(end.format('D MMMM, YYYY'));
+
+    getDataForAnim(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'))
+
+  });
+});
+
+function closeDateRange() {
+  $("#datePickerWrapper").hide();
+}
+
+
 
 function tableSorterDataUpdate() {
   $("#busesFilterFromDrawGeofenceTable").trigger("update");

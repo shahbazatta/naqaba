@@ -575,6 +575,7 @@ table.tableNeo button.actionBtn{
 	cursor: pointer; 
 	padding: 0px;
 	margin: 0px;
+	position: relative;
 }
 table.tableNeo button.actionBtn>img{
 	transition: 0.6s ease;
@@ -1266,4 +1267,321 @@ table.tablesorter thead tr .header {
 #busesFilterFDGCLose img{
 	width: 26px;
 	height: 26px;
+}
+.moreAction{
+	width: 190px;
+	display: none;
+
+	background-color: #fff;
+	position: absolute;
+	top: 25px;
+	right: -2px;
+	z-index: 999999;
+
+	border-radius: 9px;
+	overflow: hidden;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.moreAction div{
+	display: block;
+	font-family: 'Prompt', sans-serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight: 400;
+	color:#000;
+	cursor:pointer;
+	text-align: left;
+	padding: 11px 7px 11px 38px;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.moreAction div:hover{
+	background-color: #f0f0f0;
+}
+.moreAction div.icon_anim{
+	background-image: url(../images/icons/animation.png);
+}
+.moreAction div.icon_edit{
+	background-image: url(../images/icons/edit.png);
+}
+.moreAction div.icon_delete{
+	background-image: url(../images/icons/delete.png);
+}
+.moreAction div.icon_done{
+	background-image: url(../images/icons/done.png);
+}
+
+.datePickerWrapper{
+	position: absolute;
+	width: 100%;
+	height: 720px;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	z-index: 999;
+}
+.datePickerWrapper .datePickerBox{
+	position: absolute;
+	width: 500px;
+	height: auto;
+	top: 200px;
+	left: -250px;
+	margin-left: 50%;
+	background-color: #ffffff;
+	padding: 20px 20px 280px 20px;
+	border-radius: 9px;
+	overflow: hidden;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.datePickerWrapper .datePickerBox #dateRangeImei{
+	border: 0px solid #d0d0d0;
+	width: 220px;
+	height: 1px;
+	overflow: hidden;
+	color: #ffffff;
+}
+.daterangepicker .drp-buttons .drp-selected, .daterangepicker .drp-buttons .cancelBtn.btn {
+	display: none;
+}
+.datePickerWrapper .datePickerBox .head{
+	font-family: 'Prompt', sans-serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight: 400;
+	color:#000;
+}
+.daterangepicker td.in-range {
+    background-color: #eeeeee  !important;
+}
+.daterangepicker td.active, .daterangepicker td.active:hover {
+    background-color: #000 !important;
+}
+.daterangepicker:before, .daterangepicker:after {
+    content: none !important;
+}
+
+.datePickerWrapper .datePickerBox .close{
+		position: absolute;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+}
+.daterangepicker .drp-buttons .btn.btn-primary {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+
+    padding: 5px 20px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #000000;
+
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.daterangepicker .drp-buttons .btn.btn-primary:disabled {
+    color: #555;
+    background-color: #ddd;
+    border-color: #ddd;
+}
+.daterangepicker .calendar-table td.today{
+	background-color: transparent !important;
+	color: #000 !important;
+}
+.daterangepicker td.today:hover {
+    background-color: #eee !important;
+    border-color: transparent;
+    color: inherit;
+}
+
+.animationPanel{
+	width: 940px;
+	height: auto;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+	background-color: #ffffff;
+	position: absolute;
+	bottom: 16px;
+	right: 95px;
+	z-index: 9999;
+	display: none;
+}
+
+.animationPanel .animHeader{
+	width: auto;
+	height: 64px;
+	background-color: #000;
+	position: relative;
+}
+
+.animationPanel .animHeader .date{
+	width: 550px;
+	height: 40px;
+	position: absolute;
+	margin-left: 50%;
+	left: -275px;
+	top: 12px;
+	text-align: center;
+}
+.animationPanel .animHeader .date .dateRangeShow{
+	color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+	cursor: pointer;
+	display: inline-block;
+}
+.animationPanel .animHeader .date .dateRangeShow #startDateRange{
+	background-image: url(../images/icons/calendar.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding: 0px 5px 0px 24px;
+}
+.animationPanel .animHeader .date .dateRangeShow #endDateRange{
+	padding: 0px 24px 0px 5px;
+}
+.animationPanel .animHeader .date .dateRangeShow .selectDaterange{
+	color: #828282;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  display: inline-block;
+  padding: 0px 20px;
+	background-image: url(../images/icons/chevron_down.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.animationPanel .animHeader .hideBtn{
+	width: 90px;
+	height: 40px;
+	position: absolute;
+	right: 10px;
+	top: 12px;
+	background-color: #000;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	font-family: 'Prompt', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.animationPanel .animHeader .avltmBtn{
+	width: 90px;
+	height: 40px;
+	position: absolute;
+	left: 10px;
+	top: 12px;
+	background-color: #000;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	font-family: 'Prompt', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+
+.animationPanel .animBody{
+	width: auto;
+	height: 96px;
+	padding: 20px 0px;
+}
+.animationPanel .animBody .animBar{
+	margin: 0px auto;
+	width: 909px;
+	height: 96px;
+	background-image: url(../images/icons/anim-bar.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	display: none;
+}
+.animationPanel .animBody .animBarLoading{
+	margin: 0px auto;
+	width: 40px;
+	height: 40px;
+}
+.animationPanel .animBody .animBarLoading img{
+	margin: 22px 0px 0px 0px;
+	width: 40px;
+	height: 40px;
+}
+.animationPanel .animBody .animBar .animBarFill{
+	display: block;
+	height: 96px;
+	background-color: rgba(0, 0, 0, 0.2);
+	float: left;
+  border-radius: 6px;
+  position: relative;
+}
+.animationPanel .animBody .animBar .animBarFill>img{
+	width: 6px;
+	height: 64px;
+	position: absolute;
+	top: 16px;
+	right: -3px;
+}
+
+.animationPanel .animControl{
+	width: auto;
+	height: 40px;
+	margin: 0px 16px 16px 16px;
+	background-color: #f0f0f0;
+	display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 8px;
+}
+.animationPanel .animControl button{
+	background-color: #fff;
+  border-radius: 8px;
+  color: #000;
+	border: none;
+	cursor: pointer;
+	font-family: 'Prompt', sans-serif;
+}
+.animationPanel .animControl button.palyBtn{
+	align-self: stretch;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.animationPanel .animControl button.speedBtn, .animationPanel .animControl button.resetBtn{
+	width: 98px;
+	height: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+
+}
+.animationPanel .animControl #consumeTime, .animationPanel .animControl #totalTime{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 0px 20px;
 }

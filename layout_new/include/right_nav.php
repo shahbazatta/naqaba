@@ -192,20 +192,24 @@
                           </td>
                           <td>".$plate_no."</td>
                           <td>".$output['device']['bus_oper_no']."</td>
-                          <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'></button></td>
+                          <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'>
+                              <div class='moreAction'>
+                                <div class='icon_anim' onclick='animationImei(this)' data-imei = '".(int)$output['imei']."'>Animation</div>
+                              </div>
+                          </button></td>
                         </tr>";
                   if ($count == 100) {
-                    //break;
+                    break;
                   }
                 }
               ?>
             </tbody>
           </table>
-
         </div>
       </div>
-      
     </div>
+    
+
 
     <div class="geofences">
       <a href="javascript:void(0)"><img src="assets/images/icons/routing.png"></a>
@@ -361,4 +365,53 @@
 
     <div class="logout"><a href="login.php?logout"><img src="assets/images/icons/exit.svg"></a></div>
   </nav>
+</div>
+
+<div class="datePickerWrapper" id="datePickerWrapper">
+  <div class="datePickerBox">
+    <div class="head">Select Date Range</div>
+    <input type="text" id="dateRangeImei" name="dateRangeImei" value="" />
+    <div class="close" onclick="closeDateRange()"><img src="assets/images/icons/close.svg"></div>
+  </div>
+</div>
+
+<div class="animationPanel" id="animationPanel">
+  
+  <div class="animHeader">
+    <div class="date">
+      <div class="dateRangeShow">
+        <span id="startDateRange"></span> - <span id="endDateRange"></span>
+        <br>
+        <span class="selectDaterange">Select Date Range</span>
+      </div>
+    </div>
+
+    <button type="button" class="avltmBtn" id="avltmBtn"><img src="assets/images/icons/clock.png"> Avltm</button>
+    <button type="button" class="hideBtn" id="hideBtn"><img src="assets/images/icons/screenmirroring.png"> Hide</button>
+  </div>
+
+  <div class="animBody">
+    
+    <div class="animBar" id="animBar">
+      <span class="animBarFill" style="width: 45%;">
+        <img src="assets/images/icons/anim-bar-handle.png">
+      </span>
+    </div>
+
+    <div class="animBarLoading" id="animBarLoading">
+      <img src="assets/images/icons/loading.gif">
+    </div>
+
+  </div>
+
+  <div class="animControl">
+    <button type="button" class="speedBtn" id="speedBtn"><img src="assets/images/icons/speedometer.png"> Speed</button>
+    <button type="button" class="palyBtn" id="palyBtn">
+      <span id="consumeTime">00:00:00</span> 
+      <img src="assets/images/icons/play.png"> 
+      <span id="totalTime">00:00:00</span>
+    </button>
+    <button type="button" class="resetBtn" id="resetBtn"><img src="assets/images/icons/refresh.png"> Reset</button>
+  </div>
+
 </div>

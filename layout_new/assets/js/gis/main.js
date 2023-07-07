@@ -786,8 +786,38 @@ function downloadJSON() {
   URL.revokeObjectURL(url);
 }
 
+var animationDataArr = [];
+function getDataForAnim(imei, sDate, eDate) {
+
+  console.log("imei no: " + imei + " Start Date: " + sDate + " End Date: " + eDate);
+  
+  $('#animBarLoading').show();
+
+  $.ajax({
+    url: "./data/get_animationData.php",
+    method: "POST",
+    dataType: "json",
+    data: {
+      api_key: "becdf4fbbbf49dbc",
+      imei_no: imei,
+      start_date: sDate,
+      end_date: eDate
+    },
+    success: function (response) {
+      //close laoder
+      animationDataArr = response;
+
+      $('#animBarLoading').hide();
+      $('#animBar').show();
+      console.log('animationDataArr:', animationDataArr);
+    },
+    error: function (xhr, status, error) {
+      console.log('Error:', error);
+    }
+  });
 
 
+}
 
 //document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
 
