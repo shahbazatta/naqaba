@@ -15,9 +15,7 @@
           <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Avltm'); ?>
             <span id ="avltm">1685387722000</span>
           </td>
-		  <td><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'Avltm'); ?>
-            <span id ="up_time">1685387722000</span>
-          </td>
+		  
         </tr>
         <tr>
           <td colspan="2">
