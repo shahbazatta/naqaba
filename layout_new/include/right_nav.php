@@ -375,6 +375,7 @@
   </div>
 </div>
 
+
 <div class="animationPanel" id="animationPanel">
   
   <div class="animHeader">
@@ -386,8 +387,8 @@
       </div>
     </div>
 
-    <button type="button" class="avltmBtn" id="avltmBtn"><img src="assets/images/icons/clock.png"> Avltm</button>
-    <button type="button" class="hideBtn" id="hideBtn"><img src="assets/images/icons/screenmirroring.png"> Hide</button>
+    <button type="button" class="closeBtn" id="closeBtn" onclick="closeAnimationPanel()"><img src="assets/images/icons/close.png"> Close</button>
+    <button type="button" class="hideBtn" id="hideBtn" onclick="hideAnimationPanel()"><img src="assets/images/icons/screenmirroring.png"> Hide</button>
   </div>
 
   <div class="animBody">
@@ -415,3 +416,4 @@
   </div>
 
 </div>
+<button type="button" class="animationRestoreBtn" id="animationRestoreBtn" onclick="showAnimationPanel()"><img src="assets/images/icons/animation16.png"> Animation Restore</button>

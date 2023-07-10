@@ -789,7 +789,7 @@ var animationDataArr = [];
 function getDataForAnim(imei, sDate, eDate) {
 
   console.log("imei no: " + imei + " Start Date: " + sDate + " End Date: " + eDate);
-  
+  $('#animBar').hide();
   $('#animBarLoading').show();
 
   $.ajax({

@@ -200,6 +200,7 @@ $(function() {
   }, function(start, end, label) {
     closeDateRange();
     $(".moreAction").hide();
+    $("#animationRestoreBtn").hide();
 
     $(".busFinder>a").removeClass("active");
     $('#busFinderBox').hide();
@@ -212,6 +213,18 @@ $(function() {
 
   });
 });
+
+function closeAnimationPanel() {
+  $(".animationPanel").hide();
+}
+function hideAnimationPanel() {
+  $(".animationPanel").hide();
+  $("#animationRestoreBtn").show();
+}
+function showAnimationPanel() {
+  $(".animationPanel").show();
+  $("#animationRestoreBtn").hide();
+}
 
 function closeDateRange() {
   $("#datePickerWrapper").hide();

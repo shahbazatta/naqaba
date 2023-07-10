@@ -28,11 +28,23 @@ if( isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
 		}
 
 		$imei_rec = (int)trim($_POST["imei_no"]);
+		$start_date = trim($_POST["start_date"]);
+		$end_date = trim($_POST["end_date"]);
+
+		$gt_date = new \MongoDB\BSON\UTCDateTime(strtotime($start_date) * 1000);
+		$lt_date = new \MongoDB\BSON\UTCDateTime(strtotime($end_date) * 1000);
+
+		$gt_date2 = (string) $gt_date;
+		$lt_date2 = (string) $lt_date;
+
 
 		$db = $client->selectDatabase(DB_NAME);
 		$collection = $db->gpsLive;
-		$cursor = $collection->find(array('imei' => $imei_rec));
+		//$cursor = $collection->find(array('imei' => $imei_rec));
+		$cursor = $collection->find(array('avltm'=>array ('$gte'=> (int) $gt_date2, '$lte' => (int) $lt_date2 ), 'imei' => $imei_rec));
+
 		$json_data = null;
+
 		//print_r($cursor);
 		 
 		echo $json_data = json_encode(iterator_to_array($cursor), JSON_UNESCAPED_UNICODE);
