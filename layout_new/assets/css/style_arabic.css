@@ -81,3 +81,12 @@ table.tablesorter thead tr .header { background-position: center left 20px; }
 .bgSelect2, .bgSelect2 option{
     font-family: 'Noto Kufi Arabic' !important;
 }
+.moreAction {
+    left: -2px;
+    right: auto;
+}
+
+.datePickerWrapper .datePickerBox .close {
+    right: auto;
+    left: 10px;
+}

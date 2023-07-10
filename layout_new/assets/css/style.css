@@ -1342,6 +1342,7 @@ table.tablesorter thead tr .header {
 	height: 1px;
 	overflow: hidden;
 	color: #ffffff;
+	float: left;
 }
 .daterangepicker .drp-buttons .drp-selected, .daterangepicker .drp-buttons .cancelBtn.btn {
 	display: none;
