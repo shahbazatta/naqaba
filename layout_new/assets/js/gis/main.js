@@ -805,7 +805,7 @@ function getDataForAnim(imei, sDate, eDate) {
     success: function (response) {
       //close laoder
       animationDataArr = response;
-
+      addBusFeatures(animationDataArr);
       $('#animBarLoading').hide();
       $('#animBar').show();
       console.log('animationDataArr:', animationDataArr);
