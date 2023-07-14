@@ -809,6 +809,7 @@ function getDataForAnim(imei, sDate, eDate) {
       $('#animBarLoading').hide();
       $('#animBar').show();
       console.log('animationDataArr:', animationDataArr);
+      runFor100Seconds();
     },
     error: function (xhr, status, error) {
       console.log('Error:', error);
@@ -1322,3 +1323,31 @@ function showGeofenceFilterBusesPopup(busesData){
   }
   tableSorterDataUpdate();
 }
+
+// Function to execute after 100 seconds
+function after100Seconds() {
+  console.log("100 seconds have passed!");
+  // Add your desired code here
+}
+
+// Delay function
+function delay(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+// Run for 100 seconds
+async function runFor100Seconds() {
+  for (let i = 0; i < 100; i++) {
+    //console.log("Time elapsed:", (i + 1), "second(s)");
+   var percentBar = i+1;
+    document.getElementsByClassName("animBarFill")[0].style.width=i+1+"%";
+    var uptoLength = Math.round(busDataArr.length*percentBar/100);
+    sliceBusDataArr = busDataArr.slice(0,i+1);
+    addBusFeatures(sliceBusDataArr);
+    await delay(1000); // Delay for 1 second (1000 milliseconds)
+  }
+  after100Seconds(); // Call the function after 100 seconds
+}
+
+
+
