@@ -1342,7 +1342,7 @@ async function runFor100Seconds() {
    var percentBar = i+1;
     document.getElementsByClassName("animBarFill")[0].style.width=i+1+"%";
     var uptoLength = Math.round(busDataArr.length*percentBar/100);
-    sliceBusDataArr = busDataArr.slice(0,i+1);
+    sliceBusDataArr = busDataArr.slice(0,uptoLength);
     addBusFeatures(sliceBusDataArr);
     await delay(1000); // Delay for 1 second (1000 milliseconds)
   }
