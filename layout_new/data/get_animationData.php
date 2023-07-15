@@ -39,9 +39,9 @@ if( isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
 
 
 		$db = $client->selectDatabase(DB_NAME);
-		$collection = $db->gpsLive;
-		//$cursor = $collection->find(array('imei' => $imei_rec));
-		$cursor = $collection->find(array('avltm'=>array ('$gte'=> (int) $gt_date2, '$lte' => (int) $lt_date2 ), 'imei' => $imei_rec));
+		$collection = $db->gpsHistorical;
+		// $cursor = $collection->find(array('imei' => $imei_rec));
+		$cursor = $collection->find(array('avltm'=>array ('$gte'=> (int) $gt_date2, '$lte' => (int) $lt_date2 ), 'imei' => $imei_rec), ['limit' => 1000] );
 
 		$json_data = null;
 
