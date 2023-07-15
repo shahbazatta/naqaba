@@ -1286,13 +1286,10 @@ function geofenceCheckBox (cb){
   const idGeofence = cb.getAttribute('data-id');
     
   if (cb.checked) {
-    //console.log(imeiBusesFiltered);
     var geoDataFilter1 = geofenceDataArr.filter(function(data) {
      return data._id.$oid == idGeofence;
     });
-   
-   // console.log(dataFilter1);
-   console.log("Checked: " + idGeofence);
+
    
 
     if(idGeofenceFiltered.length <= 0){
@@ -1301,7 +1298,8 @@ function geofenceCheckBox (cb){
       var tem_arr = idGeofenceFiltered.concat(geoDataFilter1);
       idGeofenceFiltered = tem_arr;
     }
-    console.log("idGeofenceFiltered length: " + idGeofenceFiltered.length);
+    //console.log("Checked: " + idGeofence);
+    //console.log("idGeofenceFiltered length: " + idGeofenceFiltered.length);
 
     addGeofenceData(idGeofenceFiltered);
 
@@ -1311,8 +1309,8 @@ function geofenceCheckBox (cb){
       return data._id.$oid != idGeofence;
     });
 
-    console.log("Unchecked: " + idGeofence);
-    console.log("geoDataFilter2 length: " + geoDataFilter2.length);
+    //console.log("Unchecked: " + idGeofence);
+    //console.log("geoDataFilter2 length: " + geoDataFilter2.length);
 
     if(geoDataFilter2.length > 0){
 
@@ -1321,15 +1319,9 @@ function geofenceCheckBox (cb){
 
     }else{
       idGeofenceFiltered = [];
-      //addGeofenceData(idGeofenceFiltered);
       stationLyr.setVisible(false);
     }
-
-    //console.log(dataFilter);
   }
-
-  
-
 }
 
 
