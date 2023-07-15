@@ -1115,20 +1115,30 @@ function unselectAllFeatures() {
 
 function geofenceSearchEvent(event, geofencesTable) {
   var value = document.getElementById(event).value;
+  console.log("value: " + value);
   if (value != null && value != '') {
     const myDiv = document.getElementById(geofencesTable);
     const inputElements = myDiv.querySelectorAll("tr");
+
+    //console.log("inputElements length: " + inputElements.length);
+    //console.log("inputElements: ", inputElements);
+
     for (i = 0; i < inputElements.length; ++i) {
       each = inputElements[i];
+
       if (each.id && each.id != '') {
         const myDiv = document.getElementById(each.id);
         const trInputs = myDiv.querySelectorAll("input");
+
         if (trInputs && trInputs.length) {
           for (j = 0; j < trInputs.length; ++j) {
             var element = trInputs[j].dataset;
+            //console.log("element: ", element);
             if (String(element.geofencename).includes(value) ||
-              String(element.english_name).includes(value) ||
-              String(element.arabic_name).includes(value)) {
+              String(element.arabicname).includes(value) ||
+              String(element.englishname).includes(value) ||
+              String(element.codeid).includes(value) ||
+              String(element.season).includes(value)) {
               var el = document.getElementById(each.id);
               if (el) {
                 el.classList.remove("d-none");
@@ -1298,6 +1308,7 @@ function geofenceCheckBox (cb){
       var tem_arr = idGeofenceFiltered.concat(geoDataFilter1);
       idGeofenceFiltered = tem_arr;
     }
+
     //console.log("Checked: " + idGeofence);
     //console.log("idGeofenceFiltered length: " + idGeofenceFiltered.length);
 
