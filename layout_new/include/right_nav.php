@@ -222,6 +222,7 @@
 
         <!--Companies list-->
         <div class="mainListRows newScrollBar">
+          <div id="geofencesTableLoading">Loading Geofence Data...</div>
           <table id="geofencesTable" class="tableNeo tablesorter">
             <thead>
               <tr>
@@ -245,8 +246,8 @@
                     echo "<tr id='geofence".$output['_id']."'>
                           <td>
                             <label class='cCheckBox2'>
-                              <input type='checkbox' id='".$output['_id']."' data-geofenceName='".$output['attributes']['Description']."' data-ArabicName='".$output['attributes']['ArabicName']."' data-EnglishName='".$output['attributes']['EnglishName']."' 
-                               name='".$output['_id']."' value='".$output['_id']."'>
+                              <input type='checkbox' id='".$output['_id']."' data-id='".$output['_id']."' data-geofenceName='".$output['attributes']['Description']."' data-ArabicName='".$output['attributes']['ArabicName']."' data-EnglishName='".$output['attributes']['EnglishName']."' 
+                               name='".$output['_id']."' value='".$output['_id']."' onclick='geofenceCheckBox(this)'>
                               <span class='checkmark'></span>
                             </label>
                             ".$name."

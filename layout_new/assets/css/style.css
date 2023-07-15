@@ -1606,3 +1606,29 @@ table.tablesorter thead tr .header {
 	z-index: 99999;
 	display: none;
 }
+
+#geofencesTable{
+	display: none;
+}
+
+#geofencesTableLoading{
+	position: relative;
+	background-color: #fff;
+	background-image: url(../images/icons/loading.gif);
+	background-size: 36px 36px;
+	background-position: left 5px center;
+	background-repeat: no-repeat;
+
+	padding: 10px 20px 10px 48px;
+	margin: 10px;
+
+	border-radius: 9px;
+	overflow: hidden;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+	color: #000;
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: 500; 
+	text-align: left;
+	display: block;
+}

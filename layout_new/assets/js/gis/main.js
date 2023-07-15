@@ -701,9 +701,10 @@ function addGeofenceData(data) {
 }
 
 var geofenceDataArr = [];
-function getAllGeofence() {
+var geofenceDataAvailable = false;
+function getPreDataAllGeofence() {
   //show loader box  @khuram,waqas
-  $('#loadingGeofenceData').show();
+  //$('#loadingGeofenceData').show();
 
   $.ajax({
     url: "./data/get_geofence.php",
@@ -716,10 +717,11 @@ function getAllGeofence() {
       // console.log(data);
       //hide loader dialog box @khuram,waqas
       geofenceDataArr = data;
-      addGeofenceData(geofenceDataArr);
+      geofenceDataAvailable = true;
+      
+      $('#geofencesTable').show();
+      $('#geofencesTableLoading').hide();
 
-      //Hide Geofence Data message
-      $('#loadingGeofenceData').hide();
 
     },
     error: function (jqXHR, exception) {
@@ -746,6 +748,22 @@ function getAllGeofence() {
       // $('#toolTipBox').show();
     },
   });
+}
+
+function getAllGeofence() {
+  
+  //show loader box  @khuram,waqas
+  $('#loadingGeofenceData').show();
+  
+  if(geofenceDataAvailable){
+    addGeofenceData(geofenceDataArr);
+  }else{
+
+  }
+
+  //Hide Geofence Data message
+  $('#loadingGeofenceData').hide();
+
 }
 
 function exportAsGeoJson() {
@@ -1262,6 +1280,64 @@ function filterGeofenceLayerData(filter_type, geofenceName) {
   addGeofenceData(filterGeofenceLayerArr);
 }
 
+var idGeofenceFiltered = [];
+function geofenceCheckBox (cb){
+  const idGeofence = cb.getAttribute('data-id');
+  
+  console.log(geofenceDataArr);
+
+  idGeofenceFiltered = [];
+  
+  console.log(geoDataFilter1);
+
+  
+  if (cb.checked) {
+    //console.log(imeiBusesFiltered);
+    var geoDataFilter1 = geofenceDataArr.filter(function(data) {
+     return data._id.$oid == idGeofence;
+    });
+   
+   // console.log(dataFilter1);
+   console.log("Checked: " + idGeofence);
+
+    if(idGeofenceFiltered.length <= 0){
+      idGeofenceFiltered = geoDataFilter1;
+    }else{
+      var tem_arr = idGeofenceFiltered.concat(geoDataFilter1);
+      idGeofenceFiltered = tem_arr;
+    }
+
+    console.log("idGeofenceFiltered: " + idGeofenceFiltered);
+    
+    addGeofenceData(idGeofenceFiltered);
+
+  }else{
+
+    console.log("Unchecked: " + idGeofence);
+
+    var geoDataFilter2 = geofenceDataArr.filter(function(data) {
+      return data._id.$oid == idGeofence;
+    });
+
+    // console.log(dataFilter2.length);
+
+    if(geoDataFilter2.length > 0){
+
+      idGeofenceFiltered = geoDataFilter2;
+      addGeofenceData(idGeofenceFiltered);
+
+    }else{
+      idGeofenceFiltered = [];
+      addGeofenceData(idGeofenceFiltered);
+    }
+
+    
+    //console.log(dataFilter);
+    
+  }
+}
+
+
 //filterGeofenceData(1,'Parking Allith Road - the coast'); call to search geofence on english name
 //filterGeofenceData(2,'موقف السيارات ربوة منى (صدقي)');  call to search geofence on arabic name
 $(document).ready(function () {
@@ -1269,9 +1345,13 @@ $(document).ready(function () {
   addDrawInteraction();
   addClipBusDataInteraction();
   // getAllGeofence();
+
   switchBaseMaps();
   getAllBusesData();
   //loadFiltersDataDevicesCompany();
+
+  getPreDataAllGeofence()
+
   $("#exportGeofence").click(function () {
     downloadJSON();
   });
