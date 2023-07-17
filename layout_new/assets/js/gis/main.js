@@ -1418,13 +1418,11 @@ async function runFor100Seconds() {
     //console.log("Time elapsed:", (i + 1), "second(s)");
    var percentBar = i+1;
     document.getElementsByClassName("animBarFill")[0].style.width=i+1+"%";
-    var uptoLength = Math.round(busDataArr.length*percentBar/100);
-    sliceBusDataArr = busDataArr.slice(0,uptoLength);
+    var startIndex = Math.round(busDataArr.length*i/100);
+    var endIndex = Math.round(busDataArr.length*percentBar/100);
+    sliceBusDataArr = busDataArr.slice(startIndex,endIndex);
     addBusFeatures(sliceBusDataArr);
     await delay(1000); // Delay for 1 second (1000 milliseconds)
   }
   after100Seconds(); // Call the function after 100 seconds
 }
-
-
-
