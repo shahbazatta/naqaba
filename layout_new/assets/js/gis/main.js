@@ -837,7 +837,7 @@ function getDataForAnim(imei, sDate, eDate) {
 
 }
 
-document.getElementById("palyBtn").addEventListener("click", runFor100Seconds);
+
 
 /*document.getElementById("bmap").onchange = function(){
          switchBaseMaps();
@@ -1364,7 +1364,7 @@ $(document).ready(function () {
   document.getElementById("de_draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
   document.getElementById("activeGeoAna").addEventListener("click", toggleClipBusDataCtrl); //draw gerofence control listener
   document.getElementById("deactive_bffdg").addEventListener("click", toggleClipBusDataCtrl); //draw gerofence control listener
-
+  document.getElementById("palyBtn").addEventListener("click", runFor100Seconds);
 
   $("#applySettingBtn").click(function () {
     addBusFeatures(busDataArr);
