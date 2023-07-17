@@ -837,7 +837,7 @@ function getDataForAnim(imei, sDate, eDate) {
 
 }
 
-//document.getElementById("draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl);
+document.getElementById("palyBtn").addEventListener("click", runFor100Seconds);
 
 /*document.getElementById("bmap").onchange = function(){
          switchBaseMaps();
@@ -1405,18 +1405,25 @@ function showGeofenceFilterBusesPopup(busesData){
 function after100Seconds() {
   console.log("100 seconds have passed!");
   // Add your desired code here
+  currentIndex =0;
 }
 
 // Delay function
 function delay(milliseconds) {
   return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
-
+var play= true;
+var currentIndex =0;
 // Run for 100 seconds
 async function runFor100Seconds() {
-  for (let i = 0; i < 100; i++) {
+  play =!play;
+  for (let i = currentIndex; i < 100; i++) {
     //console.log("Time elapsed:", (i + 1), "second(s)");
-   var percentBar = i+1;
+    if (play==false){
+      break;
+    }
+    var percentBar = i+1;
+    currentIndex =i;
     document.getElementsByClassName("animBarFill")[0].style.width=i+1+"%";
     var startIndex = Math.round(busDataArr.length*i/100);
     var endIndex = Math.round(busDataArr.length*percentBar/100);
