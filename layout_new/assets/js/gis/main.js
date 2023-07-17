@@ -1417,19 +1417,19 @@ var currentIndex =0;
 // Run for 100 seconds
 async function runFor100Seconds() {
   play =!play;
-  for (let i = currentIndex; i < 100; i++) {
+  for (let i = currentIndex; i < busDataArr.length; i++) {
     //console.log("Time elapsed:", (i + 1), "second(s)");
     if (play==false){
       break;
     }
     var percentBar = i+1;
     currentIndex =i;
-    document.getElementsByClassName("animBarFill")[0].style.width=i+1+"%";
+    document.getElementsByClassName("animBarFill")[0].style.width= (i/busDataArr.length)*100+"%";
     var startIndex = Math.round(busDataArr.length*i/100);
     var endIndex = Math.round(busDataArr.length*percentBar/100);
-    sliceBusDataArr = busDataArr.slice(startIndex,endIndex);
+    sliceBusDataArr = busDataArr.slice(i,i+1);
     addBusFeatures(sliceBusDataArr);
-    await delay(1000); // Delay for 1 second (1000 milliseconds)
+    await delay(100); // Delay for 1 second (1000 milliseconds)
   }
   after100Seconds(); // Call the function after 100 seconds
 }
