@@ -62,6 +62,8 @@ if(isset($_POST["api_key"]) && trim($_POST["api_key"])) {
 		//   }
 		$cursor = $collection->aggregate(
 			[
+				
+				['$match' => ['imei' => 359632105805342]],
 				['$group' => ['_id' => [
 					'dt' => '$date_str',
 					'im' => '$imei'
