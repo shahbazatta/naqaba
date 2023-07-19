@@ -412,7 +412,8 @@
     <button type="button" class="speedBtn" id="speedBtn"><img src="assets/images/icons/speedometer.png"> Speed</button>
     <button type="button" class="palyBtn" id="palyBtn">
       <span id="consumeTime">00:00:00</span> 
-      <img src="assets/images/icons/play.png"> 
+      <img id="playbtnIcon" src="assets/images/icons/play.png"> 
+      <img id="pausebtnIcon" src="assets/images/icons/pause.png"> 
       <span id="totalTime">00:00:00</span>
     </button>
     <button type="button" class="resetBtn" id="resetBtn"><img src="assets/images/icons/refresh.png"> Reset</button>

@@ -107,6 +107,18 @@ $( document ).ready(function() {
       $('#editGeofenceDetails').hide();
   });
 
+  $("#palyBtn").click(function() { 
+    if($(this).hasClass("active")){
+      $(this).removeClass("active");
+      $('#playbtnIcon').show();
+      $('#pausebtnIcon').hide();
+    }else{
+      $(this).addClass("active");
+      $('#playbtnIcon').hide();
+      $('#pausebtnIcon').show();
+    }
+  });
+
   $(".nClose").click(function() { 
       $('.notification').animate({top:"0px",opacity:"0.1"}, function(){
       $('.notification').hide();
