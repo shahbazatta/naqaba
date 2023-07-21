@@ -207,10 +207,9 @@ var getImeiNo;
 
 function animationImei(cb) {
   const imeiNo = cb.getAttribute('data-imei');
-  $("#datePickerWrapper").show();
-  $('#dateRangeImei').focus();
-  $('.daterangepicker .drp-buttons .btn.btn-primary').prop('disabled', true);
   getImeiNo = imeiNo;
+  showDateRange();
+
   //console.log("this is: " + imeiNo);
 }
 
@@ -233,8 +232,8 @@ $(function() {
     $("#startDateRange").html(start.format('D MMMM, YYYY'));
     $("#endDateRange").html(end.format('D MMMM, YYYY'));
 
-    getDataForAnim(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'))
-
+    getDataForAnim(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'));
+    console.log("this getImeiNo: " + getImeiNo);
   });
 });
 
@@ -252,6 +251,17 @@ function showAnimationPanel() {
 
 function closeDateRange() {
   $("#datePickerWrapper").hide();
+}
+function showDateRange(){
+  $("#datePickerWrapper").show();
+  $('#dateRangeImei').focus();
+  $('.daterangepicker .drp-buttons .btn.btn-primary').prop('disabled', true);
+}
+
+function changeDataPanel() {
+  closeAnimationPanel();
+  showDateRange();
+  console.log("close panel");
 }
 
 

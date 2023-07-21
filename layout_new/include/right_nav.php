@@ -383,7 +383,7 @@
   
   <div class="animHeader">
     <div class="date">
-      <div class="dateRangeShow">
+      <div class="dateRangeShow" onclick="changeDataPanel()">
         <span id="startDateRange"></span> - <span id="endDateRange"></span>
         <br>
         <span class="selectDaterange">Select Date Range</span>
