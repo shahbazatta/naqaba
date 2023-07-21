@@ -827,7 +827,7 @@ function getDataForAnim(imei, sDate, eDate) {
       $('#animBarLoading').hide();
       $('#animBar').show();
       console.log('animationDataArr:', animationDataArr);
-      runFor100Seconds();
+      // runFor100Seconds();
     },
     error: function (xhr, status, error) {
       console.log('Error:', error);
@@ -1405,7 +1405,7 @@ function showGeofenceFilterBusesPopup(busesData){
 function after100Seconds() {
   console.log("100 seconds have passed!");
   // Add your desired code here
-  currentIndex =0;
+  // currentIndex =0;
 }
 
 // Delay function
@@ -1414,14 +1414,24 @@ function delay(milliseconds) {
 }
 var play= true;
 var currentIndex =0;
+var sliderValue=0.0;
+// var stop = false;
 // Run for 100 seconds
 async function runFor100Seconds() {
-  play =!play;
+  // play =!play;
+  // stop = false;
+  // play = true;
+  // currentIndex = val;
+  currentIndex = busDataArr.length/(sliderValue+1);
+  if (currentIndex>=busDataArr.length)
+    currentIndex = 0;
   for (let i = currentIndex; i < busDataArr.length; i++) {
     //console.log("Time elapsed:", (i + 1), "second(s)");
-    if (play==false){
+    if (!play) {
+      sliderValue = (i/busDataArr.length)*100;
       break;
     }
+      
     var percentBar = i+1;
     currentIndex =i;
 
@@ -1439,5 +1449,16 @@ async function runFor100Seconds() {
 
 // animation slider function
 function animationSliderVal(rangeVal) {
-  console.log("animation slider value:  " + rangeVal);
+  // stop = true;
+  // play = false;
+  sliderValue = (100-rangeVal);
+  console.log("animation slider value:  " + sliderValue);
+  // runFor100Seconds(100-rangeVal);
+}
+
+// animation state function
+function animationState(val) {
+  play = val;
+  if (play)
+    runFor100Seconds();
 }

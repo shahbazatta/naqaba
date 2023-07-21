@@ -112,10 +112,12 @@ $( document ).ready(function() {
       $(this).removeClass("active");
       $('#playbtnIcon').show();
       $('#pausebtnIcon').hide();
+      animationState(false);
     }else{
       $(this).addClass("active");
       $('#playbtnIcon').hide();
       $('#pausebtnIcon').show();
+      animationState(true);
     }
   });
 
