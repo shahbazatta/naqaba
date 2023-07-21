@@ -1527,7 +1527,8 @@ table.tablesorter thead tr .header {
 .animationPanel .animBody .animBar .animBarFill{
 	display: block;
 	height: 96px;
-	background-color: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.0);
 	float: left;
   border-radius: 6px;
   position: relative;
@@ -1633,3 +1634,48 @@ table.tablesorter thead tr .header {
 	display: block;
 }
 #pausebtnIcon{ display:none; }
+
+/* The slider itself */
+.animation-slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 64px; /* Specified height */
+  background: transparent; 
+  outline: none; /* Remove outline */
+  opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  margin-top: 16px;
+}
+
+/* Mouse-over effects */
+.animation-slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.animation-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 6px; /* Set a specific slider handle width */
+  height: 64px; /* Slider handle height */
+  cursor: pointer; /* Cursor on hover */
+
+
+  background-image: url(../images/icons/anim-bar-handle.png);
+	background-size: 6px 64px;
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+.animation-slider::-moz-range-thumb {
+  width: 6px; /* Set a specific slider handle width */
+  height: 64px; /* Slider handle height */
+  cursor: pointer; /* Cursor on hover */
+
+  background-image: url(../images/icons/anim-bar-handle.png);
+	background-size: 6px 64px;
+	background-position: left center;
+	background-repeat: no-repeat;
+}

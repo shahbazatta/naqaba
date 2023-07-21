@@ -1424,7 +1424,10 @@ async function runFor100Seconds() {
     }
     var percentBar = i+1;
     currentIndex =i;
+
+    //change this line for animation slider
     document.getElementsByClassName("animBarFill")[0].style.width= (i/busDataArr.length)*100+"%";
+    
     var startIndex = Math.round(busDataArr.length*i/100);
     var endIndex = Math.round(busDataArr.length*percentBar/100);
     sliceBusDataArr = busDataArr.slice(i,i+1);
@@ -1432,4 +1435,9 @@ async function runFor100Seconds() {
     await delay(100); // Delay for 1 second (1000 milliseconds)
   }
   after100Seconds(); // Call the function after 100 seconds
+}
+
+// animation slider function
+function animationSliderVal(rangeVal) {
+  console.log("animation slider value:  " + rangeVal);
 }

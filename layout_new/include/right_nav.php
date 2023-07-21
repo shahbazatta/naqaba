@@ -397,8 +397,8 @@
   <div class="animBody">
     
     <div class="animBar" id="animBar">
-      <span class="animBarFill" style="width: 45%;">
-        <img src="assets/images/icons/anim-bar-handle.png">
+      <span class="animBarFill">
+        <input type="range" min="1" max="100" value="1" class="animation-slider" id="animationRangeSlider">
       </span>
     </div>
 

@@ -190,6 +190,18 @@ $( document ).ready(function() {
     //console.log("button.actionBtn");
   });
 
+
+  //Amination slider value update
+  var animSlider = document.getElementById("animationRangeSlider");
+  //var output = document.getElementById("demo");
+  //output.innerHTML = slider.value; // Display the default slider value
+
+  // Update the current slider value (each time you drag the slider handle)
+  animSlider.oninput = function() {
+    //output.innerHTML = this.value;
+    animationSliderVal(this.value);
+  }
+
 });
 var getImeiNo;
 
