@@ -1565,7 +1565,7 @@ async function runFor100Seconds() {
     addAnimateFeatures(sliceBusDataArr);
     var imeiText = document.getElementById('totalTime');
     var timeText = document.getElementById('consumeTime');
-    imeiText.textContent = sliceBusDataArr[0].imei+'='+sliceBusDataArr[0].spd;
+    imeiText.textContent = sliceBusDataArr[0].imei;
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
     await delay(100); // Delay for 1 second (1000 milliseconds)
   }
