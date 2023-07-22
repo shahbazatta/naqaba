@@ -1567,10 +1567,11 @@ async function runFor100Seconds() {
     var timeText = document.getElementById('consumeTime');
     imeiText.textContent = sliceBusDataArr[0].imei+'=IMEI';
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
-    await delay(100); // Delay for 1 second (1000 milliseconds)
+    await delay(speed); // Delay for 1 second (1000 milliseconds)
   }
   // after100Seconds(); // Call the function after 100 seconds
 }
+
 
 // animation slider function
 function animationSliderVal(rangeVal) {

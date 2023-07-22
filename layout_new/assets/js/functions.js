@@ -266,7 +266,23 @@ function changeDataPanel() {
   console.log("close panel");
 }
 
+var speed = 100;
+var speedState = 0;
 
+function setSpeed() {
+  if (speedState == 0) {
+    speed = 1000;
+    speedState++;
+  }
+  else if (speedState == 1) {
+    speed = 100;
+    speedState++;
+  }
+  else if (speedState == 2) {
+    speed = 10;
+    speedState=0;
+  }
+}
 
 function tableSorterDataUpdate() {
   $("#busesFilterFromDrawGeofenceTable").trigger("update");
