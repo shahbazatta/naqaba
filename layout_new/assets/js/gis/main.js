@@ -241,6 +241,99 @@ function addBusFeatures(dataArr) {
   //Hide loading bus data message
   $('#loadingBusData').hide();
 }
+var blink = true;
+function addAnimateFeatures(dataArr) {
+  var featuresArr = [];
+  busesDataFilterReference = [];
+  busesData = dataArr;
+  showBusCounter(busesData.length, "14120");
+  // var image_path = styles.geoMarker;//document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
+  for (let i = 0; i < dataArr.length; i++) {
+    var obj = dataArr[i];
+    var feature = new ol.Feature({
+      geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates)),
+      properties: obj
+    });
+    feature.setId(obj.imei);
+    feature.setProperties(obj);
+    var iconStyle = styles.geoMarker;
+    // new ol.style.Style({
+    //   image: new ol.style.Icon({
+    //     src: image_path, // Replace with the path to your bus icon image
+    //     scale: 0.60, // Adjust the scale as needed
+    //     //opacity: 0.23
+
+    //     opacity: parseFloat(document.getElementById("slider-value").value)
+
+    //   })
+    // });
+
+    // Set the icon style for the feature
+    feature.setStyle(iconStyle);
+    featuresArr.push(feature);
+  }
+  if (busesDataSource != undefined) {
+    busesDataSource.clear();
+  }
+
+  busesDataSource = new ol.source
+    .Vector({
+      features: featuresArr
+    });
+  // Create a cluster source with a distance of 40 pixels
+  clusterSource = new ol.source.Cluster({
+    distance: 50,
+    source: busesDataSource
+  });
+
+  clusterLayer = new ol.layer.Vector({
+    source: clusterSource,
+    style: function (feature) {
+      var size = feature.get('features').length;
+      var style = new ol.style.Style({
+        image: styles.geoMarker,
+        text: new ol.style.Text({
+          text: size.toString(),
+          fill: new ol.style.Fill({
+            color: '#FFFFFF'
+          })
+        })
+      });
+      return style;
+    }
+  });
+  clusterLayer.setZIndex(5);
+
+  // Add the cluster layer to the map
+  map.addLayer(clusterLayer);
+  blink = !blink;
+
+  var selectedStyle;
+  if (blink)
+    selectedStyle = styles.geoMarker;
+  else
+    selectedStyle = styles.icon;
+  clusterAnimateLayer = new ol.layer.AnimatedCluster({
+    name: 'Cluster',
+    source: clusterSource,
+    animationDuration: 700,
+    // Cluster style
+    style: selectedStyle
+  });
+
+  map.addLayer(clusterAnimateLayer);
+  clusterAnimateLayer.setZIndex(4);
+  var vizTypeId = document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('id');
+  if (vizTypeId == null) {
+    clusterAnimateLayer.setVisible(false);
+  }
+  else {
+    clusterLayer.setVisible(false);
+  }
+
+  //Hide loading bus data message
+  $('#loadingBusData').hide();
+}
 
 function addBusFeaturesReasign(dataArr) {
   var featuresArr = [];
@@ -475,7 +568,28 @@ function addClipBusDataInteraction() {
 var busDataArr;
 var selectedGeofence;
 var selectInteraction;
-
+const styles = {
+  'icon': new ol.style.Style({
+    image: new ol.style.Circle({
+      radius: 7,
+      fill: new ol.style.Fill({color: "rgba(0,151,222,1.0)"}),
+      stroke: new ol.style.Stroke({
+        color: "rgba(0,151,222,0.5)",
+        width: 7,
+      }),
+    }),
+  }),
+  'geoMarker': new ol.style.Style({
+    image: new ol.style.Circle({
+      radius: 7,
+      fill: new ol.style.Fill({color: "rgba(0,151,222,1.0)"}),
+      stroke: new ol.style.Stroke({
+        color: "rgba(0,151,222,0.5)",
+        width: 12,
+      }),
+    }),
+  }),
+};
 function initSelectInteraction () {
   selectInteraction = new ol.interaction.Select({
     layers: [clusterLayer, stationLyr, clusterAnimateLayer]
@@ -823,7 +937,7 @@ function getDataForAnim(imei, sDate, eDate) {
     success: function (response) {
       //close laoder
       animationDataArr = response;
-      addBusFeatures(animationDataArr);
+      addAnimateFeatures(animationDataArr);
       $('#animBarLoading').hide();
       $('#animBar').show();
       console.log('animationDataArr:', animationDataArr);
@@ -1448,10 +1562,10 @@ async function runFor100Seconds() {
     var startIndex = Math.round(animationDataArr.length*i/100);
     var endIndex = Math.round(animationDataArr.length*percentBar/100);
     sliceBusDataArr = animationDataArr.slice(i,i+1);
-    addBusFeatures(sliceBusDataArr);
-    var dateText = document.getElementById('totalTime');
+    addAnimateFeatures(sliceBusDataArr);
+    var imeiText = document.getElementById('totalTime');
     var timeText = document.getElementById('consumeTime');
-    dateText.textContent = sliceBusDataArr[0].imei;
+    imeiText.textContent = sliceBusDataArr[0].imei+'='+sliceBusDataArr[0].spd;
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
     await delay(100); // Delay for 1 second (1000 milliseconds)
   }
