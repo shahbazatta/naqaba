@@ -330,7 +330,7 @@ function addAnimateFeatures(dataArr) {
   else {
     clusterLayer.setVisible(false);
   }
-
+  
   //Hide loading bus data message
   $('#loadingBusData').hide();
 }
@@ -1567,6 +1567,11 @@ async function runFor100Seconds() {
     var timeText = document.getElementById('consumeTime');
     imeiText.textContent = sliceBusDataArr[0].imei+'=IMEI';
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
+    var lt = parseInt(i);
+    if (lt == 0)
+      map.getView().fit(busesDataSource.getExtent(), {size:map.getSize(), maxZoom:8});
+    else if (lt % 100 == 0)
+      map.getView().fit(busesDataSource.getExtent(), {size:map.getSize(), maxZoom:map.getView().getZoom()});
     await delay(speed); // Delay for 1 second (1000 milliseconds)
   }
   // after100Seconds(); // Call the function after 100 seconds
