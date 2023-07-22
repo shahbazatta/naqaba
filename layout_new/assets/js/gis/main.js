@@ -1431,18 +1431,6 @@ async function runFor100Seconds() {
   if (currentIndex>=animationDataArr.length)
     currentIndex = 0;
   
-    animationDataArr = animationDataArr.sort((a, b) => {
-    let fa = a.avltm,
-        fb = b.avltm;
-
-    if (fa < fb) {
-        return -1;
-    }
-    if (fa > fb) {
-        return 1;
-    }
-    return 0;
-});
   for (let i = currentIndex; i < animationDataArr.length; i++) {
     //console.log("Time elapsed:", (i + 1), "second(s)");
     if (!play) {
