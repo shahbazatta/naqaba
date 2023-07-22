@@ -270,6 +270,9 @@ function changeDataPanel() {
 function resetAnimation() {
   sliderValue = 0;
   currentIndex = 0;
+  reset = true;
+  document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+    
 }
 
 var speed = 100;

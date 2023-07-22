@@ -1519,6 +1519,7 @@ function showGeofenceFilterBusesPopup(busesData){
 // Function to execute after 100 seconds
 function after100Seconds() {
   console.log("100 seconds have passed!");
+  runFor100Seconds();
   // Add your desired code here
   // currentIndex =0;
 }
@@ -1530,6 +1531,7 @@ function delay(milliseconds) {
 var play= true;
 var currentIndex =0;
 var sliderValue=0.0;
+var reset = false;
 // var stop = false;
 // Run for 100 seconds
 async function runFor100Seconds() {
@@ -1551,7 +1553,10 @@ async function runFor100Seconds() {
       sliderValue = (i/animationDataArr.length)*100;
       break;
     }
-      
+    if (reset) {
+      reset = false;
+      break;
+    }
     var percentBar = i+1;
     currentIndex =i;
     sliderValue = (i/animationDataArr.length)*100;
@@ -1574,6 +1579,7 @@ async function runFor100Seconds() {
       map.getView().fit(busesDataSource.getExtent(), {size:map.getSize(), maxZoom:map.getView().getZoom()});
     await delay(speed); // Delay for 1 second (1000 milliseconds)
   }
+  runFor100Seconds();
   // after100Seconds(); // Call the function after 100 seconds
 }
 
