@@ -267,6 +267,11 @@ function changeDataPanel() {
   console.log("close panel");
 }
 
+function resetAnimation() {
+  sliderValue = 0;
+  currentIndex = 0;
+}
+
 var speed = 100;
 var speedState = 0;
 

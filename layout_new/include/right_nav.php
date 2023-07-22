@@ -416,7 +416,7 @@
       <img id="pausebtnIcon" src="assets/images/icons/pause.png"> 
       <span id="totalTime">00:00:00</span>
     </button>
-    <button type="button" class="resetBtn" id="resetBtn"><img src="assets/images/icons/refresh.png"> Reset</button>
+    <button type="button" class="resetBtn" id="resetBtn" onclick="resetAnimation()"><img src="assets/images/icons/refresh.png"> Reset</button>
   </div>
 
 </div>
