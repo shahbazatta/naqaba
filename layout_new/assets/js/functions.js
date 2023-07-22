@@ -241,6 +241,7 @@ $(function() {
 
 function closeAnimationPanel() {
   $(".animationPanel").hide();
+  addBusFeatures(busDataArr);
 }
 function hideAnimationPanel() {
   $(".animationPanel").hide();
