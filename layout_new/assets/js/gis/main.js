@@ -827,6 +827,7 @@ function getDataForAnim(imei, sDate, eDate) {
       $('#animBarLoading').hide();
       $('#animBar').show();
       console.log('animationDataArr:', animationDataArr);
+      document.getElementsByClassName("animBarFill")[0].style.width= 0+"%";
       // runFor100Seconds();
     },
     error: function (xhr, status, error) {
@@ -1364,7 +1365,7 @@ $(document).ready(function () {
   document.getElementById("de_draw_geofence").addEventListener("click", toggleDrawGeofenceCtrl); //draw gerofence control listener
   document.getElementById("activeGeoAna").addEventListener("click", toggleClipBusDataCtrl); //draw gerofence control listener
   document.getElementById("deactive_bffdg").addEventListener("click", toggleClipBusDataCtrl); //draw gerofence control listener
-  document.getElementById("palyBtn").addEventListener("click", runFor100Seconds);
+  // document.getElementById("palyBtn").addEventListener("click", runFor100Seconds);
 
   $("#applySettingBtn").click(function () {
     addBusFeatures(busDataArr);
@@ -1422,7 +1423,11 @@ async function runFor100Seconds() {
   // stop = false;
   // play = true;
   // currentIndex = val;
-  currentIndex = busDataArr.length/(sliderValue+1);
+  if (busDataArr != undefined)
+    currentIndex = (busDataArr.length * sliderValue) / 100;
+  else
+    currentIndex = 0;
+
   if (currentIndex>=busDataArr.length)
     currentIndex = 0;
   for (let i = currentIndex; i < busDataArr.length; i++) {
@@ -1434,9 +1439,10 @@ async function runFor100Seconds() {
       
     var percentBar = i+1;
     currentIndex =i;
-
+    sliderValue = (i/busDataArr.length)*100;
+    console.log("animation slider value:  " + sliderValue+"%");
     //change this line for animation slider
-    document.getElementsByClassName("animBarFill")[0].style.width= (i/busDataArr.length)*100+"%";
+    document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
     
     var startIndex = Math.round(busDataArr.length*i/100);
     var endIndex = Math.round(busDataArr.length*percentBar/100);
@@ -1444,15 +1450,16 @@ async function runFor100Seconds() {
     addBusFeatures(sliceBusDataArr);
     await delay(100); // Delay for 1 second (1000 milliseconds)
   }
-  after100Seconds(); // Call the function after 100 seconds
+  // after100Seconds(); // Call the function after 100 seconds
 }
 
 // animation slider function
 function animationSliderVal(rangeVal) {
   // stop = true;
   // play = false;
-  sliderValue = (100-rangeVal);
-  console.log("animation slider value:  " + sliderValue);
+  sliderValue = 100-rangeVal;
+  // document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+  console.log("animation slider value while sliding:  " + sliderValue);
   // runFor100Seconds(100-rangeVal);
 }
 

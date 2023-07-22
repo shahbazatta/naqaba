@@ -398,7 +398,7 @@
     
     <div class="animBar" id="animBar">
       <span class="animBarFill">
-        <input type="range" min="1" max="100" value="1" class="animation-slider" id="animationRangeSlider">
+        <input type="range" min="0.00" max="100.00" value="100.00" step="0.01" class="animation-slider" id="animationRangeSlider">
       </span>
     </div>
 
