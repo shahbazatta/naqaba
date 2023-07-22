@@ -1519,6 +1519,9 @@ function showGeofenceFilterBusesPopup(busesData){
 // Function to execute after 100 seconds
 function after100Seconds() {
   console.log("100 seconds have passed!");
+  // sliderValue = 0;
+  // currentIndex = 0;
+  document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
   runFor100Seconds();
   // Add your desired code here
   // currentIndex =0;
@@ -1579,7 +1582,11 @@ async function runFor100Seconds() {
       map.getView().fit(busesDataSource.getExtent(), {size:map.getSize(), maxZoom:map.getView().getZoom()});
     await delay(speed); // Delay for 1 second (1000 milliseconds)
   }
-  runFor100Seconds();
+  if (currentIndex+1 == animationDataArr.length) {
+    currentIndex = 0;
+    sliderValue = 0;
+  }
+  after100Seconds();
   // after100Seconds(); // Call the function after 100 seconds
 }
 
