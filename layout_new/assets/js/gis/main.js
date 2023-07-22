@@ -1423,31 +1423,48 @@ async function runFor100Seconds() {
   // stop = false;
   // play = true;
   // currentIndex = val;
-  if (busDataArr != undefined)
-    currentIndex = (busDataArr.length * sliderValue) / 100;
+  if (animationDataArr != undefined)
+    currentIndex = (animationDataArr.length * sliderValue) / 100;
   else
     currentIndex = 0;
 
-  if (currentIndex>=busDataArr.length)
+  if (currentIndex>=animationDataArr.length)
     currentIndex = 0;
-  for (let i = currentIndex; i < busDataArr.length; i++) {
+  
+    animationDataArr = animationDataArr.sort((a, b) => {
+    let fa = a.avltm,
+        fb = b.avltm;
+
+    if (fa < fb) {
+        return -1;
+    }
+    if (fa > fb) {
+        return 1;
+    }
+    return 0;
+});
+  for (let i = currentIndex; i < animationDataArr.length; i++) {
     //console.log("Time elapsed:", (i + 1), "second(s)");
     if (!play) {
-      sliderValue = (i/busDataArr.length)*100;
+      sliderValue = (i/animationDataArr.length)*100;
       break;
     }
       
     var percentBar = i+1;
     currentIndex =i;
-    sliderValue = (i/busDataArr.length)*100;
+    sliderValue = (i/animationDataArr.length)*100;
     console.log("animation slider value:  " + sliderValue+"%");
     //change this line for animation slider
     document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
     
-    var startIndex = Math.round(busDataArr.length*i/100);
-    var endIndex = Math.round(busDataArr.length*percentBar/100);
-    sliceBusDataArr = busDataArr.slice(i,i+1);
+    var startIndex = Math.round(animationDataArr.length*i/100);
+    var endIndex = Math.round(animationDataArr.length*percentBar/100);
+    sliceBusDataArr = animationDataArr.slice(i,i+1);
     addBusFeatures(sliceBusDataArr);
+    var dateText = document.getElementById('totalTime');
+    var timeText = document.getElementById('consumeTime');
+    dateText.textContent = sliceBusDataArr[0].imei;
+    timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
     await delay(100); // Delay for 1 second (1000 milliseconds)
   }
   // after100Seconds(); // Call the function after 100 seconds
@@ -1458,7 +1475,7 @@ function animationSliderVal(rangeVal) {
   // stop = true;
   // play = false;
   sliderValue = 100-rangeVal;
-  // document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+  document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
   console.log("animation slider value while sliding:  " + sliderValue);
   // runFor100Seconds(100-rangeVal);
 }
