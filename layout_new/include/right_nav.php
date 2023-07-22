@@ -409,7 +409,7 @@
   </div>
 
   <div class="animControl">
-    <button type="button" class="speedBtn" id="speedBtn"><img src="assets/images/icons/speedometer.png"> Speed</button>
+    <button type="button" class="speedBtn" id="speedBtn" onclick="setSpeed()"><img src="assets/images/icons/speedometer.png"> Speed</button>
     <button type="button" class="palyBtn" id="palyBtn">
       <span id="consumeTime">00:00:00</span> 
       <img id="playbtnIcon" src="assets/images/icons/play.png"> 
