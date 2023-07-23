@@ -941,7 +941,8 @@ function getDataForAnim(imei, sDate, eDate) {
       $('#animBarLoading').hide();
       $('#animBar').show();
       console.log('animationDataArr:', animationDataArr);
-      document.getElementsByClassName("animBarFill")[0].style.width= 0+"%";
+      //document.getElementsByClassName("animBarFill")[0].style.width= 0+"%";
+      document.getElementById("animationRangeSlider").value = 0.00;
       // runFor100Seconds();
     },
     error: function (xhr, status, error) {
@@ -1521,7 +1522,8 @@ function after100Seconds() {
   console.log("100 seconds have passed!");
   // sliderValue = 0;
   // currentIndex = 0;
-  document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+  //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+  document.getElementById("animationRangeSlider").value = sliderValue;
   runFor100Seconds();
   // Add your desired code here
   // currentIndex =0;
@@ -1565,7 +1567,9 @@ async function runFor100Seconds() {
     sliderValue = (i/animationDataArr.length)*100;
     console.log("animation slider value:  " + sliderValue+"%");
     //change this line for animation slider
-    document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+    //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+
+    document.getElementById("animationRangeSlider").value = sliderValue;
     
     var startIndex = Math.round(animationDataArr.length*i/100);
     var endIndex = Math.round(animationDataArr.length*percentBar/100);
@@ -1596,7 +1600,8 @@ function animationSliderVal(rangeVal) {
   // stop = true;
   // play = false;
   sliderValue = 100-rangeVal;
-  document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+  //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+  document.getElementById("animationRangeSlider").value = sliderValue;
   console.log("animation slider value while sliding:  " + sliderValue);
   // runFor100Seconds(100-rangeVal);
 }
