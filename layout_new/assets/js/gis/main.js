@@ -1577,7 +1577,7 @@ async function runFor100Seconds() {
     addAnimateFeatures(sliceBusDataArr);
     var imeiText = document.getElementById('totalTime');
     var timeText = document.getElementById('consumeTime');
-    imeiText.textContent = sliceBusDataArr[0].imei+'=IMEI';
+    imeiText.textContent = sliceBusDataArr[0].imei+':IMEI';
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
     var lt = parseInt(i);
     if (lt == 0)
