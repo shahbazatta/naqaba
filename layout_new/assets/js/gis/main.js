@@ -1571,8 +1571,6 @@ async function runFor100Seconds() {
 
     document.getElementById("animationRangeSlider").value = sliderValue;
     
-    var startIndex = Math.round(animationDataArr.length*i/100);
-    var endIndex = Math.round(animationDataArr.length*percentBar/100);
     sliceBusDataArr = animationDataArr.slice(i,i+1);
     addAnimateFeatures(sliceBusDataArr);
     var imeiText = document.getElementById('totalTime');
@@ -1590,7 +1588,8 @@ async function runFor100Seconds() {
     currentIndex = 0;
     sliderValue = 0;
   }
-  after100Seconds();
+  if (play)
+    after100Seconds();
   // after100Seconds(); // Call the function after 100 seconds
 }
 
@@ -1599,10 +1598,14 @@ async function runFor100Seconds() {
 function animationSliderVal(rangeVal) {
   // stop = true;
   // play = false;
-  sliderValue = 100-rangeVal;
+  sliderValue = rangeVal;
   //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
   document.getElementById("animationRangeSlider").value = sliderValue;
   console.log("animation slider value while sliding:  " + sliderValue);
+      $('#palyBtn').removeClass("active");
+      $('#playbtnIcon').show();
+      $('#pausebtnIcon').hide();
+      animationState(false);
   // runFor100Seconds(100-rangeVal);
 }
 
