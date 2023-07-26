@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   if (empty($userId) || empty($userPassword)) {
     // echo "UserName or Password is empty";
-  } elseif($userId == "admin" && $userPassword == "admin"){
+  } elseif($userId == "eafelemban" && $userPassword == "eafelemban"){
     
     header('Location: index.php');
   }
