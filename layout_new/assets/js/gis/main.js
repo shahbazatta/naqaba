@@ -1554,6 +1554,8 @@ async function runFor100Seconds() {
   
   for (let i = currentIndex; i < animationDataArr.length; i++) {
     //console.log("Time elapsed:", (i + 1), "second(s)");
+    if (animationDataArr == undefined)
+        break;
     if (!play) {
       sliderValue = (i/animationDataArr.length)*100;
       break;

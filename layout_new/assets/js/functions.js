@@ -241,6 +241,14 @@ $(function() {
 
 function closeAnimationPanel() {
   $(".animationPanel").hide();
+  currentIndex=0;
+  sliderValue=0;
+  reset = true;
+  $('#palyBtn').removeClass("active");
+  $('#playbtnIcon').show();
+  $('#pausebtnIcon').hide();
+  animationState(false);
+  animationDataArr=undefined;
   addBusFeatures(busDataArr);
 }
 function hideAnimationPanel() {
