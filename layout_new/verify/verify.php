@@ -21,7 +21,7 @@ if (isset($_POST["submitLogin"])) {
     $userId = $_POST['userId'];
     $userPassword = $_POST['password'];
 
-    if ($userId == "admin" && $userPassword == "Naqabah92"){
+    if ($userId == "eafelemban" && $userPassword == "eafelemban"){
 
       setcookie($cookie_name, $cookie_value, time() + ($cookie_time), "/");
       header('Location: index.php');
