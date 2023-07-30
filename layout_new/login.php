@@ -1,5 +1,6 @@
 <?php 
 require_once("verify/verify.php");
+require_once("verify/checkuser.php");
 require_once("lang/language.php");
 ?>
 <!DOCTYPE html>
@@ -51,7 +52,7 @@ require_once("lang/language.php");
       <div class="message"><?php echo $error; ?></div>
       <div class="formRow">
         <img src="assets/images/icons/message.svg">
-        <input type="text" id="userId" name="userId" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'email_username'); ?>" class="text" tabindex="1" maxlength="35">
+        <input type="text" id="userId" name="userId" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'username'); ?>" class="text" tabindex="1" maxlength="35">
       </div>
       <div class="formRow">
         <img src="assets/images/icons/lock.svg">
@@ -64,7 +65,7 @@ require_once("lang/language.php");
         <button type="submit" class="signInBtn" name="submitLogin"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'signIn'); ?></button>
       </div>
       <div class="textRow createNew">
-        <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'dontHaveAccount'); ?> <a href=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'createNew'); ?></a>
+        <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'dontHaveAccount'); ?> <a href="signup.php"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'createNew'); ?></a>
       </div>
     </form>
   </div>
