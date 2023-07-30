@@ -1,5 +1,4 @@
 <?php 
-require_once("config/config.php");
 
 if(basename($_SERVER['PHP_SELF']) == 'login.php'){
   if (isset($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $cookie_value) {

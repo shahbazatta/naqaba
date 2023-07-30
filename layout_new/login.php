@@ -1,4 +1,5 @@
 <?php 
+require_once("config/config.php");
 require_once("verify/verify.php");
 require_once("verify/checkuser.php");
 require_once("lang/language.php");
@@ -59,7 +60,7 @@ require_once("lang/language.php");
         <input type="password" id="password" name="password" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'password'); ?>" class="text" tabindex="2" maxlength="16">
       </div>
       <div class="textRow">
-        <a href=""><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'forgotPassword'); ?></a>
+        <a href="login-forget.php"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'forgotPassword'); ?></a>
       </div>
       <div class="buttonRow">
         <button type="submit" class="signInBtn" name="submitLogin"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'signIn'); ?></button>
