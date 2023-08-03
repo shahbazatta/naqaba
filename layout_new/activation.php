@@ -1,7 +1,6 @@
 <?php 
 require_once("config/config.php");
-require_once("verify/verify.php");
-require_once("verify/checkuser.php");
+require_once("verify/emailverify.php");
 require_once("lang/language.php");
 ?>
 <!DOCTYPE html>
@@ -49,25 +48,13 @@ require_once("lang/language.php");
       <img src="assets/images/naqabah_tracker_system.png">
     </div>
     <h1>Welcome to Naqabah Tracking System</h1>
-    <form method="post" class="loginForm">
+    <!-- <h2>You will receive instructions for reseting your password.</h2> -->
+    <form method="post" class="loginForm" action="login.php">
       <div class="message"><?php echo $message; ?></div>
       <div class="error"><?php echo $error; ?></div>
-      <div class="formRow">
-        <img src="assets/images/icons/message.svg">
-        <input type="text" id="emailId" name="emailId" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'email'); ?>" class="text" tabindex="1" maxlength="35">
-      </div>
-      <div class="formRow">
-        <img src="assets/images/icons/lock.svg">
-        <input type="password" id="password" name="password" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'password'); ?>" class="text" tabindex="2" maxlength="16">
-      </div>
-      <div class="textRow">
-        <a href="login-forget.php"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'forgotPassword'); ?></a>
-      </div>
+      
       <div class="buttonRow">
-        <button type="submit" class="signInBtn" name="submitLogin"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'signIn'); ?></button>
-      </div>
-      <div class="textRow createNew">
-        <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'dontHaveAccount'); ?> <a href="signup.php"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'createNew'); ?></a>
+        <button type="submit" class="signInBtn" name="SignIn">Sign In</button>
       </div>
     </form>
   </div>

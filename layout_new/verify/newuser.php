@@ -1,6 +1,6 @@
 <?php 
-require_once("config/config.php");
 require_once("vendor/autoload.php");
+require_once("mail.php");
 
 use MongoDB\Exception;
 use MongoDB\Client;
@@ -17,6 +17,7 @@ try {
     printf($e->getMessage());
 }
 
+$message = "";
 $error = "";
 
 $userName = "";
@@ -51,21 +52,23 @@ if (isset($_POST["submitSignup"])) {
     $hash_password = password_hash($confirmPassword, PASSWORD_DEFAULT);
     
 
-    $passwordforget = false;
-    $pasforgetCode = 0;
-    $emailactive = false;
+    $passwordforget = 0;
+    $pasforgetCode = "null";
+    $emailactive = 0;
+    $accountstatus = 0;
+    $emailactiveCode = getRandomString(25);
     $createdon = date('Y-m-d H:i:s');
 
     $db = $client->selectDatabase(DB_NAME);
     $collection = $db->users;
 
-    $cursor = $collection->find(array('username' => $userName));
+    $cursor = $collection->find(array('email' => $userEmail));
     
     $countdata = count($cursor->toArray());
 
     if($countdata>0){
 
-      $error = "username already exist. " . $countdata;
+      $error = "Email already exist. " . $countdata;
 
     }else{
 
@@ -73,23 +76,36 @@ if (isset($_POST["submitSignup"])) {
         "username" => $userName, 
         "email" => $userEmail, 
         "emailactive" => $emailactive, 
-        "password" => $hash_password, 
-        "passwordforget" => $passwordforget, 
+        "emailactivecode" => $emailactiveCode, 
+        "password" => $hash_password,  
         "pasforgetCode" => $pasforgetCode, 
+        "accountstatus" => $accountstatus, 
         "createdon" => $createdon
       );
-      
+
       $collection->insertOne($document);
-
-      $error = "User successfully added";
+      sendEmail($userEmail, $emailactiveCode, 'emailVerification');
+      $message = "User successfully added";
     }
-
-    
-
   }
 
   
 }
+
+function getRandomString($n)
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+
+    for ($i = 0; $i < $n; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $randomString .= $characters[$index];
+    }
+
+    return $randomString;
+}
+
+
 
 // if(basename($_SERVER['PHP_SELF']) == 'login.php'){
 //   if (isset($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $cookie_value) {

@@ -1,4 +1,5 @@
 <?php 
+require_once("config/config.php");
 require_once("verify/newuser.php");
 require_once("lang/language.php");
 ?>
@@ -48,7 +49,8 @@ require_once("lang/language.php");
     </div>
     <h1>Welcome to Naqabah Tracking System</h1>
     <form method="post" class="loginForm">
-      <div class="message"><?php echo $error; ?></div>
+      <div class="message"><?php echo $message; ?></div>
+      <div class="error"><?php echo $error; ?></div>
       <div class="formRow">
         <img src="assets/images/icons/user.svg">
         <input type="text" id="userName" name="userName" placeholder="User Name" class="text" tabindex="1" maxlength="35" value="">

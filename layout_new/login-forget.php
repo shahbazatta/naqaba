@@ -1,7 +1,7 @@
 <?php 
 require_once("config/config.php");
 require_once("verify/verify.php");
-require_once("verify/checkuser.php");
+require_once("verify/forgetuser.php");
 require_once("lang/language.php");
 ?>
 <!DOCTYPE html>
@@ -52,22 +52,39 @@ require_once("lang/language.php");
     <form method="post" class="loginForm">
       <div class="message"><?php echo $message; ?></div>
       <div class="error"><?php echo $error; ?></div>
+
+      <?php if(isset($_POST["submitNewPassword"])){?>
+
+      <?php  }elseif(isset($_POST['submitEmailForget'])){?>
+
+      <?php  }elseif(isset($_GET['passcode']) && isset($_GET['email'])){?>
+
+      <div class="formRow">
+        <img src="assets/images/icons/lock.svg">
+        <input type="password" id="password" name="password" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'password'); ?>" class="text" tabindex="3" maxlength="16">
+      </div>
+      <div class="formRow">
+        <img src="assets/images/icons/lock.svg">
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" class="text" tabindex="4" maxlength="16">
+      </div>
+
+      <input type="hidden" value="<?php echo $_GET['passcode']; ?>" name="passcode">
+      <input type="hidden" value="<?php echo $_GET['email']; ?>" name="emailId">
+
+      <div class="buttonRow">
+        <button type="submit" class="signInBtn" name="submitNewPassword">Save New Password</button>
+      </div>
+      <?php } else{ ?> 
       <div class="formRow">
         <img src="assets/images/icons/message.svg">
         <input type="text" id="emailId" name="emailId" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'email'); ?>" class="text" tabindex="1" maxlength="35">
       </div>
-      <div class="formRow">
-        <img src="assets/images/icons/lock.svg">
-        <input type="password" id="password" name="password" placeholder="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'password'); ?>" class="text" tabindex="2" maxlength="16">
-      </div>
-      <div class="textRow">
-        <a href="login-forget.php"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'forgotPassword'); ?></a>
-      </div>
       <div class="buttonRow">
-        <button type="submit" class="signInBtn" name="submitLogin"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'signIn'); ?></button>
+        <button type="submit" class="signInBtn" name="submitEmailForget"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'SendEmail'); ?></button>
       </div>
+      <?php } ?>
       <div class="textRow createNew">
-        <?php echo $localizedStrings->String($localizedStrings::LC_EN, 'dontHaveAccount'); ?> <a href="signup.php"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'createNew'); ?></a>
+        Go back for <a href="login.php">Sign In</a>
       </div>
     </form>
   </div>

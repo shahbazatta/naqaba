@@ -7,6 +7,7 @@
  * Configuration for: Database Connection
  */
 
+define("SITE_URL", "http://localhost/Naqaba/naqaba/layout_new/");
 define("DB_NAME", "naqaba");
 //define("DB_USER_NAME", "shahbaz");
 //define("DB_PASS_NAME", "Islam786ian");

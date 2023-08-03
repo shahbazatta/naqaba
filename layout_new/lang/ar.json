@@ -159,5 +159,7 @@
     "Code_ID":"معرف الرمز",
 
     "Company":"شركة",
-    "CompanyArabic":"شركة ألتتبع"
+    "CompanyArabic":"شركة ألتتبع",
+
+    "SendEmail":"Send Email"
 }

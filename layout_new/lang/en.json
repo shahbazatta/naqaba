@@ -158,5 +158,8 @@
     "Code_ID":"Code ID",
     
     "Company":"Company",
-    "CompanyArabic":"Company Arabic"
+    "CompanyArabic":"Company Arabic",
+
+    "SendEmail":"Send Email"
+
 }

@@ -77,6 +77,13 @@ body.login {
 	text-align: center;
 	color: #000;
 }
+.loginBox h2{
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: center;
+	color: #000;
+}
 .loginBox .loginForm{
 	padding: 30px 0px 0px 0px;
 }
@@ -162,7 +169,14 @@ body.login {
 	cursor: pointer;
 }
 .message{
-    color: red;
+  color: #61cb21;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 24px;
+	padding: 0px 0px 10px 0px;
+}
+.error{
+  color: red;
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 24px;
