@@ -54,9 +54,9 @@ if (isset($_POST["submitLogin"])) {
       if (password_verify($userPassword, $db_password)) { 
         if ($db_emailactive) {
           if($db_accountstatus){
-            //setcookie($cookie_name, $cookie_value, time() + ($cookie_time), "/");
-            //header('Location: index.php');
-            echo 'asdasdsa';
+            setcookie($cookie_name, $cookie_value, time() + ($cookie_time), "/");
+            header('Location: index.php');
+            //echo 'asdasdsa';
           }else{
             $error = "Your account activation request in proccess, please contact your admin, thanks";
           }
