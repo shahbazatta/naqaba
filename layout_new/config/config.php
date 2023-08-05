@@ -2,13 +2,27 @@
 // THIS FILE CONTENT THE VARIABLES OF THE TEMPLATE
 // You just have to edit variables...
 
+// Get current page url
+	$protocol		= isset($_SERVER['HTTPS']) == 'on' ? 'https' : 'http';
+	$host     		= $_SERVER['HTTP_HOST'];
+	$script   		= $_SERVER['SCRIPT_NAME'];
+	$params   		= empty($_SERVER['QUERY_STRING']) ? '' : '?'. $_SERVER['QUERY_STRING'];
+	
+	$currentUrl		= $protocol . '://' . $host . $script . $params;
+
+	//echo "Host: " . $host;
+
+	if($host == "localhost"){
+		$siteUrl =	$protocol . '://localhost/Naqaba/naqaba/layout_new/';
+	}else{
+		$siteUrl =	$protocol . '://64.227.118.83/naqaba/layout_new/';
+	}
+
+	define("SITE_URL", $siteUrl);
 
 /**
  * Configuration for: Database Connection
  */
-
-//define("SITE_URL", "http://localhost/Naqaba/naqaba/layout_new/");
-define("SITE_URL", "http://64.227.118.83/naqaba/layout_new/");
 
 define("DB_NAME", "naqaba");
 //define("DB_USER_NAME", "shahbaz");
