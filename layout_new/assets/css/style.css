@@ -1706,3 +1706,7 @@ table.tablesorter thead tr .header {
 #animationRangeSlider, .animation-slider {
   direction: ltr !important;
 }
+
+.headerList h1 {
+    cursor: move;
+}

@@ -15,7 +15,7 @@
         </div>
 
         <div class="headerList">
-          <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingCompanies'); ?></h1>
+          <h1 id="trackingComBoxHeader"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingCompanies'); ?></h1>
           <div class="close" onclick="closeFilterOnClose('trackingComBox','trackingComBoxImg')"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
@@ -62,7 +62,7 @@
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
         <div class="headerList">
-          <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanies'); ?></h1>
+          <h1 id="transportationComBoxHeader"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanies'); ?></h1>
           <div class="close" onclick="closeFilterOnClose('transportationComBox','transportationComBoxImg')"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
@@ -109,7 +109,7 @@
           <button type="button" class="searchButton"><img src="assets/images/icons/search.svg"></button>
         </div>
         <div class="headerList">
-          <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingDevices'); ?></h1>
+          <h1 id="trackingDevicesBoxHeader"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingDevices'); ?></h1>
           <div class="close" onclick="closeFilterOnClose('trackingDevicesBox','trackingDevicesBoxShowImg')"><img src="assets/images/icons/close.svg"></div>
           <div class="selectAllCheckBox">
             <label class="cCheckBox2">
