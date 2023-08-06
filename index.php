@@ -62,9 +62,9 @@
 
 <!--==========Start Loading Box==========-->
 <div class="loadingBox">
-    
+
     <a href="javascript:void(0)" title="Naqabah" id="loadingLogoTCM" class="toolTip">Naqabah</a>
-    
+
     <div class="hourglass">
         <p>Naqabah Tracker System<br><span>= { GPS + Visualization + Analysis }</span></p>
     </div>
@@ -77,8 +77,8 @@
 <div id="mainContainer">
     <!--Top Black Border-->
     <div class="topSolidBar"></div>
-    
-    <!--TCM LOGO--> 
+
+    <!--TCM LOGO-->
      <div class="logoTcmHide">
      	<div class="logoTcmShow" title="">Naqabah Tracker System</div>
      </div>
@@ -86,13 +86,13 @@
     <!-- START Bottom Right Main Option Window -->
     <button type="button" class="windowOpen" onClick="">Window</button>
     <div class="optionWindow">
-    
+
         <div class="layerOptions">
       	<div class="scrollBar" id="scrollBar">
-        
+
         	 <!--Tracking Companies-->
             <div class="dataSource row">
-            	
+
                 <h1><span class="icon1"></span>Tracking Companies</h1>
                 <div class="optionShow">
 
@@ -101,15 +101,15 @@
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Sober Me Up                      <input type="checkbox" id="checkbox2" name="checkbox2" value=""> 
+                    <label class="cCheckBox2">Sober Me Up                      <input type="checkbox" id="checkbox2" name="checkbox2" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Portable Devices                      <input type="checkbox" id="checkbox3" name="checkbox3" value=""> 
+                    <label class="cCheckBox2">Portable Devices                      <input type="checkbox" id="checkbox3" name="checkbox3" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Max Media                      <input type="checkbox" id="checkbox4" name="checkbox4" value=""> 
+                    <label class="cCheckBox2">Max Media                      <input type="checkbox" id="checkbox4" name="checkbox4" value="">
                       <span class="checkmark"></span>
                     </label>
 
@@ -117,122 +117,122 @@
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Management Net International Company for Information Technology                      <input type="checkbox" id="checkbo6" name="checkbo6" value=""> 
+                    <label class="cCheckBox2">Management Net International Company for Information Technology                      <input type="checkbox" id="checkbo6" name="checkbo6" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Follower of Electronic Systems                      <input type="checkbox" id="checkbox7" name="checkbox7" value=""> 
+                    <label class="cCheckBox2">Follower of Electronic Systems                      <input type="checkbox" id="checkbox7" name="checkbox7" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Dimensions Systems Co., Ltd                      <input type="checkbox" id="checkbox8" name="checkbox8" value=""> 
+                    <label class="cCheckBox2">Dimensions Systems Co., Ltd                      <input type="checkbox" id="checkbox8" name="checkbox8" value="">
                       <span class="checkmark"></span>
                     </label>
-                    
+
                     <div class="clear"></div>
                 </div>
             </div>
-        
+
             <!--Transportation Companies-->
             <div class="row">
-            
+
                 <h1><span class="icon2"></span>Transportation Companies</h1>
                 <div class="optionShow">
 
-                    <label class="cCheckBox2">Saudi Public Transport Company                      <input type="checkbox" id="checkbox9" name="checkbox9" value=""> 
+                    <label class="cCheckBox2">Saudi Public Transport Company                      <input type="checkbox" id="checkbox9" name="checkbox9" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Makkah Transport Company                      <input type="checkbox" id="checkbox10" name="checkbox10" value=""> 
+                    <label class="cCheckBox2">Makkah Transport Company                      <input type="checkbox" id="checkbox10" name="checkbox10" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Arab Transport Company                      <input type="checkbox" id="checkbox11" name="checkbox11" value=""> 
+                    <label class="cCheckBox2">Arab Transport Company                      <input type="checkbox" id="checkbox11" name="checkbox11" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Dallah Company for transporting pilgrims                      <input type="checkbox" id="checkbox12" name="checkbox12" value=""> 
+                    <label class="cCheckBox2">Dallah Company for transporting pilgrims                      <input type="checkbox" id="checkbox12" name="checkbox12" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Medina Company for the transport of pilgrims                      <input type="checkbox" id="checkbox13" name="checkbox13" value=""> 
+                    <label class="cCheckBox2">Medina Company for the transport of pilgrims                      <input type="checkbox" id="checkbox13" name="checkbox13" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Umm Al-Qura Transport Company                      <input type="checkbox" id="checkbox14" name="checkbox14" value=""> 
+                    <label class="cCheckBox2">Umm Al-Qura Transport Company                      <input type="checkbox" id="checkbox14" name="checkbox14" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Hafel Transport Company                      <input type="checkbox" id="checkbox15" name="checkbox15" value=""> 
+                    <label class="cCheckBox2">Hafel Transport Company                      <input type="checkbox" id="checkbox15" name="checkbox15" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Branch of the Abdullah Muhammad Ali Maghribi Foundation for the Transport of Pilgrims                      <input type="checkbox" id="checkbox16" name="checkbox16" value=""> 
+                    <label class="cCheckBox2">Branch of the Abdullah Muhammad Ali Maghribi Foundation for the Transport of Pilgrims                      <input type="checkbox" id="checkbox16" name="checkbox16" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Nasser Abdullah Abu Sarhad and Partners Co. Ltd                      <input type="checkbox" id="checkbox17" name="checkbox17" value=""> 
+                    <label class="cCheckBox2">Nasser Abdullah Abu Sarhad and Partners Co. Ltd                      <input type="checkbox" id="checkbox17" name="checkbox17" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Mawakeb Al Khair Transport Company                      <input type="checkbox" id="checkbox18" name="checkbox18" value=""> 
+                    <label class="cCheckBox2">Mawakeb Al Khair Transport Company                      <input type="checkbox" id="checkbox18" name="checkbox18" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">International Caravans Company for Tourism Services                      <input type="checkbox" id="checkbox19" name="checkbox19" value=""> 
+                    <label class="cCheckBox2">International Caravans Company for Tourism Services                      <input type="checkbox" id="checkbox19" name="checkbox19" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Shqadaf Transport Company                      <input type="checkbox" id="checkbox20" name="checkbox20" value=""> 
+                    <label class="cCheckBox2">Shqadaf Transport Company                      <input type="checkbox" id="checkbox20" name="checkbox20" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Rawahel Al Mashaer Co., Ltd. for the transportation of pilgrims                      <input type="checkbox" id="checkbox21" name="checkbox21" value=""> 
+                    <label class="cCheckBox2">Rawahel Al Mashaer Co., Ltd. for the transportation of pilgrims                      <input type="checkbox" id="checkbox21" name="checkbox21" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Tabarak International Transport Co. Ltd                      <input type="checkbox" id="checkbox22" name="checkbox22" value=""> 
+                    <label class="cCheckBox2">Tabarak International Transport Co. Ltd                      <input type="checkbox" id="checkbox22" name="checkbox22" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Diamond Excellence Transport Company                      <input type="checkbox" id="checkbox23" name="checkbox23" value=""> 
+                    <label class="cCheckBox2">Diamond Excellence Transport Company                      <input type="checkbox" id="checkbox23" name="checkbox23" value="">
                       <span class="checkmark"></span>
                     </label>
 
                     <div class="clear"></div>
                 </div>
             </div>
-        
+
             <!--Tracking Devices-->
             <div class="row">
-            
+
                 <h1><span class="icon3"></span>Tracking Devices</h1>
                 <div class="optionShow">
 
-                    <label class="cCheckBox2">BCE                      <input type="checkbox" id="checkbox24" name="checkbox24" value=""> 
+                    <label class="cCheckBox2">BCE                      <input type="checkbox" id="checkbox24" name="checkbox24" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Teltonika                      <input type="checkbox" id="checkbox25" name="checkbox25" value=""> 
+                    <label class="cCheckBox2">Teltonika                      <input type="checkbox" id="checkbox25" name="checkbox25" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Machinestalk                      <input type="checkbox" id="checkbox26" name="checkbox26" value=""> 
+                    <label class="cCheckBox2">Machinestalk                      <input type="checkbox" id="checkbox26" name="checkbox26" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Ruptela                      <input type="checkbox" id="checkbox27" name="checkbox27" value=""> 
+                    <label class="cCheckBox2">Ruptela                      <input type="checkbox" id="checkbox27" name="checkbox27" value="">
                       <span class="checkmark"></span>
                     </label>
 
-                    <label class="cCheckBox2">Queclink                      <input type="checkbox" id="checkbox28" name="checkbox28" value=""> 
+                    <label class="cCheckBox2">Queclink                      <input type="checkbox" id="checkbox28" name="checkbox28" value="">
                       <span class="checkmark"></span>
                     </label>
 
                     <div class="clear"></div>
                 </div>
             </div>
-	            
+
             <div class="clear"></div>
 
             <!--IMEI FILTER-->
@@ -263,24 +263,24 @@
             <button type="button" class="btnLoad" id="applyReSubmitId" onclick="" style="display: none;">Reload</button>
             <button type="button" class="btnClear" onclick="">Clear</button> -->
         <div class="clear"></div>
-           
+
         </div>
         <button type="button" class="optionWindowClose">Close</button>
         <!-- <div class="layerSelected">Naqabah <span>Admin</span></div> -->
     </div>
     <!-- END Bottom Right Main Option Window -->
-    
+
     <!-- Polygon Button -->
     <button type="button" class="stickyBtnTopLeft polygonIconButton" id ="draw_geofence"><img src="assets/images/iconPolygon.png" width="36" height="36" title="click to active/deactive draw geofence" ></button>
-    
+
     <!-- Data Table Box -->
     <button type="button" class="stickyBtnTopLeft tableIconButton"><img src="assets/images/table_icon1.png" width="36" height="36"></button>
 
-    
+
     <!-- Setting Bar -->
     <button type="button" class="settingButton"><img src="assets/images/iconOption.png" width="25" height="25"></button>
     <div class="settingBar">
-    
+
         <div class="settingOptions">
           <div class="scrollBar2" id="scrollBar">
 
@@ -289,8 +289,8 @@
               <h1>Basemap</h1>
                 <div class="optionShow">
                    <div class="selectParent">
-                      <select id="bmap" class="bgSelect" title="Basemap" >  
-                             <option value="1">Google Map</option>                         			  
+                      <select id="bmap" class="bgSelect" title="Basemap" >
+                             <option value="1">Google Map</option>
                             <option value="0">Open Street Map</option>
 							<option value="2" selected>MapBox</option>
 							<option value="3">Satellite Map</option>
@@ -316,7 +316,7 @@
 
               <!--Selection Tools-->
             <!-- <div class="row">
-        
+
               <h1>Selection</h1>
                 <div class="optionShow">
                    <div onclick="" title="Rectangle" class="seIcon setHint" style="margin-left:0px;">
@@ -334,7 +334,7 @@
                     <div class="clear"></div>
                 </div>
             </div> -->
-              
+
               <!--Language-->
             <div class="row">
                 <h1>Language</h1>
@@ -349,7 +349,7 @@
                       </fieldset>
                   </div>
               </div>
-              
+
               <!--Color Layout-->
             <div class="row">
                 <h1>Color Layout</h1>
@@ -359,12 +359,12 @@
                     <div class="colorChange" id="orangeLayout"><img src="assets/images/layoutOrange.png" width="24" height="24"></div>
                     <div class="colorChange" id="greyLayout"><img src="assets/images/layoutGrey.png" width="24" height="24"></div>
                     <div class="colorChange" id="redLayout"><img src="assets/images/layoutRed.png" width="24" height="24"></div>
-                
+
                     <!-- <div class="colorChange" id="whiteLayout"><img src="assets/images/layoutWhite.png" width="24" height="24"></div> -->
                       <div class="clear"></div>
                   </div>
               </div>
-              
+
               <!--Icons Layout-->
             <div class="row">
                 <h1>More Icons</h1>
@@ -377,7 +377,7 @@
                     <div class="clear"></div>
                   </div>
               </div>
-              
+
               <!--Icons Layout-->
             <div class="row">
                 <h1>Opacity</h1>
@@ -396,16 +396,16 @@
             </div>
             <div class="settingHeading">Setting</div>
             <button type="button" class="settingWindowClose">Close</button>
-              
+
         </div>
     </div>
-    
+
     <!-- Zoom Bar -->
     <!-- <div class="zoomBar">
     	<button type="button" class="zoomIn toolTip setHint" onClick="" title="Zoom In">zoomin</button>
         <button type="button" class="zoomOut toolTip setHint" onClick="" title="Zoom Out">zoomOut</button>
     </div> -->
-    
+
     <!-- Bottom Option Bar -->
     <div class="bottomOptionBar">
     	<button type="button" class="optionClose">Close</button>
@@ -420,7 +420,7 @@
     			<button type="button" class="exitFullscreen">Exit Full Screen</button>
     			<div class="layerSelOuter">
                 	<button type="button" class="layerSel">Live Locations<span>Naqabah(Active)</span></button>
-                    
+
                     <div class="layerActivationBar">
                         <h1>Select Layer</h1>
                         <div class="settingShow">
@@ -439,42 +439,42 @@
             </div>
         </div>
     </div>
-    
+
     <div id="fullPopUploader">
     	<div id="fullPopUpClose" class="pp_close"></div>
     	<div class="innerPopUp">
-    		
+
     	</div>
     </div>
-    
-    
+
+
     <!-- Map Wrapper -->
     <div class="mapWrapper" id="mapContainer">
 	<div id="map_id" width="100%" height="100%"></div>
         <!-- <img src="assets/images/bg__tem.png" width="100%" height="100%"> -->
     </div>
-   
 
 
 
-    
+
+
     <div id="loaderAjax">
     	<div class="imgLoader"></div>
     </div>
 
     <!-- Bottom Bar -->
     <div class="bottomSolidBar"></div>
-    
+
     <!-- Show All Tabs Button -->
     <button type="button" class="showAllTabs">Show All Tabs</button>
 
     <!-- Tool Tip Box -->
     <div  id="toolTipBox" class="popUpBox">
       <div class="popUpBoxTab">
-        
+
           <span class="close exit">Close</span>
           <h2>Tooltip</h2>
-          
+
             <!-- Data for toolTip -->
             <div id="resultGeofence"></div>
             <div id="toolTipBoxData">
@@ -520,7 +520,7 @@
                 <fieldset>
                   <label>Shape Area : <span id="shapeAreaGeofence"></span></label>
                 </fieldset>
-  
+
                 <div class="clear"></div>
                 <!-- <p>Any message or information that you want to display.</p> -->
 				<a id="downloadGeojsonFile" style="display:none"></a>
@@ -586,12 +586,12 @@
                   <label>Shape Area:</label>
                   <input type="text" class="inputText" id="shape_area_toolTip" name="shape_area_toolTip" maxlength="120"/>
                 </fieldset>
-  
+
                   <input type="hidden" id="coordinate_arr_toolTip" name="coordinate_arr_toolTip" value="">
                 <div class="clear"></div>
                 <!-- <p>Any message or information that you want to display.</p> -->
                 <button type="button" class="button" value="Save" id="toolTipGeofenceSave" onclick="">Save </button>
-                <button type="button" class="button exit" id="toolTipGeofenceSaveReset" value="Cancel" onclick="">Cancel</button>  
+                <button type="button" class="button exit" id="toolTipGeofenceSaveReset" value="Cancel" onclick="">Cancel</button>
               </form>
             </div>
         </div>
@@ -599,15 +599,15 @@
 
     <div  id="busToolTipBox" class="popUpBox">
       <div class="popUpBoxTab">
-        
+
           <span class="close exit">Close</span>
           <h2>Tooltip</h2>
-          
+
             <!-- Data for toolTip -->
             <div id="resultbusToolTipBox" style="margin: 5px;"></div>
         </div>
     </div>
-    
+
 
     <!-- Popup box -->
     <div  id="geofenceDialogBox" class="popUpBox">
@@ -678,12 +678,12 @@
             <div class="clear"></div>
             <!-- <p>Any message or information that you want to display.</p> -->
             <button type="button" class="button" value="Save" id="geofenceSave" onclick="">Save </button>
-            <button type="button" class="button exit" value="Cancel" onclick="">Cancel </button>  
+            <button type="button" class="button exit" value="Cancel" onclick="">Cancel </button>
           </form>
-          
+
         </div>
     </div>
-    
+
     <!-- Alert Box -->
     <div class="alertBox">
     	<div class="alertBoxTab">
@@ -692,7 +692,7 @@
             <button type="button" class="button ok">OK</button>
         </div>
     </div>
-    
+
 </div>
 
 <!--==========End Main Content Area==========-->
@@ -701,7 +701,7 @@
 
 $( document ).ready(function() {
    //$('#geofenceDialogBox').show();
-   
+
   //  $('#toolTipBox').show();
 
     $('#opacity-slider').on("change mousemove", function() {
@@ -711,9 +711,9 @@ $( document ).ready(function() {
       // });
     });
 
-    $("#geofenceSave").click(function() { 
+    $("#geofenceSave").click(function() {
         //get input field values
-        var arabic_name     = $('#arabic_name').val(); 
+        var arabic_name     = $('#arabic_name').val();
         var english_name    = $('#english_name').val();
         var type            = $('#type').val();
         var district        = $('#district').val();
@@ -731,7 +731,7 @@ $( document ).ready(function() {
         var flag = true;
         /********validate all our form fields***********/
         if(arabic_name==""){ $('#arabic_name').css('border-color','red'); flag = false; }
-        if(english_name==""){ $('#english_name').css('border-color','red'); flag = false; } 
+        if(english_name==""){ $('#english_name').css('border-color','red'); flag = false; }
         if(type=="") { $('#type').css('border-color','red'); flag = false; }
         if(district=="") { $('#district').css('border-color','red'); flag = false; }
         if(area=="") { $('#area').css('border-color','red'); flag = false; }
@@ -744,15 +744,15 @@ $( document ).ready(function() {
         if(code_id=="") { $('#code_id').css('border-color','red'); flag = false; }
         if(shape_length=="") { $('#shape_length').css('border-color','red'); flag = false; }
         if(shape_area=="") { $('#shape_area').css('border-color','red'); flag = false; }
-        if(coordinate_arr=="") { 
+        if(coordinate_arr=="") {
           $("#result").hide().html('<div class="error">Wrong Draw Geofence Coordinates</div>').slideDown();
-          flag = false; 
+          flag = false;
         }
 
         //check int
         if(Math.floor(station_type) == station_type && $.isNumeric(station_type)){ }else{ $('#station_type').css('border-color','red').val(''); flag = false; }
         if(Math.floor(station_code) == station_code && $.isNumeric(station_code)){ }else{ $('#station_code').css('border-color','red').val(''); flag = false; }
-        
+
         // check float
         if($.isNumeric(area)){ }else{ $('#area').css('border-color','red').val('');  flag = false; }
         if($.isNumeric(shape_length)){ }else{ $('#shape_length').css('border-color','red').val(''); flag = false; }
@@ -760,11 +760,11 @@ $( document ).ready(function() {
 
         /********Validation end here ****/
         /* If all are ok then we send ajax request to email_send.php *******/
-        if(flag) 
+        if(flag)
         {
             $.ajax({
                 type: 'post',
-                url: "./data/set_geofence.php", 
+                url: "./data/set_geofence.php",
                 dataType: 'json',
                 data: {
                   arabic_name : arabic_name,
@@ -790,7 +790,7 @@ $( document ).ready(function() {
                 complete: function() {
                     $('#geofenceSave').attr('disabled', false);
                     //$('.wait').remove();
-                },  
+                },
                 success: function(data)
                 {
                   if(data.type == 'error')
@@ -798,8 +798,8 @@ $( document ).ready(function() {
                       output = '<div class="error">'+data.text+'</div>';
                   }else{
                       output = '<div class="success">'+data.text+'</div>';
-                      $('#geofenceAdd input[type=text]').val(''); 
-                      $('#geofenceAdd textarea').val(''); 
+                      $('#geofenceAdd input[type=text]').val('');
+                      $('#geofenceAdd textarea').val('');
 
                       $('.popUpBoxTab').animate({top:"0px",opacity:"0.1"}, function(){
                           $('.popUpBoxTab').hide();
@@ -811,11 +811,11 @@ $( document ).ready(function() {
                             //Set to Default
                             $('.popUpBoxTab').css({"top":"20px","opacity":"1.0"});
                           });
-                      }); 
+                      });
                   }
 
                   $("#result").hide().html(output).slideDown();
-                          
+
                 }
             });
         }
@@ -826,20 +826,20 @@ $( document ).ready(function() {
     var picon3 = document.getElementById('picon3');
     var picon4 = document.getElementById('picon4');
     var picon5 = document.getElementById('picon5');
-    $("#picon1").click(function() { 
+    $("#picon1").click(function() {
       picon1.classList.add("active");
       picon2.classList.remove("active");
       picon3.classList.remove("active");
       picon4.classList.remove("active");
       picon5.classList.remove("active");
     });
-    $("#picon2").click(function() { 
+    $("#picon2").click(function() {
       picon1.classList.remove("active");
       picon2.classList.add("active");
       picon3.classList.remove("active");
       picon4.classList.remove("active");
       picon5.classList.remove("active");
-        
+
     });
     $("#picon3").click(function() {
       picon1.classList.remove("active");
@@ -847,27 +847,27 @@ $( document ).ready(function() {
       picon3.classList.add("active");
       picon4.classList.remove("active");
       picon5.classList.remove("active");
-        
+
     });
-    $("#picon4").click(function() { 
+    $("#picon4").click(function() {
       picon1.classList.remove("active");
       picon2.classList.remove("active");
       picon3.classList.remove("active");
       picon4.classList.add("active");
       picon5.classList.remove("active");
-        
+
     });
-    $("#picon5").click(function() { 
+    $("#picon5").click(function() {
       picon1.classList.remove("active");
       picon2.classList.remove("active");
       picon3.classList.remove("active");
       picon4.classList.remove("active");
       picon5.classList.add("active");
-        
+
     });
     //reset previously set border colors and hide all message on .keyup()
-    $("#geofenceAdd input, #geofenceAdd textarea").keyup(function() { 
-        $("#geofenceAdd input, #geofenceAdd textarea").css('border-color',''); 
+    $("#geofenceAdd input, #geofenceAdd textarea").keyup(function() {
+        $("#geofenceAdd input, #geofenceAdd textarea").css('border-color','');
         $("#result").slideUp();
     });
 

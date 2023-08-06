@@ -98,7 +98,7 @@ function toggleClipBusDataCtrl() {
     clipBusDataSource.clear();
     addBusFeatures(busDataArr);
   }
- 
+
 }
 
 // Style for the clusters
@@ -330,7 +330,7 @@ function addAnimateFeatures(dataArr) {
   else {
     clusterLayer.setVisible(false);
   }
-  
+
   //Hide loading bus data message
   $('#loadingBusData').hide();
 }
@@ -424,7 +424,7 @@ function switchBaseMaps() {
   var layer_type = parseInt(options[options.selectedIndex].value);
   if (layer_type == 1) {
     googleMap.setVisible(true);  //show layer
-    osmLayer.setVisible(false); //hide layer	
+    osmLayer.setVisible(false); //hide layer
     mapboxLayer.setVisible(false);
     googleMapHybrid.setVisible(false);
   }
@@ -432,19 +432,19 @@ function switchBaseMaps() {
     googleMap.setVisible(false);  //hide layer
     mapboxLayer.setVisible(false);
     googleMapHybrid.setVisible(false);
-    osmLayer.setVisible(true); //show layer	
+    osmLayer.setVisible(true); //show layer
   }
   if (layer_type == 2) {
     googleMap.setVisible(false);  //hide layer
     osmLayer.setVisible(false);
     googleMapHybrid.setVisible(false);
-    mapboxLayer.setVisible(true); //show layer	
+    mapboxLayer.setVisible(true); //show layer
   }
   if (layer_type == 3) {
     googleMap.setVisible(false);  //hide layer
     osmLayer.setVisible(false);
     googleMapHybrid.setVisible(true);
-    mapboxLayer.setVisible(false); //show layer	
+    mapboxLayer.setVisible(false); //show layer
   }
 
 }
@@ -832,7 +832,7 @@ function getPreDataAllGeofence() {
       //hide loader dialog box @khuram,waqas
       geofenceDataArr = data;
       geofenceDataAvailable = true;
-      
+
       $('#geofencesTable').show();
       $('#geofencesTableLoading').hide();
 
@@ -865,10 +865,10 @@ function getPreDataAllGeofence() {
 }
 
 function getAllGeofence() {
-  
+
   //show loader box  @khuram,waqas
   $('#loadingGeofenceData').show();
-  
+
   if(geofenceDataAvailable){
     addGeofenceData(geofenceDataArr);
   }else{
@@ -918,7 +918,7 @@ function downloadJSON() {
 }
 
 var animationDataArr = [];
-function getDataForAnim(imei, sDate, eDate) {
+function getDataForAnim(imei, sDate, eDate, mapType) {
 
   console.log("imei no: " + imei + " Start Date: " + sDate + " End Date: " + eDate);
   $('#animBar').hide();
@@ -958,18 +958,18 @@ function getDataForAnim(imei, sDate, eDate) {
 /*document.getElementById("bmap").onchange = function(){
          switchBaseMaps();
 };
- 
+
 setInterval(getAllBusesData, 240 * 1000); //api call after every 4 minutes
 
 
 //$(document).ready(function() {
-  
+
   $("#applySettingBtn").click(function(){
        addBusFeatures(busDataArr);
-   }); 
-	
+   });
 
-	
+
+
 //});
 
 */
@@ -990,7 +990,7 @@ function resetTheFilterOnClose(id, filterType){
   } else if (filterType == 4) {
     // resetfilterCheckBoxSettings("mainListRowsTrackingDevices");
   }
-  
+
 
 }
 
@@ -1018,7 +1018,7 @@ function singalCheckbox(cb, oid, filterType) {
     //       filterType == 3 ? String(x.device.device_comp) == value :
     //         filterType == 4 ? String(x.device.imei) == value : false
     // );
-    
+
     var dataFilter = busesData.filter(function(data) {
       if(filterType == 1){
         return data.device.avl_comp_ar == value  || data.device.avl_comp == value;
@@ -1033,7 +1033,7 @@ function singalCheckbox(cb, oid, filterType) {
       }
     });
     //alert("add dataFilter: " + dataFilter.length + " busesData.length: " + busesData.length + " value: " + value);
-    
+
     if(busesDataFiltered.length <= 0){
       busesDataFiltered = dataFilter;
     }else{
@@ -1042,7 +1042,7 @@ function singalCheckbox(cb, oid, filterType) {
     }
     addBusFeaturesReasign(busesDataFiltered);
     //document.getElementById(oid.id).checked = true;// .setAttribute("checked", true);
-    
+
   } else {
     //remove
 
@@ -1056,22 +1056,22 @@ function singalCheckbox(cb, oid, filterType) {
     // );
     //console.log("busesDataFiltered "+busesDataFiltered.length);
 
-    
+
     busesDataFiltered = busesDataFiltered.filter(function(data) {
       if(filterType == 1){
         if(language == 'ar'){
           return data.device.avl_comp_ar != value
         }else{
-          return data.device.avl_comp != value  
+          return data.device.avl_comp != value
         }
       }else if(filterType == 2){
         if(language == 'ar'){
           return data.device.trnspt_comp_ar != value
         }else{
-          return data.device.trnspt_comp != value  
+          return data.device.trnspt_comp != value
         }
       }else if(filterType == 3){
-        return data.device.device_comp != value 
+        return data.device.device_comp != value
       }else{
         //filterType == 4
         return data.device.imei != value
@@ -1079,11 +1079,11 @@ function singalCheckbox(cb, oid, filterType) {
     });
 
     addBusFeaturesReasign(busesDataFiltered);
-    
-    
-    
+
+
+
       //document.getElementById(oid.id).checked = false;// .removeAttribute("checked");
-    
+
 
   }
 }
@@ -1324,9 +1324,9 @@ function busImeiCheckBox (cb){
       addBusFeaturesReasign(busesData);
     }
 
-    
+
     //console.log(dataFilter);
-    
+
   }
 }
 
@@ -1357,11 +1357,11 @@ var filterGeofenceArr = [];
 function filterGeofenceData(geofenceName) {
   filterGeofenceArr = [];
   for (var idx in geofenceDataArr) {
-      if (geofenceDataArr[idx].attributes.EnglishName.includes(geofenceName) || 
+      if (geofenceDataArr[idx].attributes.EnglishName.includes(geofenceName) ||
           geofenceDataArr[idx].attributes.ArabicName.includes(geofenceName) ||
           geofenceDataArr[idx].attributes.Description.includes(geofenceName) ||
           geofenceDataArr[idx].attributes.Code_ID.includes(geofenceName)
-         
+
         ) {
         filterGeofenceArr.push(geofenceDataArr[idx]);
     }
@@ -1393,7 +1393,7 @@ function filterGeofenceLayerData(filter_type, geofenceName) {
       if (geofenceDataArr[idx].attributes.Season.includes('المشاعر المقدسة')) {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
-      
+
     }
     if (filter_type == 4) {
       if (!geofenceDataArr[idx].attributes.Season.includes('المنافذ')
@@ -1401,7 +1401,7 @@ function filterGeofenceLayerData(filter_type, geofenceName) {
       && !geofenceDataArr[idx].attributes.Season.includes('المشاعر المقدسة')) {
         filterGeofenceLayerArr.push(geofenceDataArr[idx]);
       }
-      
+
     }
   }
   addGeofenceData(filterGeofenceLayerArr);
@@ -1410,13 +1410,13 @@ function filterGeofenceLayerData(filter_type, geofenceName) {
 var idGeofenceFiltered = [];
 function geofenceCheckBox (cb){
   const idGeofence = cb.getAttribute('data-id');
-    
+
   if (cb.checked) {
     var geoDataFilter1 = geofenceDataArr.filter(function(data) {
      return data._id.$oid == idGeofence;
     });
 
-   
+
 
     if(idGeofenceFiltered.length <= 0){
       idGeofenceFiltered = geoDataFilter1;
@@ -1486,7 +1486,7 @@ $(document).ready(function () {
     addBusFeatures(busDataArr);
   });
 
-  
+
 
 
 });
@@ -1519,7 +1519,7 @@ function showGeofenceFilterBusesPopup(busesData){
 
 // Function to execute after 100 seconds
 function after100Seconds() {
-  console.log("100 seconds have passed!");
+  //console.log("100 seconds have passed!");
   // sliderValue = 0;
   // currentIndex = 0;
   //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
@@ -1551,7 +1551,7 @@ async function runFor100Seconds() {
 
   if (currentIndex>=animationDataArr.length)
     currentIndex = 0;
-  
+
   for (let i = currentIndex; i < animationDataArr.length; i++) {
     //console.log("Time elapsed:", (i + 1), "second(s)");
     if (animationDataArr == undefined)
@@ -1572,7 +1572,7 @@ async function runFor100Seconds() {
     //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
 
     document.getElementById("animationRangeSlider").value = sliderValue;
-    
+
     sliceBusDataArr = animationDataArr.slice(i,i+1);
     addAnimateFeatures(sliceBusDataArr);
     var imeiText = document.getElementById('totalTime');
