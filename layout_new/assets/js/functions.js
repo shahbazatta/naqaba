@@ -1623,11 +1623,11 @@ function initDeckGlMap(pathways, timesArr) {
                         getPath: d => d.path,
                         getTimestamps: d => d.timestamps,
                         getColor: d => getColor(d.vendor),
-                        opacity: 0.5,
+                        opacity: 0.8,
                         widthMinPixels: 3,
                         jointRounded: true,
                         capRounded: true,
-                        trailLength: 300,
+                        trailLength: 180,
                         currentTime: time + interval[0],
                         //currentTime: 0,
                         shadowEnabled: false
