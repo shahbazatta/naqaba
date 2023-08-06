@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c8b3c0f2-f3ea-4d3b-b586-9f2b75c9049f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout_new/assets/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/layout_new/assets/js/functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout_new/assets/js/gis/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/layout_new/assets/js/gis/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout_new/include/right_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/layout_new/include/right_nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout_new/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/layout_new/index.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/layout_new/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/mongodb/mongodb" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/jean85/pretty-package-versions" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/layout_new/vendor/mongodb/mongodb" />
+      <path value="$PROJECT_DIR$/layout_new/vendor/jean85/pretty-package-versions" />
+      <path value="$PROJECT_DIR$/layout_new/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/layout_new/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2T9QW1OpdUiqrgQTN759sEm7vlb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "G:/D1/laragon/www/naqaba/layout_new",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c8b3c0f2-f3ea-4d3b-b586-9f2b75c9049f" name="Changes" comment="" />
+      <created>1690452844494</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690452844494</updated>
+      <workItem from="1690452845630" duration="3340000" />
+      <workItem from="1690786884376" duration="12248000" />
+      <workItem from="1691004073992" duration="396000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
