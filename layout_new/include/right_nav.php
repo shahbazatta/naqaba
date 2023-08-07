@@ -144,7 +144,7 @@
 
         </div>
       </div>
-      
+
     </div>
 
 
@@ -194,7 +194,8 @@
                           <td>".$output['device']['bus_oper_no']."</td>
                           <td><button type='button' class='actionBtn'><img src='assets/images/icons/more.svg'>
                               <div class='moreAction'>
-                                <div class='icon_anim' onclick='animationImei(this)' data-imei = '".(int)$output['imei']."'>Animation</div>
+                                <div class='icon_anim' onclick='animationImei(this)' data-type='map' data-imei = '" . (int)$output['imei'] . "'>Animation</div>
+                                <div class='gh-map-btn' class='gh-map-btn' onclick='getTripDates(this)' data-type='gl-map' data-imei='" . (int)$output['imei'] . "'>Deck GL</div>
                               </div>
                           </button></td>
                         </tr>";
@@ -208,7 +209,7 @@
         </div>
       </div>
     </div>
-    
+
 
 
     <div class="geofences">
@@ -246,9 +247,9 @@
                     echo "<tr id='geofence".$output['_id']."'>
                           <td>
                             <label class='cCheckBox2'>
-                              <input type='checkbox' id='".$output['_id']."' data-id='".$output['_id']."' data-geofenceName='".$output['attributes']['Description']."' data-ArabicName='".$output['attributes']['ArabicName']."' data-EnglishName='".$output['attributes']['EnglishName']."' 
-                                data-CodeId='".$output['attributes']['Code_ID']."' 
-                                data-Season='".$output['attributes']['Season']."' 
+                              <input type='checkbox' id='".$output['_id']."' data-id='".$output['_id']."' data-geofenceName='".$output['attributes']['Description']."' data-ArabicName='".$output['attributes']['ArabicName']."' data-EnglishName='".$output['attributes']['EnglishName']."'
+                                data-CodeId='".$output['attributes']['Code_ID']."'
+                                data-Season='".$output['attributes']['Season']."'
                                name='".$output['_id']."' value='".$output['_id']."' onclick='geofenceCheckBox(this)'>
                               <span class='checkmark'></span>
                             </label>
@@ -268,7 +269,7 @@
           </table>
         </div>
       </div>
-      
+
     </div>
 
     <div class="settings">
@@ -280,21 +281,21 @@
           <div class="selectParent">
             <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'basemap'); ?></h3>
             <img src="assets/images/icons/location.svg">
-            <select id="bmap" class="bgSelect" title="Basemap" >  
-              <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'googleMap'); ?></option>                                
+            <select id="bmap" class="bgSelect" title="Basemap" >
+              <option value="1"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'googleMap'); ?></option>
               <option value="0"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'openStreetMap'); ?></option>
               <option value="2" selected><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'mapBox'); ?></option>
               <option value="3"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'satelliteMap'); ?></option>
             </select>
           </div>
         </div>
-        
+
         <!--Select Layer-->
         <div class="rowDropdown">
           <div class="selectParent">
             <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'selectLayer'); ?></h3>
             <img src="assets/images/icons/layer.svg">
-            <select id="setLayer" name="setLayer" class="bgSelect" title="Basemap" >  
+            <select id="setLayer" name="setLayer" class="bgSelect" title="Basemap" >
               <option value="1">المنافذ</option>
               <option value="2">رمضان</option>
               <option value="3">المشاعر المقدسة</option>
@@ -302,14 +303,14 @@
               </select>
           </div>
         </div>
-        
+
         <!--Select Language-->
         <div class="rowDropdown">
           <div class="selectParent">
             <h3><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'language'); ?></h3>
             <img src="assets/images/icons/language.svg">
             <select id="setLanguage" name="setLanguage" class="bgSelect" title="Basemap" >
-              <option value="ar" <?php if ($lang_type == 'ar'){ echo 'selected'; }?> ><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabic'); ?></option>  
+              <option value="ar" <?php if ($lang_type == 'ar'){ echo 'selected'; }?> ><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'arabic'); ?></option>
               <option value="en" <?php if ($lang_type == 'en'){ echo 'selected'; }?> ><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'english'); ?></option>
             </select>
           </div>
@@ -344,7 +345,7 @@
           <div class="transparency">
             <div class="sliderWrapper">
               <input type="range" class="slider" min="0" max="1" value="1" id="opacity-slider" step="0.01">
-              
+
             </div>
           </div>
         </div>
@@ -357,11 +358,11 @@
       </div>
 
     </div>
-         
+
          <div id="activeDGF"><a href="javascript:void(0)" id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></a></div>
          <div id="deactiveDGF"><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
          <div id="activeGeoAna"><a href="javascript:void(0)" id="draw_geofence_ana"><img src="assets/images/icons/geo_ana.svg"></a></div>
-    
+
     <div class="apiDocs">
       <a href="api/docs.php" target="_blank"><img src="assets/images/icons/apiDoc.png"></a>
     </div>
@@ -371,16 +372,17 @@
 </div>
 
 <div class="datePickerWrapper" id="datePickerWrapper">
-  <div class="datePickerBox">
-    <div class="head">Select Date Range</div>
-    <input type="text" id="dateRangeImei" name="dateRangeImei" value="" />
-    <div class="close" onclick="closeDateRange()"><img src="assets/images/icons/close.svg"></div>
-  </div>
+    <input type="hidden" id="mapTypeInput" value="">
+    <div class="datePickerBox">
+        <div class="head">Select Date Range</div>
+        <input type="text" id="dateRangeImei" name="dateRangeImei" value=""/>
+        <div class="close" onclick="closeDateRange()"><img src="assets/images/icons/close.svg"></div>
+    </div>
 </div>
 
 
 <div class="animationPanel" id="animationPanel">
-  
+
   <div class="animHeader">
     <div class="date">
       <div class="dateRangeShow" onclick="changeDataPanel()">
@@ -395,7 +397,7 @@
   </div>
 
   <div class="animBody">
-    
+
     <div class="animBar" id="animBar">
       <span class="animBarFill">
         <input type="range" min="0.00" max="100.00" value="0" step="0.01" class="animation-slider" id="animationRangeSlider">
@@ -411,9 +413,9 @@
   <div class="animControl">
     <button type="button" class="speedBtn" id="speedBtn" onclick="setSpeed()"><img src="assets/images/icons/speedometer.png"> Speed</button>
     <button type="button" class="palyBtn" id="palyBtn">
-      <span id="consumeTime">00:00:00</span> 
-      <img id="playbtnIcon" src="assets/images/icons/play.png"> 
-      <img id="pausebtnIcon" src="assets/images/icons/pause.png"> 
+      <span id="consumeTime">00:00:00</span>
+      <img id="playbtnIcon" src="assets/images/icons/play.png">
+      <img id="pausebtnIcon" src="assets/images/icons/pause.png">
       <span id="totalTime">00:00:00</span>
     </button>
     <button type="button" class="resetBtn" id="resetBtn" onclick="resetAnimation()"><img src="assets/images/icons/refresh.png"> Reset</button>
