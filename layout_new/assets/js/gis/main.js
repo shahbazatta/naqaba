@@ -65,7 +65,158 @@ function initMap() {
 
 }
 
+// initialize Deck GL Maps
+let deckAminLoopRunning = false;
+let animationId;
+function initDeckGlMap(pathways, timesArr) {
 
+    //console.log(pathways[1][0])
+    //console.log(timesArr)
+
+    // Convert the first timestamp to seconds (divide by 1000 to convert from milliseconds to seconds)
+    const firstTimestamp = timesArr[0] / 1000;
+    // Calculate relative times based on the first timestamp
+    timesArr = timesArr.map((timestamp) => Math.round((timestamp / 1000 - firstTimestamp) / 60));
+
+    //console.log(timesArr);
+
+    const ANIMATION_SPEED = 40;
+    const INITIAL_PAUSE = 1;
+    const colors = {0: [253, 128, 93], 'others': [23, 184, 190]};
+
+    const getColor = i => {
+        if (typeof i === 'undefined' || !(i in colors)) {
+            i = 'others'
+        }
+        return colors[i];
+    }
+
+    new deck.DeckGL({
+        container: 'deckGlMap',
+        //mapboxApiAccessToken: 'pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ',
+        mapStyle: 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json',
+        initialViewState: {longitude: pathways[0][1], latitude: pathways[0][0], zoom: 1}
+    });
+
+    drawTrips([{"vendor": 0, "path": pathways, "timestamps": timesArr}]);
+
+    const setDropArea = (area) => {
+        area.ondragover = () => false;
+        area.ondrop = async event => {
+            event.preventDefault();
+            const promises = [];
+            for (const file of event.dataTransfer.files) {
+                if (file.name.split('.').pop() == 'json') {
+                    promises.push(file.text());
+                }
+            }
+            const results = await Promise.all(promises);
+            drawTrips(results.map(JSON.parse).flat());
+            return false;
+        };
+    }
+
+    setDropArea(document.getElementById('deckGlMap'));
+
+    function bbox(json) {
+        let points = [];
+        for (let e of json) {
+            points = points.concat(e.path);
+        }
+        const b = turf.bbox(turf.multiPoint(points))
+        return [[b[0], b[3]], [b[2], b[1]]];
+    }
+
+    function interval_timestamps(json) {
+        let timestamps = [];
+        for (let e of json) {
+            timestamps = timestamps.concat(e.timestamps);
+        }
+        return [Math.min(...timestamps), Math.max(...timestamps)];
+    }
+
+    function drawTrips(json) {
+        const interval = interval_timestamps(json);
+        interval[0] -= ANIMATION_SPEED * INITIAL_PAUSE;
+        const view = new deck.WebMercatorViewport({
+            width: document.body.clientWidth,
+            height: document.body.clientHeight
+        });
+
+        deck.carto.setDefaultCredentials({
+            username: 'public',
+            apiKey: 'default_public',
+        });
+
+        const deckgl = new deck.DeckGL({
+            container: 'deckGlMap',
+            mapStyle: deck.carto.BASEMAP.DARK_MATTER,
+            initialViewState: view.fitBounds(bbox(json)),
+            controller: true
+        });
+
+        const deckMap = deckgl.getMapboxMap();
+
+        deckMap.addControl(new mapboxgl.ScaleControl({
+            maxWidth: 160,
+            unit: 'metric'
+        }));
+
+        let time = 0;
+        const RATE_ANIMATION_FRAME = 50;
+
+        function animate() {
+            time = (time + ANIMATION_SPEED / RATE_ANIMATION_FRAME) % (interval[1] - interval[0]);
+            if (deckAminLoopRunning) {
+                animationId = window.requestAnimationFrame(animate);
+            }
+        }
+
+        let deckAnimRunning = false;
+        //const [animation] = useState({});
+
+        // const animate = () => {
+        //     setTime(t => (t + step) % loopLength);
+        //     animation.id = window.requestAnimationFrame(animate); // draw next frame
+        // };
+        //
+        // useEffect(() => {
+        //     if (!running) {
+        //         window.cancelAnimationFrame(animation.id);
+        //         return;
+        //     }
+        //
+        //     animation.id = window.requestAnimationFrame(animate); // start animation
+        //     return () => window.cancelAnimationFrame(animation.id);
+        // }, [running]);
+
+        setInterval(() => {
+            deckgl.setProps({
+                layers: [
+                    new deck.TripsLayer({
+                        id: 'trips-layer',
+                        data: json,
+                        getPath: d => d.path,
+                        getTimestamps: d => d.timestamps,
+                        getColor: d => getColor(d.vendor),
+                        opacity: 0.8,
+                        widthMinPixels: 3,
+                        jointRounded: true,
+                        capRounded: true,
+                        trailLength: 180,
+                        currentTime: time + interval[0],
+                        //currentTime: 0,
+                        shadowEnabled: false
+                    })
+                ]
+            });
+        }, 50);
+
+        window.requestAnimationFrame(animate);
+    }
+
+    //window.requestAnimationFrame(animationId);
+}
 
 var stationLyr;
 var busesLyr;
@@ -943,6 +1094,9 @@ function getDataForAnim(imei, sDate, eDate, mapType) {
       console.log('animationDataArr:', animationDataArr);
       //document.getElementsByClassName("animBarFill")[0].style.width= 0+"%";
       document.getElementById("animationRangeSlider").value = 0.00;
+        if (mapType === "gl-map") {
+            showDeckGLPopup(imei, sDate, eDate, mapType);
+        }
       // runFor100Seconds();
     },
     error: function (xhr, status, error) {
