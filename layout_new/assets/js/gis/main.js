@@ -94,6 +94,7 @@ function initDeckGlMap(pathways, timesArr) {
     new deck.DeckGL({
         container: 'deckGlMap',
         //mapboxApiAccessToken: 'pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ',
+// <<<<<<< HEAD
         mapStyle: 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json',
         initialViewState: {
             longitude: pathways[0][1],
@@ -104,6 +105,10 @@ function initDeckGlMap(pathways, timesArr) {
             pitch: 0,
             bearing: 0,
         }
+// =======
+//         mapStyle: cartoBaseMap,
+//         initialViewState: {longitude: pathways[0][1], latitude: pathways[0][0], zoom: 1}
+// >>>>>>> b87eebba8d92f6956c80449d73e5e426c2fc2168
     });
 
     drawTrips([{"vendor": 0, "path": pathways, "timestamps": timesArr}]);
@@ -158,7 +163,7 @@ function initDeckGlMap(pathways, timesArr) {
 
         const deckgl = new deck.DeckGL({
             container: 'deckGlMap',
-            mapStyle: deck.carto.BASEMAP.DARK_MATTER,
+            mapStyle: cartoBaseMap,
             initialViewState: view.fitBounds(bbox(json)),
             controller: true
         });
@@ -581,11 +586,14 @@ function addBusFeaturesReasign(dataArr) {
   }
 initSelectInteraction();
 }
+var cartoBaseMap = deck.carto.BASEMAP.DARK_MATTER;
+
 function switchBaseMaps() {
   var options = document.getElementById("bmap").options;
   var layer_type = parseInt(options[options.selectedIndex].value);
   if (layer_type == 1) {
     googleMap.setVisible(true);  //show layer
+	cartoBaseMap = deck.carto.BASEMAP.VOYAGER;
     osmLayer.setVisible(false); //hide layer
     mapboxLayer.setVisible(false);
     googleMapHybrid.setVisible(false);
@@ -1771,6 +1779,7 @@ function animationSliderVal(rangeVal) {
   console.log("animation slider value while sliding:  " + sliderValue);
       $('#palyBtn').removeClass("active");
       $('#playbtnIcon').show();
+      $('#pausebtnIcon').hide();
       $('#pausebtnIcon').hide();
       animationState(false);
   // runFor100Seconds(100-rangeVal);
