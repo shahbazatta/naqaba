@@ -205,15 +205,21 @@ $(document).ready(function () {
 
 
 // functions by Ans
-let mapType = '';
+
+let getImeiNo;
 
 function getTripDates($this, mapType) {
-    mapType = $this.getAttribute('data-type');
     getImeiNo = $this.getAttribute('data-imei');
-    $('.datePickerWrapper').find('#mapTypeInput').val(mapType);
+    getMapType($this)
     showDateRange();
     //console.log("this is: " + imeiNo);
     //showDeckGLPopup();
+}
+
+let mapType = '';
+function getMapType($this) {
+    mapType = $this.getAttribute('data-type');
+    $('.datePickerWrapper').find('#mapTypeInput').val(mapType);
 }
 
 // Show Deck GL Popup
@@ -223,7 +229,7 @@ function showDeckGLPopup(imei, sDate, eDate) {
     deckPopup.css({visibility: 'visible'}).animate({
         opacity: 1,
         width: "100%",
-    }, 800, "linear", function () {
+    }, 400, "linear", function () {
 
 
         //console.log("imei no: " + imei + " Start Date: " + sDate + " End Date: " + eDate);
@@ -260,24 +266,24 @@ function showDeckGLPopup(imei, sDate, eDate) {
     });
 }
 
+// Hide the GL map
+const deckPopupClose = $('.deck-popup .close');
+deckPopupClose.on('click', function () {
+    hideDeckGLPopup()
+})
 function hideDeckGLPopup() {
     const deckPopup = $('.deck-popup');
-    const deckPopupClose = $('.deck-popup .close');
-    deckPopupClose.on('click', function () {
-        deckPopup.animate({
-            opacity: 0,
-            width: 0,
-        });
-    })
+    deckPopup.animate({
+        opacity: 0,
+        width: 0,
+    });
 }
 
 hideDeckGLPopup()
 
-var getImeiNo;
-
 function animationImei(cb) {
-    const imeiNo = cb.getAttribute('data-imei');
-    getImeiNo = imeiNo;
+    getImeiNo = cb.getAttribute('data-imei');
+    getMapType(cb)
     showDateRange();
     //console.log("this is: " + imeiNo);
 }
@@ -326,6 +332,7 @@ function closeAnimationPanel() {
     animationState(false);
     animationDataArr = undefined;
     addBusFeatures(busDataArr);
+    hideDeckGLPopup()
 }
 
 function hideAnimationPanel() {
