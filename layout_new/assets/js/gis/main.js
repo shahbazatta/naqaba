@@ -94,8 +94,21 @@ function initDeckGlMap(pathways, timesArr) {
     new deck.DeckGL({
         container: 'deckGlMap',
         //mapboxApiAccessToken: 'pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ',
-        mapStyle: cartoBaseMap,
-        initialViewState: {longitude: pathways[0][1], latitude: pathways[0][0], zoom: 1}
+// <<<<<<< HEAD
+        mapStyle: 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json',
+        initialViewState: {
+            longitude: pathways[0][1],
+            latitude: pathways[0][0],
+            zoom: 20,
+            minZoom: 2,
+            maxZoom: 20,
+            pitch: 0,
+            bearing: 0,
+        }
+// =======
+//         mapStyle: cartoBaseMap,
+//         initialViewState: {longitude: pathways[0][1], latitude: pathways[0][0], zoom: 1}
+// >>>>>>> b87eebba8d92f6956c80449d73e5e426c2fc2168
     });
 
     drawTrips([{"vendor": 0, "path": pathways, "timestamps": timesArr}]);
@@ -171,24 +184,27 @@ function initDeckGlMap(pathways, timesArr) {
                 animationId = window.requestAnimationFrame(animate);
             }
         }
+        function startAnimation() {
+            deckAminLoopRunning = true;
+            animate();
+        }
 
-        let deckAnimRunning = false;
-        //const [animation] = useState({});
+        function stopAnimation() {
+            deckAminLoopRunning = false;
+            window.cancelAnimationFrame(animationId);
+        }
 
-        // const animate = () => {
-        //     setTime(t => (t + step) % loopLength);
-        //     animation.id = window.requestAnimationFrame(animate); // draw next frame
-        // };
-        //
-        // useEffect(() => {
-        //     if (!running) {
-        //         window.cancelAnimationFrame(animation.id);
-        //         return;
-        //     }
-        //
-        //     animation.id = window.requestAnimationFrame(animate); // start animation
-        //     return () => window.cancelAnimationFrame(animation.id);
-        // }, [running]);
+        let running = false;
+
+        $(".palyBtn").on('click',function() {
+            if (running) {
+                running = false;
+                stopAnimation();
+            }else {
+                running = true;
+                startAnimation();
+            }
+        });
 
         setInterval(() => {
             deckgl.setProps({
@@ -199,7 +215,7 @@ function initDeckGlMap(pathways, timesArr) {
                         getPath: d => d.path,
                         getTimestamps: d => d.timestamps,
                         getColor: d => getColor(d.vendor),
-                        opacity: 0.8,
+                        opacity: 0.5,
                         widthMinPixels: 3,
                         jointRounded: true,
                         capRounded: true,
@@ -1094,7 +1110,7 @@ function getDataForAnim(imei, sDate, eDate, mapType) {
       addAnimateFeatures(animationDataArr);
       $('#animBarLoading').hide();
       $('#animBar').show();
-      console.log('animationDataArr:', animationDataArr);
+      //console.log('animationDataArr:', animationDataArr);
       //document.getElementsByClassName("animBarFill")[0].style.width= 0+"%";
       document.getElementById("animationRangeSlider").value = 0.00;
         if (mapType === "gl-map") {
@@ -1724,7 +1740,7 @@ async function runFor100Seconds() {
     var percentBar = i+1;
     currentIndex =i;
     sliderValue = (i/animationDataArr.length)*100;
-    console.log("animation slider value:  " + sliderValue+"%");
+    //console.log("animation slider value:  " + sliderValue+"%");
     //change this line for animation slider
     //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
 
