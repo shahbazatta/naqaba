@@ -93,9 +93,7 @@ function initDeckGlMap(pathways, timesArr) {
 
     new deck.DeckGL({
         container: 'deckGlMap',
-        //mapboxApiAccessToken: 'pk.eyJ1Ijoic2hhaGJhemF0dGEiLCJhIjoiTGFyTEVvSSJ9.5b1ITwm0plgm7rNy-umfWQ',
-// <<<<<<< HEAD
-        mapStyle: 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json',
+        mapStyle: cartoBaseMap,
         initialViewState: {
             longitude: pathways[0][1],
             latitude: pathways[0][0],
@@ -105,10 +103,6 @@ function initDeckGlMap(pathways, timesArr) {
             pitch: 0,
             bearing: 0,
         }
-// =======
-//         mapStyle: cartoBaseMap,
-//         initialViewState: {longitude: pathways[0][1], latitude: pathways[0][0], zoom: 1}
-// >>>>>>> b87eebba8d92f6956c80449d73e5e426c2fc2168
     });
 
     drawTrips([{"vendor": 0, "path": pathways, "timestamps": timesArr}]);
