@@ -570,14 +570,14 @@ function addBusFeaturesReasign(dataArr) {
   }
 initSelectInteraction();
 }
-var cartoBaseMap = deck.carto.BASEMAP.DARK_MATTER;
+var cartoBaseMap = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
 
 function switchBaseMaps() {
   var options = document.getElementById("bmap").options;
   var layer_type = parseInt(options[options.selectedIndex].value);
   if (layer_type == 1) {
     googleMap.setVisible(true);  //show layer
-	cartoBaseMap = deck.carto.BASEMAP.VOYAGER;
+	cartoBaseMap = "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json";
     osmLayer.setVisible(false); //hide layer
     mapboxLayer.setVisible(false);
     googleMapHybrid.setVisible(false);
