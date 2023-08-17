@@ -610,7 +610,7 @@ function switchBaseMaps() {
     googleMap.setVisible(false);  //hide layer
     osmLayer.setVisible(false);
     googleMapHybrid.setVisible(true);
-	cartoBaseMap = "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json";
+	cartoBaseMap = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
     mapboxLayer.setVisible(false); //show layer
   }
 
