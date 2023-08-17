@@ -596,18 +596,21 @@ function switchBaseMaps() {
     googleMap.setVisible(false);  //hide layer
     mapboxLayer.setVisible(false);
     googleMapHybrid.setVisible(false);
+	cartoBaseMap = "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json";
     osmLayer.setVisible(true); //show layer
   }
   if (layer_type == 2) {
     googleMap.setVisible(false);  //hide layer
     osmLayer.setVisible(false);
     googleMapHybrid.setVisible(false);
+	cartoBaseMap = "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json";
     mapboxLayer.setVisible(true); //show layer
   }
   if (layer_type == 3) {
     googleMap.setVisible(false);  //hide layer
     osmLayer.setVisible(false);
     googleMapHybrid.setVisible(true);
+	cartoBaseMap = "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json";
     mapboxLayer.setVisible(false); //show layer
   }
 
