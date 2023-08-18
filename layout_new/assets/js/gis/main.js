@@ -68,9 +68,8 @@ function initMap() {
 // initialize Deck GL Maps
 let deckAminLoopRunning = false;
 let animationId;
-let deckgl;
-
-function (pathways, timesArr) {
+let deckgl ;
+function initDeckGlMap(pathways, timesArr) {
 
     //console.log(pathways[1][0])
     //console.log(timesArr)
@@ -93,7 +92,7 @@ function (pathways, timesArr) {
         return colors[i];
     }
 
-    deckgl = new deck.DeckGL({
+   deckgl = new deck.DeckGL({
         container: 'deckGlMap',
         mapStyle: cartoBaseMap,
         initialViewState: {
