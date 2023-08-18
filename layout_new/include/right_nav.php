@@ -196,6 +196,7 @@
                               <div class='moreAction'>
                                 <div class='icon_anim' onclick='animationImei(this)' data-type='map' data-imei = '" . (int)$output['imei'] . "'>Animation</div>
                                 <div class='gh-map-btn' class='gh-map-btn' onclick='getTripDates(this)' data-type='gl-map' data-imei='" . (int)$output['imei'] . "'>Deck GL</div>
+                                <div class='icon_chart' onclick='chartViewImei(this)' data-type='chart' data-imei = '" . (int)$output['imei'] . "'>Radial Area Chart</div>
                               </div>
                           </button></td>
                         </tr>";
