@@ -69,7 +69,7 @@ function initMap() {
 let deckAminLoopRunning = false;
 let animationId;
 let deckgl;
-function    (pathways, timesArr) {
+function (pathways, timesArr) {
 
     //console.log(pathways[1][0])
     //console.log(timesArr)
