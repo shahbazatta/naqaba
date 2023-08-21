@@ -152,6 +152,24 @@ $classObject = new GetAvlDevicesData();
 <?php include 'include/geofence.php'; ?>
 
 
+
+
+<!-- Radial Area Chart -->
+<div class="radialAreaChart" id="radialAreaChart">
+    <div class="chartClose"><img src="assets/images/icons/close.svg"></div>
+    <div class="racInput" id="racInput">
+        <h1>Radial Area Chart</h1>
+        <h2>EMIE No: <span id="chartImeiNo">8877796465464</span></h2>
+
+        <label>Date Range:</label>
+        <input type="text" id="dateRangeRACImei" name="dateRangeRACImei" value=""/>
+
+        <button type="button" class="RACApplyBtn" id="" onclick="setChartSeed()">Apply</button>
+    </div>
+    <div class="racWrapper" id="racWrapper"></div>
+</div>
+
+
 <!-- Notification -->
 <div class="notification">
     <div class="nWrapper"></div>
@@ -194,6 +212,11 @@ $classObject = new GetAvlDevicesData();
 <script src="assets/js/deckGl/carto-dist.min.js"></script>
 <script src="assets/js/deckGl/mapbox-gl.js"></script>
 <script src="assets/js/deckGl/turf.min.js"></script>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/d3-scale.v3.min.js"></script>
+<script src="https://unpkg.com/geometric@2.0.1/build/geometric.min.js"></script>
+<script src="assets/js/radial-area-chart.js"></script>
 
 <script src="assets/js/functions.js"></script>
 

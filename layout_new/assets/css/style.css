@@ -1217,7 +1217,7 @@ h1{
 	position: absolute;
 	bottom: 15px;
 	left: 127px;
-	z-index: 999999;
+	z-index: 999990;
 	display: block;
 
 	border-radius: 9px;
@@ -1709,4 +1709,104 @@ table.tablesorter thead tr .header {
 
 .headerList h1 {
     cursor: move;
+}
+
+.radialAreaChart{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 999999;
+	background-color: whitesmoke;
+	display: none;
+}
+.daterangepicker{
+	z-index: 99999999;
+}
+.chartClose{
+	width: 24px;
+	height: 24px;
+	padding: 8px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background-color: lightgrey;
+	cursor: pointer;
+}
+.racInput{
+	float: left;
+	min-height: 800px;
+	width: 360px;
+	padding: 15px;
+	margin: 0px 20px 0px 0px;
+}
+
+.racWrapper {
+	float: left;
+	display: none;
+}
+
+.racWrapper svg {
+  margin: 0 auto;
+  display:  table;
+}
+.racWrapper .area {
+  fill:  steelblue;
+  fill-opacity:  .5;
+}
+.racWrapper .tick circle {
+  fill: none;
+  stroke:  #888;
+}
+.racWrapper .tick line {
+  stroke: #888;
+}
+.racWrapper .tick text {
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.racInput h1{
+  font-size: 36px;
+  font-weight: 600;
+  color: #000;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.racInput h2{
+  font-size: 21px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 5px;
+}
+.racInput h2 span{
+  font-size: 21px;
+  font-weight: 400;
+}
+.racInput label{
+  font-size: 21px;
+  font-weight: 600;
+  color: #000;
+}
+.racInput input{
+  font-size: 17px;
+  font-weight: 600;
+  color: #000;
+  width: 100%;
+  height: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.RACApplyBtn{
+	background-color: black;
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+  width: 120px;
+  height: 42px;
+  display: block;
+  float: right;
+  cursor: pointer;
 }
