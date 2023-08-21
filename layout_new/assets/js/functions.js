@@ -231,7 +231,6 @@ function showDeckGLPopup(imei, sDate, eDate) {
         width: "100%",
     }, 400, "linear", function () {
 
-
         //console.log("imei no: " + imei + " Start Date: " + sDate + " End Date: " + eDate);
         $.ajax({
             url: "./data/get_glMapData.php",
@@ -245,18 +244,18 @@ function showDeckGLPopup(imei, sDate, eDate) {
             },
             success: function (response) {
                 //close laoder
-                let animationDataArr = response;
-                let pathways = []
-                let timesArr = []
-                //alert('success')
-                for (let i = 0; i < animationDataArr.length; i++) {
-                    let data = animationDataArr[i];
-                    pathways.push(data.location.coordinates)
-                    timesArr.push(data.avltm);
-                    //console.log(data.location.coordinates);
-                }
+                console.log(response)
+                // let pathways = []
+                // let timesArr = []
+                // //alert('success')
+                // for (let i = 0; i < animationDataArr.length; i++) {
+                //     let data = animationDataArr[i];
+                //     pathways.push(data.location.coordinates)
+                //     timesArr.push(data.avltm);
+                //     //console.log(data.location.coordinates);
+                // }
 
-                initDeckGlMap(pathways, timesArr)
+                //initDeckGlMap(response.coordinates, response.times)
                 //console.log('animationDataArr:', pathways);
             },
             error: function (xhr, status, error) {
@@ -310,13 +309,8 @@ $(function () {
         $("#startDateRange").html(start.format('D MMMM, YYYY'));
         $("#endDateRange").html(end.format('D MMMM, YYYY'));
 
-        // if (mapType === "gl-map") {
-        //     $('#animBar').show();
-        //     showDeckGLPopup(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'), mapType);
-        // } else {
-            getDataForAnim(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'), mapType);
-            console.log("this getImeiNo: " + getImeiNo);
-        //}
+        getDataForAnim(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'), mapType);
+        //console.log("this getImeiNo: " + getImeiNo);
 
     });
 });

@@ -74,9 +74,9 @@ function initDeckGlMap(pathways, timesArr) {
     //console.log(timesArr)
 
     // Convert the first timestamp to seconds (divide by 1000 to convert from milliseconds to seconds)
-    const firstTimestamp = timesArr[0] / 1000;
-    // Calculate relative times based on the first timestamp
-    timesArr = timesArr.map((timestamp) => Math.round((timestamp / 1000 - firstTimestamp) / 60));
+    // const firstTimestamp = timesArr[0] / 1000;
+    // // Calculate relative times based on the first timestamp
+    // timesArr = timesArr.map((timestamp) => Math.round((timestamp / 1000 - firstTimestamp) / 60));
 
     //console.log(timesArr);
 
@@ -1084,9 +1084,16 @@ function downloadJSON() {
 var animationDataArr = [];
 function getDataForAnim(imei, sDate, eDate, mapType) {
 
+    $('#animBar').hide();
+    $('#animBarLoading').show();
+
+    if (mapType === "gl-map") {
+        document.getElementById("animationRangeSlider").value = 0.00;
+        showDeckGLPopup(imei, sDate, eDate, mapType);
+        return;
+    }
   console.log("imei no: " + imei + " Start Date: " + sDate + " End Date: " + eDate);
-  $('#animBar').hide();
-  $('#animBarLoading').show();
+
 
   $.ajax({
     url: "./data/get_animationData.php",
@@ -1099,6 +1106,7 @@ function getDataForAnim(imei, sDate, eDate, mapType) {
       end_date: eDate
     },
     success: function (response) {
+        console.log(response);
       //close laoder
       animationDataArr = response;
       addAnimateFeatures(animationDataArr);
@@ -1107,9 +1115,6 @@ function getDataForAnim(imei, sDate, eDate, mapType) {
       //console.log('animationDataArr:', animationDataArr);
       //document.getElementsByClassName("animBarFill")[0].style.width= 0+"%";
       document.getElementById("animationRangeSlider").value = 0.00;
-        if (mapType === "gl-map") {
-            showDeckGLPopup(imei, sDate, eDate, mapType);
-        }
       // runFor100Seconds();
     },
     error: function (xhr, status, error) {
