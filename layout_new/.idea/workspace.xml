@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8455d45f-b2ee-4387-8022-ca215e943f4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/get_animationData_old.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/functions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/gis/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/gis/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/get_animationData.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/get_animationData.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/get_glMapData.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/get_glMapData.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
@@ -53,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "G:/D1/laragon/www/naqaba/layout_new/data",
+    "last_opened_file_path": "G:/D1/laragon/www/naqaba/layout_new/assets/js",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -66,6 +67,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\D1\laragon\www\naqaba\layout_new\assets\js" />
+      <recent name="G:\D1\laragon\www\naqaba\layout_new\assets\js\gis" />
       <recent name="G:\D1\laragon\www\naqaba\layout_new\data" />
       <recent name="G:\D1\laragon\www\naqaba\layout_new\assets\js\deckGl" />
     </key>
@@ -88,6 +91,7 @@
       <workItem from="1691958843401" duration="605000" />
       <workItem from="1692447670225" duration="12014000" />
       <workItem from="1692555158288" duration="3596000" />
+      <workItem from="1692630676848" duration="9879000" />
     </task>
     <servers />
   </component>

@@ -73,7 +73,7 @@ if( isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
             return round(($timestamp / 1000 - $firstTimestamp) / 60);
         }, $times);
 
-        $new_cursor = ['coordinates' => $coordinates, 'times' => $times, 'busCounter' => $arrCounter, 'imei' => $imei];
+        $new_cursor = ['coordinates' => $coordinates, 'relTimes' => $relativeTimes, 'avltm' => $times, 'arrCounter' => $arrCounter, 'imei' => $imei];
 
 		echo $json_data = json_encode($new_cursor, JSON_UNESCAPED_UNICODE);
 	}

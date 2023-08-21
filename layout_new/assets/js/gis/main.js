@@ -405,18 +405,26 @@ function addBusFeatures(dataArr) {
 }
 var blink = true;
 function addAnimateFeatures(dataArr) {
+
+    let dataArrCoords = [];
+    if (dataArr.coordinates){
+        dataArrCoords = dataArr.coordinates;
+    }else{
+        dataArrCoords = dataArr;
+    }
+
   var featuresArr = [];
   busesDataFilterReference = [];
-  busesData = dataArr;
+  busesData = dataArrCoords;
   showBusCounter(busesData.length, "14120");
   // var image_path = styles.geoMarker;//document.getElementsByClassName("pointSv active")[0].children[1].getAttribute('src');
-  for (let i = 0; i < dataArr.length; i++) {
-    var obj = dataArr[i];
+  for (let i = 0; i < dataArrCoords.length; i++) {
+    var obj = dataArrCoords[i];
     var feature = new ol.Feature({
-      geometry: new ol.geom.Point(ol.proj.fromLonLat(obj.location.coordinates)),
+      geometry: new ol.geom.Point(ol.proj.fromLonLat(obj)),
       properties: obj
     });
-    feature.setId(obj.imei);
+    feature.setId(dataArr.imei);
     feature.setProperties(obj);
     var iconStyle = styles.geoMarker;
     // new ol.style.Style({
@@ -1720,6 +1728,10 @@ async function runFor100Seconds() {
   // stop = false;
   // play = true;
   // currentIndex = val;
+    animationDataArr = animationDataArr.coordinates;
+    let animationDataTimesArr = animationDataArr.avltm;
+    let imei = animationDataArr.imei;
+
   if (animationDataArr != undefined)
     currentIndex = (animationDataArr.length * sliderValue) / 100;
   else
@@ -1753,12 +1765,12 @@ async function runFor100Seconds() {
     addAnimateFeatures(sliceBusDataArr);
     var imeiText = document.getElementById('totalTime');
     var timeText = document.getElementById('consumeTime');
-    imeiText.textContent = sliceBusDataArr[0].imei+':IMEI';
+    imeiText.textContent = imei+':IMEI';
 	if (deckgl!=undefined) {
-		panToLocation(sliceBusDataArr[0].location.coordinates[0], sliceBusDataArr[0].location.coordinates[1]);
+		panToLocation(sliceBusDataArr[0][0], sliceBusDataArr[0][1]); // latitude, longitude
 	}
-	if (dec
-    timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
+	if (dec)
+    timeText.textContent = new Date(animationDataTimesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(animationDataTimesArr[i]).toLocaleTimeString("default");
     var lt = parseInt(i);
     if (lt == 0)
       map.getView().fit(busesDataSource.getExtent(), {size:map.getSize(), maxZoom:8});
