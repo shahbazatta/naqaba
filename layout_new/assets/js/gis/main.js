@@ -68,6 +68,7 @@ function initMap() {
 // initialize Deck GL Maps
 let deckAminLoopRunning = false;
 let animationId;
+let deckgl ;
 function initDeckGlMap(pathways, timesArr) {
 
     //console.log(pathways[1][0])
@@ -91,7 +92,7 @@ function initDeckGlMap(pathways, timesArr) {
         return colors[i];
     }
 
-    new deck.DeckGL({
+   deckgl = new deck.DeckGL({
         container: 'deckGlMap',
         mapStyle: cartoBaseMap,
         initialViewState: {
@@ -155,7 +156,7 @@ function initDeckGlMap(pathways, timesArr) {
             apiKey: 'default_public',
         });
 
-        const deckgl = new deck.DeckGL({
+         deckgl = new deck.DeckGL({
             container: 'deckGlMap',
             mapStyle: cartoBaseMap,
             initialViewState: view.fitBounds(bbox(json)),
@@ -596,18 +597,21 @@ function switchBaseMaps() {
     googleMap.setVisible(false);  //hide layer
     mapboxLayer.setVisible(false);
     googleMapHybrid.setVisible(false);
+	cartoBaseMap = "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json";
     osmLayer.setVisible(true); //show layer
   }
   if (layer_type == 2) {
     googleMap.setVisible(false);  //hide layer
     osmLayer.setVisible(false);
     googleMapHybrid.setVisible(false);
+	cartoBaseMap = "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json";
     mapboxLayer.setVisible(true); //show layer
   }
   if (layer_type == 3) {
     googleMap.setVisible(false);  //hide layer
     osmLayer.setVisible(false);
     googleMapHybrid.setVisible(true);
+	cartoBaseMap = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
     mapboxLayer.setVisible(false); //show layer
   }
 
@@ -1750,6 +1754,10 @@ async function runFor100Seconds() {
     var imeiText = document.getElementById('totalTime');
     var timeText = document.getElementById('consumeTime');
     imeiText.textContent = sliceBusDataArr[0].imei+':IMEI';
+	if (deckgl!=undefined) {
+		panToLocation(sliceBusDataArr[0].location.coordinates[0], sliceBusDataArr[0].location.coordinates[1]);
+	}
+	if (dec
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
     var lt = parseInt(i);
     if (lt == 0)
@@ -1790,3 +1798,14 @@ function animationState(val) {
   if (play)
     runFor100Seconds();
 }
+
+function panToLocation(longitude, latitude) {
+  var zoom = deckgl._getViewState().zoom;
+    deckgl.setProps({
+      initialViewState: {
+        longitude: longitude,
+        latitude: latitude,
+        zoom: zoom
+      }
+    });
+  }

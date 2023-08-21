@@ -201,6 +201,12 @@ $(document).ready(function () {
         animationSliderVal(this.value);
     }
 
+
+
+    $(".chartClose").click(function () {
+        $("#radialAreaChart").hide();
+    });
+
 });
 
 
@@ -280,6 +286,9 @@ function hideDeckGLPopup() {
 
 hideDeckGLPopup()
 
+
+
+// Animation Imei
 function animationImei(cb) {
     getImeiNo = cb.getAttribute('data-imei');
     getMapType(cb)
