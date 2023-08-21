@@ -1749,6 +1749,10 @@ async function runFor100Seconds() {
     var imeiText = document.getElementById('totalTime');
     var timeText = document.getElementById('consumeTime');
     imeiText.textContent = sliceBusDataArr[0].imei+':IMEI';
+	if (deckgl!=undefined) {
+		panToLocation(sliceBusDataArr[0].location.coordinates[0], sliceBusDataArr[0].location.coordinates[1]);
+	}
+	if (dec
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
     var lt = parseInt(i);
     if (lt == 0)
@@ -1789,3 +1793,14 @@ function animationState(val) {
   if (play)
     runFor100Seconds();
 }
+
+function panToLocation(longitude, latitude) {
+  var zoom = deckgl._getViewState().zoom;
+    deckgl.setProps({
+      initialViewState: {
+        longitude: longitude,
+        latitude: latitude,
+        zoom: zoom
+      }
+    });
+  }
