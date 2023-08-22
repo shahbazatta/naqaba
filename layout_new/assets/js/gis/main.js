@@ -404,14 +404,15 @@ function addBusFeatures(dataArr) {
   $('#loadingBusData').hide();
 }
 var blink = true;
+let dataArrCoords = []; //
 function addAnimateFeatures(dataArr) {
 
-    let dataArrCoords = [];
-    if (dataArr.coordinates){
+    // let dataArrCoords = [];
+    // if (dataArr.coordinates){
         dataArrCoords = dataArr.coordinates;
-    }else{
-        dataArrCoords = dataArr;
-    }
+    // }else{
+    //     dataArrCoords = dataArr;
+    // }
 
   var featuresArr = [];
   busesDataFilterReference = [];
@@ -1094,6 +1095,7 @@ function downloadJSON() {
 }
 
 var animationDataArr = [];
+let animationDataTimesArr = [];
 function getDataForAnim(imei, sDate, eDate, mapType) {
 
     $('#animBar').hide();
@@ -1721,6 +1723,8 @@ var play= true;
 var currentIndex =0;
 var sliderValue=0.0;
 var reset = false;
+let animationDataArrCoords = [];
+let animationDataLength = 0;
 // var stop = false;
 // Run for 100 seconds
 async function runFor100Seconds() {
@@ -1728,24 +1732,32 @@ async function runFor100Seconds() {
   // stop = false;
   // play = true;
   // currentIndex = val;
-    animationDataArr = animationDataArr.coordinates;
-    let animationDataTimesArr = animationDataArr.avltm;
+
+    // get coordinates
+    animationDataArrCoords = animationDataArr.coordinates;
+    // get array length
+    animationDataLength = animationDataArr.coordinates.length
+    // get avltm array
+    animationDataTimesArr = animationDataArr.avltm;
+    // get emei
     let imei = animationDataArr.imei;
 
+    console.log(animationDataArr)
+
   if (animationDataArr != undefined)
-    currentIndex = (animationDataArr.length * sliderValue) / 100;
+    currentIndex = (animationDataLength * sliderValue) / 100;
   else
     currentIndex = 0;
 
-  if (currentIndex>=animationDataArr.length)
+  if (currentIndex>=animationDataLength)
     currentIndex = 0;
 
-  for (let i = currentIndex; i < animationDataArr.length; i++) {
+  for (let i = currentIndex; i < animationDataLength; i++) {
     //console.log("Time elapsed:", (i + 1), "second(s)");
     if (animationDataArr == undefined)
         break;
     if (!play) {
-      sliderValue = (i/animationDataArr.length)*100;
+      sliderValue = (i/animationDataLength)*100;
       break;
     }
     if (reset) {
@@ -1754,20 +1766,20 @@ async function runFor100Seconds() {
     }
     var percentBar = i+1;
     currentIndex =i;
-    sliderValue = (i/animationDataArr.length)*100;
+    sliderValue = (i/animationDataLength)*100;
     //console.log("animation slider value:  " + sliderValue+"%");
     //change this line for animation slider
     //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
 
     document.getElementById("animationRangeSlider").value = sliderValue;
 
-    sliceBusDataArr = animationDataArr.slice(i,i+1);
-    addAnimateFeatures(sliceBusDataArr);
+    //sliceBusDataArr = animationDataArr.slice(i,i+1);
+    addAnimateFeatures(animationDataArr);
     var imeiText = document.getElementById('totalTime');
     var timeText = document.getElementById('consumeTime');
     imeiText.textContent = imei+':IMEI';
 	if (deckgl!=undefined) {
-		panToLocation(sliceBusDataArr[0][0], sliceBusDataArr[0][1]); // latitude, longitude
+		panToLocation(animationDataArrCoords[0][0], animationDataArrCoords[0][1]); // latitude, longitude
 	}
 	if (deckgl)
     timeText.textContent = new Date(animationDataTimesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(animationDataTimesArr[i]).toLocaleTimeString("default");
@@ -1778,7 +1790,7 @@ async function runFor100Seconds() {
       map.getView().fit(busesDataSource.getExtent(), {size:map.getSize(), maxZoom:map.getView().getZoom()});
     await delay(speed); // Delay for 1 second (1000 milliseconds)
   }
-  if (currentIndex+1 == animationDataArr.length) {
+  if (currentIndex+1 == animationDataLength) {
     currentIndex = 0;
     sliderValue = 0;
   }
