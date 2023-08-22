@@ -1769,7 +1769,7 @@ async function runFor100Seconds() {
 	if (deckgl!=undefined) {
 		panToLocation(sliceBusDataArr[0][0], sliceBusDataArr[0][1]); // latitude, longitude
 	}
-	if (dec)
+	if (deckgl)
     timeText.textContent = new Date(animationDataTimesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(animationDataTimesArr[i]).toLocaleTimeString("default");
     var lt = parseInt(i);
     if (lt == 0)
