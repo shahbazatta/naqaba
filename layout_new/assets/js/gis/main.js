@@ -78,10 +78,30 @@ function initDeckGlMap(pathways, timesArr) {
     // Calculate relative times based on the first timestamp
     timesArr = timesArr.map((timestamp) => Math.round((timestamp / 1000 - firstTimestamp) / 60));
 
-    //console.log(timesArr);
 
-    const ANIMATION_SPEED = 40;
+    let ANIMATION_SPEED = 40;
     const INITIAL_PAUSE = 1;
+
+    // set speed on click
+    const speedBtn = $("#speedBtn");
+
+    speedBtn.on("click", function(e) {
+        //alert("Ok");
+        if (speedState === 0) {
+            ANIMATION_SPEED = 80;
+            speed = 1000;
+            speedState++;
+        } else if (speedState === 1) {
+            ANIMATION_SPEED = 120;
+            speed = 100;
+            speedState++;
+        } else if (speedState === 2) {
+            ANIMATION_SPEED = 180;
+            speed = 10;
+            speedState = 0;
+        }
+    })
+
     const colors = {0: [253, 128, 93], 'others': [23, 184, 190]};
 
     const getColor = i => {
