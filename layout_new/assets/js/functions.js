@@ -246,6 +246,9 @@ function showDeckGLPopup(imei, sDate, eDate) {
                 //close laoder
                 console.log(response)
                 animationDataArr = response;
+                addAnimateFeatures(animationDataArr);
+                $('#animBarLoading').hide();
+                $('#animBar').show();
                 let pathways = []
                 let timesArr = []
                 //alert('success')

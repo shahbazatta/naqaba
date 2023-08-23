@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8455d45f-b2ee-4387-8022-ca215e943f4f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/functions_bk_new.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gis/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/gis/main_bk_new.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/get_animationData.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/get_animationData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/get_animationData_old.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/get_animationData_bk_new.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/get_glMapData.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/get_glMapData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/functions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +90,7 @@
       <workItem from="1692555158288" duration="3596000" />
       <workItem from="1692630676848" duration="9879000" />
       <workItem from="1692688527032" duration="5065000" />
-      <workItem from="1692769867107" duration="1831000" />
+      <workItem from="1692769867107" duration="2427000" />
     </task>
     <servers />
   </component>
