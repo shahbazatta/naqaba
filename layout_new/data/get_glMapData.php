@@ -50,32 +50,38 @@ if( isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
             'imei' => $imei_rec
         ), ['sort' => ['avltm' => 1], 'limit' => 1000] );
 
-		$json_data = null;
-        $cursor = iterator_to_array($cursor);
+        $json_data = null;
 
-        $new_cursor = array();
-        $times = [];
-        $coordinates = [];
-        $arrCounter = 0;
-        $imei = $cursor[0]['imei'];
+        //print_r($cursor);
 
+        echo $json_data = json_encode(iterator_to_array($cursor), JSON_UNESCAPED_UNICODE);
 
-        foreach ($cursor as $key => $item) {
-//            $new_cursor['coordinates'] = $item['location']['coordinates'];
-//            $new_cursor['times'] = $item['avltm'];
-            $coordinates[$key] = $item['location']['coordinates'];
-            $times[$key] = $item['avltm'];
-            $arrCounter++; // increment
-        }
-
-        $firstTimestamp = $times[0] / 1000;
-        $relativeTimes = array_map(function ($timestamp) use ($firstTimestamp) {
-            return round(($timestamp / 1000 - $firstTimestamp) / 60);
-        }, $times);
-
-        $new_cursor = ['coordinates' => $coordinates, 'relTimes' => $relativeTimes, 'avltm' => $times, 'arrCounter' => $arrCounter, 'imei' => $imei];
-
-		echo $json_data = json_encode($new_cursor, JSON_UNESCAPED_UNICODE);
+//		$json_data = null;
+//        $cursor = iterator_to_array($cursor);
+//
+//        $new_cursor = array();
+//        $times = [];
+//        $coordinates = [];
+//        $arrCounter = 0;
+//        $imei = $cursor[0]['imei'];
+//
+//
+//        foreach ($cursor as $key => $item) {
+////            $new_cursor['coordinates'] = $item['location']['coordinates'];
+////            $new_cursor['times'] = $item['avltm'];
+//            $coordinates[$key] = $item['location']['coordinates'];
+//            $times[$key] = $item['avltm'];
+//            $arrCounter++; // increment
+//        }
+//
+//        $firstTimestamp = $times[0] / 1000;
+//        $relativeTimes = array_map(function ($timestamp) use ($firstTimestamp) {
+//            return round(($timestamp / 1000 - $firstTimestamp) / 60);
+//        }, $times);
+//
+//        $new_cursor = ['coordinates' => $coordinates, 'relTimes' => $relativeTimes, 'avltm' => $times, 'arrCounter' => $arrCounter, 'imei' => $imei];
+//
+//		echo $json_data = json_encode($new_cursor, JSON_UNESCAPED_UNICODE);
 	}
 
 }else{

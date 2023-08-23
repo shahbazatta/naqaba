@@ -201,6 +201,12 @@ $(document).ready(function () {
         animationSliderVal(this.value);
     }
 
+
+
+    $(".chartClose").click(function () {
+        $("#radialAreaChart").hide();
+    });
+
 });
 
 
@@ -244,19 +250,12 @@ function showDeckGLPopup(imei, sDate, eDate) {
             },
             success: function (response) {
                 //close laoder
-                console.log(response)
-                animationDataArr = response;
-                let pathways = []
-                let timesArr = []
-                //alert('success')
-                for (let i = 0; i < animationDataArr.length; i++) {
-                    let data = animationDataArr[i];
-                    pathways.push(data.location.coordinates)
-                    timesArr.push(data.avltm);
-                    //console.log(data.location.coordinates);
-                }
-
-                initDeckGlMap(pathways, timesArr)
+                console.log(response.imei)
+                animationDataArr = response
+                addAnimateFeatures(animationDataArr);
+                initDeckGlMap(response.coordinates, response.times)
+                $('#animBarLoading').hide();
+                $('#animBar').show();
                 //console.log('animationDataArr:', pathways);
             },
             error: function (xhr, status, error) {
@@ -281,6 +280,9 @@ function hideDeckGLPopup() {
 
 hideDeckGLPopup()
 
+
+
+// Animation Imei
 function animationImei(cb) {
     getImeiNo = cb.getAttribute('data-imei');
     getMapType(cb)

@@ -44,10 +44,31 @@ if( isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
 		$cursor = $collection->find(array('avltm'=>array ('$gte'=> (int) $gt_date2, '$lte' => (int) $lt_date2 ),'spd'=>array ('$gt'=> 0), 'imei' => $imei_rec), ['sort' => ['avltm' => 1], 'limit' => 1000] );
 
 		$json_data = null;
+        $cursor = iterator_to_array($cursor);
 
-		//print_r($cursor);
+        $new_cursor = array();
+        $times = [];
+        $coordinates = [];
+        $arrCounter = 0;
+        $imei = $cursor[0]['imei'];
 
-		echo $json_data = json_encode(iterator_to_array($cursor), JSON_UNESCAPED_UNICODE);
+
+        foreach ($cursor as $key => $item) {
+//            $new_cursor['coordinates'] = $item['location']['coordinates'];
+//            $new_cursor['times'] = $item['avltm'];
+            $coordinates[$key] = $item['location']['coordinates'];
+            $times[$key] = $item['avltm'];
+            $arrCounter++; // increment
+        }
+
+        $firstTimestamp = $times[0] / 1000;
+        $relativeTimes = array_map(function ($timestamp) use ($firstTimestamp) {
+            return round(($timestamp / 1000 - $firstTimestamp) / 60);
+        }, $times);
+
+        $new_cursor = ['coordinates' => $coordinates, 'relTimes' => $relativeTimes, 'avltm' => $times, 'arrCounter' => $arrCounter, 'imei' => $imei];
+
+		echo $json_data = json_encode($new_cursor, JSON_UNESCAPED_UNICODE);
 	}
 
 }else{
