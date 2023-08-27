@@ -44,3 +44,8 @@
     cursor: pointer;
     max-width: 103px
 }
+
+.busFinderBox .mainListRows {
+    overflow-x: hidden;
+    overflow-y: auto;
+}

@@ -183,13 +183,6 @@ $(document).ready(function () {
         $("#fullScreenOn").show();
     });
 
-    $("button.actionBtn").click(function () {
-        $(".moreAction").hide();
-        $(this).children(".moreAction").show();
-        //console.log("button.actionBtn");
-    });
-
-
     //Amination slider value update
     var animSlider = document.getElementById("animationRangeSlider");
     //var output = document.getElementById("demo");
@@ -205,6 +198,14 @@ $(document).ready(function () {
 
 
 // functions by Ans
+function showMapList() {
+    $("button.actionBtn").click(function () {
+        $(".moreAction").hide();
+        $(this).children(".moreAction").show();
+        //console.log("button.actionBtn");
+    });
+}
+showMapList()
 
 let getImeiNo;
 
@@ -858,3 +859,71 @@ $("#geofenceDeleteConfirm").click(function () {
         });
     }
 });
+
+$(document).ready(function () {
+
+    const loadContainer = $("#iemiSearchList");
+    const finderTable = $("#busFinderTable")
+    let groupSize = 50;
+    let loadedNumber = 0;
+
+    function loadMoreImei() {
+
+        $.ajax({
+            url: "data/load_busesList.php",
+            method: "POST",
+            //dataType: "json",
+            data: {
+                limit: groupSize,
+                loaded: loadedNumber
+            },
+            success: function (data) {
+
+                if (data.length > 0) {
+                    // data = JSON.stringify(data);
+                    data = JSON.parse(data);
+
+                    let tableHtml = data.map(output => {
+                        return "<tr id=" + output._id.$oid + ">" +
+                            "    <td>" +
+                            "        <label class='cCheckBox2'>" +
+                            "            <input type='checkbox' id='" + output._id.$oid + "' name='" + output._id.$oid + "' value='" + output._id.$oid + "' data-imei='" + output.imei + "' onclick='busImeiCheckBox(this)'>" +
+                            "            <span class='checkmark'></span>" +
+                            "        </label>" +
+                            "        " + output.imei +
+                            "    </td>" +
+                            "    <td>" + output.device.plate_no + "</td>" +
+                            "    <td>" + output.device.bus_oper_no + "</td>" +
+                            "    <td>" +
+                            "        <button type='button' class='actionBtn'>" +
+                            "            <img src='assets/images/icons/more.svg'>" +
+                            "            <div class='moreAction'>" +
+                            "                <div class='icon_anim' onclick='animationImei(this)' data-type='map' data-imei='" + output.imei + "'>Animation</div>" +
+                            "                <div class='gh-map-btn' onclick='getTripDates(this)' data-type='gl-map' data-imei='" + output.imei + "'>Deck GL</div>" +
+                            "                <div class='icon_chart' onclick='chartViewImei(this)' data-type='chart' data-imei='" + output.imei + "'>Radial Area Chart</div>" +
+                            "            </div>" +
+                            "        </button>" +
+                            "    </td>" +
+                            "</tr>";
+                    }).join(""); // Join the array of HTML rows into a single string
+
+                    // Append the generated HTML to the table
+                    $("#busFinderTable tbody").append(tableHtml);
+                    showMapList()
+                    //console.log(tableHtml);
+                }
+
+            },
+            error: function (xhr, status, error) {
+                console.error("AJAX Error:", error);
+            }
+        })
+    }
+
+    loadContainer.scroll(function () {
+        if (loadContainer.scrollTop() + loadContainer.height() >= finderTable.height()) {
+            loadMoreImei()
+        }
+    })
+
+})
