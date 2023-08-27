@@ -159,7 +159,7 @@ $classObject = new GetAvlDevicesData();
     <div class="chartClose"><img src="assets/images/icons/close.svg"></div>
     <div class="racInput" id="racInput">
         <h1>Radial Area Chart</h1>
-        <h2>EMIE No: <span id="chartImeiNo">8877796465464</span></h2>
+        <h2>EMIE No: <span id="chartImeiNo"></span></h2>
 
         <label>Date Range:</label>
         <input type="text" id="dateRangeRACImei" name="dateRangeRACImei" value=""/>
@@ -167,6 +167,10 @@ $classObject = new GetAvlDevicesData();
         <button type="button" class="RACApplyBtn" id="" onclick="setChartSeed()">Apply</button>
     </div>
     <div class="racWrapper" id="racWrapper"></div>
+    <div class="racWrapperLoading" id="racWrapperLoading">
+        <img src="assets/images/icons/loading.gif">
+    </div>
+
 </div>
 
 
