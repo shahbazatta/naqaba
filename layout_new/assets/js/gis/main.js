@@ -1815,3 +1815,14 @@ function animationState(val) {
   if (play)
     runFor100Seconds();
 }
+
+function panToLocation(longitude, latitude) {
+	var currentZoom = deckgl.getViewState().zoom;
+    deckgl.setProps({
+      initialViewState: {
+        longitude: longitude,
+        latitude: latitude,
+        zoom: currentZoom
+      }
+    });
+  }
