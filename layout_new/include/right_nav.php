@@ -200,7 +200,7 @@
                               </div>
                           </button></td>
                         </tr>";
-                  if ($count == 1000) {
+                  if ($count == 50) {
                     break;
                   }
                 }

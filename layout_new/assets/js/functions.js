@@ -865,7 +865,7 @@ $(document).ready(function () {
     const loadContainer = $("#iemiSearchList");
     const finderTable = $("#busFinderTable")
     let groupSize = 50;
-    let loadedNumber = 0;
+    let loadedNumber = 50;
 
     function loadMoreImei() {
 
