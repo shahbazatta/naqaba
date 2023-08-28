@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8455d45f-b2ee-4387-8022-ca215e943f4f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/get_avlDevicesDataAll.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/get_avlDevicesDataAll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/load_busesList.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/load_busesList.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,7 @@
       <workItem from="1692769867107" duration="6639000" />
       <workItem from="1692950934585" duration="11667000" />
       <workItem from="1693072120354" duration="10055000" />
-      <workItem from="1693161641813" duration="1153000" />
+      <workItem from="1693161641813" duration="1405000" />
     </task>
     <servers />
   </component>

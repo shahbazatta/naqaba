@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $devicesData = new GetAvlDevicesData();
 
-    $devicesData->getBusesData((int)$limit, (int)$loadedNumber);
+    $devicesData->getBusesEmieData((int)$limit, (int)$loadedNumber);
     //var_dump($devicesData->avl_Bus_data);
-    $data = $devicesData->avl_Bus_data;
+    $data = $devicesData->avl_Bus_emie_data;
 //    $new_data = array();
 //    //$imei = $cursor[0]['imei'];
 //
