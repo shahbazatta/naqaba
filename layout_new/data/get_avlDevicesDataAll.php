@@ -8,6 +8,7 @@ class GetAvlDevicesData
 {
 	public $messages = array();
     public $avl_Bus_data = array();
+    public $avl_Bus_emie_data = array();
     public $geofence_data = array();
     public $current_language = "";
     public $db;
@@ -21,6 +22,7 @@ class GetAvlDevicesData
     {
     	$this->connectDbB();
     	$this->getBusesData();
+    	$this->getBusesEmieData();
     	$this->getGeofenceData();
 
     	$this->getTrackingCompaniesData();
@@ -48,7 +50,28 @@ class GetAvlDevicesData
 		$this->db = $client->selectDatabase(DB_NAME);
     }
 
-    public function getBusesData($limit = 50, $loaded = 0)
+    public function getBusesData()
+    {
+        $collection = $this->db->gpsLiveNew;
+        $options = [
+            'projection' =>
+                [
+                    '_id' => 1,
+                    'imei' => 1,
+                    'device.plate_no' => 1,
+                    'device.engplate_no' => 1,
+                    'device.bus_oper_no' => 1
+                ],
+        ];
+        $cursor = $collection->find([], $options)
+            //->skip($loaded)
+            //->limit($limit)
+            ->toArray();
+        $this->avl_Bus_data = $cursor;
+        //print_r($this->avl_Bus_data);
+    }
+
+    public function getBusesEmieData($limit = 50, $loaded = 0)
     {
         $collection = $this->db->gpsLiveNew;
         $options = [
@@ -67,7 +90,7 @@ class GetAvlDevicesData
             //->skip($loaded)
             //->limit($limit)
             ->toArray();
-        $this->avl_Bus_data = $cursor;
+        $this->avl_Bus_emie_data = $cursor;
         //print_r($this->avl_Bus_data);
     }
 
