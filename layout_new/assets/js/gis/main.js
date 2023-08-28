@@ -68,6 +68,7 @@ function initMap() {
 // initialize Deck GL Maps
 let deckAminLoopRunning = false;
 let animationId;
+var deckgl;
 function initDeckGlMap(pathways, timesArr) {
 
     //console.log(pathways[1][0])
@@ -111,7 +112,7 @@ function initDeckGlMap(pathways, timesArr) {
         return colors[i];
     }
 
-    new deck.DeckGL({
+    deckgl = new deck.DeckGL({
         container: 'deckGlMap',
         mapStyle: cartoBaseMap,
         initialViewState: {
@@ -175,7 +176,7 @@ function initDeckGlMap(pathways, timesArr) {
             apiKey: 'default_public',
         });
 
-        const deckgl = new deck.DeckGL({
+        deckgl = new deck.DeckGL({
             container: 'deckGlMap',
             mapStyle: cartoBaseMap,
             initialViewState: view.fitBounds(bbox(json)),
@@ -1771,12 +1772,13 @@ async function runFor100Seconds() {
     var timeText = document.getElementById('consumeTime');
     imeiText.textContent = sliceBusDataArr[0].imei+':IMEI';
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
-    // if (deckgl!=undefined) {
-    //     panToLocation(animationDataArrCoords[0][0], animationDataArrCoords[0][1]); // latitude, longitude
-    // }
-    // if (deckgl)
-    //     timeText.textContent = new Date(animationDataTimesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(animationDataTimesArr[i]).toLocaleTimeString("default");
-    var lt = parseInt(i);
+    var animationDataArrCoords = sliceBusDataArr[0].location.coordinates;
+	//if (deckgl!=undefined) {
+     //    panToLocation(animationDataArrCoords[0][0], animationDataArrCoords[0][1]); // latitude, longitude
+		 //timeText.textContent = new Date(animationDataTimesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(animationDataTimesArr[i]).toLocaleTimeString("default");
+	//	}
+   
+	var lt = parseInt(i);
     if (lt == 0)
       map.getView().fit(busesDataSource.getExtent(), {size:map.getSize(), maxZoom:8});
     else if (lt % 100 == 0)
@@ -1815,3 +1817,14 @@ function animationState(val) {
   if (play)
     runFor100Seconds();
 }
+
+function panToLocation(longitude, latitude) {
+	var currentZoom = deckgl._getViewState().zoom;
+    deckgl.setProps({
+      initialViewState: {
+        longitude: longitude,
+        latitude: latitude,
+        zoom: currentZoom
+      }
+    });
+  }
