@@ -1730,6 +1730,7 @@ var play= true;
 var currentIndex =0;
 var sliderValue=0.0;
 var reset = false;
+var deckMapPanInterval =10;
 // var stop = false;
 // Run for 100 seconds
 async function runFor100Seconds() {
@@ -1774,7 +1775,7 @@ async function runFor100Seconds() {
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
     if (sliceBusDataArr.length>0) {
 		var animationDataArrCoords = sliceBusDataArr[0].location.coordinates;
-	if (deckgl!=undefined && i%5==0) {
+	if (deckgl!=undefined && i%deckMapPanInterval==0) {
          panToLocation(animationDataArrCoords[0], animationDataArrCoords[1]); // latitude, longitude
 		 //timeText.textContent = new Date(animationDataTimesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(animationDataTimesArr[i]).toLocaleTimeString("default");
 		}
