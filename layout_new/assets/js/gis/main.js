@@ -1774,7 +1774,7 @@ async function runFor100Seconds() {
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
     if (sliceBusDataArr.length>0) {
 		var animationDataArrCoords = sliceBusDataArr[0].location.coordinates;
-	if (deckgl!=undefined) {
+	if (deckgl!=undefined && i%5==0) {
          panToLocation(animationDataArrCoords[0][0], animationDataArrCoords[0][1]); // latitude, longitude
 		 //timeText.textContent = new Date(animationDataTimesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(animationDataTimesArr[i]).toLocaleTimeString("default");
 		}
