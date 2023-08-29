@@ -1725,6 +1725,7 @@ var play= true;
 var currentIndex =0;
 var sliderValue=0.0;
 var reset = false;
+var deckMapPanInterval =10;
 // var stop = false;
 // Run for 100 seconds
 async function runFor100Seconds() {
@@ -1767,11 +1768,14 @@ async function runFor100Seconds() {
     var timeText = document.getElementById('consumeTime');
     imeiText.textContent = sliceBusDataArr[0].imei+':IMEI';
     timeText.textContent = new Date(sliceBusDataArr[0].avltm).toLocaleDateString("en-GB") + ' ' +new Date(sliceBusDataArr[0].avltm).toLocaleTimeString("default");
-    var animationDataArrCoords = sliceBusDataArr[0].location.coordinates;
-	//if (deckgl!=undefined) {
-     //    panToLocation(animationDataArrCoords[0][0], animationDataArrCoords[0][1]); // latitude, longitude
+    if (sliceBusDataArr.length>0) {
+		var animationDataArrCoords = sliceBusDataArr[0].location.coordinates;
+	if (deckgl!=undefined && i%deckMapPanInterval==0) {
+         panToLocation(animationDataArrCoords[0], animationDataArrCoords[1]); // latitude, longitude
 		 //timeText.textContent = new Date(animationDataTimesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(animationDataTimesArr[i]).toLocaleTimeString("default");
-	//	}
+
+		}
+	}
 
 	var lt = parseInt(i);
     if (lt == 0)
