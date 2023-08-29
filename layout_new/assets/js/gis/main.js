@@ -1103,16 +1103,11 @@ function downloadJSON() {
 }
 
 var animationDataArr = [];
-function getDataForAnim(imei, sDate, eDate, mapType) {
+function getDataForAnim(imei, sDate, eDate) {
 
     $('#animBar').hide();
     $('#animBarLoading').show();
 
-    if (mapType === "gl-map") {
-        document.getElementById("animationRangeSlider").value = 0.00;
-        showDeckGLPopup(imei, sDate, eDate, mapType);
-        return;
-    }
   console.log("imei no: " + imei + " Start Date: " + sDate + " End Date: " + eDate);
 
 
@@ -1777,7 +1772,7 @@ async function runFor100Seconds() {
      //    panToLocation(animationDataArrCoords[0][0], animationDataArrCoords[0][1]); // latitude, longitude
 		 //timeText.textContent = new Date(animationDataTimesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(animationDataTimesArr[i]).toLocaleTimeString("default");
 	//	}
-   
+
 	var lt = parseInt(i);
     if (lt == 0)
       map.getView().fit(busesDataSource.getExtent(), {size:map.getSize(), maxZoom:8});

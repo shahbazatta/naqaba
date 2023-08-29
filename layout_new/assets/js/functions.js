@@ -197,7 +197,7 @@ $(document).ready(function () {
 });
 
 
-// functions by Ans
+
 function showMapList() {
     $("button.actionBtn").click(function () {
         $(".moreAction").hide();
@@ -206,84 +206,6 @@ function showMapList() {
     });
 }
 showMapList()
-
-let getImeiNo;
-
-function getTripDates($this, mapType) {
-    getImeiNo = $this.getAttribute('data-imei');
-    getMapType($this)
-    showDateRange();
-    //console.log("this is: " + imeiNo);
-    //showDeckGLPopup();
-}
-
-let mapType = '';
-function getMapType($this) {
-    mapType = $this.getAttribute('data-type');
-    $('.datePickerWrapper').find('#mapTypeInput').val(mapType);
-}
-
-// Show Deck GL Popup
-function showDeckGLPopup(imei, sDate, eDate) {
-    //alert(mapType)
-    const deckPopup = $('.deck-popup');
-    deckPopup.css({visibility: 'visible'}).animate({
-        opacity: 1,
-        width: "100%",
-    }, 400, "linear", function () {
-
-        //console.log("imei no: " + imei + " Start Date: " + sDate + " End Date: " + eDate);
-        $.ajax({
-            url: "./data/get_glMapData.php",
-            method: "POST",
-            dataType: "json",
-            data: {
-                api_key: "becdf4fbbbf49dbc",
-                imei_no: imei,
-                start_date: sDate,
-                end_date: eDate
-            },
-            success: function (response) {
-                //close laoder
-                console.log(response)
-                animationDataArr = response;
-                addAnimateFeatures(animationDataArr);
-                $('#animBarLoading').hide();
-                $('#animBar').show();
-                let pathways = []
-                let timesArr = []
-                //alert('success')
-                for (let i = 0; i < animationDataArr.length; i++) {
-                    let data = animationDataArr[i];
-                    pathways.push(data.location.coordinates)
-                    timesArr.push(data.avltm);
-                    //console.log(data.location.coordinates);
-                }
-
-                initDeckGlMap(pathways, timesArr)
-                //console.log('animationDataArr:', pathways);
-            },
-            error: function (xhr, status, error) {
-                console.log('Error:', error);
-            }
-        });
-    });
-}
-
-// Hide the GL map
-const deckPopupClose = $('.deck-popup .close');
-deckPopupClose.on('click', function () {
-    hideDeckGLPopup()
-})
-function hideDeckGLPopup() {
-    const deckPopup = $('.deck-popup');
-    deckPopup.animate({
-        opacity: 0,
-        width: 0,
-    });
-}
-
-hideDeckGLPopup()
 
 function animationImei(cb) {
     getImeiNo = cb.getAttribute('data-imei');
@@ -313,6 +235,11 @@ $(function () {
         $(".animationPanel").show();
         $("#startDateRange").html(start.format('D MMMM, YYYY'));
         $("#endDateRange").html(end.format('D MMMM, YYYY'));
+
+        if (mapType === "gl-map") {
+            document.getElementById("animationRangeSlider").value = 0.00;
+            return showDeckGLPopup(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'), mapType);
+        }
 
         getDataForAnim(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'), mapType);
         //console.log("this getImeiNo: " + getImeiNo);
@@ -860,6 +787,7 @@ $("#geofenceDeleteConfirm").click(function () {
     }
 });
 
+// functions by Ans
 $(document).ready(function () {
 
     const loadContainer = $("#iemiSearchList");
@@ -927,3 +855,144 @@ $(document).ready(function () {
     })
 
 })
+
+let getImeiNo;
+
+function getTripDates($this, mapType) {
+    getImeiNo = $this.getAttribute('data-imei');
+    getMapType($this)
+    showDateRange();
+    //console.log("this is: " + imeiNo);
+}
+
+let mapType = '';
+function getMapType($this) {
+    mapType = $this.getAttribute('data-type');
+    $('.datePickerWrapper').find('#mapTypeInput').val(mapType);
+}
+
+// Show Deck GL Popup
+let glDataArr = [];
+function showDeckGLPopup(imei, sDate, eDate) {
+    //alert(mapType)
+    $('#animBar').hide();
+    $('#animBarLoading').show();
+    const deckPopup = $('.deck-popup');
+    deckPopup.css({visibility: 'visible'}).animate({
+        opacity: 1,
+        width: "100%",
+    }, 400, "linear", function () {
+
+        //console.log("imei no: " + imei + " Start Date: " + sDate + " End Date: " + eDate);
+        $.ajax({
+            url: "./data/get_glMapData.php",
+            method: "POST",
+            dataType: "json",
+            data: {
+                api_key: "becdf4fbbbf49dbc",
+                imei_no: imei,
+                start_date: sDate,
+                end_date: eDate
+            },
+            success: function (response) {
+                //close laoder
+                console.log(response)
+                animationDataArr = response;
+                //addAnimateFeatures(animationDataArr);
+                $('#animBarLoading').hide();
+                $('#animBar').show();
+                let pathways = []
+                let timesArr = []
+                //alert('success')
+                for (let i = 0; i < animationDataArr.length; i++) {
+                    let data = animationDataArr[i];
+                    pathways.push(data.location.coordinates)
+                    timesArr.push(data.avltm);
+                    //console.log(data.location.coordinates);
+                }
+
+                initDeckGlMap(pathways, timesArr)
+                //console.log('glDataArr:', pathways);
+            },
+            error: function (xhr, status, error) {
+                console.log('Error:', error);
+            }
+        });
+    });
+}
+
+// Hide the GL map
+const deckPopupClose = $('.deck-popup .close');
+deckPopupClose.on('click', function () {
+    hideDeckGLPopup()
+})
+function hideDeckGLPopup() {
+    const deckPopup = $('.deck-popup');
+    deckPopup.animate({
+        opacity: 0,
+        width: 0,
+    });
+}
+hideDeckGLPopup()
+
+var sliderPlay= true;
+var sliderIndex =0;
+var glSliderValue=0.0;
+var glReset = false;
+let coordinates = [];
+let coordinatesLength = 0;
+let timesArr = [];
+function playRangSlider() {
+    // get coordinates
+    coordinates = glDataArr.coordinates;
+    // get array length
+    coordinatesLength = glDataArr.coordinates.length
+    // get avltm array
+    timesArr = glDataArr.avltm;
+    // get emei
+    let imei = glDataArr.imei;
+
+    console.log(glDataArr)
+
+    if (glDataArr != undefined)
+        currentIndex = (coordinatesLength * sliderValue) / 100;
+    else
+        currentIndex = 0;
+
+    if (currentIndex>=coordinatesLength)
+        currentIndex = 0;
+
+    for (let i = currentIndex; i < coordinatesLength; i++) {
+        //console.log("Time elapsed:", (i + 1), "second(s)");
+        if (glDataArr == undefined)
+            break;
+        if (!sliderPlay) {
+            sliderValue = (i/coordinatesLength)*100;
+            break;
+        }
+        if (glReset) {
+            glReset = false;
+            break;
+        }
+        var percentBar = i+1;
+        sliderIndex =i;
+        glSliderValue = (i/coordinatesLength)*100;
+        //console.log("animation slider value:  " + sliderValue+"%");
+        //change this line for animation slider
+        //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+
+        document.getElementById("animationRangeSlider").value = glSliderValue;
+
+        //addAnimateFeatures(glDataArr);
+        var imeiText = document.getElementById('totalTime');
+        var timeText = document.getElementById('consumeTime');
+        imeiText.textContent = imei+':IMEI';
+
+    }
+    if (sliderIndex+1 == coordinatesLength) {
+        sliderIndex = 0;
+        glSliderValue = 0;
+    }
+    // if (sliderPlay)
+    //     after100Seconds();
+}

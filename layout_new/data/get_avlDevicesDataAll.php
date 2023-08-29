@@ -63,10 +63,7 @@ class GetAvlDevicesData
                     'device.bus_oper_no' => 1
                 ],
         ];
-        $cursor = $collection->find([], $options)
-            //->skip($loaded)
-            //->limit($limit)
-            ->toArray();
+        $cursor = $collection->find([], $options)->toArray();
         $this->avl_Bus_data = $cursor;
         //print_r($this->avl_Bus_data);
     }
@@ -86,10 +83,7 @@ class GetAvlDevicesData
             'skip' => $loaded,
             'limit' => $limit,
         ];
-        $cursor = $collection->find([], $options)
-            //->skip($loaded)
-            //->limit($limit)
-            ->toArray();
+        $cursor = $collection->find([], $options)->toArray();
         $this->avl_Bus_emie_data = $cursor;
         //print_r($this->avl_Bus_data);
     }

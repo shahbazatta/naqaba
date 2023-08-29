@@ -56,7 +56,6 @@ if( isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
 
         echo $json_data = json_encode(iterator_to_array($cursor), JSON_UNESCAPED_UNICODE);
 
-//		$json_data = null;
 //        $cursor = iterator_to_array($cursor);
 //
 //        $new_cursor = array();
