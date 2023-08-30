@@ -1763,7 +1763,9 @@ async function runFor100Seconds() {
     document.getElementById("animationRangeSlider").value = sliderValue;
 
     sliceBusDataArr = animationDataArr.slice(i,i+1);
-    addAnimateFeatures(sliceBusDataArr);
+	if (mapType !== "gl-map") {
+		addAnimateFeatures(sliceBusDataArr);
+	}
     var imeiText = document.getElementById('totalTime');
     var timeText = document.getElementById('consumeTime');
     imeiText.textContent = sliceBusDataArr[0].imei+':IMEI';
