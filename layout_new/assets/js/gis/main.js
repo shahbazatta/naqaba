@@ -66,18 +66,15 @@ function initMap() {
 }
 
 // initialize Deck GL Maps
-let deckAminLoopRunning = false;
+let deckAminLoopRunning = false
 let animationId;
 var deckgl;
 function initDeckGlMap(pathways, timesArr) {
 
-    //console.log(pathways[1][0])
-    //console.log(timesArr)
-
     //Convert the first timestamp to seconds (divide by 1000 to convert from milliseconds to seconds)
-    const firstTimestamp = timesArr[0] / 1000;
-    // Calculate relative times based on the first timestamp
-    timesArr = timesArr.map((timestamp) => Math.round((timestamp / 1000 - firstTimestamp) / 60));
+    // const firstTimestamp = timesArr[0] / 1000;
+    // // Calculate relative times based on the first timestamp
+    // timesArr = timesArr.map((timestamp) => Math.round((timestamp / 1000 - firstTimestamp) / 60));
 
 
     let ANIMATION_SPEED = 40;
@@ -247,6 +244,21 @@ function initDeckGlMap(pathways, timesArr) {
     }
 
     //window.requestAnimationFrame(animationId);
+}
+
+// Function to stop animation and perform cleanup
+function cleanupDeckGlMap() {
+    // Stop animation
+    //stopAnimation();
+
+    // Clear layers and other Deck.gl components
+    deckgl.setProps({
+        layers: []
+        // ... clear other properties as needed ...
+    });
+
+    // Unset Deck.gl instance
+    //deckgl = null;
 }
 
 var stationLyr;

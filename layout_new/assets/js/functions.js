@@ -112,12 +112,21 @@ $(document).ready(function () {
             $(this).removeClass("active");
             $('#playbtnIcon').show();
             $('#pausebtnIcon').hide();
-            animationState(false);
+            if (mapType === "gl-map") {
+                glRangeSlider(false);
+            }else{
+                animationState(false);
+            }
+
         } else {
             $(this).addClass("active");
             $('#playbtnIcon').hide();
             $('#pausebtnIcon').show();
-            animationState(true);
+            if (mapType === "gl-map") {
+                glRangeSlider(true);
+            }else{
+                animationState(true);
+            }
         }
     });
 
@@ -238,7 +247,9 @@ $(function () {
 
         if (mapType === "gl-map") {
             document.getElementById("animationRangeSlider").value = 0.00;
-            return showDeckGLPopup(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'), mapType);
+            showDeckGLPopup(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'), mapType);
+
+            return true;
         }
 
         getDataForAnim(getImeiNo, start.format('DD-MM-YYYY'), end.format('DD-MM-YYYY'), mapType);
@@ -250,7 +261,7 @@ $(function () {
 function closeAnimationPanel() {
     $(".animationPanel").hide();
     currentIndex = 0;
-    sliderValue = 0;
+    sliderValue= 0;
     reset = true;
     $('#palyBtn').removeClass("active");
     $('#playbtnIcon').show();
@@ -288,12 +299,20 @@ function changeDataPanel() {
 }
 
 function resetAnimation() {
-    sliderValue = 0;
-    currentIndex = 0;
-    reset = true;
-    //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
-    document.getElementById("animationRangeSlider").value = sliderValue;
+    if (mapType === 'gl-map') {
+        sliderIndex = 0;
+        glSliderValue = 0;
+        deckAminLoopRunning = false;
+        glReset = true;
+        document.getElementById("animationRangeSlider").value = glSliderValue;
 
+    }else {
+        sliderValue = 0;
+        currentIndex = 0;
+        reset = true;
+        //document.getElementsByClassName("animBarFill")[0].style.width= sliderValue+"%";
+        document.getElementById("animationRangeSlider").value = sliderValue;
+    }
 }
 
 var speed = 100;
@@ -896,26 +915,22 @@ function showDeckGLPopup(imei, sDate, eDate) {
             },
             success: function (response) {
                 //close laoder
-                console.log(response)
-                animationDataArr = response;
-                //addAnimateFeatures(animationDataArr);
-                $('#animBarLoading').hide();
-                $('#animBar').show();
-                let pathways = []
-                let timesArr = []
-                //alert('success')
-                for (let i = 0; i < animationDataArr.length; i++) {
-                    let data = animationDataArr[i];
-                    pathways.push(data.location.coordinates)
-                    timesArr.push(data.avltm);
-                    //console.log(data.location.coordinates);
+                glDataArr = response;
+
+                if (response.coordinates.length === 0) {
+                    console.log("No data available");
+                    return;
                 }
 
-                initDeckGlMap(pathways, timesArr)
+                $('#animBarLoading').hide();
+                $('#animBar').show();
+                console.log(glDataArr.coordinates)
+                initDeckGlMap(glDataArr.coordinates, glDataArr.relTimes)
                 //console.log('glDataArr:', pathways);
             },
             error: function (xhr, status, error) {
                 console.log('Error:', error);
+                console.log('Response Text:', xhr.responseText);
             }
         });
     });
@@ -925,6 +940,7 @@ function showDeckGLPopup(imei, sDate, eDate) {
 const deckPopupClose = $('.deck-popup .close');
 deckPopupClose.on('click', function () {
     hideDeckGLPopup()
+    closeAnimationPanel()
 })
 function hideDeckGLPopup() {
     const deckPopup = $('.deck-popup');
@@ -932,42 +948,67 @@ function hideDeckGLPopup() {
         opacity: 0,
         width: 0,
     });
+    
+    cleanupDeckGlMap()
+
+    sliderIndex = 0;
+    glSliderValue = 0;
+    deckAminLoopRunning = false;
+    glReset = true;
+    $('#palyBtn').removeClass("active");
+    $('#playbtnIcon').show();
+    $('#pausebtnIcon').hide();
+
+    glDataArr = undefined;
+    glRangeSlider(false);
 }
-hideDeckGLPopup()
+//hideDeckGLPopup()
 
 var sliderPlay= true;
 var sliderIndex =0;
 var glSliderValue=0.0;
 var glReset = false;
-let coordinates = [];
+let coordinatesArr = [];
 let coordinatesLength = 0;
 let timesArr = [];
-function playRangSlider() {
+
+function afterEndSlider() {
+    document.getElementById("animationRangeSlider").value = glSliderValue;
+    glRangeSlider(sliderPlay);
+}
+
+async function glRangeSlider($playVal) {
+
+    if(glDataArr === undefined){
+        return;
+    }
+    sliderPlay = $playVal;
+
     // get coordinates
-    coordinates = glDataArr.coordinates;
+    coordinatesArr = glDataArr.coordinates;
     // get array length
-    coordinatesLength = glDataArr.coordinates.length
+    coordinatesLength = coordinatesArr.length
     // get avltm array
     timesArr = glDataArr.avltm;
     // get emei
     let imei = glDataArr.imei;
 
-    console.log(glDataArr)
-
     if (glDataArr != undefined)
-        currentIndex = (coordinatesLength * sliderValue) / 100;
+        sliderIndex = (coordinatesLength * glSliderValue) / 100;
     else
-        currentIndex = 0;
+        sliderIndex = 0;
 
-    if (currentIndex>=coordinatesLength)
-        currentIndex = 0;
+    if (sliderIndex>=coordinatesLength)
+        sliderIndex = 0;
 
-    for (let i = currentIndex; i < coordinatesLength; i++) {
+    for (let i = sliderIndex; i < coordinatesLength; i++) {
         //console.log("Time elapsed:", (i + 1), "second(s)");
+
+        //console.log(i)
         if (glDataArr == undefined)
             break;
         if (!sliderPlay) {
-            sliderValue = (i/coordinatesLength)*100;
+            glSliderValue = (i/coordinatesLength)*100;
             break;
         }
         if (glReset) {
@@ -987,12 +1028,17 @@ function playRangSlider() {
         var imeiText = document.getElementById('totalTime');
         var timeText = document.getElementById('consumeTime');
         imeiText.textContent = imei+':IMEI';
+        timeText.textContent = new Date(timesArr[i]).toLocaleDateString("en-GB") + ' ' +new Date(timesArr[i]).toLocaleTimeString("default");
 
+        await delay(speed); // Delay for 1 second (1000 milliseconds)
     }
+
     if (sliderIndex+1 == coordinatesLength) {
         sliderIndex = 0;
         glSliderValue = 0;
     }
-    // if (sliderPlay)
-    //     after100Seconds();
+    if (sliderPlay){
+        afterEndSlider();
+    }
+
 }
