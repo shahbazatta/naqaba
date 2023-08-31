@@ -1725,7 +1725,7 @@ var play= true;
 var currentIndex =0;
 var sliderValue=0.0;
 var reset = false;
-var deckMapPanInterval =10;
+var deckMapPanInterval =100;
 // var stop = false;
 // Run for 100 seconds
 async function runFor100Seconds() {
