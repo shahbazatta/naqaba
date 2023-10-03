@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// }
 
 	//Atlas connection string
-	$uri = 'mongodb://64.227.118.83:27017/';
+	$uri = 'mongodb://209.38.216.19:27017/';
 
 	// Create a new client and connect to the server
 	$client = new \MongoDB\Client($uri);

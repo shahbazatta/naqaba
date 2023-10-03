@@ -15,7 +15,7 @@
 	if($host == "localhost"){
 		$siteUrl =	$protocol . '://localhost/Naqaba/naqaba/layout_new/';
 	}else{
-		$siteUrl =	$protocol . '://64.227.118.83/naqaba/layout_new/';
+		$siteUrl =	$protocol . '://209.38.216.19/naqaba/layout_new/';
 	}
 
 	define("SITE_URL", $siteUrl);
@@ -27,7 +27,7 @@
 define("DB_NAME", "naqaba");
 //define("DB_USER_NAME", "shahbaz");
 //define("DB_PASS_NAME", "Islam786ian");
-define("DB_SERVER_URL", "mongodb://shahbaz:Islam786ian@64.227.118.83:27017/");
+define("DB_SERVER_URL", "mongodb://shahbaz:Islam786ian@209.38.216.19:27017/");
 
 $cookie_name = "login_string";
 $cookie_value = "5fe69c95ed70a9869d9f9af7d8400a6673bb9ce9";
