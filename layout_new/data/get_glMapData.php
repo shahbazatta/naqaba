@@ -56,7 +56,10 @@ if (isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
 //            ), ['sort' => ['avltm' => 1], 'limit' => 1000]);
 
         //$cursor = $db->select("SELECT * FROM gpsHistorical WHERE avltm >= '$gt_date' AND avltm <= '$lt_date' AND spd > 0 AND imei = '$imei_rec' ORDER BY avltm DESC LIMIT 5");
-        $cursor = $db->select("SELECT * FROM gpsHistorical WHERE imei = '$imei_rec' AND avltm >= '$gt_date' AND avltm <= '$lt_date'  spd > 0 ORDER BY avltm DESC LIMIT 1000");
+        $cursor = $db->select("SELECT * FROM naqaba.gpsHistorical WHERE imei = '$imei_rec' AND avltm >= '$gt_date' AND avltm <= '$lt_date' ORDER BY avltm DESC LIMIT 1000");
+
+//        print_r($cursor);
+//        exit;
 
         $json_data = null;
         $cursor = iterator_to_array($cursor);
