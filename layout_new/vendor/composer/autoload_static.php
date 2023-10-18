@@ -24,6 +24,10 @@ class ComposerStaticInit56387d2eb04a8ed6ba1e6d55ebe10e42
         array (
             'Jean85\\' => 7,
         ),
+        'C' => 
+        array (
+            'ClickHouseDB\\' => 13,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -38,6 +42,10 @@ class ComposerStaticInit56387d2eb04a8ed6ba1e6d55ebe10e42
         'Jean85\\' => 
         array (
             0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
+        ),
+        'ClickHouseDB\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/smi2/phpclickhouse/src',
         ),
     );
 

@@ -948,7 +948,7 @@ function hideDeckGLPopup() {
         opacity: 0,
         width: 0,
     });
-    
+
     cleanupDeckGlMap()
 
     sliderIndex = 0;
