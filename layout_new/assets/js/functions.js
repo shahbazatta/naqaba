@@ -7,6 +7,7 @@ $(document).ready(function () {
         $('#busFinderBox').hide();
         $('#geofencesBox').hide();
         $('#settingBox').hide();
+        $('#ReportsBox').hide();
     }
 
     $(".trackingCom>a").click(function () {
@@ -44,6 +45,20 @@ $(document).ready(function () {
             $(this).addClass("active");
             hidelefttabs();
             $('#trackingDevicesBox').show();
+            resetTheFilterOnClose('trackingDevicesSeAl', 3);
+        }
+    });
+
+    $(".Reports>a").click(function () {
+
+        if ($(this).hasClass("active")) {
+            $(this).removeClass("active");
+            $('#ReportsBox').hide();
+        } else {
+            $(".rightMenu>nav>div>a").removeClass("active");
+            $(this).addClass("active");
+            hidelefttabs();
+            $('#ReportsBox').show();
             resetTheFilterOnClose('trackingDevicesSeAl', 3);
         }
     });

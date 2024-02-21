@@ -27,7 +27,7 @@
 define("DB_NAME", "naqaba");
 //define("DB_USER_NAME", "shahbaz");
 //define("DB_PASS_NAME", "Islam786ian");
-define("DB_SERVER_URL", "mongodb://shahbaz:Islam786ian@209.38.216.19:27017/");
+define("DB_SERVER_URL", "mongodb://admin:Islam381ian@20.46.147.216:27017/");
 
 $cookie_name = "login_string";
 $cookie_value = "5fe69c95ed70a9869d9f9af7d8400a6673bb9ce9";

@@ -160,6 +160,16 @@
     "Company":"Company",
     "CompanyArabic":"Company Arabic",
 
-    "SendEmail":"Send Email"
-
+    "SendEmail":"Send Email",
+    "reports":"Reports",
+    "reportOne":"Analysis of trips between cities before Hajj",
+    "reportTwo":"Analysis of trips between cities after Hajj",
+    "reportThree":"Number of courses of transport companies participating in operating the ports between King Abdulaziz Airport and the city of Makkah Al-Mukarramah",
+    "reportFour":"Analysis of field courses for buses transporting worshipers starting from Shawwal (frequency transport and hotel transport)",
+    "reportFive":"A display of the location of tracking devices for buses transporting worshipers in the last 10 minutes",
+    "reportSix":"Field trips for the stages of Hajj",
+    "reportSeven":"Field trip report",
+    "reportEight":"View bus availability according to operating locations in the last 10 minutes",
+    "reportNine":"Bus numbers reports",
+    "reportTen":"Numbers of vehicles transporting worshipers to and from the Masjid-ul-Haram"
 }

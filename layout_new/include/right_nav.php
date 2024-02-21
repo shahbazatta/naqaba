@@ -144,10 +144,59 @@
 
         </div>
       </div>
+      
+      <!-- reports-------------------------- -->
+      <div class="popMenuBox" id="ReportsBox">
+        
+        <div class="headerList">
+          <h1 id="trackingDevicesBoxHeader"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reports'); ?></h1>
+          <div class="close" onclick="closeFilterOnClose('ReportsBox','ReportsBoxShowImg')"><img src="assets/images/icons/close.svg"></div>
+          
+        </div>
 
+        <!--Devices list-->
+        <div class="mainListRows newScrollBar" style="overflow-y:scroll;" id="mainListRowsTrackingDevices">
+          <ul id="reportList">
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiOWE1YWFjZmItNDZkYy00ZmM4LThmODAtYTI1YTc4N2NlOThhIiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"
+              ><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportOne'); ?></li>
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiOWU4OWExZTAtZWNlNS00ZDAwLTg0ZmQtOWUxNDhmNTc0OGM2IiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportTwo'); ?></li>
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiZjIwNzY2MTItM2IwNy00MTUzLTg3NDAtMGU2YWRiNmEzZGVjIiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportThree'); ?></li> 
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiODIwNTUzODMtMjNmOC00YjNmLWFmMzctYmU5OWY0OWUwOWE0IiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportFour'); ?></li>
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiY2IyY2RkYjYtZDNiYi00OGU0LTg1ZGMtMmJhOTQwYjI0YzIxIiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportFive'); ?></li> <!-- Report 2 in Arabic -->
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiNDdiNDBjYTEtMzViNy00MTcwLThhOTItYTRkNGQ3YmYzNzgwIiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportSix'); ?></li> <!-- Report 3 in Arabic -->
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiMWQyMGYyYmQtMDhkNS00MDc5LTg3NTgtNjY4ODgxNDUzZTMzIiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportSeven'); ?></li> 
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiNjVlZDUzYmUtZDk0Ny00MzMwLTgxMDQtM2QxNzI4MWUxYzJhIiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportEight'); ?></li> <!-- Report 2 in Arabic -->
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiM2VjMTdhN2MtODJlNi00NDg3LTlmMjctMTA5NTljMDBhYjdhIiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportNine'); ?></li> <!-- Report 3 in Arabic -->
+              <li onclick="openModal('https://app.powerbi.com/view?r=eyJrIjoiY2ZlZDU1MGUtYTFhZi00Y2E4LWIxM2QtMmI1NGQ0MTc1ZTI4IiwidCI6ImY2YjRlZWU1LTcwNDctNGViMS1hZGU0LTliYTMyNGNiYmY2NSIsImMiOjl9')"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reportTen'); ?></li> 
+              
+          </ul>
+          
+        </div>
+      </div>
+      <!-- The overlay background -->
+      <div class="overlay" id="overlay" onclick="closeModal()"></div>
+
+      <!-- The Modal -->
+      <div id="myModal">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <iframe id="reportFrame" src="" frameborder="0"></iframe>
+      </div>
+      <!-- reports--------------------------->
     </div>
+    <script>
+        // JavaScript functions to open, close, and load reports in the modal
+        function openModal(url) {
+            var modal = document.getElementById('myModal');
+            var iframe = document.getElementById('reportFrame');
+            iframe.src = url;
+            modal.style.display = 'block';
+        }
 
-
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+    </script>
     <div class="busFinder">
       <a href="javascript:void(0)"><img src="assets/images/icons/bus.svg"></a>
 
@@ -363,12 +412,15 @@
          <div id="activeDGF"><a href="javascript:void(0)" id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></a></div>
          <div id="deactiveDGF"><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
          <div id="activeGeoAna"><a href="javascript:void(0)" id="draw_geofence_ana"><img src="assets/images/icons/geo_ana.svg"></a></div>
-
-    <div class="apiDocs">
+         <div class="Reports">
+            <a href="javascript:void(0)" id="ReportsBoxShowImg">
+              <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 192.287 192.287" xml:space="preserve" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M122.901,0H19.699v192.287h152.889v-142.6L122.901,0z M146.981,45.299h-19.686V25.612L146.981,45.299z M34.699,177.287V15 h77.596v37.799c0,4.142,3.357,7.5,7.5,7.5h37.793v116.988H34.699z"></path> <rect x="53.141" y="149.004" width="86.006" height="10"></rect> <rect x="53.141" y="55.101" width="51.058" height="10"></rect> <polygon points="121.248,86.935 126.79,86.935 105.371,108.353 88.623,91.605 51.597,128.634 58.667,135.706 88.623,105.748 105.371,122.495 133.861,94.005 133.861,99.535 143.861,99.535 143.861,76.935 121.248,76.935 "></polygon> <rect x="53.141" y="33.283" width="51.058" height="10"></rect> </g> </g></svg>
+            </a>
+          </div>
+    <div class="">
       <a href="api/docs.php" target="_blank"><img src="assets/images/icons/apiDoc.png"></a>
     </div>
-
-    <div class="logout"><a href="login.php?logout"><img src="assets/images/icons/exit.svg"></a></div>
+    <div class=""><a href="login.php?logout"><img src="assets/images/icons/exit.svg"></a></div>
   </nav>
 </div>
 
