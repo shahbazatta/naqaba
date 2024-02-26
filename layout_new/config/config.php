@@ -15,7 +15,7 @@
 	if($host == "localhost"){
 		$siteUrl =	$protocol . '://localhost/Naqaba/naqaba/layout_new/';
 	}else{
-		$siteUrl =	$protocol . '://209.38.216.19/naqaba/layout_new/';
+		$siteUrl =	$protocol . '://8.213.24.141/';
 	}
 
 	define("SITE_URL", $siteUrl);
