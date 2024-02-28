@@ -7,7 +7,9 @@ $(document).ready(function () {
         $('#busFinderBox').hide();
         $('#geofencesBox').hide();
         $('#settingBox').hide();
+        $('#reports-menu').hide();
         $('#ReportsBox').hide();
+        
     }
 
     $(".trackingCom>a").click(function () {
@@ -53,15 +55,28 @@ $(document).ready(function () {
 
         if ($(this).hasClass("active")) {
             $(this).removeClass("active");
-            $('#ReportsBox').hide();
+            hidelefttabs();
+            $('#reports-menu').hide();
         } else {
             $(".rightMenu>nav>div>a").removeClass("active");
             $(this).addClass("active");
             hidelefttabs();
-            $('#ReportsBox').show();
-            resetTheFilterOnClose('trackingDevicesSeAl', 3);
+            $('#reports-menu').show();
         }
     });
+
+    $("#reports-menu>li").click(function () {
+
+        if ($(this).attr("id") == "MBI") {
+            $('#reports-menu').hide();
+            $('#ReportsBox').show();
+
+        } else {
+            $('#reports-menu').hide();
+            $('#ReportsBox').show();
+        }
+    });
+
 
     $(".busFinder>a").click(function () {
         if ($(this).hasClass("active")) {

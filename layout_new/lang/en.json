@@ -39,6 +39,7 @@
     "queclink":"Queclink",
     "iMEINumber":"IMEI Number",
     "busNumber":"Bus Number",
+    "busFinder": "Bus Finder",
     "busOperatingNumber":"Bus Operating Number",
     "close":"Close",
     "selectLayer":"Select Layer",
@@ -150,7 +151,9 @@
 
     "LoadingBusData":"Loading Bus Data",
     "LoadingGeofenceData":"Loading Geofence Data",
-
+    
+    "geoFence":"Geofence",
+    "DrawGeofence":"Draw Geofence",
     "Details":"Details",
     "Geofence_Type":"Geofence Type",
     "SearchGeofence=":"Search Geofence",
@@ -171,5 +174,8 @@
     "reportSeven":"Field trip report",
     "reportEight":"View bus availability according to operating locations in the last 10 minutes",
     "reportNine":"Bus numbers reports",
-    "reportTen":"Numbers of vehicles transporting worshipers to and from the Masjid-ul-Haram"
+    "reportTen":"Numbers of vehicles transporting worshipers to and from the Masjid-ul-Haram",
+    "apiDocs": "Api Documentation",
+    "microsoftBI":"Microsoft BI",
+    "dataDex":"Data Dex"
 }

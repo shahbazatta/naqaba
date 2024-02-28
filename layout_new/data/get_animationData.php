@@ -1,4 +1,5 @@
 <?php
+
 require_once("../config/config.php");
 require_once '../vendor/autoload.php';
 
@@ -11,7 +12,6 @@ if( isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
 	    echo '{"Error":"Invalid or wrong value"}';
 	}
 	else{
-
 		//Atlas connection string
 		//$uri = 'mongodb://shahbaz:Islam786ian@209.38.216.19:27017/';
 
@@ -41,12 +41,12 @@ if( isset($_POST["api_key"]) && isset($_POST["imei_no"]) && isset($_POST["start_
 		$db = $client->selectDatabase(DB_NAME);
 		$collection = $db->gpsHistorical;
 		// $cursor = $collection->find(array('imei' => $imei_rec));
-		$cursor = $collection->find(array('avltm'=>array ('$gte'=> (int) $gt_date2, '$lte' => (int) $lt_date2 ),'spd'=>array ('$gt'=> 0), 'imei' => $imei_rec), ['sort' => ['avltm' => 1], 'limit' => 1000] );
+		$cursor = $collection->find(array('avltm'=>array ('$gte'=> (int) $gt_date2, '$lte' => (int) $lt_date2 ),'spd'=>array ('$gt'=> 0), 'imei' => $imei_rec), ['sort' => ['avltm' => 1], 'limit' => 500] );
 
 		$json_data = null;
-
-		//print_r($cursor);
-
+		// echo "<pre>";
+		// print_r($cursor);
+		// die;	
 		echo $json_data = json_encode(iterator_to_array($cursor), JSON_UNESCAPED_UNICODE);
 	}
 

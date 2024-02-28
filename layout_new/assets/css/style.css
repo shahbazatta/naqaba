@@ -270,7 +270,7 @@ li {
 	cursor: pointer;
 }
 
-li:before {
+#reportList>li:before {
 	content: "\2B50";
 	color: #fbff00;
 	font-size: 20px;
@@ -918,7 +918,35 @@ h1{
 	margin-left:-210px;
 
 }
-
+.subMenu {
+	display: none;
+	width: 170px;
+    position: absolute;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 1, 1, 0.3);
+    right: 65px;
+    border-radius: 10px;
+	transition: opacity 0.3s ease-in-out;
+}
+/* .menu-item:hover .subMenu,
+.menu-item.active .subMenu,
+.subMenu:hover {
+	display: block;
+	opacity: 1;
+}
+.menu-item:not(:hover) .subMenu {
+	opacity: 0;
+	transition-delay: 0.5s; 
+} */
+.subMenu>li {
+	width: 88%;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+    font-size: 15px;
+    border-bottom: 1px solid #e3dcdc;;
+}
 .boxPopUpTab, .boxPopUpTabCon{
 	width: 550px;
 	margin-left:-275px;

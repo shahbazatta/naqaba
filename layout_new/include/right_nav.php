@@ -5,7 +5,7 @@
   <nav>
 
 
-    <div class="trackingCom">
+    <div class="trackingCom" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingCompanies'); ?>">
       <a href="javascript:void(0)" id="trackingComBoxImg" onclick=""><img src="assets/images/icons/gps.svg"></a>
 
       <div class="popMenuBox" id="trackingComBox">
@@ -53,7 +53,7 @@
 
     </div>
 
-    <div class="transportationCom">
+    <div class="transportationCom" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'transportationCompanies'); ?>">
       <a href="javascript:void(0)" id="transportationComBoxImg"><img src="assets/images/icons/truck.svg"></a>
 
       <div class="popMenuBox" id="transportationComBox">
@@ -100,7 +100,7 @@
 
     </div>
 
-    <div class="trackingDevices">
+    <div class="trackingDevices" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'trackingDevices'); ?>">
       <a href="javascript:void(0)" id="trackingDevicesBoxShowImg"><img src="assets/images/icons/truck_fast.svg"></a>
 
       <div class="popMenuBox" id="trackingDevicesBox">
@@ -197,7 +197,7 @@
             modal.style.display = 'none';
         }
     </script>
-    <div class="busFinder">
+    <div class="busFinder" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'busFinder'); ?>">
       <a href="javascript:void(0)"><img src="assets/images/icons/bus.svg"></a>
 
       <div class="popMenuBox busFinderBox" id="busFinderBox">
@@ -262,7 +262,7 @@
 
 
 
-    <div class="geofences">
+    <div class="geofences" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'geoFence'); ?>">
       <a href="javascript:void(0)"><img src="assets/images/icons/routing.png"></a>
 
       <div class="popMenuBox geofencesBox" id="geofencesBox">
@@ -322,7 +322,7 @@
 
     </div>
 
-    <div class="settings">
+    <div class="settings" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'setting'); ?>">
       <a href="javascript:void(0)"><img src="assets/images/icons/settings.svg"></a>
       <div class="settingBox" id="settingBox">
         <h1><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'mapSettings'); ?></h1>
@@ -409,18 +409,23 @@
 
     </div>
 
-         <div id="activeDGF"><a href="javascript:void(0)" id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></a></div>
-         <div id="deactiveDGF"><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
-         <div id="activeGeoAna"><a href="javascript:void(0)" id="draw_geofence_ana"><img src="assets/images/icons/geo_ana.svg"></a></div>
-         <div class="Reports">
+         <div id="activeDGF" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'DrawGeofence'); ?>"><a href="javascript:void(0)" id="draw_geofence"><img src="assets/images/icons/pen_tool.svg"></a></div>
+         <div id="deactiveDGF" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'DrawGeofence'); ?>"><a href="javascript:void(0)" id="de_draw_geofence"><img src="assets/images/icons/close.svg"></a></div>
+         <div id="activeGeoAna" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'DrawGeofence'); ?>"><a href="javascript:void(0)" id="draw_geofence_ana"><img src="assets/images/icons/geo_ana.svg"></a></div>
+         <div class="Reports menu-item" onclick="toggleSubMenu(this)" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'reports'); ?>">
+          <ul class="subMenu" id="reports-menu" >
+            <li id="MBI"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'microsoftBI'); ?></li>
+            <li id="DD"><?php echo $localizedStrings->String($localizedStrings::LC_EN, 'dataDex'); ?></li>
+          </ul>
             <a href="javascript:void(0)" id="ReportsBoxShowImg">
               <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 192.287 192.287" xml:space="preserve" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M122.901,0H19.699v192.287h152.889v-142.6L122.901,0z M146.981,45.299h-19.686V25.612L146.981,45.299z M34.699,177.287V15 h77.596v37.799c0,4.142,3.357,7.5,7.5,7.5h37.793v116.988H34.699z"></path> <rect x="53.141" y="149.004" width="86.006" height="10"></rect> <rect x="53.141" y="55.101" width="51.058" height="10"></rect> <polygon points="121.248,86.935 126.79,86.935 105.371,108.353 88.623,91.605 51.597,128.634 58.667,135.706 88.623,105.748 105.371,122.495 133.861,94.005 133.861,99.535 143.861,99.535 143.861,76.935 121.248,76.935 "></polygon> <rect x="53.141" y="33.283" width="51.058" height="10"></rect> </g> </g></svg>
             </a>
           </div>
-    <div class="">
+          
+    <div class="" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'apiDocs'); ?>">
       <a href="api/docs.php" target="_blank"><img src="assets/images/icons/apiDoc.png"></a>
     </div>
-    <div class=""><a href="login.php?logout"><img src="assets/images/icons/exit.svg"></a></div>
+    <div class="" title="<?php echo $localizedStrings->String($localizedStrings::LC_EN, 'logout'); ?>"><a href="login.php?logout"><img src="assets/images/icons/exit.svg"></a></div>
   </nav>
 </div>
 
