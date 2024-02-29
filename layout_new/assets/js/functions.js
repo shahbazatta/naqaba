@@ -51,6 +51,7 @@ $(document).ready(function () {
         }
     });
 
+    
     $(".Reports>a").click(function () {
 
         if ($(this).hasClass("active")) {
