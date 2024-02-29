@@ -217,9 +217,9 @@ $classObject = new GetAvlDevicesData();
 <script src="assets/js/deckGl/mapbox-gl.js"></script>
 <script src="assets/js/deckGl/turf.min.js"></script>
 
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="https://d3js.org/d3-scale.v3.min.js"></script>
-<script src="https://unpkg.com/geometric@2.0.1/build/geometric.min.js"></script>
+<script src="assets/js/d3js/d3.v5.min.js"></script>
+<script src="assets/js/d3js/d3-scale.v3.min.js"></script>
+<script src="assets/js/geometric.min.js"></script>
 <script src="assets/js/radial-area-chart.js"></script>
 
 <script src="assets/js/functions.js"></script>
